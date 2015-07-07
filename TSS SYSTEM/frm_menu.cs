@@ -45,6 +45,7 @@ namespace TSS_SYSTEM
         private void frm_menu_Activated(object sender, EventArgs e)
         {
             this.Opacity = 1;
+            status_disp();
         }
 
         private void btn_hardcopy_Click(object sender, EventArgs e)
@@ -97,6 +98,16 @@ namespace TSS_SYSTEM
             {
                 Application.Exit();
             }
+        }
+        private void status_disp()
+        {
+            tsssystem tss = new tsssystem();
+            tss.GetSystemSetting();
+            tss.GetUser();
+            ss_status.Items.Add(tss.system_name);
+            ss_status.Items.Add(tss.system_version);
+            ss_status.Items.Add(tss.user_name);
+            ss_status.Items.Add(tss.kengen1+tss.kengen2+tss.kengen3+tss.kengen4+tss.kengen5+tss.kengen6);
         }
     }
 }

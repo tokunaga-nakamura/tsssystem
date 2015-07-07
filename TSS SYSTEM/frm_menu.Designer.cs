@@ -56,12 +56,12 @@
             this.dgv_timereport = new System.Windows.Forms.DataGridView();
             this.btn_timereport = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btn_logout = new System.Windows.Forms.Button();
-            this.btn_syuuryou = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.btn_logout = new System.Windows.Forms.Button();
+            this.btn_syuuryou = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -477,26 +477,6 @@
             this.tabPage2.Text = "業務処理";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // btn_logout
-            // 
-            this.btn_logout.Location = new System.Drawing.Point(710, 3);
-            this.btn_logout.Name = "btn_logout";
-            this.btn_logout.Size = new System.Drawing.Size(75, 23);
-            this.btn_logout.TabIndex = 1;
-            this.btn_logout.Text = "ログアウト";
-            this.btn_logout.UseVisualStyleBackColor = true;
-            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
-            // 
-            // btn_syuuryou
-            // 
-            this.btn_syuuryou.Location = new System.Drawing.Point(791, 3);
-            this.btn_syuuryou.Name = "btn_syuuryou";
-            this.btn_syuuryou.Size = new System.Drawing.Size(75, 23);
-            this.btn_syuuryou.TabIndex = 0;
-            this.btn_syuuryou.Text = "終了";
-            this.btn_syuuryou.UseVisualStyleBackColor = true;
-            this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
-            // 
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -534,11 +514,32 @@
             this.tabPage6.Text = "システム保守";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // btn_logout
+            // 
+            this.btn_logout.Location = new System.Drawing.Point(710, 3);
+            this.btn_logout.Name = "btn_logout";
+            this.btn_logout.Size = new System.Drawing.Size(75, 23);
+            this.btn_logout.TabIndex = 1;
+            this.btn_logout.Text = "ログアウト";
+            this.btn_logout.UseVisualStyleBackColor = true;
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
+            // 
+            // btn_syuuryou
+            // 
+            this.btn_syuuryou.Location = new System.Drawing.Point(791, 3);
+            this.btn_syuuryou.Name = "btn_syuuryou";
+            this.btn_syuuryou.Size = new System.Drawing.Size(75, 23);
+            this.btn_syuuryou.TabIndex = 0;
+            this.btn_syuuryou.Text = "終了";
+            this.btn_syuuryou.UseVisualStyleBackColor = true;
+            this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
+            // 
             // frm_menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 557);
+            this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.ss_status);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
