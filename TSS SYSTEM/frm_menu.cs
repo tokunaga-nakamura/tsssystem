@@ -109,5 +109,13 @@ namespace TSS_SYSTEM
             ss_status.Items.Add(tss.user_name);
             ss_status.Items.Add(tss.kengen1+tss.kengen2+tss.kengen3+tss.kengen4+tss.kengen5+tss.kengen6);
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            frm_table_maintenance frm_mm = new frm_table_maintenance();
+            frm_mm.ShowDialog(this);
+            frm_mm.Dispose();
+
+        }
     }
 }

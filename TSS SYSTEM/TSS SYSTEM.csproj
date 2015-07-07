@@ -48,6 +48,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="TSS ASSISTANCE Library">
+      <HintPath>..\..\..\..\..\..\..\tss\tsssystem\bin\TSS ASSISTANCE Library.dll</HintPath>
+    </Reference>
     <Reference Include="TSS SYSTEM Library, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\tss\tsssystem\bin\TSS SYSTEM Library.dll</HintPath>
@@ -66,6 +69,12 @@
     <Compile Include="frm_menu.Designer.cs">
       <DependentUpon>frm_menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_table_maintenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_table_maintenance.Designer.cs">
+      <DependentUpon>frm_table_maintenance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frm_login.resx">
@@ -73,6 +82,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_menu.resx">
       <DependentUpon>frm_menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_table_maintenance.resx">
+      <DependentUpon>frm_table_maintenance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
