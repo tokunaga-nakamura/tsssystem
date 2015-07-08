@@ -24,7 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -48,15 +48,20 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="TSS ASSISTANCE Library">
-      <HintPath>..\..\..\..\..\..\..\tss\tsssystem\bin\TSS ASSISTANCE Library.dll</HintPath>
-    </Reference>
-    <Reference Include="TSS SYSTEM Library, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\tss\tsssystem\bin\TSS SYSTEM Library.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frm_kubun_m.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_kubun_m.Designer.cs">
+      <DependentUpon>frm_kubun_m.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_kubun_meisyou_m.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_kubun_meisyou_m.Designer.cs">
+      <DependentUpon>frm_kubun_meisyou_m.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +82,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TssSystemLibrary.cs" />
+    <EmbeddedResource Include="frm_kubun_m.resx">
+      <DependentUpon>frm_kubun_m.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_kubun_meisyou_m.resx">
+      <DependentUpon>frm_kubun_meisyou_m.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_login.resx">
       <DependentUpon>frm_login.cs</DependentUpon>
     </EmbeddedResource>

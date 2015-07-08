@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using System.Configuration;     //app.config用
 using System.IO;                //テキストファイル読み込み用
 using Oracle.DataAccess.Client; //Oracle用
-using TssSystemLibrary;
+
 
 
 namespace TSS_SYSTEM
@@ -63,7 +63,7 @@ namespace TSS_SYSTEM
             {
                 usercd = sr.ReadToEnd();
             }
-            tsssystem tsslib = new tsssystem();
+            TssSystemLibrary tsslib = new TssSystemLibrary();
             string sql = "UPDATE tss_user_m SET login_flg = '0',logout_datetime = sysdate WHERE user_cd = '" + usercd + "'";
             tsslib.OracleUpdate(sql);
 
@@ -80,7 +80,7 @@ namespace TSS_SYSTEM
             {
                 usercd = sr.ReadToEnd();
             }
-            tsssystem tsslib = new tsssystem();
+            TssSystemLibrary tsslib = new TssSystemLibrary();
             string sql = "UPDATE tss_user_m SET login_flg = '0',logout_datetime = sysdate WHERE user_cd = '" + usercd + "'";
             tsslib.OracleUpdate(sql);
             //ログイン画面へ
@@ -101,7 +101,7 @@ namespace TSS_SYSTEM
         }
         private void status_disp()
         {
-            tsssystem tss = new tsssystem();
+            TssSystemLibrary tss = new TssSystemLibrary();
             tss.GetSystemSetting();
             tss.GetUser();
             ss_status.Items.Add(tss.system_name);

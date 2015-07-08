@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Oracle.DataAccess.Client;
-using TssSystemLibrary;
-using TssAssistanceLibrary;
 
 namespace TSS_SYSTEM
 {
@@ -29,7 +27,7 @@ namespace TSS_SYSTEM
         private void cb_table_name_DropDown(object sender, EventArgs e)
         {
             //テーブル名を取得してコンボボックスのアイテムに追加する
-            tsssystem tss = new tsssystem();
+            TssSystemLibrary tss = new TssSystemLibrary();
             DataTable dt2 = new DataTable();
             dt2 = tss.OracleSelect("SELECT TABLE_NAME FROM USER_TABLES order by table_name asc");
             if (dt2 == null)
@@ -52,7 +50,7 @@ namespace TSS_SYSTEM
                 dt.Rows.Clear();
                 dt.Columns.Clear();
                 dt.Clear();
-                tsssystem tssdb = new tsssystem();
+                TssSystemLibrary tssdb = new TssSystemLibrary();
                 string connStr = tssdb.GetConnectionString();
                 OracleConnection conn = new OracleConnection(connStr);
                 OracleCommand cmd = new OracleCommand();
@@ -69,16 +67,11 @@ namespace TSS_SYSTEM
                 das = new DataSet();
                 da.Fill(dt);
                 dgv_table.DataSource = dt;
-                //tSSLtablename.Text = tSCBtablelist.Text;
-                //tSSLrowcount.Text = dGV.BindingContext[dGV.DataSource, dGV.DataMember].Count.ToString();
             }
             catch
             {
                 dgv_table.DataSource = null;
-                //tSSLtablename.Text = "";
-                //tSSLrowcount.Text = "";
             }
-
         }
 
         private void btn_touroku_Click(object sender, EventArgs e)
@@ -95,7 +88,6 @@ namespace TSS_SYSTEM
                     MessageBox.Show(ex.Message, "更新失敗");
                 }
             }
-
         }
 
         private void btn_csv_Click(object sender, EventArgs e)
@@ -105,15 +97,14 @@ namespace TSS_SYSTEM
             {
                 return;
             }
-
             //保存ダイアログ
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Title = "ファイルを保存";  // ダイアログのタイトルを指定
-            sfd.InitialDirectory = @"c:\";  // 初期フォルダを指定
-            sfd.FileName = string.Empty;    // 初期ファイル名
-            sfd.CheckFileExists = false; // ファイルが存在するかどうかチェックする
-            sfd.AddExtension = true;    // 拡張子が入力されなければ自動で付与するか否か
-            sfd.OverwritePrompt = true; // ファイルが既に存在する場合警告するか否か
+            sfd.InitialDirectory = @"c:\"; // 初期フォルダを指定
+            sfd.FileName = string.Empty;   // 初期ファイル名
+            sfd.CheckFileExists = false;   // ファイルが存在するかどうかチェックする
+            sfd.AddExtension = true;       // 拡張子が入力されなければ自動で付与するか否か
+            sfd.OverwritePrompt = true;    // ファイルが既に存在する場合警告するか否か
             // ファイルの種類、拡張子のフィルターを設定
             sfd.Filter =
                 "すべてのファイル(*.*)|*.*|" +
@@ -124,7 +115,7 @@ namespace TSS_SYSTEM
             // ダイアログを表示
             if (sfd.ShowDialog() == DialogResult.OK)    //←このif文は、ダイアログでOKが押されたら・・・って事。
             {
-                tssAssistance tssa= new tssAssistance();
+                TssSystemLibrary tssa= new TssSystemLibrary();
 
                 if (tssa.DataTableCSV(dt, sfd.FileName, "\"", true))
                 {

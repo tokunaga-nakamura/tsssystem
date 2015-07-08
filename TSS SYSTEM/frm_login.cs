@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 using System.Configuration;     //app.config用
 using System.IO;                //テキストファイル読み込み用
-using TssSystemLibrary;         //TSS SYSTEM専用自作ライブラリ
 using Oracle.DataAccess.Client;
 
 
@@ -40,7 +39,7 @@ namespace TSS_SYSTEM
         {
             try
             {
-                tsssystem tsslib = new tsssystem();
+                TssSystemLibrary tsslib = new TssSystemLibrary();
                 string connStr = tsslib.GetConnectionString();
                 OracleConnection conn = new OracleConnection();
                 OracleCommand cmd = new OracleCommand();
