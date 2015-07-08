@@ -60,9 +60,10 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -441,6 +442,7 @@
             // 
             // splitContainer10.Panel1
             // 
+            this.splitContainer10.Panel1.Controls.Add(this.button5);
             this.splitContainer10.Panel1.Controls.Add(this.dgv_timereport);
             // 
             // splitContainer10.Panel2
@@ -474,7 +476,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(690, 405);
+            this.tabPage2.Size = new System.Drawing.Size(690, 442);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "業務処理";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -484,7 +486,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(690, 405);
+            this.tabPage3.Size = new System.Drawing.Size(690, 442);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "部品処理";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -493,7 +495,7 @@
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(690, 405);
+            this.tabPage4.Size = new System.Drawing.Size(690, 442);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "日常処理";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -502,7 +504,7 @@
             // 
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(690, 405);
+            this.tabPage5.Size = new System.Drawing.Size(690, 442);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "決算";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -516,6 +518,16 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "システム保守";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(227, 196);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(223, 23);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "テーブルメンテナンス（管理者用）";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // btn_logout
             // 
@@ -537,15 +549,14 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
-            // button4
+            // button5
             // 
-            this.button4.Location = new System.Drawing.Point(227, 196);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(223, 23);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "テーブルメンテナンス（管理者用）";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button5.Location = new System.Drawing.Point(191, 105);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 1;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // frm_menu
             // 
@@ -653,6 +664,7 @@
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }
 
