@@ -16,5 +16,11 @@ namespace TSS_SYSTEM
         {
             InitializeComponent();
         }
+
+        private void btn_hardcopy_Click(object sender, EventArgs e)
+        {
+            //Altキー＋Print Screenキーの送信
+            SendKeys.SendWait("%{PRTSC}");
+        }
     }
 }
