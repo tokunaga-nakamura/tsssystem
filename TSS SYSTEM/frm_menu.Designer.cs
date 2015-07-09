@@ -60,10 +60,9 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_mst_table = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -442,7 +441,6 @@
             // 
             // splitContainer10.Panel1
             // 
-            this.splitContainer10.Panel1.Controls.Add(this.button5);
             this.splitContainer10.Panel1.Controls.Add(this.dgv_timereport);
             // 
             // splitContainer10.Panel2
@@ -511,7 +509,7 @@
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.button4);
+            this.tabPage6.Controls.Add(this.btn_mst_table);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Size = new System.Drawing.Size(690, 442);
@@ -519,15 +517,15 @@
             this.tabPage6.Text = "システム保守";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btn_mst_table
             // 
-            this.button4.Location = new System.Drawing.Point(227, 196);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(223, 23);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "テーブルメンテナンス（管理者用）";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btn_mst_table.Location = new System.Drawing.Point(227, 196);
+            this.btn_mst_table.Name = "btn_mst_table";
+            this.btn_mst_table.Size = new System.Drawing.Size(223, 23);
+            this.btn_mst_table.TabIndex = 0;
+            this.btn_mst_table.Text = "テーブルメンテナンス（管理者用）";
+            this.btn_mst_table.UseVisualStyleBackColor = true;
+            this.btn_mst_table.Click += new System.EventHandler(this.btn_mst_table_Click);
             // 
             // btn_logout
             // 
@@ -548,15 +546,6 @@
             this.btn_syuuryou.Text = "終了";
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(191, 105);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
             // 
             // frm_menu
             // 
@@ -663,8 +652,7 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btn_mst_table;
     }
 }
 
