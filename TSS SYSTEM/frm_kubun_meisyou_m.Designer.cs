@@ -29,16 +29,21 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_kubun_meisyou_m));
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.ss_status = new System.Windows.Forms.StatusStrip();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label1 = new System.Windows.Forms.Label();
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.btn_syuuryou = new System.Windows.Forms.Button();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.btn_touroku = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_bikou = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.tb_kubun_meisyou_cd = new System.Windows.Forms.TextBox();
-            this.lbl_sinki = new System.Windows.Forms.Label();
+            this.tb_kubun_meisyou = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.dgv_kubun = new System.Windows.Forms.DataGridView();
+            this.btn_syuuryou = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -47,15 +52,20 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_kubun)).BeginInit();
             this.SuspendLayout();
             // 
-            // statusStrip1
+            // ss_status
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 535);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(880, 22);
-            this.statusStrip1.TabIndex = 0;
-            this.statusStrip1.Text = "statusStrip1";
+            this.ss_status.Location = new System.Drawing.Point(0, 535);
+            this.ss_status.Name = "ss_status";
+            this.ss_status.Size = new System.Drawing.Size(880, 22);
+            this.ss_status.TabIndex = 0;
+            this.ss_status.Text = "statusStrip1";
             // 
             // splitContainer1
             // 
@@ -69,6 +79,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.btn_hardcopy);
             // 
             // splitContainer1.Panel2
@@ -79,6 +90,15 @@
             this.splitContainer1.TabIndex = 1;
             this.splitContainer1.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(108, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(371, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "区分名称マスタは、新規登録のみです。登録済みデータの変更は行えません。";
+            // 
             // btn_hardcopy
             // 
             this.btn_hardcopy.Image = ((System.Drawing.Image)(resources.GetObject("btn_hardcopy.Image")));
@@ -86,6 +106,7 @@
             this.btn_hardcopy.Name = "btn_hardcopy";
             this.btn_hardcopy.Size = new System.Drawing.Size(36, 36);
             this.btn_hardcopy.TabIndex = 0;
+            this.btn_hardcopy.TabStop = false;
             this.btn_hardcopy.UseVisualStyleBackColor = true;
             this.btn_hardcopy.Click += new System.EventHandler(this.btn_hardcopy_Click);
             // 
@@ -101,11 +122,7 @@
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.textBox3);
-            this.splitContainer2.Panel1.Controls.Add(this.textBox2);
-            this.splitContainer2.Panel1.Controls.Add(this.lbl_sinki);
-            this.splitContainer2.Panel1.Controls.Add(this.tb_kubun_meisyou_cd);
-            this.splitContainer2.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer2.Panel1.Controls.Add(this.splitContainer3);
             // 
             // splitContainer2.Panel2
             // 
@@ -115,14 +132,42 @@
             this.splitContainer2.TabIndex = 0;
             this.splitContainer2.TabStop = false;
             // 
-            // btn_syuuryou
+            // splitContainer3
             // 
-            this.btn_syuuryou.Location = new System.Drawing.Point(793, 3);
-            this.btn_syuuryou.Name = "btn_syuuryou";
-            this.btn_syuuryou.Size = new System.Drawing.Size(75, 23);
-            this.btn_syuuryou.TabIndex = 0;
-            this.btn_syuuryou.Text = "終了";
-            this.btn_syuuryou.UseVisualStyleBackColor = true;
+            this.splitContainer3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer3.IsSplitterFixed = true;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.btn_touroku);
+            this.splitContainer3.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer3.Panel1.Controls.Add(this.tb_bikou);
+            this.splitContainer3.Panel1.Controls.Add(this.textBox5);
+            this.splitContainer3.Panel1.Controls.Add(this.tb_kubun_meisyou_cd);
+            this.splitContainer3.Panel1.Controls.Add(this.tb_kubun_meisyou);
+            this.splitContainer3.Panel1.Controls.Add(this.textBox2);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.dgv_kubun);
+            this.splitContainer3.Size = new System.Drawing.Size(880, 437);
+            this.splitContainer3.SplitterDistance = 82;
+            this.splitContainer3.TabIndex = 8;
+            // 
+            // btn_touroku
+            // 
+            this.btn_touroku.Location = new System.Drawing.Point(791, 53);
+            this.btn_touroku.Name = "btn_touroku";
+            this.btn_touroku.Size = new System.Drawing.Size(75, 23);
+            this.btn_touroku.TabIndex = 3;
+            this.btn_touroku.Text = "登録";
+            this.btn_touroku.UseVisualStyleBackColor = true;
+            this.btn_touroku.Click += new System.EventHandler(this.btn_touroku_Click);
             // 
             // textBox1
             // 
@@ -135,22 +180,41 @@
             this.textBox1.TabStop = false;
             this.textBox1.Text = "区分名称コード";
             // 
+            // tb_bikou
+            // 
+            this.tb_bikou.Location = new System.Drawing.Point(409, 28);
+            this.tb_bikou.MaxLength = 256;
+            this.tb_bikou.Name = "tb_bikou";
+            this.tb_bikou.Size = new System.Drawing.Size(457, 19);
+            this.tb_bikou.TabIndex = 2;
+            // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox5.Location = new System.Drawing.Point(363, 28);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(46, 19);
+            this.textBox5.TabIndex = 6;
+            this.textBox5.TabStop = false;
+            this.textBox5.Text = "備考";
+            // 
             // tb_kubun_meisyou_cd
             // 
             this.tb_kubun_meisyou_cd.Location = new System.Drawing.Point(110, 3);
             this.tb_kubun_meisyou_cd.MaxLength = 2;
             this.tb_kubun_meisyou_cd.Name = "tb_kubun_meisyou_cd";
             this.tb_kubun_meisyou_cd.Size = new System.Drawing.Size(51, 19);
-            this.tb_kubun_meisyou_cd.TabIndex = 1;
+            this.tb_kubun_meisyou_cd.TabIndex = 0;
+            this.tb_kubun_meisyou_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_kubun_meisyou_cd_Validating);
             // 
-            // lbl_sinki
+            // tb_kubun_meisyou
             // 
-            this.lbl_sinki.AutoSize = true;
-            this.lbl_sinki.Location = new System.Drawing.Point(167, 6);
-            this.lbl_sinki.Name = "lbl_sinki";
-            this.lbl_sinki.Size = new System.Drawing.Size(35, 12);
-            this.lbl_sinki.TabIndex = 2;
-            this.lbl_sinki.Text = "label1";
+            this.tb_kubun_meisyou.Location = new System.Drawing.Point(110, 28);
+            this.tb_kubun_meisyou.MaxLength = 20;
+            this.tb_kubun_meisyou.Name = "tb_kubun_meisyou";
+            this.tb_kubun_meisyou.Size = new System.Drawing.Size(247, 19);
+            this.tb_kubun_meisyou.TabIndex = 1;
             // 
             // textBox2
             // 
@@ -163,12 +227,30 @@
             this.textBox2.TabStop = false;
             this.textBox2.Text = "区分名称";
             // 
-            // textBox3
+            // dgv_kubun
             // 
-            this.textBox3.Location = new System.Drawing.Point(110, 28);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(247, 19);
-            this.textBox3.TabIndex = 4;
+            this.dgv_kubun.AllowUserToAddRows = false;
+            this.dgv_kubun.AllowUserToDeleteRows = false;
+            this.dgv_kubun.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_kubun.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_kubun.Location = new System.Drawing.Point(0, 0);
+            this.dgv_kubun.Name = "dgv_kubun";
+            this.dgv_kubun.ReadOnly = true;
+            this.dgv_kubun.RowHeadersVisible = false;
+            this.dgv_kubun.RowTemplate.Height = 21;
+            this.dgv_kubun.Size = new System.Drawing.Size(876, 347);
+            this.dgv_kubun.TabIndex = 0;
+            this.dgv_kubun.TabStop = false;
+            // 
+            // btn_syuuryou
+            // 
+            this.btn_syuuryou.Location = new System.Drawing.Point(793, 3);
+            this.btn_syuuryou.Name = "btn_syuuryou";
+            this.btn_syuuryou.Size = new System.Drawing.Size(75, 23);
+            this.btn_syuuryou.TabIndex = 0;
+            this.btn_syuuryou.Text = "終了";
+            this.btn_syuuryou.UseVisualStyleBackColor = true;
+            this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
             // frm_kubun_meisyou_m
             // 
@@ -176,20 +258,27 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 557);
             this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.ss_status);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "frm_kubun_meisyou_m";
             this.Text = "区分名称マスタ";
+            this.Load += new System.EventHandler(this.frm_kubun_meisyou_m_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel1.PerformLayout();
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_kubun)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,15 +286,20 @@
 
         #endregion
 
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip ss_status;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button btn_hardcopy;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Button btn_syuuryou;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tb_kubun_meisyou;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label lbl_sinki;
         private System.Windows.Forms.TextBox tb_kubun_meisyou_cd;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.Button btn_touroku;
+        private System.Windows.Forms.TextBox tb_bikou;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.DataGridView dgv_kubun;
     }
 }

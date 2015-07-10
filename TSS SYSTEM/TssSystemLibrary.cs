@@ -33,6 +33,7 @@ namespace TSS_SYSTEM
         int fld_chat_update_interval;
         string fld_share_directory;
 
+        string fld_user_cd;
         string fld_user_name;
         string fld_user_name2;
         string fld_busyo_cd;
@@ -58,6 +59,7 @@ namespace TSS_SYSTEM
             fld_chat_update_interval = 0;
             fld_share_directory = null;
 
+            fld_user_cd = null;
             fld_user_name = null;
             fld_user_name2 = null;
             fld_busyo_cd = null;
@@ -79,7 +81,8 @@ namespace TSS_SYSTEM
         public string system_version { get { return fld_system_version; } }
         public int chat_update_interval { get { return fld_chat_update_interval; } }
         public string share_directory { get { return fld_share_directory; } }
-        
+
+        public string user_cd { get { return fld_user_cd; } }
         public string user_name { get { return fld_user_name; } }
         public string user_name2 { get { return fld_user_name2; } }
         public string busyo_cd { get { return fld_busyo_cd; } }
@@ -184,6 +187,7 @@ namespace TSS_SYSTEM
                 DataTable dt = new DataTable();
                 dt = OracleSelect("SELECT * FROM TSS_USER_M where user_cd = '" + usercd + "'");
 
+                fld_user_cd = dt.Rows[0]["user_cd"].ToString();
                 fld_user_name = dt.Rows[0]["user_name"].ToString();
                 fld_user_name2 = dt.Rows[0]["user_name2"].ToString();
                 fld_busyo_cd = dt.Rows[0]["busyo_cd"].ToString();
@@ -362,15 +366,31 @@ namespace TSS_SYSTEM
         #region MessageLogWrite メソッド
         /// <summary>
         /// 受け取った文字列をテーブル TSS_MESSAGE_LOG_F に書き込む
-        /// 引数：送信先ユーザーコード、発生処理名、メッセージ内容　戻り値：bool型
+        /// 引数：送信先ユーザーコード、発生処理名、メッセージ内容、送信元ユーザーコード　戻り値：bool型
         /// </summary>
-        public bool MessageLogWrite(string user_cd,string syori_name,string naiyou)
+        public bool MessageLogWrite(string user_cd_from,string syori_name,string naiyou,string user_cd_to)
         {
             bool bl = new bool();
-            bl = OracleInsert("insert into tss_message_log_f(message_datetime,user_cd,message_syori_name,message_lg_naiyou,create_user_cd,create_datetime) value (sysdate,'" + user_cd + "','" + syori_name + "','" + naiyou + "','000000',sysdate)");
+            bl = OracleInsert("insert into tss_message_log_f(message_datetime,user_cd,message_syori_name,message_log_naiyou,create_user_cd,create_datetime) value (sysdate,'" + user_cd_from + "','" + syori_name + "','" + naiyou + "','" + user_cd_to + "',sysdate)");
             return bl;
         }
         #endregion
+
+
+        #region ErrorLogWrite メソッド
+        /// <summary>
+        /// 受け取った文字列をテーブル TSS_ERROR_LOG_F に書き込む
+        /// 引数：送信先ユーザーコード、発生処理名、メッセージ内容　戻り値：bool型
+        /// </summary>
+        public bool ErrorLogWrite(string user_cd, string syori_name, string naiyou)
+        {
+            bool bl = new bool();
+            bl = OracleInsert("insert into tss_error_log_f(error_datetime,user_cd,error_syori_name,error_log_naiyou,create_user_cd,create_datetime) value (sysdate,'" + user_cd + "','" + syori_name + "','" + naiyou + "','" + user_cd + "',sysdate)");
+            return bl;
+        }
+        #endregion
+
+
 
 
         #region DataTableCSV メソッド

@@ -64,7 +64,6 @@ namespace TSS_SYSTEM
                     {
                         // ファイルへの書き込み
                         sw.Write(tb_user_cd.Text);   //ユーザー名を書き込む
-                        //sw.WriteLine("Hello World!");
                     }
                     //ログイン情報更新
                     string sql = "UPDATE tss_user_m SET login_flg = '1',login_datetime = sysdate WHERE user_cd = '" + tb_user_cd.Text + "'";
