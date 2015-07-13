@@ -232,7 +232,6 @@
             // 
             this.dgv_kubun.AllowUserToAddRows = false;
             this.dgv_kubun.AllowUserToDeleteRows = false;
-            this.dgv_kubun.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_kubun.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_kubun.Location = new System.Drawing.Point(0, 0);
             this.dgv_kubun.Name = "dgv_kubun";

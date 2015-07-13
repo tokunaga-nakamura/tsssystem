@@ -106,6 +106,16 @@ namespace TSS_SYSTEM
         {
             dt = tss.OracleSelect("select * from TSS_KUBUN_MEISYOU_M order by kubun_meisyou_cd asc");
             dgv_kubun.DataSource = dt;
+            dgv_kubun.Columns[0].HeaderText = "区分名称コード";
+            dgv_kubun.Columns[1].HeaderText = "区分名称";
+            dgv_kubun.Columns[2].HeaderText = "備考";
+            dgv_kubun.Columns[3].HeaderText = "作成者コード";
+            dgv_kubun.Columns[4].HeaderText = "作成日時";
+            dgv_kubun.Columns[5].HeaderText = "更新者コード";
+            dgv_kubun.Columns[6].HeaderText = "更新者日時";
+            dgv_kubun.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;   //カラム幅の自動調整
+            dgv_kubun.AllowUserToResizeRows = false;    //セルの高さ変更不可
+            dgv_kubun.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;    //カラムヘッダーの高さ変更不可
         }
 
         private void btn_syuuryou_Click(object sender, EventArgs e)
