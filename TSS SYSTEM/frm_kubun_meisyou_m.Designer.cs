@@ -175,17 +175,17 @@
             this.textBox1.Location = new System.Drawing.Point(10, 3);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 19);
+            this.textBox1.Size = new System.Drawing.Size(108, 19);
             this.textBox1.TabIndex = 0;
             this.textBox1.TabStop = false;
-            this.textBox1.Text = "区分名称コード";
+            this.textBox1.Text = "区分名称コード (2)";
             // 
             // tb_bikou
             // 
-            this.tb_bikou.Location = new System.Drawing.Point(409, 28);
+            this.tb_bikou.Location = new System.Drawing.Point(440, 28);
             this.tb_bikou.MaxLength = 256;
             this.tb_bikou.Name = "tb_bikou";
-            this.tb_bikou.Size = new System.Drawing.Size(457, 19);
+            this.tb_bikou.Size = new System.Drawing.Size(426, 19);
             this.tb_bikou.TabIndex = 2;
             // 
             // textBox5
@@ -194,26 +194,27 @@
             this.textBox5.Location = new System.Drawing.Point(363, 28);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(46, 19);
+            this.textBox5.Size = new System.Drawing.Size(77, 19);
             this.textBox5.TabIndex = 6;
             this.textBox5.TabStop = false;
-            this.textBox5.Text = "備考";
+            this.textBox5.Text = "備考 (256)";
             // 
             // tb_kubun_meisyou_cd
             // 
-            this.tb_kubun_meisyou_cd.Location = new System.Drawing.Point(110, 3);
+            this.tb_kubun_meisyou_cd.Location = new System.Drawing.Point(118, 3);
             this.tb_kubun_meisyou_cd.MaxLength = 2;
             this.tb_kubun_meisyou_cd.Name = "tb_kubun_meisyou_cd";
             this.tb_kubun_meisyou_cd.Size = new System.Drawing.Size(51, 19);
             this.tb_kubun_meisyou_cd.TabIndex = 0;
             this.tb_kubun_meisyou_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_kubun_meisyou_cd_Validating);
+            this.tb_kubun_meisyou_cd.Validated += new System.EventHandler(this.tb_kubun_meisyou_cd_Validated);
             // 
             // tb_kubun_meisyou
             // 
-            this.tb_kubun_meisyou.Location = new System.Drawing.Point(110, 28);
-            this.tb_kubun_meisyou.MaxLength = 20;
+            this.tb_kubun_meisyou.Location = new System.Drawing.Point(118, 28);
+            this.tb_kubun_meisyou.MaxLength = 40;
             this.tb_kubun_meisyou.Name = "tb_kubun_meisyou";
-            this.tb_kubun_meisyou.Size = new System.Drawing.Size(247, 19);
+            this.tb_kubun_meisyou.Size = new System.Drawing.Size(239, 19);
             this.tb_kubun_meisyou.TabIndex = 1;
             // 
             // textBox2
@@ -222,10 +223,10 @@
             this.textBox2.Location = new System.Drawing.Point(10, 28);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(100, 19);
+            this.textBox2.Size = new System.Drawing.Size(108, 19);
             this.textBox2.TabIndex = 3;
             this.textBox2.TabStop = false;
-            this.textBox2.Text = "区分名称";
+            this.textBox2.Text = "区分名称 (20)";
             // 
             // dgv_kubun
             // 
