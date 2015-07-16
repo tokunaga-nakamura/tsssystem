@@ -44,6 +44,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dgv_kubun = new System.Windows.Forms.DataGridView();
             this.btn_syuuryou = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -95,9 +96,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(108, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(371, 12);
+            this.label1.Size = new System.Drawing.Size(373, 12);
             this.label1.TabIndex = 1;
-            this.label1.Text = "区分名称マスタは、新規登録のみです。登録済みデータの変更は行えません。";
+            this.label1.Text = "区分名称マスタは一度登録した区分は削除できません。　※整合信頼性保持";
             // 
             // btn_hardcopy
             // 
@@ -144,6 +145,7 @@
             // 
             // splitContainer3.Panel1
             // 
+            this.splitContainer3.Panel1.Controls.Add(this.label2);
             this.splitContainer3.Panel1.Controls.Add(this.btn_touroku);
             this.splitContainer3.Panel1.Controls.Add(this.textBox1);
             this.splitContainer3.Panel1.Controls.Add(this.tb_bikou);
@@ -252,6 +254,15 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 12);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "現在の区分名称マスタ";
+            // 
             // frm_kubun_meisyou_m
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -301,5 +312,6 @@
         private System.Windows.Forms.TextBox tb_bikou;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.DataGridView dgv_kubun;
+        private System.Windows.Forms.Label label2;
     }
 }

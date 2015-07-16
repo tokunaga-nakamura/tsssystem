@@ -126,5 +126,12 @@ namespace TSS_SYSTEM
             frm_kmm.ShowDialog(this);
             frm_kmm.Dispose();
         }
+
+        private void btn_kubun_m_Click(object sender, EventArgs e)
+        {
+            frm_kubun_m frm_kmm = new frm_kubun_m();
+            frm_kmm.ShowDialog(this);
+            frm_kmm.Dispose();
+        }
     }
 }
