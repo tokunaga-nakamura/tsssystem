@@ -68,6 +68,12 @@
     <Compile Include="frm_kubun_meisyou_m.Designer.cs">
       <DependentUpon>frm_kubun_meisyou_m.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_kubun_select.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_kubun_select.Designer.cs">
+      <DependentUpon>frm_kubun_select.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,12 @@
     </Compile>
     <Compile Include="frm_menu.Designer.cs">
       <DependentUpon>frm_menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_seihin_m.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_seihin_m.Designer.cs">
+      <DependentUpon>frm_seihin_m.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_table_maintenance.cs">
       <SubType>Form</SubType>
@@ -104,11 +116,17 @@
     <EmbeddedResource Include="frm_kubun_meisyou_m.resx">
       <DependentUpon>frm_kubun_meisyou_m.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_kubun_select.resx">
+      <DependentUpon>frm_kubun_select.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_login.resx">
       <DependentUpon>frm_login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_menu.resx">
       <DependentUpon>frm_menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_seihin_m.resx">
+      <DependentUpon>frm_seihin_m.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_table_maintenance.resx">
       <DependentUpon>frm_table_maintenance.cs</DependentUpon>
