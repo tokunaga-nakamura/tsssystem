@@ -65,7 +65,7 @@
             this.btn_mst_table = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_juchuu_nyuuryoku = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -110,6 +110,7 @@
             this.splitContainer10.Panel2.SuspendLayout();
             this.splitContainer10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_timereport)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -474,6 +475,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btn_juchuu_nyuuryoku);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -512,7 +514,6 @@
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.button4);
             this.tabPage6.Controls.Add(this.btn_kubun_m);
             this.tabPage6.Controls.Add(this.btn_kubun_meisyou_m);
             this.tabPage6.Controls.Add(this.btn_mst_table);
@@ -573,15 +574,15 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
-            // button4
+            // btn_juchuu_nyuuryoku
             // 
-            this.button4.Location = new System.Drawing.Point(237, 18);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(223, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "取引先マスタ";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btn_juchuu_nyuuryoku.Location = new System.Drawing.Point(8, 6);
+            this.btn_juchuu_nyuuryoku.Name = "btn_juchuu_nyuuryoku";
+            this.btn_juchuu_nyuuryoku.Size = new System.Drawing.Size(180, 23);
+            this.btn_juchuu_nyuuryoku.TabIndex = 0;
+            this.btn_juchuu_nyuuryoku.Text = "受注入力";
+            this.btn_juchuu_nyuuryoku.UseVisualStyleBackColor = true;
+            this.btn_juchuu_nyuuryoku.Click += new System.EventHandler(this.btn_juchuu_nyuuryoku_Click);
             // 
             // frm_menu
             // 
@@ -647,6 +648,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer10)).EndInit();
             this.splitContainer10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_timereport)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -691,7 +693,7 @@
         private System.Windows.Forms.Button btn_mst_table;
         private System.Windows.Forms.Button btn_kubun_meisyou_m;
         private System.Windows.Forms.Button btn_kubun_m;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_juchuu_nyuuryoku;
     }
 }
 

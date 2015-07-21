@@ -134,11 +134,11 @@ namespace TSS_SYSTEM
             frm_kmm.Dispose();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btn_juchuu_nyuuryoku_Click(object sender, EventArgs e)
         {
-            frm_torihikisaki_m frm_kmm = new frm_torihikisaki_m();
-            frm_kmm.ShowDialog(this);
-            frm_kmm.Dispose();
+            frm_juchuu_nyuuryoku frm_jn = new frm_juchuu_nyuuryoku();
+            frm_jn.ShowDialog(this);
+            frm_jn.Dispose();
         }
     }
 }

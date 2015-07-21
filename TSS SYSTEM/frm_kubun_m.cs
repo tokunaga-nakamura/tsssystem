@@ -73,6 +73,11 @@ namespace TSS_SYSTEM
             //入力桁数制限
 
 
+            //削除不可
+            dgv_kubun_m.AllowUserToDeleteRows = false;
+
+
+
             //その他の設定
             dgv_kubun_m.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;   //カラム幅の自動調整
             dgv_kubun_m.AllowUserToResizeRows = false;    //セルの高さ変更不可
@@ -101,6 +106,41 @@ namespace TSS_SYSTEM
             //※削除はできない仕様なので、削除レコード等の考慮はしない
             foreach(DataRow dr in dt_kubun_m.Rows)
             {
+                //区分コード文字数チェック
+                if (tss.StringByte(dr["KUBUN_CD"].ToString()) == 0 || tss.StringByte(dr["KUBUN_CD"].ToString()) > 2)
+                {
+                    dgv_kubun_m.Focus();
+                    MessageBox.Show("区分コードの文字数に異常があります。 [" + dr["KUBUN_CD"].ToString() + "]" + Environment.NewLine + "区分コードは00から99までです。");
+                    break;  //foreachを抜ける
+                }
+                //区分名文字数チェック
+                if (tss.StringByte(dr["KUBUN_NAME"].ToString()) == 0 || tss.StringByte(dr["KUBUN_NAME"].ToString()) > 20)
+                {
+                    dgv_kubun_m.Focus();
+                    MessageBox.Show("区分名の文字数に異常があります。 [" + dr["KUBUN_NAME"].ToString() + "]" + Environment.NewLine + "区分名は半角20文字（全角10文字）までです。");
+                    break;  //foreachを抜ける
+                }
+                //備考文字数チェック
+                if (tss.StringByte(dr["BIKOU"].ToString()) > 128)
+                {
+                    dgv_kubun_m.Focus();
+                    MessageBox.Show("備考の文字数に異常があります。 [" + dr["BIKOU"].ToString() + "]" + Environment.NewLine + "備考は半角128文字（全角64文字）までです。");
+                    break;  //foreachを抜ける
+                }
+                //区分コードを00形式にする
+                int i;
+                if (int.TryParse(dr["KUBUN_CD"].ToString(), out i))
+                {
+                    //変換出来たら、iにその数値が入る
+                     dr["KUBUN_CD"] = i.ToString("00");
+                }
+                else
+                {
+                    dgv_kubun_m.Focus();
+                    MessageBox.Show("区分コードに数字以外の文字があります。 [" + dr["KUBUN_CD"].ToString() + "]");
+                    break;  //foreachを抜ける
+                }
+
                 //空白項目に適切な値を入れる
                 if(dr["KUBUN_MEISYOU_CD"].ToString() == null || dr["KUBUN_MEISYOU_CD"].ToString() == "")
                 {
@@ -137,8 +177,8 @@ namespace TSS_SYSTEM
                         bool bl = tss.OracleUpdate("UPDATE TSS_KUBUN_M SET KUBUN_NAME = '" + dr["KUBUN_NAME"].ToString() + "',BIKOU = '" + dr["BIKOU"].ToString() + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE KUBUN_MEISYOU_CD = '" + dr["KUBUN_MEISYOU_CD"].ToString() + "' and KUBUN_CD = '" + dr["KUBUN_CD"].ToString() + "'");
                         if (bl != true)
                         {
-                            tss.ErrorLogWrite(tss.UserID, "区分マスタ／登録", "登録ボタン押下時のOracleUpdate");
-                            MessageBox.Show("書込みでエラーが発生しました。処理を中止します。");
+                            tss.ErrorLogWrite(tss.user_cd, "区分マスタ／登録", "登録ボタン押下時のOracleUpdate");
+                            MessageBox.Show("書込みでエラーが発生しました。" + Environment.NewLine  + "処理を中止します。");
                             this.Close();
                         }
                         else
@@ -153,8 +193,8 @@ namespace TSS_SYSTEM
                     bool bl = tss.OracleInsert("INSERT INTO tss_kubun_m (kubun_meisyou_cd,kubun_cd,kubun_name,bikou,create_user_cd,create_datetime) VALUES ('" + dr["kubun_meisyou_cd"].ToString() + "','" + dr["kubun_cd"].ToString() + "','" + dr["kubun_name"].ToString() + "','" + dr["bikou"].ToString() + "','" + tss.user_cd + "',SYSDATE)");
                     if (bl != true)
                     {
-                        tss.ErrorLogWrite(tss.UserID, "区分名称マスタ／登録", "登録ボタン押下時のOracleInsert");
-                        MessageBox.Show("書込みでエラーが発生しました。処理を中止します。");
+                        tss.ErrorLogWrite(tss.user_cd, "区分名称マスタ／登録", "登録ボタン押下時のOracleInsert");
+                        MessageBox.Show("書込みでエラーが発生しました。" + Environment.NewLine + "処理を中止します。");
                         this.Close();
                     }
                     else
@@ -163,9 +203,9 @@ namespace TSS_SYSTEM
                     }
                 }
             }
-            if(int_insert != 0 || int_update != 0)
+            if (int_insert != 0 || int_update != 0)
             {
-                MessageBox.Show("登録しました。 追加=" + int_insert.ToString() + " 更新=" + int_update.ToString());
+                MessageBox.Show("登録しました。" + Environment.NewLine + "追加=" + int_insert.ToString() + Environment.NewLine + "更新=" + int_update.ToString());
             }
             else
             {
