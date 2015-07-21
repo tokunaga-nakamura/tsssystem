@@ -147,5 +147,12 @@ namespace TSS_SYSTEM
             frm_sm.ShowDialog(this);
             frm_sm.Dispose();
         }
+
+        private void btn_torihikisaki_m_Click(object sender, EventArgs e)
+        {
+            frm_torihikisaki_m frm_tm = new frm_torihikisaki_m();
+            frm_tm.ShowDialog(this);
+            frm_tm.Dispose();
+        }
     }
 }

@@ -61,12 +61,13 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.btn_seihin_m = new System.Windows.Forms.Button();
             this.btn_kubun_m = new System.Windows.Forms.Button();
             this.btn_kubun_meisyou_m = new System.Windows.Forms.Button();
             this.btn_mst_table = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.btn_seihin_m = new System.Windows.Forms.Button();
+            this.btn_torihikisaki_m = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -525,6 +526,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.btn_torihikisaki_m);
             this.tabPage6.Controls.Add(this.btn_seihin_m);
             this.tabPage6.Controls.Add(this.btn_kubun_m);
             this.tabPage6.Controls.Add(this.btn_kubun_meisyou_m);
@@ -535,6 +537,16 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "システム保守";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // btn_seihin_m
+            // 
+            this.btn_seihin_m.Location = new System.Drawing.Point(237, 18);
+            this.btn_seihin_m.Name = "btn_seihin_m";
+            this.btn_seihin_m.Size = new System.Drawing.Size(223, 23);
+            this.btn_seihin_m.TabIndex = 3;
+            this.btn_seihin_m.Text = "製品マスタ";
+            this.btn_seihin_m.UseVisualStyleBackColor = true;
+            this.btn_seihin_m.Click += new System.EventHandler(this.btn_seihin_m_Click);
             // 
             // btn_kubun_m
             // 
@@ -586,15 +598,15 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
-            // btn_seihin_m
+            // btn_torihikisaki_m
             // 
-            this.btn_seihin_m.Location = new System.Drawing.Point(237, 18);
-            this.btn_seihin_m.Name = "btn_seihin_m";
-            this.btn_seihin_m.Size = new System.Drawing.Size(223, 23);
-            this.btn_seihin_m.TabIndex = 3;
-            this.btn_seihin_m.Text = "製品マスタ";
-            this.btn_seihin_m.UseVisualStyleBackColor = true;
-            this.btn_seihin_m.Click += new System.EventHandler(this.btn_seihin_m_Click);
+            this.btn_torihikisaki_m.Location = new System.Drawing.Point(8, 76);
+            this.btn_torihikisaki_m.Name = "btn_torihikisaki_m";
+            this.btn_torihikisaki_m.Size = new System.Drawing.Size(223, 23);
+            this.btn_torihikisaki_m.TabIndex = 4;
+            this.btn_torihikisaki_m.Text = "取引先マスタ";
+            this.btn_torihikisaki_m.UseVisualStyleBackColor = true;
+            this.btn_torihikisaki_m.Click += new System.EventHandler(this.btn_torihikisaki_m_Click);
             // 
             // frm_menu
             // 
@@ -707,6 +719,7 @@
         private System.Windows.Forms.Button btn_kubun_m;
         private System.Windows.Forms.Button btn_juchuu_nyuuryoku;
         private System.Windows.Forms.Button btn_seihin_m;
+        private System.Windows.Forms.Button btn_torihikisaki_m;
     }
 }
 
