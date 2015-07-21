@@ -496,6 +496,7 @@ namespace TSS_SYSTEM
             //Altキー＋Print Screenキーの送信
             SendKeys.SendWait("%{PRTSC}");
         }
+        #endregion
     }
     #endregion
 }

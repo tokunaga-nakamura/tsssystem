@@ -68,7 +68,7 @@ namespace TSS_SYSTEM
                     bl_tss = tss.OracleUpdate("UPDATE TSS_KUBUN_MEISYOU_M SET KUBUN_NAME = '" + tb_kubun_meisyou.Text + "',BIKOU = '" + tb_bikou.Text + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE KUBUN_MEISYOU_CD = '" + tb_kubun_meisyou_cd.Text + "'");
                     if (bl_tss != true)
                     {
-                        tss.ErrorLogWrite(tss.UserID, "区分名称マスタ／登録", "登録ボタン押下時のOracleUpdate");
+                        tss.ErrorLogWrite(tss.user_cd, "区分名称マスタ／登録", "登録ボタン押下時のOracleUpdate");
                         MessageBox.Show("書込みでエラーが発生しました。処理を中止します。");
                         this.Close();
                     }
@@ -79,7 +79,7 @@ namespace TSS_SYSTEM
                     bl_tss = tss.OracleInsert("INSERT INTO tss_kubun_meisyou_m (kubun_meisyou_cd,kubun_name,bikou,create_user_cd) VALUES ('" + tb_kubun_meisyou_cd.Text + "','" + tb_kubun_meisyou.Text + "','" + tb_bikou.Text + "','" + tss.user_cd + "')");
                     if (bl_tss != true)
                     {
-                        tss.ErrorLogWrite(tss.UserID, "区分名称マスタ／登録", "登録ボタン押下時のOracleInsert");
+                        tss.ErrorLogWrite(tss.user_cd, "区分名称マスタ／登録", "登録ボタン押下時のOracleInsert");
                         MessageBox.Show("書込みでエラーが発生しました。処理を中止します。");
                         this.Close();
                     }

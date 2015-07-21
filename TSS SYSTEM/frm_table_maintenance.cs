@@ -133,5 +133,10 @@ namespace TSS_SYSTEM
         {
             this.Close();
         }
+
+        private void btn_hardcopy_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

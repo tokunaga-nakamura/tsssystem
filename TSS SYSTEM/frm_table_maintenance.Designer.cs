@@ -38,10 +38,10 @@
             this.tb_sql = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cb_table_name = new System.Windows.Forms.ComboBox();
+            this.dgv_table = new System.Windows.Forms.DataGridView();
+            this.btn_csv = new System.Windows.Forms.Button();
             this.btn_touroku = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.btn_csv = new System.Windows.Forms.Button();
-            this.dgv_table = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -94,6 +94,7 @@
             this.btn_hardcopy.Size = new System.Drawing.Size(36, 36);
             this.btn_hardcopy.TabIndex = 0;
             this.btn_hardcopy.UseVisualStyleBackColor = true;
+            this.btn_hardcopy.Click += new System.EventHandler(this.btn_hardcopy_Click);
             // 
             // splitContainer2
             // 
@@ -176,6 +177,26 @@
             this.cb_table_name.Text = "メンテナンスするテーブルを選択してください。";
             this.cb_table_name.DropDown += new System.EventHandler(this.cb_table_name_DropDown);
             // 
+            // dgv_table
+            // 
+            this.dgv_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_table.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_table.Location = new System.Drawing.Point(0, 0);
+            this.dgv_table.Name = "dgv_table";
+            this.dgv_table.RowTemplate.Height = 21;
+            this.dgv_table.Size = new System.Drawing.Size(880, 400);
+            this.dgv_table.TabIndex = 0;
+            // 
+            // btn_csv
+            // 
+            this.btn_csv.Location = new System.Drawing.Point(629, 3);
+            this.btn_csv.Name = "btn_csv";
+            this.btn_csv.Size = new System.Drawing.Size(75, 23);
+            this.btn_csv.TabIndex = 2;
+            this.btn_csv.Text = "CSV出力";
+            this.btn_csv.UseVisualStyleBackColor = true;
+            this.btn_csv.Click += new System.EventHandler(this.btn_csv_Click);
+            // 
             // btn_touroku
             // 
             this.btn_touroku.Location = new System.Drawing.Point(710, 3);
@@ -196,31 +217,11 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
-            // btn_csv
-            // 
-            this.btn_csv.Location = new System.Drawing.Point(629, 3);
-            this.btn_csv.Name = "btn_csv";
-            this.btn_csv.Size = new System.Drawing.Size(75, 23);
-            this.btn_csv.TabIndex = 2;
-            this.btn_csv.Text = "CSV出力";
-            this.btn_csv.UseVisualStyleBackColor = true;
-            this.btn_csv.Click += new System.EventHandler(this.btn_csv_Click);
-            // 
-            // dgv_table
-            // 
-            this.dgv_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_table.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_table.Location = new System.Drawing.Point(0, 0);
-            this.dgv_table.Name = "dgv_table";
-            this.dgv_table.RowTemplate.Height = 21;
-            this.dgv_table.Size = new System.Drawing.Size(880, 400);
-            this.dgv_table.TabIndex = 0;
-            // 
             // frm_table_maintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 557);
+            this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
             this.MinimumSize = new System.Drawing.Size(900, 600);
