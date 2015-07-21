@@ -56,6 +56,7 @@
             this.dgv_timereport = new System.Windows.Forms.DataGridView();
             this.btn_timereport = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_juchuu_nyuuryoku = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -65,7 +66,6 @@
             this.btn_mst_table = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.btn_juchuu_nyuuryoku = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -484,6 +484,16 @@
             this.tabPage2.Text = "業務処理";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btn_juchuu_nyuuryoku
+            // 
+            this.btn_juchuu_nyuuryoku.Location = new System.Drawing.Point(8, 6);
+            this.btn_juchuu_nyuuryoku.Name = "btn_juchuu_nyuuryoku";
+            this.btn_juchuu_nyuuryoku.Size = new System.Drawing.Size(180, 23);
+            this.btn_juchuu_nyuuryoku.TabIndex = 0;
+            this.btn_juchuu_nyuuryoku.Text = "受注入力";
+            this.btn_juchuu_nyuuryoku.UseVisualStyleBackColor = true;
+            this.btn_juchuu_nyuuryoku.Click += new System.EventHandler(this.btn_juchuu_nyuuryoku_Click);
+            // 
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -573,16 +583,6 @@
             this.btn_syuuryou.Text = "終了";
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
-            // 
-            // btn_juchuu_nyuuryoku
-            // 
-            this.btn_juchuu_nyuuryoku.Location = new System.Drawing.Point(8, 6);
-            this.btn_juchuu_nyuuryoku.Name = "btn_juchuu_nyuuryoku";
-            this.btn_juchuu_nyuuryoku.Size = new System.Drawing.Size(180, 23);
-            this.btn_juchuu_nyuuryoku.TabIndex = 0;
-            this.btn_juchuu_nyuuryoku.Text = "受注入力";
-            this.btn_juchuu_nyuuryoku.UseVisualStyleBackColor = true;
-            this.btn_juchuu_nyuuryoku.Click += new System.EventHandler(this.btn_juchuu_nyuuryoku_Click);
             // 
             // frm_menu
             // 
