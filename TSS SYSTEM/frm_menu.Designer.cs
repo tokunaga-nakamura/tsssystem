@@ -66,6 +66,7 @@
             this.btn_mst_table = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
+            this.btn_seihin_m = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -524,6 +525,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.btn_seihin_m);
             this.tabPage6.Controls.Add(this.btn_kubun_m);
             this.tabPage6.Controls.Add(this.btn_kubun_meisyou_m);
             this.tabPage6.Controls.Add(this.btn_mst_table);
@@ -556,7 +558,7 @@
             // 
             // btn_mst_table
             // 
-            this.btn_mst_table.Location = new System.Drawing.Point(227, 196);
+            this.btn_mst_table.Location = new System.Drawing.Point(237, 259);
             this.btn_mst_table.Name = "btn_mst_table";
             this.btn_mst_table.Size = new System.Drawing.Size(223, 23);
             this.btn_mst_table.TabIndex = 0;
@@ -583,6 +585,16 @@
             this.btn_syuuryou.Text = "終了";
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
+            // 
+            // btn_seihin_m
+            // 
+            this.btn_seihin_m.Location = new System.Drawing.Point(237, 18);
+            this.btn_seihin_m.Name = "btn_seihin_m";
+            this.btn_seihin_m.Size = new System.Drawing.Size(223, 23);
+            this.btn_seihin_m.TabIndex = 3;
+            this.btn_seihin_m.Text = "製品マスタ";
+            this.btn_seihin_m.UseVisualStyleBackColor = true;
+            this.btn_seihin_m.Click += new System.EventHandler(this.btn_seihin_m_Click);
             // 
             // frm_menu
             // 
@@ -694,6 +706,7 @@
         private System.Windows.Forms.Button btn_kubun_meisyou_m;
         private System.Windows.Forms.Button btn_kubun_m;
         private System.Windows.Forms.Button btn_juchuu_nyuuryoku;
+        private System.Windows.Forms.Button btn_seihin_m;
     }
 }
 
