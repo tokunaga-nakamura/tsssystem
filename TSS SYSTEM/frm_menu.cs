@@ -140,5 +140,12 @@ namespace TSS_SYSTEM
             frm_jn.ShowDialog(this);
             frm_jn.Dispose();
         }
+
+        private void btn_seihin_m_Click(object sender, EventArgs e)
+        {
+            frm_seihin_m frm_sm = new frm_seihin_m();
+            frm_sm.ShowDialog(this);
+            frm_sm.Dispose();
+        }
     }
 }
