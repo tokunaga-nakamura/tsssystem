@@ -468,6 +468,34 @@ namespace TSS_SYSTEM
 
 
 
+        #region　StringByte メソッド
+        /// <summary>
+        /// 半角 1 バイト、全角 2 バイトとして、指定された文字列のバイト数を返します。</summary>
+        /// <param name="str">
+        /// バイト数取得の対象となる文字列。</param>
+        /// <returns>
+        /// 半角 1 バイト、全角 2 バイトでカウントされたバイト数。</returns>
+        public int StringByte(string str)
+        {
+            return System.Text.Encoding.GetEncoding("Shift_JIS").GetByteCount(str);
+        }
+        #endregion
+
+
+
+        #region　HardCopy メソッド
+        /// <summary>
+        /// 呼ばれた時点でのアクティブなウィンドゥのハードコピーをクリップボードに送ります。
+        /// 正確にはAlt+PrtScが押された事をOSに送信します。
+        /// </summary>
+        /// <returns>
+        /// 戻り値はありません。
+        /// </returns>
+        public void HardCopy()
+        {
+            //Altキー＋Print Screenキーの送信
+            SendKeys.SendWait("%{PRTSC}");
+        }
     }
     #endregion
 }
