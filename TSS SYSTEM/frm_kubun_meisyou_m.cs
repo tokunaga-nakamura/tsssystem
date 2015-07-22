@@ -84,7 +84,6 @@ namespace TSS_SYSTEM
                         this.Close();
                     }
                 }
-
                 kubun_meisyou_m_disp();
                 gamen_clear();
                 tb_kubun_meisyou_cd.Focus();
