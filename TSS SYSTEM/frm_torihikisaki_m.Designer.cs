@@ -36,6 +36,7 @@
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.label33 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.tb_torihikisaki_cd = new System.Windows.Forms.TextBox();
@@ -138,7 +139,6 @@
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -167,7 +167,7 @@
             // 
             this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer2.IsSplitterFixed = true;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2.Name = "splitContainer2";
@@ -198,6 +198,7 @@
             // 
             // splitContainer3.Panel1
             // 
+            this.splitContainer3.Panel1.Controls.Add(this.label33);
             this.splitContainer3.Panel1.Controls.Add(this.label2);
             this.splitContainer3.Panel1.Controls.Add(this.button2);
             this.splitContainer3.Panel1.Controls.Add(this.tb_torihikisaki_cd);
@@ -242,6 +243,15 @@
             this.splitContainer3.SplitterDistance = 328;
             this.splitContainer3.TabIndex = 0;
             // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(11, 260);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(130, 12);
+            this.label33.TabIndex = 132;
+            this.label33.Text = "※末日の場合は99を入力";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -262,6 +272,7 @@
             // 
             // tb_torihikisaki_cd
             // 
+            this.tb_torihikisaki_cd.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.tb_torihikisaki_cd.Location = new System.Drawing.Point(81, 7);
             this.tb_torihikisaki_cd.MaxLength = 10;
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
@@ -272,7 +283,7 @@
             // 
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label40.Location = new System.Drawing.Point(10, 305);
+            this.label40.Location = new System.Drawing.Point(10, 302);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(93, 16);
             this.label40.TabIndex = 131;
@@ -292,7 +303,7 @@
             this.groupBox5.Controls.Add(this.label23);
             this.groupBox5.Controls.Add(this.tb_syouhizei_sansyutu_kbn);
             this.groupBox5.Controls.Add(this.label28);
-            this.groupBox5.Location = new System.Drawing.Point(9, 258);
+            this.groupBox5.Location = new System.Drawing.Point(469, 258);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(344, 33);
             this.groupBox5.TabIndex = 130;
@@ -310,6 +321,7 @@
             // 
             // tb_syouhizei_sansyutu_kbn
             // 
+            this.tb_syouhizei_sansyutu_kbn.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.tb_syouhizei_sansyutu_kbn.Location = new System.Drawing.Point(110, 10);
             this.tb_syouhizei_sansyutu_kbn.MaxLength = 1;
             this.tb_syouhizei_sansyutu_kbn.Name = "tb_syouhizei_sansyutu_kbn";
@@ -320,7 +332,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(153, 13);
+            this.label28.Location = new System.Drawing.Point(153, 14);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(177, 12);
             this.label28.TabIndex = 61;
@@ -328,6 +340,7 @@
             // 
             // tb_torihikisaki_name
             // 
+            this.tb_torihikisaki_name.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.tb_torihikisaki_name.Location = new System.Drawing.Point(267, 8);
             this.tb_torihikisaki_name.MaxLength = 256;
             this.tb_torihikisaki_name.Name = "tb_torihikisaki_name";
@@ -339,7 +352,7 @@
             this.groupBox4.Controls.Add(this.label25);
             this.groupBox4.Controls.Add(this.tb_jisyaden_kbn);
             this.groupBox4.Controls.Add(this.label29);
-            this.groupBox4.Location = new System.Drawing.Point(313, 216);
+            this.groupBox4.Location = new System.Drawing.Point(469, 174);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(288, 36);
             this.groupBox4.TabIndex = 99;
@@ -357,7 +370,8 @@
             // 
             // tb_jisyaden_kbn
             // 
-            this.tb_jisyaden_kbn.Location = new System.Drawing.Point(110, 11);
+            this.tb_jisyaden_kbn.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.tb_jisyaden_kbn.Location = new System.Drawing.Point(110, 10);
             this.tb_jisyaden_kbn.MaxLength = 1;
             this.tb_jisyaden_kbn.Name = "tb_jisyaden_kbn";
             this.tb_jisyaden_kbn.Size = new System.Drawing.Size(37, 19);
@@ -377,18 +391,18 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label13.Location = new System.Drawing.Point(303, 121);
+            this.label13.Location = new System.Drawing.Point(303, 123);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(77, 12);
+            this.label13.Size = new System.Drawing.Size(111, 12);
             this.label13.TabIndex = 122;
-            this.label13.Text = "営業開始時間";
+            this.label13.Text = "営業開始時間(00:00)";
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label26);
             this.groupBox3.Controls.Add(this.label24);
             this.groupBox3.Controls.Add(this.tb_hasu_kbn);
-            this.groupBox3.Location = new System.Drawing.Point(9, 216);
+            this.groupBox3.Location = new System.Drawing.Point(469, 216);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(298, 36);
             this.groupBox3.TabIndex = 98;
@@ -397,7 +411,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(125, 15);
+            this.label26.Location = new System.Drawing.Point(119, 15);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(160, 12);
             this.label26.TabIndex = 70;
@@ -407,7 +421,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.BackColor = System.Drawing.SystemColors.Control;
-            this.label24.Location = new System.Drawing.Point(13, 14);
+            this.label24.Location = new System.Drawing.Point(8, 14);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(53, 12);
             this.label24.TabIndex = 59;
@@ -415,6 +429,7 @@
             // 
             // tb_hasu_kbn
             // 
+            this.tb_hasu_kbn.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.tb_hasu_kbn.Location = new System.Drawing.Point(72, 11);
             this.tb_hasu_kbn.MaxLength = 1;
             this.tb_hasu_kbn.Name = "tb_hasu_kbn";
@@ -442,14 +457,15 @@
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Controls.Add(this.tb_siharai_tuki);
-            this.groupBox2.Location = new System.Drawing.Point(440, 169);
+            this.groupBox2.Location = new System.Drawing.Point(9, 216);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(418, 41);
+            this.groupBox2.Size = new System.Drawing.Size(425, 41);
             this.groupBox2.TabIndex = 97;
             this.groupBox2.TabStop = false;
             // 
             // tb_siharai_sime_date
             // 
+            this.tb_siharai_sime_date.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.tb_siharai_sime_date.Location = new System.Drawing.Point(67, 13);
             this.tb_siharai_sime_date.MaxLength = 2;
             this.tb_siharai_sime_date.Name = "tb_siharai_sime_date";
@@ -460,7 +476,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(110, 16);
+            this.label30.Location = new System.Drawing.Point(110, 17);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(17, 12);
             this.label30.TabIndex = 70;
@@ -469,7 +485,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 16);
+            this.label1.Location = new System.Drawing.Point(8, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 69;
@@ -478,7 +494,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(229, 16);
+            this.label27.Location = new System.Drawing.Point(233, 16);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(39, 12);
             this.label27.TabIndex = 65;
@@ -486,7 +502,8 @@
             // 
             // tb_siharai_hi
             // 
-            this.tb_siharai_hi.Location = new System.Drawing.Point(344, 13);
+            this.tb_siharai_hi.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.tb_siharai_hi.Location = new System.Drawing.Point(342, 13);
             this.tb_siharai_hi.MaxLength = 2;
             this.tb_siharai_hi.Name = "tb_siharai_hi";
             this.tb_siharai_hi.Size = new System.Drawing.Size(37, 19);
@@ -496,7 +513,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(146, 16);
+            this.label19.Location = new System.Drawing.Point(142, 16);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(41, 12);
             this.label19.TabIndex = 56;
@@ -505,7 +522,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(301, 16);
+            this.label18.Location = new System.Drawing.Point(294, 16);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(41, 12);
             this.label18.TabIndex = 57;
@@ -514,7 +531,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(387, 16);
+            this.label20.Location = new System.Drawing.Point(386, 16);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(17, 12);
             this.label20.TabIndex = 67;
@@ -522,7 +539,8 @@
             // 
             // tb_siharai_tuki
             // 
-            this.tb_siharai_tuki.Location = new System.Drawing.Point(186, 13);
+            this.tb_siharai_tuki.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.tb_siharai_tuki.Location = new System.Drawing.Point(191, 13);
             this.tb_siharai_tuki.MaxLength = 2;
             this.tb_siharai_tuki.Name = "tb_siharai_tuki";
             this.tb_siharai_tuki.Size = new System.Drawing.Size(37, 19);
@@ -531,10 +549,10 @@
             // 
             // tb_eigyou_end_time
             // 
-            this.tb_eigyou_end_time.Location = new System.Drawing.Point(386, 142);
+            this.tb_eigyou_end_time.Location = new System.Drawing.Point(423, 143);
             this.tb_eigyou_end_time.MaxLength = 20;
             this.tb_eigyou_end_time.Name = "tb_eigyou_end_time";
-            this.tb_eigyou_end_time.Size = new System.Drawing.Size(171, 19);
+            this.tb_eigyou_end_time.Size = new System.Drawing.Size(107, 19);
             this.tb_eigyou_end_time.TabIndex = 15;
             // 
             // groupBox1
@@ -556,7 +574,8 @@
             // 
             // tb_seikyu_sime_date
             // 
-            this.tb_seikyu_sime_date.Location = new System.Drawing.Point(66, 13);
+            this.tb_seikyu_sime_date.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.tb_seikyu_sime_date.Location = new System.Drawing.Point(66, 14);
             this.tb_seikyu_sime_date.MaxLength = 2;
             this.tb_seikyu_sime_date.Name = "tb_seikyu_sime_date";
             this.tb_seikyu_sime_date.Size = new System.Drawing.Size(37, 19);
@@ -565,7 +584,8 @@
             // 
             // tb_kaisyu_hi
             // 
-            this.tb_kaisyu_hi.Location = new System.Drawing.Point(341, 13);
+            this.tb_kaisyu_hi.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.tb_kaisyu_hi.Location = new System.Drawing.Point(341, 14);
             this.tb_kaisyu_hi.MaxLength = 2;
             this.tb_kaisyu_hi.Name = "tb_kaisyu_hi";
             this.tb_kaisyu_hi.Size = new System.Drawing.Size(37, 19);
@@ -584,7 +604,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(142, 16);
+            this.label16.Location = new System.Drawing.Point(142, 17);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(41, 12);
             this.label16.TabIndex = 54;
@@ -593,7 +613,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(7, 16);
+            this.label32.Location = new System.Drawing.Point(7, 17);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(53, 12);
             this.label32.TabIndex = 72;
@@ -602,7 +622,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(384, 16);
+            this.label14.Location = new System.Drawing.Point(384, 17);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(17, 12);
             this.label14.TabIndex = 63;
@@ -619,7 +639,8 @@
             // 
             // tb_kaisyu_tuki
             // 
-            this.tb_kaisyu_tuki.Location = new System.Drawing.Point(189, 13);
+            this.tb_kaisyu_tuki.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.tb_kaisyu_tuki.Location = new System.Drawing.Point(190, 14);
             this.tb_kaisyu_tuki.MaxLength = 2;
             this.tb_kaisyu_tuki.Name = "tb_kaisyu_tuki";
             this.tb_kaisyu_tuki.Size = new System.Drawing.Size(37, 19);
@@ -629,7 +650,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(293, 16);
+            this.label17.Location = new System.Drawing.Point(293, 18);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(41, 12);
             this.label17.TabIndex = 55;
@@ -637,6 +658,7 @@
             // 
             // tb_torihikisaki_seisiki_name
             // 
+            this.tb_torihikisaki_seisiki_name.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.tb_torihikisaki_seisiki_name.Location = new System.Drawing.Point(551, 8);
             this.tb_torihikisaki_seisiki_name.MaxLength = 256;
             this.tb_torihikisaki_seisiki_name.Name = "tb_torihikisaki_seisiki_name";
@@ -645,10 +667,10 @@
             // 
             // tb_eigyou_start_time
             // 
-            this.tb_eigyou_start_time.Location = new System.Drawing.Point(386, 117);
+            this.tb_eigyou_start_time.Location = new System.Drawing.Point(423, 119);
             this.tb_eigyou_start_time.MaxLength = 20;
             this.tb_eigyou_start_time.Name = "tb_eigyou_start_time";
-            this.tb_eigyou_start_time.Size = new System.Drawing.Size(171, 19);
+            this.tb_eigyou_start_time.Size = new System.Drawing.Size(107, 19);
             this.tb_eigyou_start_time.TabIndex = 14;
             // 
             // label7
@@ -662,10 +684,10 @@
             // 
             // tb_kessan_start_mmdd
             // 
-            this.tb_kessan_start_mmdd.Location = new System.Drawing.Point(89, 119);
+            this.tb_kessan_start_mmdd.Location = new System.Drawing.Point(174, 119);
             this.tb_kessan_start_mmdd.MaxLength = 4;
             this.tb_kessan_start_mmdd.Name = "tb_kessan_start_mmdd";
-            this.tb_kessan_start_mmdd.Size = new System.Drawing.Size(171, 19);
+            this.tb_kessan_start_mmdd.Size = new System.Drawing.Size(96, 19);
             this.tb_kessan_start_mmdd.TabIndex = 12;
             // 
             // label11
@@ -683,9 +705,9 @@
             this.label15.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label15.Location = new System.Drawing.Point(303, 146);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(77, 12);
+            this.label15.Size = new System.Drawing.Size(111, 12);
             this.label15.TabIndex = 124;
-            this.label15.Text = "営業終了時間";
+            this.label15.Text = "営業終了時間(00:00)";
             // 
             // tb_daihyousya_name
             // 
@@ -697,10 +719,10 @@
             // 
             // tb_kessan_end_mmdd
             // 
-            this.tb_kessan_end_mmdd.Location = new System.Drawing.Point(88, 144);
+            this.tb_kessan_end_mmdd.Location = new System.Drawing.Point(174, 144);
             this.tb_kessan_end_mmdd.MaxLength = 4;
             this.tb_kessan_end_mmdd.Name = "tb_kessan_end_mmdd";
-            this.tb_kessan_end_mmdd.Size = new System.Drawing.Size(171, 19);
+            this.tb_kessan_end_mmdd.Size = new System.Drawing.Size(95, 19);
             this.tb_kessan_end_mmdd.TabIndex = 13;
             // 
             // tb_yubin_no
@@ -716,12 +738,13 @@
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(10, 147);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(77, 12);
+            this.label22.Size = new System.Drawing.Size(151, 12);
             this.label22.TabIndex = 127;
-            this.label22.Text = "決算期末月日";
+            this.label22.Text = "決算期末月日(半角数字4桁)";
             // 
             // tb_torihikisaki_ryakusiki_moji
             // 
+            this.tb_torihikisaki_ryakusiki_moji.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.tb_torihikisaki_ryakusiki_moji.Location = new System.Drawing.Point(82, 32);
             this.tb_torihikisaki_ryakusiki_moji.MaxLength = 5;
             this.tb_torihikisaki_ryakusiki_moji.Name = "tb_torihikisaki_ryakusiki_moji";
@@ -731,11 +754,11 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(10, 121);
+            this.label21.Location = new System.Drawing.Point(10, 123);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(77, 12);
+            this.label21.Size = new System.Drawing.Size(151, 12);
             this.label21.TabIndex = 126;
-            this.label21.Text = "決算期首月日";
+            this.label21.Text = "決算期首月日(半角数字4桁)";
             // 
             // label6
             // 
@@ -748,7 +771,7 @@
             // 
             // tb_url
             // 
-            this.tb_url.Location = new System.Drawing.Point(440, 86);
+            this.tb_url.Location = new System.Drawing.Point(440, 87);
             this.tb_url.MaxLength = 60;
             this.tb_url.Name = "tb_url";
             this.tb_url.Size = new System.Drawing.Size(418, 19);
@@ -790,7 +813,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(407, 89);
+            this.label12.Location = new System.Drawing.Point(407, 90);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(27, 12);
             this.label12.TabIndex = 120;
@@ -798,7 +821,7 @@
             // 
             // tb_fax_no
             // 
-            this.tb_fax_no.Location = new System.Drawing.Point(267, 86);
+            this.tb_fax_no.Location = new System.Drawing.Point(267, 87);
             this.tb_fax_no.MaxLength = 20;
             this.tb_fax_no.Name = "tb_fax_no";
             this.tb_fax_no.Size = new System.Drawing.Size(128, 19);
@@ -946,6 +969,7 @@
             this.btn_syuuryou.TabIndex = 0;
             this.btn_syuuryou.Text = "終了";
             this.btn_syuuryou.UseVisualStyleBackColor = true;
+            this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
             // statusStrip1
             // 
@@ -962,6 +986,7 @@
             this.ClientSize = new System.Drawing.Size(884, 562);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
+            this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "frm_torihikisaki_m";
             this.Text = "frm_torihikisaki_m";
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -1076,6 +1101,7 @@
         private System.Windows.Forms.TextBox tb_seikyu_sime_date;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
 
     }
 }

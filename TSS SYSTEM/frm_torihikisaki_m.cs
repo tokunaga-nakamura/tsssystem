@@ -30,32 +30,43 @@ namespace TSS_SYSTEM
         private void btn_touroku_Click(object sender, EventArgs e)
         {
             //取引先コードのチェック
-            if (tb_torihikisaki_cd.Text == null || tb_torihikisaki_cd.Text.Length == 0 || System.Text.Encoding.GetEncoding(932).GetByteCount(tb_torihikisaki_cd.Text) > 6)
+            if (tb_torihikisaki_cd.Text == null || tb_torihikisaki_cd.Text.Length == 0)
             {
-                MessageBox.Show("取引先を半角英数6文字以内で入力してください。");
+                MessageBox.Show("取引先コードを半角英数6文字以内で入力してください。");
                 tb_torihikisaki_cd.Focus();
             }
             //取引先名のチェック
-            if (tb_torihikisaki_name.Text == null || tb_torihikisaki_name.Text.Length == 0 || System.Text.Encoding.GetEncoding(932).GetByteCount(tb_torihikisaki_name.Text) > 40)
+            if (tb_torihikisaki_name.Text == null || tb_torihikisaki_name.Text.Length == 0)
             {
                 MessageBox.Show("取引先名を全角20文字以内で入力してください。");
                 tb_torihikisaki_name.Focus();
             }
             //正式名称のチェック
-            else if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_torihikisaki_seisiki_name.Text) > 40)
-            {
-                MessageBox.Show("正式名称は全角20文字以内で入力してください。");
-                tb_torihikisaki_seisiki_name.Focus();
-            }
+            //else if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_torihikisaki_seisiki_name.Text) > 40)
+            //{
+            //    MessageBox.Show("正式名称は全角20文字以内で入力してください。");
+            //    tb_torihikisaki_seisiki_name.Focus();
+            //}
             //略式文字列のチェック
-            else if (tb_torihikisaki_ryakusiki_moji.Text == null || tb_torihikisaki_name.Text.Length == 0 || System.Text.Encoding.GetEncoding(932).GetByteCount(tb_torihikisaki_name.Text) > 5)
+            if (tb_torihikisaki_ryakusiki_moji.Text == null || tb_torihikisaki_ryakusiki_moji.Text.Length == 0)
+            {
+                MessageBox.Show("略式名称を半角英数5文字以内で入力してください。");
+                tb_torihikisaki_ryakusiki_moji.Focus();
+            }
+            //請求締日のチェック
+            if (tb_torihikisaki_ryakusiki_moji.Text == null || tb_torihikisaki_ryakusiki_moji.Text.Length == 0)
             {
                 MessageBox.Show("略式名称を半角英数5文字以内で入力してください。");
                 tb_torihikisaki_ryakusiki_moji.Focus();
             }
 
-            return;
 
+            
+
+
+
+            
+            else
             //書込み
             {
                 tss.GetUser();
@@ -97,6 +108,11 @@ namespace TSS_SYSTEM
         private void splitContainer2_SplitterMoved(object sender, SplitterEventArgs e)
         {
 
+        }
+
+        private void btn_syuuryou_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
