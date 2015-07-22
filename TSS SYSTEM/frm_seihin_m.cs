@@ -16,5 +16,16 @@ namespace TSS_SYSTEM
         {
             InitializeComponent();
         }
+
+        private void tb_tani_kbn_DoubleClick(object sender, EventArgs e)
+        {
+            frm_kubun_select frm_ks = new frm_kubun_select();
+            //子画面のプロパティに値をセットする
+            frm_ks.str_kubun_meisyou_cd = "02";
+            frm_ks.ShowDialog();
+            //子画面から値を取得する
+            this.tb_tani_kbn.Text = frm_ks.str_kubun_cd;
+            frm_ks.Dispose();
+        }
     }
 }
