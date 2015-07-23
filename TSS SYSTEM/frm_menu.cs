@@ -104,6 +104,7 @@ namespace TSS_SYSTEM
             TssSystemLibrary tss = new TssSystemLibrary();
             tss.GetSystemSetting();
             tss.GetUser();
+            ss_status.Items.Clear();    //追加する前にクリアする
             ss_status.Items.Add(tss.system_name);
             ss_status.Items.Add(tss.system_version);
             ss_status.Items.Add(tss.user_name);
