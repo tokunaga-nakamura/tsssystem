@@ -155,5 +155,12 @@ namespace TSS_SYSTEM
             frm_tm.ShowDialog(this);
             frm_tm.Dispose();
         }
+
+        private void btn_buhin_m_Click(object sender, EventArgs e)
+        {
+            frm_buhin_m frm_bm = new frm_buhin_m();
+            frm_bm.ShowDialog(this);
+            frm_bm.Dispose();
+        }
     }
 }

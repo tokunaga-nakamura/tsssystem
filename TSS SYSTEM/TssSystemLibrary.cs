@@ -497,6 +497,59 @@ namespace TSS_SYSTEM
             SendKeys.SendWait("%{PRTSC}");
         }
         #endregion
+
+
+        //区分コード選択画面の呼び出し
+        public string kubun_cd_select(string in_kubun_cd)
+        {
+            //マウスのX座標を取得する
+            int x = System.Windows.Forms.Cursor.Position.X;
+            //マウスのY座標を取得する
+            int y = System.Windows.Forms.Cursor.Position.Y;
+
+            string out_kubun_cd = "";   //戻り値用
+            frm_kubun_select frm_ks = new frm_kubun_select();
+
+            //フォームをマウスの位置に表示する
+            frm_ks.Left = x;
+            frm_ks.Top = y;
+            frm_ks.StartPosition = FormStartPosition.Manual;
+
+            //子画面のプロパティに値をセットする
+            frm_ks.str_kubun_meisyou_cd = in_kubun_cd;
+            frm_ks.ShowDialog();
+            //子画面から値を取得する
+            out_kubun_cd = frm_ks.str_kubun_cd;
+            frm_ks.Dispose();
+            return out_kubun_cd;
+        }
+
+        //区分コードから区分名を取得
+        public string kubun_name_select(string in_kubun_meisyou_cd, string in_kubun_cd)
+        {
+            string out_kubun_name = "";   //戻り値用
+            //区分名を取得する
+            DataTable dt_work = OracleSelect("select kubun_name from tss_kubun_m where kubun_meisyou_cd = '" + in_kubun_meisyou_cd + "' and kubun_cd = '" + in_kubun_cd + "'");
+            if (dt_work.Rows.Count <= 0)
+            {
+                out_kubun_name = "";
+            }
+            else
+            {
+                out_kubun_name = dt_work.Rows[0]["kubun_name"].ToString();
+            }
+            return out_kubun_name;
+        }
+
+
+
+
+
+
+
+
+
+
     }
     #endregion
 }
