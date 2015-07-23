@@ -987,6 +987,7 @@
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "frm_torihikisaki_m";
             this.Text = "frm_torihikisaki_m";
+            this.Load += new System.EventHandler(this.frm_torihikisaki_m_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
