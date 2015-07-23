@@ -21,7 +21,6 @@ namespace TSS_SYSTEM
 
         private void tb_tani_kbn_DoubleClick(object sender, EventArgs e)
         {
-            
             this.tb_tani_kbn.Text = kubun_cd_select("02");
             this.tb_tani_name.Text = kubun_name_select("02", tb_tani_kbn.Text);
         }
@@ -173,9 +172,11 @@ namespace TSS_SYSTEM
             tb_torihikisaki_cd.Text = in_dt_work.Rows[0]["torihikisaki_cd"].ToString();
             tb_torihikisaki_name.Text = get_torihikisaki_name(in_dt_work.Rows[0]["torihikisaki_cd"].ToString());
             tb_tani_kbn.Text = in_dt_work.Rows[0]["tani_kbn"].ToString();
-            tb_tani_name.Text = get_kubun_name("02",in_dt_work.Rows[0]["tani_cd"].ToString());
+            tb_tani_name.Text = get_kubun_name("02",in_dt_work.Rows[0]["tani_kbn"].ToString());
             tb_genka.Text = in_dt_work.Rows[0]["genka_tanka"].ToString();
+            chk_genka();//フォーマット表示するためにメソッド呼び出し
             tb_hanbai_tanka.Text = in_dt_work.Rows[0]["hanbai_tanka"].ToString();
+            chk_hanbai_tanka();//フォーマット表示するためにメソッド呼び出し
             tb_seihin_syubetu_kbn.Text = in_dt_work.Rows[0]["syuukei_syubetu_kbn"].ToString();
             tb_seihin_syubetu_name.Text = get_kubun_name("03",in_dt_work.Rows[0]["syuukei_syubetu_kbn"].ToString());
             tb_seihin_bunrui_kbn.Text = in_dt_work.Rows[0]["syuukei_bunrui_kbn"].ToString();
@@ -228,7 +229,7 @@ namespace TSS_SYSTEM
         {
             string out_seihin_kousei_name = "";  //戻り値用
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_seihin_kousei_meisyou_m where seihin_cd = '" + in_seihin_cd + "' and seihin_kousei_no = '" + in_seihin_kousei_no + "'");
+            dt_work = tss.OracleSelect("select * from tss_seihin_kousei_name_m where seihin_cd = '" + in_seihin_cd + "' and seihin_kousei_no = '" + in_seihin_kousei_no + "'");
             if (dt_work.Rows.Count <= 0)
             {
                 out_seihin_kousei_name = "";
@@ -257,22 +258,7 @@ namespace TSS_SYSTEM
             }
         }
 
-        private bool chk_torihikisaki_cd()
-        {
-            bool bl = true; //戻り値
-            DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd  = '" + tb_torihikisaki_cd.Text + "'");
-            if (dt_work.Rows.Count <= 0)
-            {
-                //無し
-                bl = false;
-            }
-            else
-            {
-                //既存データ有
-            }
-            return bl;
-        }
+
 
         private void tb_tani_kbn_Validating(object sender, CancelEventArgs e)
         {
@@ -289,6 +275,280 @@ namespace TSS_SYSTEM
                     tb_tani_name.Text = get_kubun_name("02",tb_tani_kbn.Text);
                 }
             }
+        }
+
+
+
+        private void tb_seihin_syubetu_kbn_Validating(object sender, CancelEventArgs e)
+        {
+            //製品種別が空白の場合はOKとする
+            if (tb_seihin_syubetu_kbn.Text != "")
+            {
+                if (chk_seihin_syubetu_kbn() != true)
+                {
+                    MessageBox.Show("製品種別区分に異常があります。");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    tb_seihin_syubetu_name.Text = get_kubun_name("03", tb_seihin_syubetu_kbn.Text);
+                }
+            }
+        }
+
+
+
+        private void tb_seihin_bunrui_kbn_Validating(object sender, CancelEventArgs e)
+        {
+            //製品分類が空白の場合はOKとする
+            if (tb_seihin_bunrui_kbn.Text != "")
+            {
+                if (chk_seihin_bunrui_kbn() != true)
+                {
+                    MessageBox.Show("製品分類区分に異常があります。");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    tb_seihin_bunrui_name.Text = get_kubun_name("04", tb_seihin_bunrui_kbn.Text);
+                }
+            }
+        }
+
+
+
+        private void tb_sijou_kbn_Validating(object sender, CancelEventArgs e)
+        {
+            //市場区分が空白の場合はOKとする
+            if (tb_sijou_kbn.Text != "")
+            {
+                if (chk_sijou_kbn() != true)
+                {
+                    MessageBox.Show("市場区分に異常があります。");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    tb_sijou_name.Text = get_kubun_name("05", tb_sijou_kbn.Text);
+                }
+            }
+        }
+
+
+
+        private void tb_type_kbn_Validating(object sender, CancelEventArgs e)
+        {
+            //製品タイプが空白の場合はOKとする
+            if (tb_type_kbn.Text != "")
+            {
+                if (chk_type_kbn() != true)
+                {
+                    MessageBox.Show("製品タイプ区分に異常があります。");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    tb_type_name.Text = get_kubun_name("06", tb_type_kbn.Text);
+                }
+            }
+        }
+
+
+
+        private void tb_seihin_kousei_no_Validating(object sender, CancelEventArgs e)
+        {
+            //製品構成Ｎｏが空白の場合はOKとする
+            if (tb_seihin_kousei_no.Text != "")
+            {
+                if (chk_seihin_kousei_no() != true)
+                {
+                    MessageBox.Show("製品構成Noに異常があります。");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    tb_seihin_kousei_name.Text = get_seihin_kousei_name(tb_seihin_cd.Text, tb_seihin_kousei_no.Text);
+                }
+            }
+        }
+
+        private void tb_genka_Validating(object sender, CancelEventArgs e)
+        {
+            //原価が空白の場合はOKとする
+            if (tb_genka.Text != "")
+            {
+                if (chk_genka() != true)
+                {
+                    MessageBox.Show("原価に異常があります。");
+                    e.Cancel = true;
+                }
+                else
+                {
+
+                }
+            }
+        }
+
+        private void tb_hanbai_tanka_Validating(object sender, CancelEventArgs e)
+        {
+            //販売単価が空白の場合はOKとする
+            if (tb_hanbai_tanka.Text != "")
+            {
+                if (chk_hanbai_tanka() != true)
+                {
+                    MessageBox.Show("販売単価に異常があります。");
+                    e.Cancel = true;
+                }
+                else
+                {
+
+                }
+            }
+        }
+
+
+
+
+
+        private void btn_touroku_Click(object sender, EventArgs e)
+        {
+            DataTable dt_work = new DataTable();
+
+            //登録前に全ての項目をチェック
+            if (chk_seihin_name() == false)
+            {
+                MessageBox.Show("製品名は1文字以上、40バイト以内で入力してください。");
+                tb_seihin_name.Focus();
+            }
+
+            if (chk_bikou() == false)
+            {
+                MessageBox.Show("備考は128バイト以内で入力してください。");
+                tb_bikou.Focus();
+            }
+
+            if (chk_torihikisaki_cd() == false)
+            {
+                MessageBox.Show("入力されている取引先コードは存在しません。");
+                tb_torihikisaki_cd.Focus();
+            }
+            if (chk_tani_kbn() == false)
+            {
+                MessageBox.Show("入力されている単位区分は存在しません。");
+                tb_tani_kbn.Focus();
+            }
+            if (chk_seihin_syubetu_kbn() == false)
+            {
+                MessageBox.Show("入力されている製品種別区分は存在しません。");
+                tb_seihin_syubetu_kbn.Focus();
+            }
+            if (chk_seihin_bunrui_kbn() == false)
+            {
+                MessageBox.Show("入力されている製品分類区分は存在しません。");
+                tb_seihin_bunrui_kbn.Focus();
+            }
+            if (chk_sijou_kbn() == false)
+            {
+                MessageBox.Show("入力されている市場区分は存在しません。");
+                tb_sijou_kbn.Focus();
+            }
+            if (chk_type_kbn() == false)
+            {
+                MessageBox.Show("入力されている製品タイプ区分は存在しません。");
+                tb_type_kbn.Focus();
+            }
+            if (chk_genka() == false)
+            {
+                MessageBox.Show("入力されている原価に異常があります。");
+                tb_genka.Focus();
+            }
+            if (chk_hanbai_tanka() == false)
+            {
+                MessageBox.Show("入力されている販売単価に異常があります。");
+                tb_hanbai_tanka.Focus();
+            }
+            if (chk_seihin_kousei_no() == false)
+            {
+                MessageBox.Show("入力されている製品構成Noは存在しません。");
+                tb_seihin_kousei_no.Focus();
+            }
+
+            //製品コードの新規・更新チェック
+            dt_work = tss.OracleSelect("select * from tss_seihin_m where seihin_cd  = '" + tb_seihin_cd.Text + "'");
+            if (dt_work.Rows.Count <= 0)
+            {
+                //新規
+                DialogResult result = MessageBox.Show("新規に登録します。よろしいですか？", "確認", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    //「はい」が選択された時
+                    seihin_insert();                    
+                }
+                else
+                {
+                    //「いいえ」が選択された時
+                    tb_bikou.Focus();
+                }
+            }
+            else
+            {
+                //既存データ有
+                DialogResult result = MessageBox.Show("既存データを更新します。よろしいですか？","確認",MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    //「はい」が選択された時
+                    seihin_update();
+                }
+                else
+                {
+                    //「いいえ」が選択された時
+                    tb_bikou.Focus();
+                }
+            }
+        }
+
+
+        //ここから下、各項目のチェックメソッド
+        //チェックメソッドでは、あらゆるチェックを行い、
+        //メッセージは表示せず、true/falseを返すだけとする
+
+        private bool chk_seihin_name()
+        {
+            bool bl = true; //戻り値用
+            
+            if (tb_seihin_name.Text == null || tb_seihin_name.Text.Length == 0 || System.Text.Encoding.GetEncoding(932).GetByteCount(tb_seihin_name.Text) > 40)
+            {
+                bl = false;
+            }
+            return bl;
+        }
+        
+        private bool chk_bikou()
+        {
+            bool bl = true; //戻り値用
+
+            if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_bikou.Text) > 128)
+            {
+                bl = false;
+            }
+            return bl;
+        }
+
+        private bool chk_torihikisaki_cd()
+        {
+            bool bl = true; //戻り値
+            DataTable dt_work = new DataTable();
+            dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd  = '" + tb_torihikisaki_cd.Text + "'");
+            if (dt_work.Rows.Count <= 0)
+            {
+                //無し
+                bl = false;
+            }
+            else
+            {
+                //既存データ有
+            }
+            return bl;
         }
 
         private bool chk_tani_kbn()
@@ -308,23 +568,6 @@ namespace TSS_SYSTEM
             return bl;
         }
 
-        private void tb_seihin_syubetu_kbn_Validating(object sender, CancelEventArgs e)
-        {
-            //製品種別が空白の場合はOKとする
-            if (tb_seihin_syubetu_kbn.Text != "")
-            {
-                if (chk_seihin_syubetu_kbn() != true)
-                {
-                    MessageBox.Show("製品種別区分に異常があります。");
-                    e.Cancel = true;
-                }
-                else
-                {
-                    tb_seihin_syubetu_name.Text = get_kubun_name("03", tb_seihin_syubetu_kbn.Text);
-                }
-            }
-        }
-
         private bool chk_seihin_syubetu_kbn()
         {
             bool bl = true; //戻り値
@@ -340,23 +583,6 @@ namespace TSS_SYSTEM
                 //既存データ有
             }
             return bl;
-        }
-
-        private void tb_seihin_bunrui_kbn_Validating(object sender, CancelEventArgs e)
-        {
-            //製品分類が空白の場合はOKとする
-            if (tb_seihin_bunrui_kbn.Text != "")
-            {
-                if (chk_seihin_bunrui_kbn() != true)
-                {
-                    MessageBox.Show("製品分類区分に異常があります。");
-                    e.Cancel = true;
-                }
-                else
-                {
-                    tb_seihin_bunrui_name.Text = get_kubun_name("04", tb_seihin_bunrui_kbn.Text);
-                }
-            }
         }
 
         private bool chk_seihin_bunrui_kbn()
@@ -376,23 +602,6 @@ namespace TSS_SYSTEM
             return bl;
         }
 
-        private void tb_sijou_kbn_Validating(object sender, CancelEventArgs e)
-        {
-            //市場区分が空白の場合はOKとする
-            if (tb_sijou_kbn.Text != "")
-            {
-                if (chk_sijou_kbn() != true)
-                {
-                    MessageBox.Show("市場区分に異常があります。");
-                    e.Cancel = true;
-                }
-                else
-                {
-                    tb_sijou_name.Text = get_kubun_name("05", tb_seihin_bunrui_kbn.Text);
-                }
-            }
-        }
-
         private bool chk_sijou_kbn()
         {
             bool bl = true; //戻り値
@@ -408,23 +617,6 @@ namespace TSS_SYSTEM
                 //既存データ有
             }
             return bl;
-        }
-
-        private void tb_type_kbn_Validating(object sender, CancelEventArgs e)
-        {
-            //製品タイプが空白の場合はOKとする
-            if (tb_type_kbn.Text != "")
-            {
-                if (chk_type_kbn() != true)
-                {
-                    MessageBox.Show("製品タイプ区分に異常があります。");
-                    e.Cancel = true;
-                }
-                else
-                {
-                    tb_type_name.Text = get_kubun_name("06", tb_type_kbn.Text);
-                }
-            }
         }
 
         private bool chk_type_kbn()
@@ -443,14 +635,110 @@ namespace TSS_SYSTEM
             }
             return bl;
         }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        
+        private bool chk_genka()
+        {
+            bool bl = true; //戻り値
+            double db;
+            if (double.TryParse(tb_genka.Text.ToString(), out db))
+            {
+                //変換出来たら、lgにその数値が入る
+                if(db > 9999999999.99 || db < -999999999.99)
+                {
+                    bl = false;
+                }
+                else
+                {
+                    tb_genka.Text = db.ToString("0.00");
+                }
+            }
+            else
+            {
+                bl = false;
+            }
+            return bl;
+        }
+
+        private bool chk_hanbai_tanka()
+        {
+            bool bl = true; //戻り値
+            double db;
+            if (double.TryParse(tb_hanbai_tanka.Text.ToString(), out db))
+            {
+                //変換出来たら、lgにその数値が入る
+                if (db > 9999999999.99 || db < -999999999.99)
+                {
+                    bl = false;
+                }
+                else
+                {
+                    tb_hanbai_tanka.Text = db.ToString("0.00");
+                }
+            }
+            else
+            {
+                bl = false;
+            }
+            return bl;
+        }
+
+        private bool chk_seihin_kousei_no()
+        {
+            bool bl = true; //戻り値
+            DataTable dt_work = new DataTable();
+            dt_work = tss.OracleSelect("select * from tss_seihin_kousei_name_m where seihin_cd  = '" + tb_seihin_cd.Text + "' and seihin_kousei_no = '" + tb_seihin_kousei_no.Text + "'");
+            if (dt_work.Rows.Count <= 0)
+            {
+                //無し
+                bl = false;
+            }
+            else
+            {
+                //既存データ有
+            }
+            return bl;
+        }
+
+        private void seihin_insert()
+        {
+            tss.GetUser();
+            //新規書込み
+            bool bl_tss = true;
+            bl_tss = tss.OracleInsert("INSERT INTO tss_seihin_m (seihin_cd,seihin_name,bikou,torihikisaki_cd,genka_tanka,hanbai_tanka,tani_kbn,syuukei_syubetu_kbn,syuukei_bunrui_kbn,syuukei_sijou_kbn,syuukei_type_kbn,seihin_kousei_no,create_user_cd,create_datetime)"
+                                    + " VALUES ('" + tb_seihin_cd.Text + "','" + tb_seihin_name.Text + "','" + tb_bikou.Text + "','" + tb_torihikisaki_cd.Text + "','" + tb_genka.Text + "','" + tb_hanbai_tanka.Text + "','" + tb_tani_kbn.Text + "','" + tb_seihin_syubetu_kbn.Text + "','" + tb_seihin_bunrui_kbn.Text + "','" + tb_sijou_kbn.Text + "','" + tb_type_kbn.Text + "','" + tb_seihin_kousei_no.Text + "','" + tss.user_cd + "',SYSDATE)");
+            if (bl_tss != true)
+            {
+                tss.ErrorLogWrite(tss.user_cd, "製品マスタ／登録", "登録ボタン押下時のOracleInsert");
+                MessageBox.Show("書込みでエラーが発生しました。処理を中止します。");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("新規登録しました。");
+            }
+        }
+
+
+        private void seihin_update()
+        {
+            tss.GetUser();
+            //更新
+            bool bl_tss = true;
+            bl_tss = tss.OracleUpdate("UPDATE TSS_seihin_m SET SEIHIN_NAME = '" + tb_seihin_name.Text + "',BIKOU = '" + tb_bikou.Text + "',torihikisaki_cd = '" + tb_torihikisaki_cd.Text
+                + "',genka_tanka = '" + tb_genka.Text + "',hanbai_tanka = '" + tb_hanbai_tanka.Text + "',tani_kbn = '" + tb_tani_kbn.Text + "',syuukei_syubetu_kbn = '" + tb_seihin_syubetu_kbn.Text
+                + "',syuukei_bunrui_kbn = '" + tb_seihin_bunrui_kbn.Text + "',syuukei_sijou_kbn = '" + tb_sijou_kbn.Text + "',syuukei_type_kbn = '" + tb_type_kbn.Text
+                + "',seihin_kousei_no = '" + tb_seihin_kousei_no.Text + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE seihin_cd = '" + tb_seihin_cd.Text + "'");
+            if (bl_tss != true)
+            {
+                tss.ErrorLogWrite(tss.user_cd, "製品マスタ／登録", "登録ボタン押下時のOracleUpdate");
+                MessageBox.Show("書込みでエラーが発生しました。処理を中止します。");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("更新しました。");
+            }
+        }
+
     }
 }

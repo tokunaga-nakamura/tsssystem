@@ -35,6 +35,7 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.splitContainer7 = new System.Windows.Forms.SplitContainer();
+            this.lbl_seihin_cd = new System.Windows.Forms.Label();
             this.tb_seihin_syubetu_name = new System.Windows.Forms.TextBox();
             this.tb_seihin_bunrui_name = new System.Windows.Forms.TextBox();
             this.tb_seihin_syubetu_kbn = new System.Windows.Forms.TextBox();
@@ -80,8 +81,8 @@
             this.btn_tanka_meisai_hensyuu = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dgv_tanka = new System.Windows.Forms.DataGridView();
+            this.btn_touroku = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.lbl_seihin_cd = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -175,6 +176,7 @@
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.btn_touroku);
             this.splitContainer2.Panel2.Controls.Add(this.btn_syuuryou);
             this.splitContainer2.Size = new System.Drawing.Size(884, 473);
             this.splitContainer2.SplitterDistance = 437;
@@ -256,6 +258,14 @@
             this.splitContainer7.TabIndex = 0;
             this.splitContainer7.TabStop = false;
             // 
+            // lbl_seihin_cd
+            // 
+            this.lbl_seihin_cd.AutoSize = true;
+            this.lbl_seihin_cd.Location = new System.Drawing.Point(292, 6);
+            this.lbl_seihin_cd.Name = "lbl_seihin_cd";
+            this.lbl_seihin_cd.Size = new System.Drawing.Size(0, 12);
+            this.lbl_seihin_cd.TabIndex = 20;
+            // 
             // tb_seihin_syubetu_name
             // 
             this.tb_seihin_syubetu_name.BackColor = System.Drawing.Color.Gainsboro;
@@ -279,9 +289,10 @@
             // tb_seihin_syubetu_kbn
             // 
             this.tb_seihin_syubetu_kbn.Location = new System.Drawing.Point(298, 129);
+            this.tb_seihin_syubetu_kbn.MaxLength = 2;
             this.tb_seihin_syubetu_kbn.Name = "tb_seihin_syubetu_kbn";
             this.tb_seihin_syubetu_kbn.Size = new System.Drawing.Size(34, 19);
-            this.tb_seihin_syubetu_kbn.TabIndex = 0;
+            this.tb_seihin_syubetu_kbn.TabIndex = 7;
             this.tb_seihin_syubetu_kbn.DoubleClick += new System.EventHandler(this.tb_seihin_syubetu_kbn_DoubleClick);
             this.tb_seihin_syubetu_kbn.Validating += new System.ComponentModel.CancelEventHandler(this.tb_seihin_syubetu_kbn_Validating);
             // 
@@ -319,18 +330,20 @@
             // tb_seihin_bunrui_kbn
             // 
             this.tb_seihin_bunrui_kbn.Location = new System.Drawing.Point(298, 154);
+            this.tb_seihin_bunrui_kbn.MaxLength = 2;
             this.tb_seihin_bunrui_kbn.Name = "tb_seihin_bunrui_kbn";
             this.tb_seihin_bunrui_kbn.Size = new System.Drawing.Size(34, 19);
-            this.tb_seihin_bunrui_kbn.TabIndex = 1;
+            this.tb_seihin_bunrui_kbn.TabIndex = 8;
             this.tb_seihin_bunrui_kbn.DoubleClick += new System.EventHandler(this.tb_seihin_bunrui_kbn_DoubleClick);
             this.tb_seihin_bunrui_kbn.Validating += new System.ComponentModel.CancelEventHandler(this.tb_seihin_bunrui_kbn_Validating);
             // 
             // tb_bikou
             // 
             this.tb_bikou.Location = new System.Drawing.Point(93, 54);
+            this.tb_bikou.MaxLength = 128;
             this.tb_bikou.Name = "tb_bikou";
             this.tb_bikou.Size = new System.Drawing.Size(361, 19);
-            this.tb_bikou.TabIndex = 17;
+            this.tb_bikou.TabIndex = 2;
             // 
             // textBox2
             // 
@@ -357,18 +370,22 @@
             // tb_sijou_kbn
             // 
             this.tb_sijou_kbn.Location = new System.Drawing.Point(298, 179);
+            this.tb_sijou_kbn.MaxLength = 2;
             this.tb_sijou_kbn.Name = "tb_sijou_kbn";
             this.tb_sijou_kbn.Size = new System.Drawing.Size(34, 19);
-            this.tb_sijou_kbn.TabIndex = 2;
+            this.tb_sijou_kbn.TabIndex = 9;
             this.tb_sijou_kbn.DoubleClick += new System.EventHandler(this.tb_sijou_kbn_DoubleClick);
             this.tb_sijou_kbn.Validating += new System.ComponentModel.CancelEventHandler(this.tb_sijou_kbn_Validating);
             // 
             // tb_hanbai_tanka
             // 
             this.tb_hanbai_tanka.Location = new System.Drawing.Point(93, 179);
+            this.tb_hanbai_tanka.MaxLength = 13;
             this.tb_hanbai_tanka.Name = "tb_hanbai_tanka";
             this.tb_hanbai_tanka.Size = new System.Drawing.Size(100, 19);
-            this.tb_hanbai_tanka.TabIndex = 1;
+            this.tb_hanbai_tanka.TabIndex = 6;
+            this.tb_hanbai_tanka.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_hanbai_tanka.Validating += new System.ComponentModel.CancelEventHandler(this.tb_hanbai_tanka_Validating);
             // 
             // textBox12
             // 
@@ -384,9 +401,10 @@
             // tb_type_kbn
             // 
             this.tb_type_kbn.Location = new System.Drawing.Point(298, 204);
+            this.tb_type_kbn.MaxLength = 2;
             this.tb_type_kbn.Name = "tb_type_kbn";
             this.tb_type_kbn.Size = new System.Drawing.Size(34, 19);
-            this.tb_type_kbn.TabIndex = 3;
+            this.tb_type_kbn.TabIndex = 10;
             this.tb_type_kbn.DoubleClick += new System.EventHandler(this.tb_type_kbn_DoubleClick);
             this.tb_type_kbn.Validating += new System.ComponentModel.CancelEventHandler(this.tb_type_kbn_Validating);
             // 
@@ -422,9 +440,12 @@
             // tb_genka
             // 
             this.tb_genka.Location = new System.Drawing.Point(93, 154);
+            this.tb_genka.MaxLength = 13;
             this.tb_genka.Name = "tb_genka";
             this.tb_genka.Size = new System.Drawing.Size(99, 19);
-            this.tb_genka.TabIndex = 0;
+            this.tb_genka.TabIndex = 5;
+            this.tb_genka.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_genka.Validating += new System.ComponentModel.CancelEventHandler(this.tb_genka_Validating);
             // 
             // textBox10
             // 
@@ -451,9 +472,11 @@
             // tb_seihin_kousei_no
             // 
             this.tb_seihin_kousei_no.Location = new System.Drawing.Point(93, 229);
+            this.tb_seihin_kousei_no.MaxLength = 3;
             this.tb_seihin_kousei_no.Name = "tb_seihin_kousei_no";
             this.tb_seihin_kousei_no.Size = new System.Drawing.Size(53, 19);
             this.tb_seihin_kousei_no.TabIndex = 11;
+            this.tb_seihin_kousei_no.Validating += new System.ComponentModel.CancelEventHandler(this.tb_seihin_kousei_no_Validating);
             // 
             // textBox22
             // 
@@ -469,6 +492,7 @@
             // tb_tani_kbn
             // 
             this.tb_tani_kbn.Location = new System.Drawing.Point(93, 104);
+            this.tb_tani_kbn.MaxLength = 2;
             this.tb_tani_kbn.Name = "tb_tani_kbn";
             this.tb_tani_kbn.Size = new System.Drawing.Size(34, 19);
             this.tb_tani_kbn.TabIndex = 4;
@@ -498,6 +522,7 @@
             // tb_torihikisaki_cd
             // 
             this.tb_torihikisaki_cd.Location = new System.Drawing.Point(93, 79);
+            this.tb_torihikisaki_cd.MaxLength = 6;
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
             this.tb_torihikisaki_cd.Size = new System.Drawing.Size(53, 19);
             this.tb_torihikisaki_cd.TabIndex = 3;
@@ -538,14 +563,16 @@
             // 
             this.tb_seihin_name.BackColor = System.Drawing.Color.Gainsboro;
             this.tb_seihin_name.Location = new System.Drawing.Point(93, 29);
+            this.tb_seihin_name.MaxLength = 40;
             this.tb_seihin_name.Name = "tb_seihin_name";
             this.tb_seihin_name.Size = new System.Drawing.Size(361, 19);
-            this.tb_seihin_name.TabIndex = 2;
+            this.tb_seihin_name.TabIndex = 1;
             this.tb_seihin_name.TabStop = false;
             // 
             // tb_seihin_cd
             // 
             this.tb_seihin_cd.Location = new System.Drawing.Point(93, 3);
+            this.tb_seihin_cd.MaxLength = 16;
             this.tb_seihin_cd.Name = "tb_seihin_cd";
             this.tb_seihin_cd.Size = new System.Drawing.Size(112, 19);
             this.tb_seihin_cd.TabIndex = 0;
@@ -733,23 +760,25 @@
             this.dgv_tanka.TabIndex = 0;
             this.dgv_tanka.TabStop = false;
             // 
+            // btn_touroku
+            // 
+            this.btn_touroku.Location = new System.Drawing.Point(10, 3);
+            this.btn_touroku.Name = "btn_touroku";
+            this.btn_touroku.Size = new System.Drawing.Size(75, 23);
+            this.btn_touroku.TabIndex = 0;
+            this.btn_touroku.Text = "登録";
+            this.btn_touroku.UseVisualStyleBackColor = true;
+            this.btn_touroku.Click += new System.EventHandler(this.btn_touroku_Click);
+            // 
             // btn_syuuryou
             // 
             this.btn_syuuryou.Location = new System.Drawing.Point(795, 3);
             this.btn_syuuryou.Name = "btn_syuuryou";
             this.btn_syuuryou.Size = new System.Drawing.Size(75, 23);
-            this.btn_syuuryou.TabIndex = 0;
+            this.btn_syuuryou.TabIndex = 1;
             this.btn_syuuryou.Text = "終了";
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
-            // 
-            // lbl_seihin_cd
-            // 
-            this.lbl_seihin_cd.AutoSize = true;
-            this.lbl_seihin_cd.Location = new System.Drawing.Point(292, 6);
-            this.lbl_seihin_cd.Name = "lbl_seihin_cd";
-            this.lbl_seihin_cd.Size = new System.Drawing.Size(0, 12);
-            this.lbl_seihin_cd.TabIndex = 20;
             // 
             // frm_seihin_m
             // 
@@ -760,7 +789,7 @@
             this.Controls.Add(this.statusStrip1);
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "frm_seihin_m";
-            this.Text = "frm_seihin_m";
+            this.Text = "製品マスタ";
             this.Load += new System.EventHandler(this.frm_seihin_m_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -861,5 +890,6 @@
         private System.Windows.Forms.TextBox tb_bikou;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label lbl_seihin_cd;
+        private System.Windows.Forms.Button btn_touroku;
     }
 }
