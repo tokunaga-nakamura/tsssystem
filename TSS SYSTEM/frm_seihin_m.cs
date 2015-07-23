@@ -418,59 +418,71 @@ namespace TSS_SYSTEM
             if (chk_seihin_name() == false)
             {
                 MessageBox.Show("製品名は1文字以上、40バイト以内で入力してください。");
+                //this.ActiveControl = tb_seihin_name;
                 tb_seihin_name.Focus();
+                return;
             }
 
             if (chk_bikou() == false)
             {
                 MessageBox.Show("備考は128バイト以内で入力してください。");
                 tb_bikou.Focus();
+                return;
             }
 
             if (chk_torihikisaki_cd() == false)
             {
                 MessageBox.Show("入力されている取引先コードは存在しません。");
                 tb_torihikisaki_cd.Focus();
+                return;
             }
             if (chk_tani_kbn() == false)
             {
                 MessageBox.Show("入力されている単位区分は存在しません。");
                 tb_tani_kbn.Focus();
+                return;
             }
             if (chk_seihin_syubetu_kbn() == false)
             {
                 MessageBox.Show("入力されている製品種別区分は存在しません。");
                 tb_seihin_syubetu_kbn.Focus();
+                return;
             }
             if (chk_seihin_bunrui_kbn() == false)
             {
                 MessageBox.Show("入力されている製品分類区分は存在しません。");
                 tb_seihin_bunrui_kbn.Focus();
+                return;
             }
             if (chk_sijou_kbn() == false)
             {
                 MessageBox.Show("入力されている市場区分は存在しません。");
                 tb_sijou_kbn.Focus();
+                return;
             }
             if (chk_type_kbn() == false)
             {
                 MessageBox.Show("入力されている製品タイプ区分は存在しません。");
                 tb_type_kbn.Focus();
+                return;
             }
             if (chk_genka() == false)
             {
                 MessageBox.Show("入力されている原価に異常があります。");
                 tb_genka.Focus();
+                return;
             }
             if (chk_hanbai_tanka() == false)
             {
                 MessageBox.Show("入力されている販売単価に異常があります。");
                 tb_hanbai_tanka.Focus();
+                return;
             }
             if (chk_seihin_kousei_no() == false)
             {
                 MessageBox.Show("入力されている製品構成Noは存在しません。");
                 tb_seihin_kousei_no.Focus();
+                return;
             }
 
             //製品コードの新規・更新チェック
