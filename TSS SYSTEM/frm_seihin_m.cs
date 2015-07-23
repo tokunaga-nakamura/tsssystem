@@ -158,6 +158,10 @@ namespace TSS_SYSTEM
             tb_type_name.Text = "";
             tb_seihin_kousei_no.Text = "";
             tb_seihin_kousei_name.Text = "";
+            tb_create_user_cd.Text = "";
+            tb_create_datetime.Text = "";
+            tb_update_user_cd.Text = "";
+            tb_update_datetime.Text = "";
 
             dgv_seihin_kousei.DataSource = null;
             dgv_seihin_koutei.DataSource = null;
@@ -187,6 +191,10 @@ namespace TSS_SYSTEM
             tb_type_name.Text = get_kubun_name("06",in_dt_work.Rows[0]["syuukei_type_kbn"].ToString());
             tb_seihin_kousei_no.Text = in_dt_work.Rows[0]["seihin_kousei_no"].ToString();
             tb_seihin_kousei_name.Text = get_seihin_kousei_name(in_dt_work.Rows[0]["seihin_cd"].ToString(),in_dt_work.Rows[0]["seihin_kousei_no"].ToString());
+            tb_create_user_cd.Text = in_dt_work.Rows[0]["create_user_cd"].ToString();
+            tb_create_datetime.Text = in_dt_work.Rows[0]["create_datetime"].ToString();
+            tb_update_user_cd.Text = in_dt_work.Rows[0]["update_user_cd"].ToString();
+            tb_update_datetime.Text = in_dt_work.Rows[0]["update_datetime"].ToString();
 
             dgv_seihin_kousei.DataSource = null;
             dgv_seihin_koutei.DataSource = null;

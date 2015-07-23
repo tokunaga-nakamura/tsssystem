@@ -83,6 +83,12 @@
             this.dgv_tanka = new System.Windows.Forms.DataGridView();
             this.btn_touroku = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tb_create_user_cd = new System.Windows.Forms.TextBox();
+            this.tb_create_datetime = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.tb_update_user_cd = new System.Windows.Forms.TextBox();
+            this.tb_update_datetime = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -216,6 +222,12 @@
             // 
             // splitContainer7.Panel1
             // 
+            this.splitContainer7.Panel1.Controls.Add(this.tb_update_datetime);
+            this.splitContainer7.Panel1.Controls.Add(this.tb_update_user_cd);
+            this.splitContainer7.Panel1.Controls.Add(this.textBox9);
+            this.splitContainer7.Panel1.Controls.Add(this.tb_create_datetime);
+            this.splitContainer7.Panel1.Controls.Add(this.tb_create_user_cd);
+            this.splitContainer7.Panel1.Controls.Add(this.textBox3);
             this.splitContainer7.Panel1.Controls.Add(this.lbl_seihin_cd);
             this.splitContainer7.Panel1.Controls.Add(this.tb_seihin_syubetu_name);
             this.splitContainer7.Panel1.Controls.Add(this.tb_seihin_bunrui_name);
@@ -254,7 +266,7 @@
             // 
             this.splitContainer7.Panel2.Controls.Add(this.splitContainer8);
             this.splitContainer7.Size = new System.Drawing.Size(461, 437);
-            this.splitContainer7.SplitterDistance = 260;
+            this.splitContainer7.SplitterDistance = 255;
             this.splitContainer7.TabIndex = 0;
             this.splitContainer7.TabStop = false;
             // 
@@ -269,7 +281,7 @@
             // tb_seihin_syubetu_name
             // 
             this.tb_seihin_syubetu_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_seihin_syubetu_name.Location = new System.Drawing.Point(332, 129);
+            this.tb_seihin_syubetu_name.Location = new System.Drawing.Point(332, 104);
             this.tb_seihin_syubetu_name.Name = "tb_seihin_syubetu_name";
             this.tb_seihin_syubetu_name.ReadOnly = true;
             this.tb_seihin_syubetu_name.Size = new System.Drawing.Size(122, 19);
@@ -279,7 +291,7 @@
             // tb_seihin_bunrui_name
             // 
             this.tb_seihin_bunrui_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_seihin_bunrui_name.Location = new System.Drawing.Point(332, 154);
+            this.tb_seihin_bunrui_name.Location = new System.Drawing.Point(332, 129);
             this.tb_seihin_bunrui_name.Name = "tb_seihin_bunrui_name";
             this.tb_seihin_bunrui_name.ReadOnly = true;
             this.tb_seihin_bunrui_name.Size = new System.Drawing.Size(122, 19);
@@ -288,7 +300,7 @@
             // 
             // tb_seihin_syubetu_kbn
             // 
-            this.tb_seihin_syubetu_kbn.Location = new System.Drawing.Point(298, 129);
+            this.tb_seihin_syubetu_kbn.Location = new System.Drawing.Point(298, 104);
             this.tb_seihin_syubetu_kbn.MaxLength = 2;
             this.tb_seihin_syubetu_kbn.Name = "tb_seihin_syubetu_kbn";
             this.tb_seihin_syubetu_kbn.Size = new System.Drawing.Size(34, 19);
@@ -299,7 +311,7 @@
             // tb_sijou_name
             // 
             this.tb_sijou_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_sijou_name.Location = new System.Drawing.Point(332, 179);
+            this.tb_sijou_name.Location = new System.Drawing.Point(332, 154);
             this.tb_sijou_name.Name = "tb_sijou_name";
             this.tb_sijou_name.ReadOnly = true;
             this.tb_sijou_name.Size = new System.Drawing.Size(122, 19);
@@ -309,7 +321,7 @@
             // textBox14
             // 
             this.textBox14.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox14.Location = new System.Drawing.Point(235, 129);
+            this.textBox14.Location = new System.Drawing.Point(235, 104);
             this.textBox14.Name = "textBox14";
             this.textBox14.ReadOnly = true;
             this.textBox14.Size = new System.Drawing.Size(63, 19);
@@ -320,7 +332,7 @@
             // tb_type_name
             // 
             this.tb_type_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_type_name.Location = new System.Drawing.Point(332, 204);
+            this.tb_type_name.Location = new System.Drawing.Point(332, 177);
             this.tb_type_name.Name = "tb_type_name";
             this.tb_type_name.ReadOnly = true;
             this.tb_type_name.Size = new System.Drawing.Size(122, 19);
@@ -329,7 +341,7 @@
             // 
             // tb_seihin_bunrui_kbn
             // 
-            this.tb_seihin_bunrui_kbn.Location = new System.Drawing.Point(298, 154);
+            this.tb_seihin_bunrui_kbn.Location = new System.Drawing.Point(298, 129);
             this.tb_seihin_bunrui_kbn.MaxLength = 2;
             this.tb_seihin_bunrui_kbn.Name = "tb_seihin_bunrui_kbn";
             this.tb_seihin_bunrui_kbn.Size = new System.Drawing.Size(34, 19);
@@ -359,7 +371,7 @@
             // textBox15
             // 
             this.textBox15.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox15.Location = new System.Drawing.Point(235, 154);
+            this.textBox15.Location = new System.Drawing.Point(235, 129);
             this.textBox15.Name = "textBox15";
             this.textBox15.ReadOnly = true;
             this.textBox15.Size = new System.Drawing.Size(63, 19);
@@ -369,7 +381,7 @@
             // 
             // tb_sijou_kbn
             // 
-            this.tb_sijou_kbn.Location = new System.Drawing.Point(298, 179);
+            this.tb_sijou_kbn.Location = new System.Drawing.Point(298, 154);
             this.tb_sijou_kbn.MaxLength = 2;
             this.tb_sijou_kbn.Name = "tb_sijou_kbn";
             this.tb_sijou_kbn.Size = new System.Drawing.Size(34, 19);
@@ -379,7 +391,7 @@
             // 
             // tb_hanbai_tanka
             // 
-            this.tb_hanbai_tanka.Location = new System.Drawing.Point(93, 179);
+            this.tb_hanbai_tanka.Location = new System.Drawing.Point(93, 154);
             this.tb_hanbai_tanka.MaxLength = 13;
             this.tb_hanbai_tanka.Name = "tb_hanbai_tanka";
             this.tb_hanbai_tanka.Size = new System.Drawing.Size(100, 19);
@@ -390,7 +402,7 @@
             // textBox12
             // 
             this.textBox12.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox12.Location = new System.Drawing.Point(10, 179);
+            this.textBox12.Location = new System.Drawing.Point(10, 154);
             this.textBox12.Name = "textBox12";
             this.textBox12.ReadOnly = true;
             this.textBox12.Size = new System.Drawing.Size(83, 19);
@@ -400,7 +412,7 @@
             // 
             // tb_type_kbn
             // 
-            this.tb_type_kbn.Location = new System.Drawing.Point(298, 204);
+            this.tb_type_kbn.Location = new System.Drawing.Point(298, 177);
             this.tb_type_kbn.MaxLength = 2;
             this.tb_type_kbn.Name = "tb_type_kbn";
             this.tb_type_kbn.Size = new System.Drawing.Size(34, 19);
@@ -411,7 +423,7 @@
             // textBox16
             // 
             this.textBox16.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox16.Location = new System.Drawing.Point(235, 179);
+            this.textBox16.Location = new System.Drawing.Point(235, 154);
             this.textBox16.Name = "textBox16";
             this.textBox16.ReadOnly = true;
             this.textBox16.Size = new System.Drawing.Size(63, 19);
@@ -422,16 +434,16 @@
             // tb_tani_name
             // 
             this.tb_tani_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_tani_name.Location = new System.Drawing.Point(127, 104);
+            this.tb_tani_name.Location = new System.Drawing.Point(121, 104);
             this.tb_tani_name.Name = "tb_tani_name";
-            this.tb_tani_name.Size = new System.Drawing.Size(86, 19);
+            this.tb_tani_name.Size = new System.Drawing.Size(84, 19);
             this.tb_tani_name.TabIndex = 15;
             this.tb_tani_name.TabStop = false;
             // 
             // tb_seihin_kousei_name
             // 
             this.tb_seihin_kousei_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_seihin_kousei_name.Location = new System.Drawing.Point(146, 229);
+            this.tb_seihin_kousei_name.Location = new System.Drawing.Point(146, 202);
             this.tb_seihin_kousei_name.Name = "tb_seihin_kousei_name";
             this.tb_seihin_kousei_name.Size = new System.Drawing.Size(308, 19);
             this.tb_seihin_kousei_name.TabIndex = 14;
@@ -439,7 +451,7 @@
             // 
             // tb_genka
             // 
-            this.tb_genka.Location = new System.Drawing.Point(93, 154);
+            this.tb_genka.Location = new System.Drawing.Point(93, 129);
             this.tb_genka.MaxLength = 13;
             this.tb_genka.Name = "tb_genka";
             this.tb_genka.Size = new System.Drawing.Size(99, 19);
@@ -450,7 +462,7 @@
             // textBox10
             // 
             this.textBox10.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox10.Location = new System.Drawing.Point(10, 154);
+            this.textBox10.Location = new System.Drawing.Point(10, 129);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
             this.textBox10.Size = new System.Drawing.Size(83, 19);
@@ -461,7 +473,7 @@
             // textBox17
             // 
             this.textBox17.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox17.Location = new System.Drawing.Point(235, 204);
+            this.textBox17.Location = new System.Drawing.Point(235, 177);
             this.textBox17.Name = "textBox17";
             this.textBox17.ReadOnly = true;
             this.textBox17.Size = new System.Drawing.Size(63, 19);
@@ -471,7 +483,7 @@
             // 
             // tb_seihin_kousei_no
             // 
-            this.tb_seihin_kousei_no.Location = new System.Drawing.Point(93, 229);
+            this.tb_seihin_kousei_no.Location = new System.Drawing.Point(93, 202);
             this.tb_seihin_kousei_no.MaxLength = 3;
             this.tb_seihin_kousei_no.Name = "tb_seihin_kousei_no";
             this.tb_seihin_kousei_no.Size = new System.Drawing.Size(53, 19);
@@ -481,7 +493,7 @@
             // textBox22
             // 
             this.textBox22.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox22.Location = new System.Drawing.Point(10, 229);
+            this.textBox22.Location = new System.Drawing.Point(10, 202);
             this.textBox22.Name = "textBox22";
             this.textBox22.ReadOnly = true;
             this.textBox22.Size = new System.Drawing.Size(83, 19);
@@ -494,8 +506,9 @@
             this.tb_tani_kbn.Location = new System.Drawing.Point(93, 104);
             this.tb_tani_kbn.MaxLength = 2;
             this.tb_tani_kbn.Name = "tb_tani_kbn";
-            this.tb_tani_kbn.Size = new System.Drawing.Size(34, 19);
+            this.tb_tani_kbn.Size = new System.Drawing.Size(28, 19);
             this.tb_tani_kbn.TabIndex = 4;
+            this.tb_tani_kbn.Text = "99";
             this.tb_tani_kbn.DoubleClick += new System.EventHandler(this.tb_tani_kbn_DoubleClick);
             this.tb_tani_kbn.Validating += new System.ComponentModel.CancelEventHandler(this.tb_tani_kbn_Validating);
             // 
@@ -606,7 +619,7 @@
             // splitContainer8.Panel2
             // 
             this.splitContainer8.Panel2.Controls.Add(this.dgv_seihin_kousei);
-            this.splitContainer8.Size = new System.Drawing.Size(457, 169);
+            this.splitContainer8.Size = new System.Drawing.Size(457, 174);
             this.splitContainer8.SplitterDistance = 29;
             this.splitContainer8.TabIndex = 0;
             // 
@@ -635,7 +648,7 @@
             this.dgv_seihin_kousei.Location = new System.Drawing.Point(0, 0);
             this.dgv_seihin_kousei.Name = "dgv_seihin_kousei";
             this.dgv_seihin_kousei.RowTemplate.Height = 21;
-            this.dgv_seihin_kousei.Size = new System.Drawing.Size(457, 136);
+            this.dgv_seihin_kousei.Size = new System.Drawing.Size(457, 141);
             this.dgv_seihin_kousei.TabIndex = 0;
             this.dgv_seihin_kousei.TabStop = false;
             // 
@@ -780,6 +793,68 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBox3.Location = new System.Drawing.Point(10, 227);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(38, 19);
+            this.textBox3.TabIndex = 21;
+            this.textBox3.TabStop = false;
+            this.textBox3.Text = "作成";
+            // 
+            // tb_create_user_cd
+            // 
+            this.tb_create_user_cd.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_create_user_cd.Location = new System.Drawing.Point(48, 227);
+            this.tb_create_user_cd.Name = "tb_create_user_cd";
+            this.tb_create_user_cd.ReadOnly = true;
+            this.tb_create_user_cd.Size = new System.Drawing.Size(45, 19);
+            this.tb_create_user_cd.TabIndex = 22;
+            this.tb_create_user_cd.TabStop = false;
+            // 
+            // tb_create_datetime
+            // 
+            this.tb_create_datetime.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_create_datetime.Location = new System.Drawing.Point(93, 227);
+            this.tb_create_datetime.Name = "tb_create_datetime";
+            this.tb_create_datetime.ReadOnly = true;
+            this.tb_create_datetime.Size = new System.Drawing.Size(127, 19);
+            this.tb_create_datetime.TabIndex = 23;
+            this.tb_create_datetime.TabStop = false;
+            // 
+            // textBox9
+            // 
+            this.textBox9.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBox9.Location = new System.Drawing.Point(226, 227);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
+            this.textBox9.Size = new System.Drawing.Size(38, 19);
+            this.textBox9.TabIndex = 24;
+            this.textBox9.TabStop = false;
+            this.textBox9.Text = "更新";
+            // 
+            // tb_update_user_cd
+            // 
+            this.tb_update_user_cd.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_update_user_cd.Location = new System.Drawing.Point(264, 227);
+            this.tb_update_user_cd.Name = "tb_update_user_cd";
+            this.tb_update_user_cd.ReadOnly = true;
+            this.tb_update_user_cd.Size = new System.Drawing.Size(45, 19);
+            this.tb_update_user_cd.TabIndex = 25;
+            this.tb_update_user_cd.TabStop = false;
+            // 
+            // tb_update_datetime
+            // 
+            this.tb_update_datetime.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_update_datetime.Location = new System.Drawing.Point(309, 227);
+            this.tb_update_datetime.Name = "tb_update_datetime";
+            this.tb_update_datetime.ReadOnly = true;
+            this.tb_update_datetime.Size = new System.Drawing.Size(127, 19);
+            this.tb_update_datetime.TabIndex = 26;
+            this.tb_update_datetime.TabStop = false;
+            // 
             // frm_seihin_m
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -891,5 +966,11 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label lbl_seihin_cd;
         private System.Windows.Forms.Button btn_touroku;
+        private System.Windows.Forms.TextBox tb_update_datetime;
+        private System.Windows.Forms.TextBox tb_update_user_cd;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox tb_create_datetime;
+        private System.Windows.Forms.TextBox tb_create_user_cd;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
