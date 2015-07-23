@@ -36,15 +36,19 @@
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.tb_syouhizei_sansyutu_kbn = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_hensyu = new System.Windows.Forms.Button();
             this.tb_torihikisaki_cd = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.tb_syouhizei_sansyutu_kbn = new System.Windows.Forms.TextBox();
+            this.tb_hasu_syori_tani = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.tb_torihikisaki_name = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -100,14 +104,7 @@
             this.tb_fax_no = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv_tantousya = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_csv = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -126,12 +123,13 @@
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_tantousya)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -198,9 +196,10 @@
             // 
             // splitContainer3.Panel1
             // 
+            this.splitContainer3.Panel1.Controls.Add(this.groupBox6);
             this.splitContainer3.Panel1.Controls.Add(this.label33);
             this.splitContainer3.Panel1.Controls.Add(this.label2);
-            this.splitContainer3.Panel1.Controls.Add(this.button2);
+            this.splitContainer3.Panel1.Controls.Add(this.btn_hensyu);
             this.splitContainer3.Panel1.Controls.Add(this.tb_torihikisaki_cd);
             this.splitContainer3.Panel1.Controls.Add(this.label40);
             this.splitContainer3.Panel1.Controls.Add(this.label3);
@@ -238,10 +237,50 @@
             // 
             // splitContainer3.Panel2
             // 
-            this.splitContainer3.Panel2.Controls.Add(this.dataGridView1);
+            this.splitContainer3.Panel2.Controls.Add(this.dgv_tantousya);
             this.splitContainer3.Size = new System.Drawing.Size(880, 436);
             this.splitContainer3.SplitterDistance = 328;
             this.splitContainer3.TabIndex = 0;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label34);
+            this.groupBox6.Controls.Add(this.tb_syouhizei_sansyutu_kbn);
+            this.groupBox6.Controls.Add(this.label35);
+            this.groupBox6.Location = new System.Drawing.Point(469, 280);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(344, 33);
+            this.groupBox6.TabIndex = 133;
+            this.groupBox6.TabStop = false;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.BackColor = System.Drawing.SystemColors.Control;
+            this.label34.Location = new System.Drawing.Point(6, 14);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(89, 12);
+            this.label34.TabIndex = 58;
+            this.label34.Text = "消費税算出区分";
+            // 
+            // tb_syouhizei_sansyutu_kbn
+            // 
+            this.tb_syouhizei_sansyutu_kbn.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.tb_syouhizei_sansyutu_kbn.Location = new System.Drawing.Point(110, 10);
+            this.tb_syouhizei_sansyutu_kbn.MaxLength = 1;
+            this.tb_syouhizei_sansyutu_kbn.Name = "tb_syouhizei_sansyutu_kbn";
+            this.tb_syouhizei_sansyutu_kbn.Size = new System.Drawing.Size(37, 19);
+            this.tb_syouhizei_sansyutu_kbn.TabIndex = 24;
+            this.tb_syouhizei_sansyutu_kbn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(153, 14);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(177, 12);
+            this.label35.TabIndex = 61;
+            this.label35.Text = "1:明細毎　2:伝票合計　3:請求合計";
             // 
             // label33
             // 
@@ -261,23 +300,25 @@
             this.label2.TabIndex = 101;
             this.label2.Text = "取引先コード";
             // 
-            // button2
+            // btn_hensyu
             // 
-            this.button2.Location = new System.Drawing.Point(109, 298);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 23);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "編集";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_hensyu.Location = new System.Drawing.Point(109, 298);
+            this.btn_hensyu.Name = "btn_hensyu";
+            this.btn_hensyu.Size = new System.Drawing.Size(96, 23);
+            this.btn_hensyu.TabIndex = 25;
+            this.btn_hensyu.Text = "編集";
+            this.btn_hensyu.UseVisualStyleBackColor = true;
+            this.btn_hensyu.Click += new System.EventHandler(this.btn_hensyu_Click);
             // 
             // tb_torihikisaki_cd
             // 
             this.tb_torihikisaki_cd.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.tb_torihikisaki_cd.Location = new System.Drawing.Point(81, 7);
-            this.tb_torihikisaki_cd.MaxLength = 10;
+            this.tb_torihikisaki_cd.MaxLength = 6;
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
             this.tb_torihikisaki_cd.Size = new System.Drawing.Size(117, 19);
             this.tb_torihikisaki_cd.TabIndex = 1;
+            this.tb_torihikisaki_cd.Leave += new System.EventHandler(this.tb_torihikisaki_cd_Leave);
             // 
             // label40
             // 
@@ -301,9 +342,9 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.label23);
-            this.groupBox5.Controls.Add(this.tb_syouhizei_sansyutu_kbn);
+            this.groupBox5.Controls.Add(this.tb_hasu_syori_tani);
             this.groupBox5.Controls.Add(this.label28);
-            this.groupBox5.Location = new System.Drawing.Point(469, 258);
+            this.groupBox5.Location = new System.Drawing.Point(469, 243);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(344, 33);
             this.groupBox5.TabIndex = 130;
@@ -315,19 +356,19 @@
             this.label23.BackColor = System.Drawing.SystemColors.Control;
             this.label23.Location = new System.Drawing.Point(6, 14);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(89, 12);
+            this.label23.Size = new System.Drawing.Size(77, 12);
             this.label23.TabIndex = 58;
-            this.label23.Text = "消費税算出区分";
+            this.label23.Text = "端数処理単位";
             // 
-            // tb_syouhizei_sansyutu_kbn
+            // tb_hasu_syori_tani
             // 
-            this.tb_syouhizei_sansyutu_kbn.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.tb_syouhizei_sansyutu_kbn.Location = new System.Drawing.Point(110, 10);
-            this.tb_syouhizei_sansyutu_kbn.MaxLength = 1;
-            this.tb_syouhizei_sansyutu_kbn.Name = "tb_syouhizei_sansyutu_kbn";
-            this.tb_syouhizei_sansyutu_kbn.Size = new System.Drawing.Size(37, 19);
-            this.tb_syouhizei_sansyutu_kbn.TabIndex = 24;
-            this.tb_syouhizei_sansyutu_kbn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_hasu_syori_tani.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.tb_hasu_syori_tani.Location = new System.Drawing.Point(110, 10);
+            this.tb_hasu_syori_tani.MaxLength = 1;
+            this.tb_hasu_syori_tani.Name = "tb_hasu_syori_tani";
+            this.tb_hasu_syori_tani.Size = new System.Drawing.Size(37, 19);
+            this.tb_hasu_syori_tani.TabIndex = 24;
+            this.tb_hasu_syori_tani.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label28
             // 
@@ -336,7 +377,7 @@
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(177, 12);
             this.label28.TabIndex = 61;
-            this.label28.Text = "1:明細毎　2:伝票合計　3:請求合計";
+            this.label28.Text = "1:円未満　2:十円未満　3:百円未満";
             // 
             // tb_torihikisaki_name
             // 
@@ -352,7 +393,7 @@
             this.groupBox4.Controls.Add(this.label25);
             this.groupBox4.Controls.Add(this.tb_jisyaden_kbn);
             this.groupBox4.Controls.Add(this.label29);
-            this.groupBox4.Location = new System.Drawing.Point(469, 174);
+            this.groupBox4.Location = new System.Drawing.Point(469, 169);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(288, 36);
             this.groupBox4.TabIndex = 99;
@@ -402,7 +443,7 @@
             this.groupBox3.Controls.Add(this.label26);
             this.groupBox3.Controls.Add(this.label24);
             this.groupBox3.Controls.Add(this.tb_hasu_kbn);
-            this.groupBox3.Location = new System.Drawing.Point(469, 216);
+            this.groupBox3.Location = new System.Drawing.Point(469, 207);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(298, 36);
             this.groupBox3.TabIndex = 98;
@@ -845,7 +886,7 @@
             this.label8.TabIndex = 111;
             this.label8.Text = "住所";
             // 
-            // dataGridView1
+            // dgv_tantousya
             // 
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -854,16 +895,8 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7});
+            this.dgv_tantousya.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_tantousya.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -871,10 +904,10 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
+            this.dgv_tantousya.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_tantousya.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_tantousya.Location = new System.Drawing.Point(0, 0);
+            this.dgv_tantousya.Name = "dgv_tantousya";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -882,45 +915,10 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.RowTemplate.Height = 21;
-            this.dataGridView1.Size = new System.Drawing.Size(880, 104);
-            this.dataGridView1.TabIndex = 133;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "担当者コード";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "担当者名";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "所属";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "役職";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "電話番号";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "携帯電話番号";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "E-mail";
-            this.Column7.Name = "Column7";
+            this.dgv_tantousya.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_tantousya.RowTemplate.Height = 21;
+            this.dgv_tantousya.Size = new System.Drawing.Size(880, 104);
+            this.dgv_tantousya.TabIndex = 133;
             // 
             // button1
             // 
@@ -1002,6 +1000,8 @@
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -1012,7 +1012,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_tantousya)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1024,19 +1024,12 @@
         private System.Windows.Forms.Button btn_hardcopy;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.SplitContainer splitContainer3;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dgv_tantousya;
+        private System.Windows.Forms.Button btn_hensyu;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox tb_syouhizei_sansyutu_kbn;
+        private System.Windows.Forms.TextBox tb_hasu_syori_tani;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox tb_eigyou_end_time;
@@ -1102,6 +1095,10 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox tb_syouhizei_sansyutu_kbn;
+        private System.Windows.Forms.Label label35;
 
     }
 }
