@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_torihikisaki_m));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -247,7 +247,7 @@
             this.groupBox6.Controls.Add(this.label34);
             this.groupBox6.Controls.Add(this.tb_syouhizei_sansyutu_kbn);
             this.groupBox6.Controls.Add(this.label35);
-            this.groupBox6.Location = new System.Drawing.Point(469, 280);
+            this.groupBox6.Location = new System.Drawing.Point(460, 281);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(344, 33);
             this.groupBox6.TabIndex = 133;
@@ -286,7 +286,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.ForeColor = System.Drawing.Color.Red;
-            this.label33.Location = new System.Drawing.Point(11, 260);
+            this.label33.Location = new System.Drawing.Point(13, 246);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(124, 12);
             this.label33.TabIndex = 132;
@@ -295,7 +295,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 10);
+            this.label2.Location = new System.Drawing.Point(7, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 12);
             this.label2.TabIndex = 101;
@@ -303,9 +303,9 @@
             // 
             // btn_hensyu
             // 
-            this.btn_hensyu.Location = new System.Drawing.Point(109, 298);
+            this.btn_hensyu.Location = new System.Drawing.Point(109, 295);
             this.btn_hensyu.Name = "btn_hensyu";
-            this.btn_hensyu.Size = new System.Drawing.Size(96, 23);
+            this.btn_hensyu.Size = new System.Drawing.Size(75, 23);
             this.btn_hensyu.TabIndex = 25;
             this.btn_hensyu.Text = "編集";
             this.btn_hensyu.UseVisualStyleBackColor = true;
@@ -345,7 +345,7 @@
             this.groupBox5.Controls.Add(this.label23);
             this.groupBox5.Controls.Add(this.tb_hasu_syori_tani);
             this.groupBox5.Controls.Add(this.label28);
-            this.groupBox5.Location = new System.Drawing.Point(469, 243);
+            this.groupBox5.Location = new System.Drawing.Point(460, 246);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(344, 33);
             this.groupBox5.TabIndex = 130;
@@ -394,9 +394,9 @@
             this.groupBox4.Controls.Add(this.label25);
             this.groupBox4.Controls.Add(this.tb_jisyaden_kbn);
             this.groupBox4.Controls.Add(this.label29);
-            this.groupBox4.Location = new System.Drawing.Point(469, 169);
+            this.groupBox4.Location = new System.Drawing.Point(460, 162);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(288, 36);
+            this.groupBox4.Size = new System.Drawing.Size(344, 36);
             this.groupBox4.TabIndex = 99;
             this.groupBox4.TabStop = false;
             // 
@@ -413,7 +413,7 @@
             // tb_jisyaden_kbn
             // 
             this.tb_jisyaden_kbn.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.tb_jisyaden_kbn.Location = new System.Drawing.Point(110, 10);
+            this.tb_jisyaden_kbn.Location = new System.Drawing.Point(110, 12);
             this.tb_jisyaden_kbn.MaxLength = 1;
             this.tb_jisyaden_kbn.Name = "tb_jisyaden_kbn";
             this.tb_jisyaden_kbn.Size = new System.Drawing.Size(37, 19);
@@ -423,7 +423,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(151, 14);
+            this.label29.Location = new System.Drawing.Point(153, 14);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(125, 12);
             this.label29.TabIndex = 62;
@@ -433,7 +433,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label13.Location = new System.Drawing.Point(303, 123);
+            this.label13.Location = new System.Drawing.Point(265, 110);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(111, 12);
             this.label13.TabIndex = 122;
@@ -444,16 +444,16 @@
             this.groupBox3.Controls.Add(this.label26);
             this.groupBox3.Controls.Add(this.label24);
             this.groupBox3.Controls.Add(this.tb_hasu_kbn);
-            this.groupBox3.Location = new System.Drawing.Point(469, 207);
+            this.groupBox3.Location = new System.Drawing.Point(460, 204);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(298, 36);
+            this.groupBox3.Size = new System.Drawing.Size(344, 36);
             this.groupBox3.TabIndex = 98;
             this.groupBox3.TabStop = false;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(119, 15);
+            this.label26.Location = new System.Drawing.Point(153, 15);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(160, 12);
             this.label26.TabIndex = 70;
@@ -472,7 +472,7 @@
             // tb_hasu_kbn
             // 
             this.tb_hasu_kbn.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.tb_hasu_kbn.Location = new System.Drawing.Point(72, 11);
+            this.tb_hasu_kbn.Location = new System.Drawing.Point(110, 11);
             this.tb_hasu_kbn.MaxLength = 1;
             this.tb_hasu_kbn.Name = "tb_hasu_kbn";
             this.tb_hasu_kbn.Size = new System.Drawing.Size(37, 19);
@@ -499,16 +499,16 @@
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Controls.Add(this.tb_siharai_tuki);
-            this.groupBox2.Location = new System.Drawing.Point(9, 216);
+            this.groupBox2.Location = new System.Drawing.Point(5, 204);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(425, 41);
+            this.groupBox2.Size = new System.Drawing.Size(425, 36);
             this.groupBox2.TabIndex = 97;
             this.groupBox2.TabStop = false;
             // 
             // tb_siharai_sime_date
             // 
             this.tb_siharai_sime_date.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.tb_siharai_sime_date.Location = new System.Drawing.Point(67, 13);
+            this.tb_siharai_sime_date.Location = new System.Drawing.Point(64, 12);
             this.tb_siharai_sime_date.MaxLength = 2;
             this.tb_siharai_sime_date.Name = "tb_siharai_sime_date";
             this.tb_siharai_sime_date.Size = new System.Drawing.Size(37, 19);
@@ -518,7 +518,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(110, 17);
+            this.label30.Location = new System.Drawing.Point(107, 16);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(17, 12);
             this.label30.TabIndex = 70;
@@ -527,7 +527,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 17);
+            this.label1.Location = new System.Drawing.Point(5, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 69;
@@ -536,7 +536,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(233, 16);
+            this.label27.Location = new System.Drawing.Point(232, 16);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(39, 12);
             this.label27.TabIndex = 65;
@@ -545,7 +545,7 @@
             // tb_siharai_hi
             // 
             this.tb_siharai_hi.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.tb_siharai_hi.Location = new System.Drawing.Point(342, 13);
+            this.tb_siharai_hi.Location = new System.Drawing.Point(340, 13);
             this.tb_siharai_hi.MaxLength = 2;
             this.tb_siharai_hi.Name = "tb_siharai_hi";
             this.tb_siharai_hi.Size = new System.Drawing.Size(37, 19);
@@ -564,7 +564,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(294, 16);
+            this.label18.Location = new System.Drawing.Point(293, 15);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(41, 12);
             this.label18.TabIndex = 57;
@@ -573,7 +573,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(386, 16);
+            this.label20.Location = new System.Drawing.Point(383, 16);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(17, 12);
             this.label20.TabIndex = 67;
@@ -582,7 +582,7 @@
             // tb_siharai_tuki
             // 
             this.tb_siharai_tuki.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.tb_siharai_tuki.Location = new System.Drawing.Point(191, 13);
+            this.tb_siharai_tuki.Location = new System.Drawing.Point(189, 12);
             this.tb_siharai_tuki.MaxLength = 2;
             this.tb_siharai_tuki.Name = "tb_siharai_tuki";
             this.tb_siharai_tuki.Size = new System.Drawing.Size(37, 19);
@@ -591,7 +591,7 @@
             // 
             // tb_eigyou_end_time
             // 
-            this.tb_eigyou_end_time.Location = new System.Drawing.Point(423, 143);
+            this.tb_eigyou_end_time.Location = new System.Drawing.Point(379, 132);
             this.tb_eigyou_end_time.MaxLength = 20;
             this.tb_eigyou_end_time.Name = "tb_eigyou_end_time";
             this.tb_eigyou_end_time.Size = new System.Drawing.Size(107, 19);
@@ -608,16 +608,16 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.tb_kaisyu_tuki);
             this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Location = new System.Drawing.Point(10, 169);
+            this.groupBox1.Location = new System.Drawing.Point(5, 162);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(424, 41);
+            this.groupBox1.Size = new System.Drawing.Size(424, 36);
             this.groupBox1.TabIndex = 96;
             this.groupBox1.TabStop = false;
             // 
             // tb_seikyu_sime_date
             // 
             this.tb_seikyu_sime_date.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.tb_seikyu_sime_date.Location = new System.Drawing.Point(66, 14);
+            this.tb_seikyu_sime_date.Location = new System.Drawing.Point(64, 12);
             this.tb_seikyu_sime_date.MaxLength = 2;
             this.tb_seikyu_sime_date.Name = "tb_seikyu_sime_date";
             this.tb_seikyu_sime_date.Size = new System.Drawing.Size(37, 19);
@@ -627,7 +627,7 @@
             // tb_kaisyu_hi
             // 
             this.tb_kaisyu_hi.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.tb_kaisyu_hi.Location = new System.Drawing.Point(341, 14);
+            this.tb_kaisyu_hi.Location = new System.Drawing.Point(340, 12);
             this.tb_kaisyu_hi.MaxLength = 2;
             this.tb_kaisyu_hi.Name = "tb_kaisyu_hi";
             this.tb_kaisyu_hi.Size = new System.Drawing.Size(37, 19);
@@ -637,7 +637,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(109, 16);
+            this.label31.Location = new System.Drawing.Point(107, 15);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(17, 12);
             this.label31.TabIndex = 73;
@@ -646,7 +646,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(142, 17);
+            this.label16.Location = new System.Drawing.Point(142, 15);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(41, 12);
             this.label16.TabIndex = 54;
@@ -655,7 +655,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(7, 17);
+            this.label32.Location = new System.Drawing.Point(5, 15);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(53, 12);
             this.label32.TabIndex = 72;
@@ -664,7 +664,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(384, 17);
+            this.label14.Location = new System.Drawing.Point(383, 15);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(17, 12);
             this.label14.TabIndex = 63;
@@ -673,7 +673,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(232, 16);
+            this.label5.Location = new System.Drawing.Point(232, 15);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 12);
             this.label5.TabIndex = 61;
@@ -682,7 +682,7 @@
             // tb_kaisyu_tuki
             // 
             this.tb_kaisyu_tuki.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.tb_kaisyu_tuki.Location = new System.Drawing.Point(190, 14);
+            this.tb_kaisyu_tuki.Location = new System.Drawing.Point(189, 12);
             this.tb_kaisyu_tuki.MaxLength = 2;
             this.tb_kaisyu_tuki.Name = "tb_kaisyu_tuki";
             this.tb_kaisyu_tuki.Size = new System.Drawing.Size(37, 19);
@@ -692,7 +692,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(293, 18);
+            this.label17.Location = new System.Drawing.Point(293, 15);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(41, 12);
             this.label17.TabIndex = 55;
@@ -709,7 +709,7 @@
             // 
             // tb_eigyou_start_time
             // 
-            this.tb_eigyou_start_time.Location = new System.Drawing.Point(423, 119);
+            this.tb_eigyou_start_time.Location = new System.Drawing.Point(379, 107);
             this.tb_eigyou_start_time.MaxLength = 20;
             this.tb_eigyou_start_time.Name = "tb_eigyou_start_time";
             this.tb_eigyou_start_time.Size = new System.Drawing.Size(107, 19);
@@ -718,7 +718,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(22, 61);
+            this.label7.Location = new System.Drawing.Point(23, 60);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 109;
@@ -726,7 +726,7 @@
             // 
             // tb_kessan_start_mmdd
             // 
-            this.tb_kessan_start_mmdd.Location = new System.Drawing.Point(174, 119);
+            this.tb_kessan_start_mmdd.Location = new System.Drawing.Point(160, 107);
             this.tb_kessan_start_mmdd.MaxLength = 4;
             this.tb_kessan_start_mmdd.Name = "tb_kessan_start_mmdd";
             this.tb_kessan_start_mmdd.Size = new System.Drawing.Size(96, 19);
@@ -745,7 +745,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label15.Location = new System.Drawing.Point(303, 146);
+            this.label15.Location = new System.Drawing.Point(265, 135);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(111, 12);
             this.label15.TabIndex = 124;
@@ -761,10 +761,10 @@
             // 
             // tb_kessan_end_mmdd
             // 
-            this.tb_kessan_end_mmdd.Location = new System.Drawing.Point(174, 144);
+            this.tb_kessan_end_mmdd.Location = new System.Drawing.Point(160, 132);
             this.tb_kessan_end_mmdd.MaxLength = 4;
             this.tb_kessan_end_mmdd.Name = "tb_kessan_end_mmdd";
-            this.tb_kessan_end_mmdd.Size = new System.Drawing.Size(95, 19);
+            this.tb_kessan_end_mmdd.Size = new System.Drawing.Size(96, 19);
             this.tb_kessan_end_mmdd.TabIndex = 13;
             // 
             // tb_yubin_no
@@ -778,7 +778,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(10, 147);
+            this.label22.Location = new System.Drawing.Point(3, 135);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(151, 12);
             this.label22.TabIndex = 127;
@@ -796,7 +796,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(10, 123);
+            this.label21.Location = new System.Drawing.Point(3, 110);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(151, 12);
             this.label21.TabIndex = 126;
@@ -805,7 +805,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 35);
+            this.label6.Location = new System.Drawing.Point(11, 35);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 12);
             this.label6.TabIndex = 108;
@@ -813,7 +813,7 @@
             // 
             // tb_url
             // 
-            this.tb_url.Location = new System.Drawing.Point(440, 87);
+            this.tb_url.Location = new System.Drawing.Point(440, 82);
             this.tb_url.MaxLength = 60;
             this.tb_url.Name = "tb_url";
             this.tb_url.Size = new System.Drawing.Size(418, 19);
@@ -822,7 +822,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(22, 90);
+            this.label9.Location = new System.Drawing.Point(23, 85);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 12);
             this.label9.TabIndex = 114;
@@ -838,7 +838,7 @@
             // 
             // tb_tel_no
             // 
-            this.tb_tel_no.Location = new System.Drawing.Point(82, 87);
+            this.tb_tel_no.Location = new System.Drawing.Point(82, 82);
             this.tb_tel_no.MaxLength = 20;
             this.tb_tel_no.Name = "tb_tel_no";
             this.tb_tel_no.Size = new System.Drawing.Size(116, 19);
@@ -855,7 +855,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(407, 90);
+            this.label12.Location = new System.Drawing.Point(407, 85);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(27, 12);
             this.label12.TabIndex = 120;
@@ -863,7 +863,7 @@
             // 
             // tb_fax_no
             // 
-            this.tb_fax_no.Location = new System.Drawing.Point(267, 87);
+            this.tb_fax_no.Location = new System.Drawing.Point(267, 82);
             this.tb_fax_no.MaxLength = 20;
             this.tb_fax_no.Name = "tb_fax_no";
             this.tb_fax_no.Size = new System.Drawing.Size(128, 19);
@@ -872,7 +872,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(208, 90);
+            this.label10.Location = new System.Drawing.Point(208, 85);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(51, 12);
             this.label10.TabIndex = 116;
@@ -889,34 +889,34 @@
             // 
             // dgv_tantousya
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tantousya.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tantousya.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_tantousya.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_tantousya.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_tantousya.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_tantousya.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_tantousya.Location = new System.Drawing.Point(0, 0);
             this.dgv_tantousya.Name = "dgv_tantousya";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tantousya.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tantousya.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_tantousya.RowTemplate.Height = 21;
             this.dgv_tantousya.Size = new System.Drawing.Size(880, 104);
             this.dgv_tantousya.TabIndex = 133;
@@ -924,9 +924,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button1.Location = new System.Drawing.Point(126, 3);
+            this.button1.Location = new System.Drawing.Point(10, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 23);
+            this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 8;
             this.button1.Text = "検索";
             this.button1.UseVisualStyleBackColor = true;
@@ -943,9 +943,9 @@
             // button7
             // 
             this.button7.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button7.Location = new System.Drawing.Point(234, 2);
+            this.button7.Location = new System.Drawing.Point(91, 4);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(96, 23);
+            this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 7;
             this.button7.Text = "削除";
             this.button7.UseVisualStyleBackColor = true;

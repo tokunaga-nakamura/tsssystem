@@ -504,7 +504,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値用
             
-            if (tb_seihin_name.Text == null || tb_seihin_name.Text.Length == 0 || System.Text.Encoding.GetEncoding(932).GetByteCount(tb_seihin_name.Text) > 40)
+            if (tb_seihin_name.Text == null || tb_seihin_name.Text.Length == 0 || tss.StringByte(tb_seihin_name.Text) > 40)
             {
                 bl = false;
             }
@@ -515,7 +515,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値用
 
-            if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_bikou.Text) > 128)
+            if (tss.StringByte(tb_bikou.Text) > 128)
             {
                 bl = false;
             }

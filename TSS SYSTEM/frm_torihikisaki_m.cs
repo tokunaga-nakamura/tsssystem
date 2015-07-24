@@ -211,7 +211,7 @@ namespace TSS_SYSTEM
             {
                 tss.GetUser();
                 bool bl_tss;
-                //既存の区分があるかチェック
+                //既存の取引先コードがあるかチェック
                 DataTable dt_work = new DataTable();
                
                 dt_work = tss.OracleSelect("select * from TSS_TORIHIKISAKI_M where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'");
@@ -429,7 +429,7 @@ namespace TSS_SYSTEM
          {
              bool bl = true; //戻り値用
 
-             if (tb_torihikisaki_name.Text == null || tb_torihikisaki_name.Text.Length == 0 || System.Text.Encoding.GetEncoding(932).GetByteCount(tb_torihikisaki_name.Text) > 40)
+             if (tb_torihikisaki_name.Text == null || tb_torihikisaki_name.Text.Length == 0 || tss.StringByte(tb_torihikisaki_name.Text) > 40)
              {
                  bl = false;
              }
@@ -440,7 +440,7 @@ namespace TSS_SYSTEM
          {
              bool bl = true; //戻り値用
 
-             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_torihikisaki_seisiki_name.Text) > 40)
+             if (tss.StringByte(tb_torihikisaki_seisiki_name.Text) > 40)
              {
                  bl = false;
              }
@@ -462,7 +462,7 @@ namespace TSS_SYSTEM
          {
              bool bl = true; //戻り値用
 
-             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_daihyousya_name.Text) > 20)
+             if (tss.StringByte(tb_daihyousya_name.Text) > 20)
              {
                  bl = false;
              }
@@ -473,7 +473,7 @@ namespace TSS_SYSTEM
          {
              bool bl = true; //戻り値用
 
-             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_yubin_no.Text) > 10)
+             if (tss.StringByte(tb_yubin_no.Text) > 10)
              {
                  bl = false;
              }
@@ -484,7 +484,7 @@ namespace TSS_SYSTEM
          {
              bool bl = true; //戻り値用
 
-             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_jusyo1.Text) > 40)
+             if (tss.StringByte(tb_jusyo1.Text) > 40)
              {
                  bl = false;
              }
@@ -495,7 +495,7 @@ namespace TSS_SYSTEM
          {
              bool bl = true; //戻り値用
 
-             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_jusyo2.Text) > 40)
+             if (tss.StringByte(tb_jusyo2.Text) > 40)
              {
                  bl = false;
              }
@@ -506,7 +506,7 @@ namespace TSS_SYSTEM
          {
              bool bl = true; //戻り値用
 
-             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_tel_no.Text) > 20)
+             if (tss.StringByte(tb_tel_no.Text) > 20)
              {
                  bl = false;
              }
@@ -517,7 +517,7 @@ namespace TSS_SYSTEM
          {
              bool bl = true; //戻り値用
 
-             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_fax_no.Text) > 20)
+             if (tss.StringByte(tb_fax_no.Text) > 20)
              {
                  bl = false;
              }
@@ -528,7 +528,7 @@ namespace TSS_SYSTEM
          {
              bool bl = true; //戻り値用
 
-             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_url.Text) > 60)
+             if (tss.StringByte(tb_url.Text) > 60)
              {
                  bl = false;
              }
@@ -539,7 +539,7 @@ namespace TSS_SYSTEM
          {
              bool bl = true; //戻り値用
 
-             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_kessan_start_mmdd.Text) > 20)
+             if (tss.StringByte(tb_kessan_start_mmdd.Text) > 20)
              {
                  bl = false;
              }
@@ -550,7 +550,7 @@ namespace TSS_SYSTEM
          {
              bool bl = true; //戻り値用
 
-             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_kessan_end_mmdd.Text) > 20)
+             if (tss.StringByte(tb_kessan_end_mmdd.Text) > 20)
              {
                  bl = false;
              }
@@ -561,7 +561,7 @@ namespace TSS_SYSTEM
          {
              bool bl = true; //戻り値用
 
-             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_eigyou_start_time.Text) > 20)
+             if (tss.StringByte(tb_eigyou_start_time.Text) > 20)
              {
                  bl = false;
              }
@@ -572,7 +572,7 @@ namespace TSS_SYSTEM
          {
              bool bl = true; //戻り値用
 
-             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_eigyou_end_time.Text) > 20)
+             if (tss.StringByte(tb_eigyou_end_time.Text) > 20)
              {
                  bl = false;
              }
