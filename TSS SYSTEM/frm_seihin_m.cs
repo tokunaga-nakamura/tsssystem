@@ -395,7 +395,6 @@ namespace TSS_SYSTEM
             if (chk_seihin_name() == false)
             {
                 MessageBox.Show("製品名は1文字以上、40バイト以内で入力してください。");
-                //this.ActiveControl = tb_seihin_name;
                 tb_seihin_name.Focus();
                 return;
             }

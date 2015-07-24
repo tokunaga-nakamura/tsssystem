@@ -88,6 +88,9 @@ namespace TSS_SYSTEM
             dgv_kubun_m.MultiSelect = false;
             //セルを選択すると行全体が選択されるようにする
             dgv_kubun_m.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //DataGridView1にユーザーが新しい行を追加できないようにする
+            dgv_kubun_m.AllowUserToAddRows = false;
+
 
             //画面に引数の区分名称コード表示
             this.tb_kubun_meisyou_cd.Text = str_kubun_meisyou_cd;

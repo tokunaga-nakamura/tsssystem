@@ -83,6 +83,7 @@
             this.dgv_buhin_nyusyukko_m = new System.Windows.Forms.DataGridView();
             this.btn_touroku = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -184,6 +185,7 @@
             // 
             // splitContainer3.Panel1
             // 
+            this.splitContainer3.Panel1.Controls.Add(this.label3);
             this.splitContainer3.Panel1.Controls.Add(this.textBox1);
             this.splitContainer3.Panel1.Controls.Add(this.tb_update_datetime);
             this.splitContainer3.Panel1.Controls.Add(this.tb_buhin_cd);
@@ -432,11 +434,13 @@
             // 
             // tb_tani_kbn
             // 
+            this.tb_tani_kbn.BackColor = System.Drawing.Color.PowderBlue;
             this.tb_tani_kbn.Location = new System.Drawing.Point(103, 103);
             this.tb_tani_kbn.MaxLength = 2;
             this.tb_tani_kbn.Name = "tb_tani_kbn";
             this.tb_tani_kbn.Size = new System.Drawing.Size(31, 19);
             this.tb_tani_kbn.TabIndex = 7;
+            this.tb_tani_kbn.DoubleClick += new System.EventHandler(this.tb_tani_kbn_DoubleClick);
             // 
             // tb_kessan_kbn_name
             // 
@@ -460,6 +464,7 @@
             // 
             // tb_kessan_kbn
             // 
+            this.tb_kessan_kbn.BackColor = System.Drawing.Color.PowderBlue;
             this.tb_kessan_kbn.Location = new System.Drawing.Point(103, 253);
             this.tb_kessan_kbn.MaxLength = 1;
             this.tb_kessan_kbn.Name = "tb_kessan_kbn";
@@ -744,6 +749,15 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(240, 256);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 12);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "0:非対象 1:対象";
+            // 
             // frm_buhin_m
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -844,5 +858,6 @@
         private System.Windows.Forms.Button btn_syukko;
         private System.Windows.Forms.Button btn_idou;
         private System.Windows.Forms.Button btn_nyuuko;
+        private System.Windows.Forms.Label label3;
     }
 }

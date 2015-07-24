@@ -101,6 +101,9 @@ namespace TSS_SYSTEM
             dgv_kubun.MultiSelect = false;
             //セルを選択すると行全体が選択されるようにする
             dgv_kubun.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //DataGridView1にユーザーが新しい行を追加できないようにする
+            dgv_kubun.AllowUserToAddRows = false;
+
 
             //画面に引数の区分名を表示
             this.lbl_kubun_name.Text = ppt_str_kubun_name;

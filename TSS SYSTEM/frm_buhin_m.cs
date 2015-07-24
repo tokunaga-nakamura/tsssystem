@@ -54,7 +54,6 @@ namespace TSS_SYSTEM
             //選択画面へ
             this.tb_kessan_kbn.Text = tss.kubun_cd_select_dt("決算区分",dt_work);
             chk_kessan_kbn();   //決算区分名の表示
-
         }
 
 
@@ -71,10 +70,17 @@ namespace TSS_SYSTEM
                     tb_kessan_kbn_name.Text = "対象";
                     break;
                 default:
+                    tb_kessan_kbn_name.Text = "";
                     bl = false;
                     break;
             }
             return bl;
+        }
+
+        private void tb_tani_kbn_DoubleClick(object sender, EventArgs e)
+        {
+            this.tb_tani_kbn.Text = tss.kubun_cd_select("02");
+            this.tb_tani_name.Text = tss.kubun_name_select("02", tb_tani_kbn.Text);
         }
 
 
