@@ -43,7 +43,6 @@ namespace TSS_SYSTEM
             }
         }
         
-
         
         public frm_torihikisaki_tantou()
         {
@@ -78,16 +77,28 @@ namespace TSS_SYSTEM
                 bool bl_tss;
                 //既存の区分があるかチェック
                 DataTable dt_work = new DataTable();
-                dt_work = tss.OracleSelect("select * from TSS_TORIHIKISAKI_TANTOU_M where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'");
+                dt_work = tss.OracleSelect("select * from TSS_TORIHIKISAKI_TANTOU_M where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "' and tantousya_cd = '" + tb_tantousya_cd.Text + "'");
                 if (dt_work.Rows.Count != 0)
                 {
-                    ////更新
-                    //bl_tss = tss.OracleUpdate("UPDATE TSS_TORIHIKISAKI_M SET KUBUN_NAME = '" + tb_torihikisaki_cd.Text + "',BIKOU = '" + tb_bikou.Text + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE KUBUN_MEISYOU_CD = '" + tb_kubun_meisyou_cd.Text + "'");
-                    //if (bl_tss != true)
-                    //{
-                    //    tss.ErrorLogWrite(tss.UserID, "区分名称マスタ／登録", "登録ボタン押下時のOracleUpdate");
-                    //    MessageBox.Show("書込みでエラーが発生しました。処理を中止します。");
-                    //    this.Close();
+                    tss.GetUser();
+                    //更新
+                    //bool bl_tss = true;
+                    bl_tss = tss.OracleUpdate("UPDATE TSS_torihikisaki_tantou_m SET TORIHIKISAKI_NAME = '" + tb_torihikisaki_name.Text
+                        + "',YUBIN_NO = '" + tb_yubin_no.Text + "',JUSYO1 = '" + tb_jusyo1.Text + "',JUSYO2 = '" + tb_jusyo2.Text + "',TEL_NO = '" + tb_tel_no.Text
+                        + "',FAX_NO = '" + tb_fax_no.Text + "',KEITAI_NO = '" + tb_keitai_no.Text + "',MAIL_ADDRESS = '" + tb_mail_address.Text
+                        + "',SYOZOKU = '" + tb_syozoku.Text + "',YAKUSYOKU = '" + tb_yakusyoku.Text
+                        + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "' and TANTOUSYA_CD = '" + tb_tantousya_cd.Text + "'");
+                    if (bl_tss != true) 
+                    {
+                        tss.ErrorLogWrite(tss.user_cd, "取引先担当者マスタ／登録", "登録ボタン押下時のOracleUpdate");
+                        MessageBox.Show("登録でエラーが発生しました。処理を中止します。");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("取引先担当者マスタを更新しました。");
+                        this.Close();
+                    }
                     //}
                 }
                 else
@@ -97,14 +108,17 @@ namespace TSS_SYSTEM
                                               + "VALUES ('" + tb_torihikisaki_cd.Text + "','" + tb_torihikisaki_name.Text + "','" + tb_tantousya_cd.Text + "','" + tb_tantousya_name.Text + "','" + tb_yubin_no.Text + "','" + tb_jusyo1.Text + "','" + tb_jusyo2.Text + "','" + tb_tel_no.Text + "','" + tb_fax_no.Text + "','" + tb_syozoku.Text + "','" + tb_yakusyoku.Text + "','" + tb_keitai_no.Text + "','" + tb_mail_address.Text + "','" + tss.user_cd + "')");
                     if (bl_tss != true)
                     {
-                        tss.ErrorLogWrite(tss.UserID, "区分名称マスタ／登録", "登録ボタン押下時のOracleInsert");
+                        tss.ErrorLogWrite(tss.UserID, "取引先担当者マスタ／登録", "登録ボタン押下時のOracleInsert");
                         MessageBox.Show("登録でエラーが発生しました。処理を中止します。");
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("登録が完了しました。");
+                        MessageBox.Show("取引先担当者マスタに登録しました。");
+                        this.Close();
                     }
+
+                    
                 }
 
             }

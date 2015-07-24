@@ -34,48 +34,178 @@ namespace TSS_SYSTEM
             {
                 MessageBox.Show("取引先コードは1文字以上、6バイト以内で入力してください。");
                 tb_torihikisaki_cd.Focus();
+                return;
             }
             //取引先名のチェック
             if (chk_torihikisaki_name() == false)
             {
                 MessageBox.Show("取引先名は1文字以上、40バイト以内で入力してください");
                 tb_torihikisaki_cd.Focus();
+                return;
             }
             //取引先正式名のチェック
             if (chk_torihikisaki_seisiki_name() == false)
             {
                 MessageBox.Show("取引先正式名称は40バイト以内で入力してください。");
                 tb_torihikisaki_seisiki_name.Focus();
+                return;
             }
-
-
-            ////取引先名のチェック
-            //if (tb_torihikisaki_name.Text == null || tb_torihikisaki_name.Text.Length == 0)
-            //{
-            //    MessageBox.Show("取引先名を全角20文字以内で入力してください。");
-            //    tb_torihikisaki_name.Focus();
-            //}
-            ////正式名称のチェック
-            ////else if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_torihikisaki_seisiki_name.Text) > 40)
-            ////{
-            ////    MessageBox.Show("正式名称は全角20文字以内で入力してください。");
-            ////    tb_torihikisaki_seisiki_name.Focus();
-            ////}
-            ////略式文字列のチェック
-            //if (tb_torihikisaki_ryakusiki_moji.Text == null || tb_torihikisaki_ryakusiki_moji.Text.Length == 0)
-            //{
-            //    MessageBox.Show("略式名称を半角英数5文字以内で入力してください。");
-            //    tb_torihikisaki_ryakusiki_moji.Focus();
-            //}
-            ////請求締日のチェック
-            //if (tb_torihikisaki_ryakusiki_moji.Text == null || tb_torihikisaki_ryakusiki_moji.Text.Length == 0)
-            //{
-            //    MessageBox.Show("略式名称を半角英数5文字以内で入力してください。");
-            //    tb_torihikisaki_ryakusiki_moji.Focus();
-            //}
-
-
+            //取引先略式名のチェック
+            if (chk_torihikisaki_ryakusiki_moji() == false)
+            {
+                MessageBox.Show("取引先略式名称は5バイト以内で入力してください。");
+                tb_torihikisaki_ryakusiki_moji.Focus();
+                return;
+            }
+            //代表者名のチェック
+            if (chk_daihyousya_name() == false)
+            {
+                MessageBox.Show("代表者名は20バイト以内で入力してください。");
+                tb_daihyousya_name.Focus();
+                return;
+            }
+            //郵便番号のチェック
+            if (chk_yubin_no() == false)
+            {
+                MessageBox.Show("郵便番号は10バイト以内で入力してください。");
+                tb_yubin_no.Focus();
+                return;
+            }
+            //住所1のチェック
+            if (chk_jusyo1() == false)
+            {
+                MessageBox.Show("住所1は40バイト以内で入力してください。");
+                tb_jusyo1.Focus();
+                return;
+            }
+            //住所2のチェック
+            if (chk_jusyo2() == false)
+            {
+                MessageBox.Show("住所2は40バイト以内で入力してください。");
+                tb_jusyo2.Focus();
+                return;
+            }
+            //電話番号のチェック
+            if (chk_tel_no() == false)
+            {
+                MessageBox.Show("電話番号は20バイト以内で入力してください。");
+                tb_tel_no.Focus();
+                return;
+            }
+            //FAX番号のチェック
+            if (chk_fax_no() == false)
+            {
+                MessageBox.Show("FAX番号は20バイト以内で入力してください。");
+                tb_fax_no.Focus();
+                return;
+            }
+            //URLのチェック
+            if (chk_url() == false)
+            {
+                MessageBox.Show("URLは60バイト以内で入力してください。");
+                tb_url.Focus();
+                return;
+            }
+            //決算期首月日のチェック
+            if (chk_kessan_start_mmdd() == false)
+            {
+                MessageBox.Show("決算期首月日は4バイト以内(7月1日→0701)で入力してください。");
+                tb_kessan_start_mmdd.Focus();
+                return;
+            }
+            //決算期末月日のチェック
+            if (chk_kessan_end_mmdd() == false)
+            {
+                MessageBox.Show("決算期末月日は4バイト以内(6月30日→0630)で入力してください。");
+                tb_kessan_end_mmdd.Focus();
+                return;
+            }
+            //営業開始時間のチェック
+            if (chk_eigyou_start_time() == false)
+            {
+                MessageBox.Show("営業開始時間は20バイト以内(例：08:30)で入力してください。");
+                tb_eigyou_start_time.Focus();
+                return;
+            }
+            //営業終了時間のチェック
+            if (chk_eigyou_end_time() == false)
+            {
+                MessageBox.Show("営業終了時間は20バイト以内(例：17:15)で入力してください。");
+                tb_eigyou_end_time.Focus();
+                return;
+            }
+            //請求締日のチェック
+            if (chk_seikyu_sime_date() == false)
+            {
+                MessageBox.Show("請求締日は数字2桁（末日締は0）で入力してください。");
+                tb_seikyu_sime_date.Focus();
+                return;
+            }
+            //回収月のチェック
+            if (chk_kaisyu_tuki() == false)
+            {
+                MessageBox.Show("回収月は数字1～12で入力してください。");
+                tb_kaisyu_tuki.Focus();
+                return;
+            }
+            //回収日のチェック
+            if (chk_kaisyu_hi() == false)
+            {
+                MessageBox.Show("回収日は数字2桁（末日回収は0）で入力してください。");
+                tb_kaisyu_hi.Focus();
+                return;
+            }
+            //支払締日のチェック
+            if (chk_siharai_sime_date() == false)
+            {
+                MessageBox.Show("支払締日は数字2桁（末日締は0）で入力してください。");
+                tb_siharai_sime_date.Focus();
+                return;
+            }
+            //支払月のチェック
+            if (chk_siharai_tuki() == false)
+            {
+                MessageBox.Show("支払月は数字1～12で入力してください。");
+                tb_siharai_tuki.Focus();
+                return;
+            }
+            //支払日のチェック
+            if (chk_siharai_hi() == false)
+            {
+                MessageBox.Show("支払日は数字2桁（末日回収は99）で入力してください。");
+                tb_siharai_hi.Focus();
+                return;
+            }
+            //自社伝票発行区分のチェック
+            if (chk_jisyaden_kbn() == false)
+            {
+                MessageBox.Show("自社伝票区分は0または1で入力してください。");
+                tb_jisyaden_kbn.Focus();
+                return;
+            }
+            //端数区分のチェック
+            if (chk_hasu_kbn() == false)
+            {
+                MessageBox.Show("端数区分は0、5または9で入力してください。");
+                tb_hasu_kbn.Focus();
+                return;
+            }
+            //端数処理単位のチェック
+            if (chk_hasu_syori_tani() == false)
+            {
+                MessageBox.Show("端数処理単位は1～3で入力してください。");
+                tb_hasu_syori_tani.Focus();
+                return;
+            }
+            //消費税算出区分のチェック
+            if (chk_syouhizei_sansyutu_kbn() == false)
+            {
+                MessageBox.Show("消費税算出区分は1～3で入力してください。");
+                tb_syouhizei_sansyutu_kbn.Focus();
+                return;
+            }
             
+   
             else
             //書込み
             {
@@ -83,17 +213,32 @@ namespace TSS_SYSTEM
                 bool bl_tss;
                 //既存の区分があるかチェック
                 DataTable dt_work = new DataTable();
+               
                 dt_work = tss.OracleSelect("select * from TSS_TORIHIKISAKI_M where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'");
                 if (dt_work.Rows.Count != 0)
                 {
-                    ////更新
-                    //bl_tss = tss.OracleUpdate("UPDATE TSS_TORIHIKISAKI_M SET KUBUN_NAME = '" + tb_torihikisaki_cd.Text + "',BIKOU = '" + tb_bikou.Text + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE KUBUN_MEISYOU_CD = '" + tb_kubun_meisyou_cd.Text + "'");
-                    //if (bl_tss != true)
-                    //{
-                    //    tss.ErrorLogWrite(tss.UserID, "区分名称マスタ／登録", "登録ボタン押下時のOracleUpdate");
-                    //    MessageBox.Show("書込みでエラーが発生しました。処理を中止します。");
-                    //    this.Close();
-                    //}
+                    tss.GetUser();
+                    //更新
+                    //bool bl_tss = true;
+                    bl_tss = tss.OracleUpdate("UPDATE TSS_torihikisaki_m SET TORIHIKISAKI_NAME = '" + tb_torihikisaki_name.Text + "',TORIHIKISAKI_SEISIKI_NAME = '" + tb_torihikisaki_seisiki_name.Text + "',TORIHIKISAKI_RYAKUSIKI_MOJI = '" + tb_torihikisaki_ryakusiki_moji.Text
+                        + "',YUBIN_NO = '" + tb_yubin_no.Text + "',JUSYO1 = '" + tb_jusyo1.Text + "',JUSYO2 = '" + tb_jusyo2.Text + "',TEL_NO = '" + tb_tel_no.Text
+                        + "',FAX_NO = '" + tb_fax_no.Text + "',DAIHYOUSYA_NAME = '" + tb_daihyousya_name.Text + "',URL = '" + tb_url.Text
+                        + "',EIGYOU_START_TIME = '" + tb_eigyou_start_time.Text + "',EIGYOU_END_TIME = '" + tb_eigyou_end_time.Text + "',SEIKYU_SIME_DATE = '" + tb_seikyu_sime_date.Text
+                        + "',KAISYU_TUKI = '" + tb_kaisyu_tuki.Text + "',KAISYU_HI = '" + tb_kaisyu_hi.Text + "',SIHARAI_SIME_DATE = '" + tb_siharai_sime_date.Text
+                        + "',SIHARAI_HI = '" + tb_siharai_hi.Text + "',KESSAN_START_MMDD = '" + tb_kessan_start_mmdd.Text + "',KESSAN_END_MMDD = '" + tb_kessan_end_mmdd.Text
+                        + "',SYOUHIZEI_SANSYUTU_KBN = '" + tb_syouhizei_sansyutu_kbn.Text + "',HASU_KBN = '" + tb_hasu_kbn.Text + "',JISYADEN_KBN = '" + tb_jisyaden_kbn.Text
+                        + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'");
+                    if (bl_tss != true)
+                    {
+                        tss.ErrorLogWrite(tss.user_cd, "取引先マスタ／登録", "登録ボタン押下時のOracleUpdate");
+                        MessageBox.Show("登録でエラーが発生しました。処理を中止します。");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("取引先マスタを更新しました。");
+                    }
+                    
                 }
                 else
                 {
@@ -108,7 +253,7 @@ namespace TSS_SYSTEM
                     }
                     else
                     {
-                        MessageBox.Show("登録が完了しました。");
+                        MessageBox.Show("取引先マスタへ登録しました。");
                     }
                 }
                
@@ -145,8 +290,8 @@ namespace TSS_SYSTEM
             {
                 int i = dgv_tantousya.CurrentCell.RowIndex;
                 
-                frm_tt.str_tantousya_cd = tb_torihikisaki_cd.Text.ToString();
-                frm_tt.str_torihikisaki_cd = dgv_tantousya.Rows[i].Cells[0].Value.ToString();
+                frm_tt.str_torihikisaki_cd = tb_torihikisaki_cd.Text.ToString();
+                frm_tt.str_tantousya_cd = dgv_tantousya.Rows[i].Cells[1].Value.ToString();
 
                 frm_tt.ShowDialog(this);
                 frm_tt.Dispose();
@@ -313,170 +458,237 @@ namespace TSS_SYSTEM
              return bl;
          }
 
-         //private bool chk_torihikisaki_cd()
-         //{
-         //    bool bl = true; //戻り値
-         //    DataTable dt_work = new DataTable();
-         //    dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd  = '" + tb_torihikisaki_cd.Text + "'");
-         //    if (dt_work.Rows.Count <= 0)
-         //    {
-         //        //無し
-         //        bl = false;
-         //    }
-         //    else
-         //    {
-         //        //既存データ有
-         //    }
-         //    return bl;
-         //}
+         private bool chk_daihyousya_name()
+         {
+             bool bl = true; //戻り値用
 
-         //private bool chk_tani_kbn()
-         //{
-         //    bool bl = true; //戻り値
-         //    DataTable dt_work = new DataTable();
-         //    dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '02' and kubun_cd = '" + tb_tani_kbn.Text + "'");
-         //    if (dt_work.Rows.Count <= 0)
-         //    {
-         //        //無し
-         //        bl = false;
-         //    }
-         //    else
-         //    {
-         //        //既存データ有
-         //    }
-         //    return bl;
-         //}
+             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_daihyousya_name.Text) > 20)
+             {
+                 bl = false;
+             }
+             return bl;
+         }
 
-         //private bool chk_seihin_syubetu_kbn()
-         //{
-         //    bool bl = true; //戻り値
-         //    DataTable dt_work = new DataTable();
-         //    dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '03' and kubun_cd = '" + tb_seihin_syubetu_kbn.Text + "'");
-         //    if (dt_work.Rows.Count <= 0)
-         //    {
-         //        //無し
-         //        bl = false;
-         //    }
-         //    else
-         //    {
-         //        //既存データ有
-         //    }
-         //    return bl;
-         //}
+         private bool chk_yubin_no()
+         {
+             bool bl = true; //戻り値用
 
-         //private bool chk_seihin_bunrui_kbn()
-         //{
-         //    bool bl = true; //戻り値
-         //    DataTable dt_work = new DataTable();
-         //    dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '04' and kubun_cd = '" + tb_seihin_bunrui_kbn.Text + "'");
-         //    if (dt_work.Rows.Count <= 0)
-         //    {
-         //        //無し
-         //        bl = false;
-         //    }
-         //    else
-         //    {
-         //        //既存データ有
-         //    }
-         //    return bl;
-         //}
+             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_yubin_no.Text) > 10)
+             {
+                 bl = false;
+             }
+             return bl;
+         }
 
-         //private bool chk_sijou_kbn()
-         //{
-         //    bool bl = true; //戻り値
-         //    DataTable dt_work = new DataTable();
-         //    dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '05' and kubun_cd = '" + tb_sijou_kbn.Text + "'");
-         //    if (dt_work.Rows.Count <= 0)
-         //    {
-         //        //無し
-         //        bl = false;
-         //    }
-         //    else
-         //    {
-         //        //既存データ有
-         //    }
-         //    return bl;
-         //}
+         private bool chk_jusyo1()
+         {
+             bool bl = true; //戻り値用
 
-         //private bool chk_type_kbn()
-         //{
-         //    bool bl = true; //戻り値
-         //    DataTable dt_work = new DataTable();
-         //    dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '06' and kubun_cd = '" + tb_type_kbn.Text + "'");
-         //    if (dt_work.Rows.Count <= 0)
-         //    {
-         //        //無し
-         //        bl = false;
-         //    }
-         //    else
-         //    {
-         //        //既存データ有
-         //    }
-         //    return bl;
-         //}
+             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_jusyo1.Text) > 40)
+             {
+                 bl = false;
+             }
+             return bl;
+         }
 
-         //private bool chk_genka()
-         //{
-         //    bool bl = true; //戻り値
-         //    double db;
-         //    if (double.TryParse(tb_genka.Text.ToString(), out db))
-         //    {
-         //        //変換出来たら、lgにその数値が入る
-         //        if (db > 9999999999.99 || db < -999999999.99)
-         //        {
-         //            bl = false;
-         //        }
-         //        else
-         //        {
-         //            tb_genka.Text = db.ToString("0.00");
-         //        }
-         //    }
-         //    else
-         //    {
-         //        bl = false;
-         //    }
-         //    return bl;
-         //}
+         private bool chk_jusyo2()
+         {
+             bool bl = true; //戻り値用
 
-         //private bool chk_hanbai_tanka()
-         //{
-         //    bool bl = true; //戻り値
-         //    double db;
-         //    if (double.TryParse(tb_hanbai_tanka.Text.ToString(), out db))
-         //    {
-         //        //変換出来たら、lgにその数値が入る
-         //        if (db > 9999999999.99 || db < -999999999.99)
-         //        {
-         //            bl = false;
-         //        }
-         //        else
-         //        {
-         //            tb_hanbai_tanka.Text = db.ToString("0.00");
-         //        }
-         //    }
-         //    else
-         //    {
-         //        bl = false;
-         //    }
-         //    return bl;
-         //}
+             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_jusyo2.Text) > 40)
+             {
+                 bl = false;
+             }
+             return bl;
+         }
 
-         //private bool chk_seihin_kousei_no()
-         //{
-         //    bool bl = true; //戻り値
-         //    DataTable dt_work = new DataTable();
-         //    dt_work = tss.OracleSelect("select * from tss_seihin_kousei_name_m where seihin_cd  = '" + tb_seihin_cd.Text + "' and seihin_kousei_no = '" + tb_seihin_kousei_no.Text + "'");
-         //    if (dt_work.Rows.Count <= 0)
-         //    {
-         //        //無し
-         //        bl = false;
-         //    }
-         //    else
-         //    {
-         //        //既存データ有
-         //    }
-         //    return bl;
-         //}
+         private bool chk_tel_no()
+         {
+             bool bl = true; //戻り値用
+
+             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_tel_no.Text) > 20)
+             {
+                 bl = false;
+             }
+             return bl;
+         }
+
+         private bool chk_fax_no()
+         {
+             bool bl = true; //戻り値用
+
+             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_fax_no.Text) > 20)
+             {
+                 bl = false;
+             }
+             return bl;
+         }
+
+         private bool chk_url()
+         {
+             bool bl = true; //戻り値用
+
+             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_url.Text) > 60)
+             {
+                 bl = false;
+             }
+             return bl;
+         }
+
+         private bool chk_kessan_start_mmdd()
+         {
+             bool bl = true; //戻り値用
+
+             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_kessan_start_mmdd.Text) > 20)
+             {
+                 bl = false;
+             }
+             return bl;
+         }
+
+         private bool chk_kessan_end_mmdd()
+         {
+             bool bl = true; //戻り値用
+
+             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_kessan_end_mmdd.Text) > 20)
+             {
+                 bl = false;
+             }
+             return bl;
+         }
+
+         private bool chk_eigyou_start_time()
+         {
+             bool bl = true; //戻り値用
+
+             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_eigyou_start_time.Text) > 20)
+             {
+                 bl = false;
+             }
+             return bl;
+         }
+         
+        private bool chk_eigyou_end_time()
+         {
+             bool bl = true; //戻り値用
+
+             if (System.Text.Encoding.GetEncoding(932).GetByteCount(tb_eigyou_end_time.Text) > 20)
+             {
+                 bl = false;
+             }
+             return bl;
+         }
+
+        private bool chk_seikyu_sime_date()
+        {
+            bool bl = true; //戻り値用
+
+            if (tb_seikyu_sime_date.Text == null || int.Parse(tb_seikyu_sime_date.Text) > 31)
+            {
+                bl = false;
+            }
+            return bl;
+        }
+       
+        private bool chk_kaisyu_tuki()
+        {
+            bool bl = true; //戻り値用
+
+            if (tb_kaisyu_tuki.Text == null || int.Parse(tb_kaisyu_tuki.Text) > 12)
+            {
+                bl = false;
+            }
+            return bl;
+        }
+
+        private bool chk_kaisyu_hi()
+        {
+            bool bl = true; //戻り値用
+
+            if (tb_kaisyu_hi.Text == null || int.Parse(tb_kaisyu_hi.Text) > 31)
+            {
+                bl = false;
+            }
+            return bl;
+        }
+
+        private bool chk_siharai_sime_date()
+        {
+            bool bl = true; //戻り値用
+
+            if (tb_siharai_sime_date.Text == null || int.Parse(tb_siharai_sime_date.Text) > 31)
+            {
+                bl = false;
+            }
+            return bl;
+        }
+
+        private bool chk_siharai_tuki()
+        {
+            bool bl = true; //戻り値用
+
+            if (tb_siharai_tuki.Text == null || int.Parse(tb_siharai_tuki.Text) > 12)
+            {
+                bl = false;
+            }
+            return bl;
+        }
+
+        private bool chk_siharai_hi()
+        {
+            bool bl = true; //戻り値用
+
+            if (tb_siharai_hi.Text == null || int.Parse(tb_siharai_hi.Text) > 31)
+            {
+                bl = false;
+            }
+            return bl;
+        }
+
+        private bool chk_jisyaden_kbn()
+        {
+            bool bl = true; //戻り値用
+
+            if (tb_jisyaden_kbn.Text == null || int.Parse(tb_jisyaden_kbn.Text) > 1)
+            {
+                bl = false;
+            }
+            return bl;
+        }
+
+        private bool chk_hasu_kbn()
+        {
+            bool bl = true; //戻り値用
+
+            if (tb_hasu_kbn.Text == null || int.Parse(tb_hasu_kbn.Text) > 2)
+            {
+                bl = false;
+            }
+            return bl;
+        }
+
+        private bool chk_hasu_syori_tani()
+        {
+            bool bl = true; //戻り値用
+
+            if (tb_hasu_syori_tani.Text == null || int.Parse(tb_hasu_syori_tani.Text) > 2)
+            {
+                bl = false;
+            }
+            return bl;
+        }
+
+        private bool chk_syouhizei_sansyutu_kbn()
+        {
+            bool bl = true; //戻り値用
+
+            if (tb_syouhizei_sansyutu_kbn.Text == null || int.Parse(tb_syouhizei_sansyutu_kbn.Text) > 2)
+            {
+                bl = false;
+            }
+            return bl;
+        }
+         
 
     }
 }
