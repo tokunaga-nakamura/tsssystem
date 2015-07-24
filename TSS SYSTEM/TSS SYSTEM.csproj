@@ -80,6 +80,12 @@
     <Compile Include="frm_kubun_select.Designer.cs">
       <DependentUpon>frm_kubun_select.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_kubun_select_dt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_kubun_select_dt.Designer.cs">
+      <DependentUpon>frm_kubun_select_dt.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_kubun_select.resx">
       <DependentUpon>frm_kubun_select.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_kubun_select_dt.resx">
+      <DependentUpon>frm_kubun_select_dt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_login.resx">
       <DependentUpon>frm_login.cs</DependentUpon>

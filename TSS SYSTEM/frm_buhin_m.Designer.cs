@@ -73,6 +73,9 @@
             this.tb_siire_kbn = new System.Windows.Forms.TextBox();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.btn_syukko = new System.Windows.Forms.Button();
+            this.btn_idou = new System.Windows.Forms.Button();
+            this.btn_nyuuko = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgv_buhin_zaiko_m = new System.Windows.Forms.DataGridView();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
@@ -80,9 +83,6 @@
             this.dgv_buhin_nyusyukko_m = new System.Windows.Forms.DataGridView();
             this.btn_touroku = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.btn_nyuuko = new System.Windows.Forms.Button();
-            this.btn_syukko = new System.Windows.Forms.Button();
-            this.btn_idou = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -465,6 +465,7 @@
             this.tb_kessan_kbn.Name = "tb_kessan_kbn";
             this.tb_kessan_kbn.Size = new System.Drawing.Size(31, 19);
             this.tb_kessan_kbn.TabIndex = 23;
+            this.tb_kessan_kbn.DoubleClick += new System.EventHandler(this.tb_kessan_kbn_DoubleClick);
             // 
             // textBox5
             // 
@@ -639,6 +640,33 @@
             this.splitContainer5.TabIndex = 0;
             this.splitContainer5.TabStop = false;
             // 
+            // btn_syukko
+            // 
+            this.btn_syukko.Location = new System.Drawing.Point(234, 3);
+            this.btn_syukko.Name = "btn_syukko";
+            this.btn_syukko.Size = new System.Drawing.Size(75, 23);
+            this.btn_syukko.TabIndex = 1;
+            this.btn_syukko.Text = "出庫";
+            this.btn_syukko.UseVisualStyleBackColor = true;
+            // 
+            // btn_idou
+            // 
+            this.btn_idou.Location = new System.Drawing.Point(315, 3);
+            this.btn_idou.Name = "btn_idou";
+            this.btn_idou.Size = new System.Drawing.Size(75, 23);
+            this.btn_idou.TabIndex = 2;
+            this.btn_idou.Text = "移動";
+            this.btn_idou.UseVisualStyleBackColor = true;
+            // 
+            // btn_nyuuko
+            // 
+            this.btn_nyuuko.Location = new System.Drawing.Point(153, 3);
+            this.btn_nyuuko.Name = "btn_nyuuko";
+            this.btn_nyuuko.Size = new System.Drawing.Size(75, 23);
+            this.btn_nyuuko.TabIndex = 1;
+            this.btn_nyuuko.Text = "入庫";
+            this.btn_nyuuko.UseVisualStyleBackColor = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -715,33 +743,6 @@
             this.btn_syuuryou.Text = "終了";
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
-            // 
-            // btn_nyuuko
-            // 
-            this.btn_nyuuko.Location = new System.Drawing.Point(153, 3);
-            this.btn_nyuuko.Name = "btn_nyuuko";
-            this.btn_nyuuko.Size = new System.Drawing.Size(75, 23);
-            this.btn_nyuuko.TabIndex = 1;
-            this.btn_nyuuko.Text = "入庫";
-            this.btn_nyuuko.UseVisualStyleBackColor = true;
-            // 
-            // btn_syukko
-            // 
-            this.btn_syukko.Location = new System.Drawing.Point(234, 3);
-            this.btn_syukko.Name = "btn_syukko";
-            this.btn_syukko.Size = new System.Drawing.Size(75, 23);
-            this.btn_syukko.TabIndex = 1;
-            this.btn_syukko.Text = "出庫";
-            this.btn_syukko.UseVisualStyleBackColor = true;
-            // 
-            // btn_idou
-            // 
-            this.btn_idou.Location = new System.Drawing.Point(315, 3);
-            this.btn_idou.Name = "btn_idou";
-            this.btn_idou.Size = new System.Drawing.Size(75, 23);
-            this.btn_idou.TabIndex = 2;
-            this.btn_idou.Text = "移動";
-            this.btn_idou.UseVisualStyleBackColor = true;
             // 
             // frm_buhin_m
             // 

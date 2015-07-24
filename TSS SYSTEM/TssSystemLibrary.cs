@@ -542,7 +542,31 @@ namespace TSS_SYSTEM
         }
 
 
+        //区分コード選択画面（DataTable版）の呼び出し
+        public string kubun_cd_select_dt(string in_kubun_name,DataTable in_dt_kubun)
+        {
+            //マウスのX座標を取得する
+            int x = System.Windows.Forms.Cursor.Position.X;
+            //マウスのY座標を取得する
+            int y = System.Windows.Forms.Cursor.Position.Y;
 
+            string out_kubun_cd = "";   //戻り値用
+            frm_kubun_select_dt frm_ks_dt = new frm_kubun_select_dt();
+
+            //フォームをマウスの位置に表示する
+            frm_ks_dt.Left = x;
+            frm_ks_dt.Top = y;
+            frm_ks_dt.StartPosition = FormStartPosition.Manual;
+
+            //子画面のプロパティに値をセットする
+            frm_ks_dt.ppt_str_kubun_name = in_kubun_name;
+            frm_ks_dt.ppt_dt_kubun = in_dt_kubun;
+            frm_ks_dt.ShowDialog();
+            //子画面から値を取得する
+            out_kubun_cd = frm_ks_dt.ppt_str_kubun_cd;
+            frm_ks_dt.Dispose();
+            return out_kubun_cd;
+        }
 
 
 
