@@ -66,7 +66,7 @@ namespace TSS_SYSTEM
 
         private void tb_seihin_cd_Validating(object sender, CancelEventArgs e)
         {
-            //区分名称区分が空白の場合はOKとする
+            //空白の場合はOKとする
             if (tb_seihin_cd.Text != "")
             {
                 if (chk_seihin_cd() != true)

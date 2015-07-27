@@ -371,7 +371,7 @@ namespace TSS_SYSTEM
         public bool MessageLogWrite(string user_cd_from, string syori_name, string naiyou, string user_cd_to)
         {
             bool bl = new bool();
-            bl = OracleInsert("insert into tss_message_log_f(message_datetime,user_cd,message_syori_name,message_log_naiyou,create_user_cd,create_datetime) values (sysdate,'" + user_cd_from + "','" + syori_name + "','" + naiyou + "','" + user_cd_to + "',sysdate)");
+            bl = OracleInsert("insert into tss_message_log_f(message_datetime,user_cd,message_syori_name,message_log_naiyou,create_user_cd,create_datetime) values (to_char(sysdate,'yyyy/mm/dd hh24:mi:ss'),'" + user_cd_from + "','" + syori_name + "','" + naiyou + "','" + user_cd_to + "',sysdate)");
             return bl;
         }
         #endregion
@@ -385,7 +385,7 @@ namespace TSS_SYSTEM
         public bool ErrorLogWrite(string user_cd, string syori_name, string naiyou)
         {
             bool bl = new bool();
-            bl = OracleInsert("insert into tss_error_log_f(error_datetime,user_cd,error_syori_name,error_log_naiyou,create_user_cd,create_datetime) values (sysdate,'" + user_cd + "','" + syori_name + "','" + naiyou + "','" + user_cd + "',sysdate)");
+            bl = OracleInsert("insert into tss_error_log_f(error_datetime,user_cd,error_syori_name,error_naiyou,create_user_cd,create_datetime) values (to_char(sysdate,'yyyy/mm/dd hh24:mi:ss'),'" + user_cd + "','" + syori_name + "','" + naiyou + "','" + user_cd + "',sysdate)");
             return bl;
         }
         #endregion
