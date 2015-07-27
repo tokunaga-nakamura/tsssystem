@@ -296,14 +296,12 @@
             // 
             // tb_buhin_name
             // 
-            this.tb_buhin_name.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_buhin_name.BackColor = System.Drawing.SystemColors.Window;
             this.tb_buhin_name.Location = new System.Drawing.Point(103, 28);
             this.tb_buhin_name.MaxLength = 40;
             this.tb_buhin_name.Name = "tb_buhin_name";
-            this.tb_buhin_name.ReadOnly = true;
             this.tb_buhin_name.Size = new System.Drawing.Size(301, 19);
             this.tb_buhin_name.TabIndex = 1;
-            this.tb_buhin_name.TabStop = false;
             // 
             // tb_create_datetime
             // 
@@ -381,6 +379,7 @@
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
             this.tb_torihikisaki_cd.Size = new System.Drawing.Size(57, 19);
             this.tb_torihikisaki_cd.TabIndex = 3;
+            this.tb_torihikisaki_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_torihikisaki_cd_Validating);
             // 
             // textBox28
             // 
@@ -442,6 +441,7 @@
             this.tb_tani_kbn.Size = new System.Drawing.Size(31, 19);
             this.tb_tani_kbn.TabIndex = 4;
             this.tb_tani_kbn.DoubleClick += new System.EventHandler(this.tb_tani_kbn_DoubleClick);
+            this.tb_tani_kbn.Validating += new System.ComponentModel.CancelEventHandler(this.tb_tani_kbn_Validating);
             // 
             // tb_kessan_kbn_name
             // 
@@ -472,6 +472,7 @@
             this.tb_kessan_kbn.Size = new System.Drawing.Size(31, 19);
             this.tb_kessan_kbn.TabIndex = 23;
             this.tb_kessan_kbn.DoubleClick += new System.EventHandler(this.tb_kessan_kbn_DoubleClick);
+            this.tb_kessan_kbn.Validating += new System.ComponentModel.CancelEventHandler(this.tb_kessan_kbn_Validating);
             // 
             // textBox5
             // 
@@ -510,6 +511,7 @@
             this.tb_hanbai_tanka.Name = "tb_hanbai_tanka";
             this.tb_hanbai_tanka.Size = new System.Drawing.Size(100, 19);
             this.tb_hanbai_tanka.TabIndex = 9;
+            this.tb_hanbai_tanka.Validating += new System.ComponentModel.CancelEventHandler(this.tb_hanbai_tanka_Validating);
             // 
             // tb_siiresaki_name
             // 
@@ -550,6 +552,7 @@
             this.tb_siire_tanka.Name = "tb_siire_tanka";
             this.tb_siire_tanka.Size = new System.Drawing.Size(100, 19);
             this.tb_siire_tanka.TabIndex = 8;
+            this.tb_siire_tanka.Validating += new System.ComponentModel.CancelEventHandler(this.tb_siire_tanka_Validating);
             // 
             // tb_siiresaki_cd
             // 
@@ -558,6 +561,7 @@
             this.tb_siiresaki_cd.Name = "tb_siiresaki_cd";
             this.tb_siiresaki_cd.Size = new System.Drawing.Size(57, 19);
             this.tb_siiresaki_cd.TabIndex = 6;
+            this.tb_siiresaki_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_siiresaki_cd_Validating);
             // 
             // textBox16
             // 
@@ -600,6 +604,7 @@
             this.tb_siire_kbn.Size = new System.Drawing.Size(31, 19);
             this.tb_siire_kbn.TabIndex = 7;
             this.tb_siire_kbn.DoubleClick += new System.EventHandler(this.tb_siire_kbn_DoubleClick);
+            this.tb_siire_kbn.Validating += new System.ComponentModel.CancelEventHandler(this.tb_siire_kbn_Validating);
             // 
             // splitContainer4
             // 
@@ -860,7 +865,6 @@
         private System.Windows.Forms.Button btn_syukko;
         private System.Windows.Forms.Button btn_idou;
         private System.Windows.Forms.Button btn_nyuuko;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbl_buhin_cd;
     }
 }

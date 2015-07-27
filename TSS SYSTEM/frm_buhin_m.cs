@@ -102,10 +102,10 @@ namespace TSS_SYSTEM
             gamen_clear();
             tb_buhin_cd.Text = in_buhin_cd;
             lbl_buhin_cd.Text = "新規の部品です。";
-            tb_buhin_name.ReadOnly = false;
-            tb_buhin_name.TabStop = true;
-            tb_buhin_name.BackColor = System.Drawing.SystemColors.Window;
-            tb_buhin_name.Focus();
+            //tb_buhin_name.ReadOnly = false;
+            //tb_buhin_name.TabStop = true;
+            //tb_buhin_name.BackColor = System.Drawing.SystemColors.Window;
+            //tb_buhin_name.Focus();
         }
 
 
@@ -201,7 +201,21 @@ namespace TSS_SYSTEM
             return out_kubun_name;
         }
 
-
+        private string get_siiresaki_name(string in_siiresaki_cd)
+        {
+            string out_siiresaki_name = "";  //戻り値用
+            DataTable dt_work = new DataTable();
+            dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd = '" + in_siiresaki_cd + "'");
+            if (dt_work.Rows.Count <= 0)
+            {
+                out_siiresaki_name = "";
+            }
+            else
+            {
+                out_siiresaki_name = dt_work.Rows[0]["torihikisaki_name"].ToString();
+            }
+            return out_siiresaki_name;
+        }
 
 
 
@@ -298,6 +312,7 @@ namespace TSS_SYSTEM
                 {
                     //「はい」が選択された時
                     buhin_insert();
+                    chk_buhin_cd();
                 }
                 else
                 {
@@ -313,6 +328,7 @@ namespace TSS_SYSTEM
                 {
                     //「はい」が選択された時
                     buhin_update();
+                    chk_buhin_cd();
                 }
                 else
                 {
@@ -551,6 +567,143 @@ namespace TSS_SYSTEM
                 MessageBox.Show("更新しました。");
             }
         }
+
+        private void tb_buhin_name_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void tb_torihikisaki_cd_Validating(object sender, CancelEventArgs e)
+        {
+            //空白の場合はOKとする
+            if (tb_torihikisaki_cd.Text != "")
+            {
+                if (chk_torihikisaki_cd() != true)
+                {
+                    MessageBox.Show("取引先コードに異常があります。");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    tb_torihikisaki_name.Text = get_torihikisaki_name(tb_torihikisaki_cd.Text);
+                }
+            }
+        }
+
+        private void tb_tani_kbn_Validating(object sender, CancelEventArgs e)
+        {
+            //空白の場合はOKとする
+            if (tb_tani_kbn.Text != "")
+            {
+                if (chk_tani_kbn() != true)
+                {
+                    MessageBox.Show("単位区分に異常があります。");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    tb_tani_name.Text = get_kubun_name("02", tb_tani_kbn.Text);
+                }
+            }
+        }
+
+        private void tb_siiresaki_cd_Validating(object sender, CancelEventArgs e)
+        {
+            //区分名称区分が空白の場合はOKとする
+            if (tb_siiresaki_cd.Text != "")
+            {
+                if (chk_siiresaki_cd() != true)
+                {
+                    MessageBox.Show("仕入先コードに異常があります。");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    tb_siiresaki_name.Text = get_siiresaki_name(tb_siiresaki_cd.Text);
+                }
+            }
+        }
+
+        private void tb_siire_kbn_Validating(object sender, CancelEventArgs e)
+        {
+            //空白の場合はOKとする
+            if (tb_siire_kbn.Text != "")
+            {
+                if (chk_siire_kbn() != true)
+                {
+                    MessageBox.Show("仕入れ区分に異常があります。");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    tb_siire_kbn_name.Text = get_kubun_name("07", tb_siire_kbn.Text);
+                }
+            }
+        }
+
+        private void tb_siire_tanka_Validating(object sender, CancelEventArgs e)
+        {
+            //空白の場合はOKとする
+            if (tb_siire_tanka.Text != "")
+            {
+                if (chk_siire_tanka() != true)
+                {
+                    MessageBox.Show("仕入れ単価に異常があります。");
+                    e.Cancel = true;
+                }
+                else
+                {
+
+                }
+            }
+        }
+
+        private void tb_hanbai_tanka_Validating(object sender, CancelEventArgs e)
+        {
+            //空白の場合はOKとする
+            if (tb_hanbai_tanka.Text != "")
+            {
+                if (chk_hanbai_tanka() != true)
+                {
+                    MessageBox.Show("販売単価に異常があります。");
+                    e.Cancel = true;
+                }
+                else
+                {
+
+                }
+            }
+
+        }
+
+        private void tb_kessan_kbn_Validating(object sender, CancelEventArgs e)
+        {
+            //空白の場合はOKとする
+            if (tb_kessan_kbn.Text != "")
+            {
+                if (chk_kessan_kbn() != true)
+                {
+                    MessageBox.Show("決算区分に異常があります。");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    
+                }
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

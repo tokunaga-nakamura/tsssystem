@@ -100,10 +100,10 @@ namespace TSS_SYSTEM
             gamen_clear();
             tb_seihin_cd.Text = in_seihin_cd;
             lbl_seihin_cd.Text = "新規の製品です。";
-            tb_seihin_name.ReadOnly = false;
-            tb_seihin_name.TabStop = true;
-            tb_seihin_name.BackColor = System.Drawing.SystemColors.Window;
-            tb_seihin_name.Focus();
+            //tb_seihin_name.ReadOnly = false;
+            //tb_seihin_name.TabStop = true;
+            //tb_seihin_name.BackColor = System.Drawing.SystemColors.Window;
+            //tb_seihin_name.Focus();
         }
 
         private void gamen_clear()
@@ -470,7 +470,8 @@ namespace TSS_SYSTEM
                 if (result == DialogResult.Yes)
                 {
                     //「はい」が選択された時
-                    seihin_insert();                    
+                    seihin_insert();
+                    chk_seihin_cd();
                 }
                 else
                 {
@@ -486,6 +487,7 @@ namespace TSS_SYSTEM
                 {
                     //「はい」が選択された時
                     seihin_update();
+                    chk_seihin_cd();
                 }
                 else
                 {
