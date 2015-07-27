@@ -83,6 +83,7 @@
             this.dgv_buhin_nyusyukko_m = new System.Windows.Forms.DataGridView();
             this.btn_touroku = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
+            this.lbl_buhin_cd = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -185,7 +186,6 @@
             // splitContainer3.Panel1
             // 
             this.splitContainer3.Panel1.Controls.Add(this.lbl_buhin_cd);
-            this.splitContainer3.Panel1.Controls.Add(this.label3);
             this.splitContainer3.Panel1.Controls.Add(this.textBox1);
             this.splitContainer3.Panel1.Controls.Add(this.tb_update_datetime);
             this.splitContainer3.Panel1.Controls.Add(this.tb_buhin_cd);
@@ -750,6 +750,15 @@
             this.btn_syuuryou.Text = "終了";
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
+            // 
+            // lbl_buhin_cd
+            // 
+            this.lbl_buhin_cd.AutoSize = true;
+            this.lbl_buhin_cd.Location = new System.Drawing.Point(222, 6);
+            this.lbl_buhin_cd.Name = "lbl_buhin_cd";
+            this.lbl_buhin_cd.Size = new System.Drawing.Size(140, 12);
+            this.lbl_buhin_cd.TabIndex = 37;
+            this.lbl_buhin_cd.Text = "部品コードを入力してください";
             // 
             // frm_buhin_m
             // 
