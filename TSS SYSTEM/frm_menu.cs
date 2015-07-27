@@ -162,5 +162,12 @@ namespace TSS_SYSTEM
             frm_bm.ShowDialog(this);
             frm_bm.Dispose();
         }
+
+        private void btn_bank_m_Click(object sender, EventArgs e)
+        {
+            frm_bank_m frm_bam = new frm_bank_m();
+            frm_bam.ShowDialog(this);
+            frm_bam.Dispose();
+        }
     }
 }

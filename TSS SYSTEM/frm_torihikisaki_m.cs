@@ -14,8 +14,6 @@ namespace TSS_SYSTEM
     {
         DataTable dt = new DataTable();
         TssSystemLibrary tss = new TssSystemLibrary();
-        //string sv_kubun_meisyou_cd = "";
-
 
         public frm_torihikisaki_m()
         {
@@ -27,6 +25,7 @@ namespace TSS_SYSTEM
 
         }
 
+        //登録ボタンクリック
         private void btn_touroku_Click(object sender, EventArgs e)
         {
             //登録前のチェック
@@ -208,14 +207,17 @@ namespace TSS_SYSTEM
             
    
             else
-            //書込み
+            //エラーがなければ書込み
             {
                 tss.GetUser();
                 bool bl_tss;
+                
                 //既存の取引先コードがあるかチェック
                 DataTable dt_work = new DataTable();
                
                 dt_work = tss.OracleSelect("select * from TSS_TORIHIKISAKI_M where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'");
+                
+                //既に登録済みのデータがある場合
                 if (dt_work.Rows.Count != 0)
                 {
                     tss.GetUser();
@@ -241,6 +243,8 @@ namespace TSS_SYSTEM
                     }
                     
                 }
+                
+                //登録済みのデータがない場合
                 else
                 {
                     //新規
@@ -266,14 +270,17 @@ namespace TSS_SYSTEM
 
         }
 
+        //終了ボタンクリック
         private void btn_syuuryou_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //取引先コードのテキストボックスからカーソルが移動した場合の処理
         public void tb_torihikisaki_cd_Leave(object sender, EventArgs e)
         {
             
+            //以下のメソッド実施
             torihikisaki_disp(tb_torihikisaki_cd.Text);
             tantousya_disp(tb_torihikisaki_cd.Text);
 
@@ -310,11 +317,12 @@ namespace TSS_SYSTEM
 
 
         }
-
+        
+        //担当者コードから、担当者マスタを呼び出して、データグリッドビューに表示する
         private void tantousya_disp(string in_torihikisaki_cd)
         {
             DataTable dt = new DataTable();
-            dt = tss.OracleSelect("select * from TSS_TORIHIKISAKI_TANTOU_M where torihikisaki_cd = '" + in_torihikisaki_cd + "'");
+            dt = tss.OracleSelect("select * from TSS_TORIHIKISAKI_TANTOU_M where torihikisaki_cd = '" + in_torihikisaki_cd + "'ORDER BY TANTOUSYA_CD");
 
             dgv_tantousya.DataSource = dt;
                
@@ -342,7 +350,8 @@ namespace TSS_SYSTEM
 
         }
 
-         private void torihikisaki_disp(string in_torihikisaki_cd)
+        //取引先コードから、取引先マスタのデータを呼出してテキストボックスに入れる。
+        private void torihikisaki_disp(string in_torihikisaki_cd)
         {
             DataTable dt_work = new DataTable();
             dt_work = tss.OracleSelect("select * from TSS_TORIHIKISAKI_M where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'");
@@ -373,9 +382,10 @@ namespace TSS_SYSTEM
                 tb_hasu_syori_tani.Text = dt_work.Rows[0][23].ToString();
                 tb_jisyaden_kbn.Text = dt_work.Rows[0][24].ToString();
             }
-             else
+
+            //マスターに既存レコードがなければnullをテキストボックスに入れる。
+            else
             {
-                //MessageBox.Show("取引先を新規登録します");
 
                 tb_torihikisaki_name.Text = null;
                 tb_torihikisaki_seisiki_name.Text = null;
@@ -407,15 +417,14 @@ namespace TSS_SYSTEM
 
         }
 
-         private void frm_torihikisaki_m_Load(object sender, EventArgs e)
+        //フォームロード時には以下のメソッドを自動で実行する。 
+        private void frm_torihikisaki_m_Load(object sender, EventArgs e)
          {
-            // torihikisaki_disp(tb_torihikisaki_cd.Text);
-
              tantousya_disp(tb_torihikisaki_cd.Text);
          }
 
 
-        //フォーム内のテキストボックスチェックメソッド
+        //フォーム内のテキストボックスチェックメソッド（エラーを吐き出すための条件を設定する）
          private bool chk_torihikisaki_cd()
          {
              bool bl = true; //戻り値用
@@ -453,7 +462,7 @@ namespace TSS_SYSTEM
          {
              bool bl = true; //戻り値用
 
-             if (tb_torihikisaki_ryakusiki_moji.Text == null || tb_torihikisaki_ryakusiki_moji.Text.Length > 5)
+             if (tb_torihikisaki_ryakusiki_moji.Text == null || tb_torihikisaki_ryakusiki_moji.Text.Length == 0 || tb_torihikisaki_ryakusiki_moji.Text.Length > 5)
              {
                  bl = false;
              }
@@ -585,7 +594,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値用
 
-            if (tb_seikyu_sime_date.Text == null || int.Parse(tb_seikyu_sime_date.Text) > 31 &&  int.Parse(tb_seikyu_sime_date.Text) < 99 || int.Parse(tb_seikyu_sime_date.Text) < 1)
+            if (tb_seikyu_sime_date.Text == null || tb_seikyu_sime_date.Text.Length == 0 || int.Parse(tb_seikyu_sime_date.Text) > 31 && int.Parse(tb_seikyu_sime_date.Text) < 99 || int.Parse(tb_seikyu_sime_date.Text) < 1)
             {
                 bl = false;
             }
@@ -596,7 +605,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値用
 
-            if (tb_kaisyu_tuki.Text == null || int.Parse(tb_kaisyu_tuki.Text) > 12)
+            if (tb_kaisyu_tuki.Text == null || tb_kaisyu_tuki.Text.Length == 0 || int.Parse(tb_kaisyu_tuki.Text) > 12)
             {
                 bl = false;
             }
@@ -607,7 +616,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値用
 
-            if (tb_kaisyu_hi.Text == null || int.Parse(tb_kaisyu_hi.Text) > 31)
+            if (tb_kaisyu_hi.Text == null || tb_kaisyu_hi.Text.Length == 0 || int.Parse(tb_kaisyu_hi.Text) > 31)
             {
                 bl = false;
             }
@@ -618,7 +627,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値用
 
-            if (tb_siharai_sime_date.Text == null || int.Parse(tb_siharai_sime_date.Text) > 31 && int.Parse(tb_siharai_sime_date.Text) < 99 || int.Parse(tb_siharai_sime_date.Text) < 1)
+            if (tb_siharai_sime_date.Text == null || tb_siharai_sime_date.Text.Length == 0 || int.Parse(tb_siharai_sime_date.Text) > 31 && int.Parse(tb_siharai_sime_date.Text) < 99 || int.Parse(tb_siharai_sime_date.Text) < 1)
             {
                 bl = false;
             }
@@ -629,7 +638,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値用
 
-            if (tb_siharai_tuki.Text == null || int.Parse(tb_siharai_tuki.Text) > 12)
+            if (tb_siharai_tuki.Text == null || tb_siharai_tuki.Text.Length == 0 || int.Parse(tb_siharai_tuki.Text) > 12)
             {
                 bl = false;
             }
@@ -640,7 +649,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値用
 
-            if (tb_siharai_hi.Text == null || int.Parse(tb_siharai_hi.Text) > 31 && int.Parse(tb_siharai_hi.Text) < 99 || int.Parse(tb_siharai_hi.Text) < 1)
+            if (tb_siharai_hi.Text == null || tb_siharai_hi.Text.Length == 0 || int.Parse(tb_siharai_hi.Text) > 31 && int.Parse(tb_siharai_hi.Text) < 99 || int.Parse(tb_siharai_hi.Text) < 1)
             {
                 bl = false;
             }
@@ -651,7 +660,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値用
 
-            if (tb_jisyaden_kbn.Text == null || int.Parse(tb_jisyaden_kbn.Text) > 1)
+            if (tb_jisyaden_kbn.Text == null || tb_jisyaden_kbn.Text.Length == 0 || int.Parse(tb_jisyaden_kbn.Text) > 1)
             {
                 bl = false;
             }
@@ -662,7 +671,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値用
 
-            if (tb_hasu_kbn.Text == null || int.Parse(tb_hasu_kbn.Text) > 2)
+            if (tb_hasu_kbn.Text == null || tb_hasu_kbn.Text.Length == 0 || int.Parse(tb_hasu_kbn.Text) > 2)
             {
                 bl = false;
             }
@@ -673,7 +682,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値用
 
-            if (tb_hasu_syori_tani.Text == null || int.Parse(tb_hasu_syori_tani.Text) > 2)
+            if (tb_hasu_syori_tani.Text == null || tb_hasu_syori_tani.Text.Length == 0 || int.Parse(tb_hasu_syori_tani.Text) > 2)
             {
                 bl = false;
             }
@@ -684,7 +693,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値用
 
-            if (tb_syouhizei_sansyutu_kbn.Text == null || int.Parse(tb_syouhizei_sansyutu_kbn.Text) > 2)
+            if (tb_syouhizei_sansyutu_kbn.Text == null || tb_syouhizei_sansyutu_kbn.Text.Length == 0 || int.Parse(tb_syouhizei_sansyutu_kbn.Text) > 2)
             {
                 bl = false;
             }
@@ -692,7 +701,7 @@ namespace TSS_SYSTEM
         }
 
 
-
+        //自社伝区分ダブルクリック時の動き
         private void tb_jisyaden_kbn_DoubleClick(object sender, EventArgs e)
         {
             //選択用のdatatableの作成
@@ -714,6 +723,7 @@ namespace TSS_SYSTEM
             chk_jisyaden_kbn();   //自社伝発行区分名の表示
         }
 
+        //端数区分ダブルクリック時の動き
         private void tb_hasu_kbn_DoubleClick(object sender, EventArgs e)
         {
             //選択用のdatatableの作成
@@ -739,6 +749,7 @@ namespace TSS_SYSTEM
             chk_hasu_kbn();   //端数区分名の表示
         }
 
+        //端数処理単位ダブルクリック時の動き
         private void tb_hasu_syori_tani_DoubleClick(object sender, EventArgs e)
         {
             //選択用のdatatableの作成
@@ -764,6 +775,7 @@ namespace TSS_SYSTEM
             chk_hasu_syori_tani();   //端数処理単位名の表示
         }
 
+        //消費税算出区分ダブルクリック時の動き
         private void tb_syouhizei_sansyutu_kbn_DoubleClick(object sender, EventArgs e)
         {
             //選択用のdatatableの作成
@@ -789,6 +801,7 @@ namespace TSS_SYSTEM
             chk_syouhizei_sansyutu_kbn();   //消費税算出区分名の表示
         }
 
+        //追加ボタンクリック時の動き
         private void btn_tsuika_Click(object sender, EventArgs e)
         {
             frm_torihikisaki_tantou frm_tt = new frm_torihikisaki_tantou();

@@ -42,8 +42,8 @@ namespace TSS_SYSTEM
                 fld_tantousya_cd = value;
             }
         }
-        
-        
+
+
         public frm_torihikisaki_tantou()
         {
             InitializeComponent();
@@ -59,7 +59,7 @@ namespace TSS_SYSTEM
             //取引先コードのチェック
             if (chk_torihikisaki_cd() == false)
             {
-                MessageBox.Show("取引先コードは1文字以上、6バイト以内で入力してください。");
+                MessageBox.Show("取引先コード6文字で入力してください。");
                 tb_torihikisaki_cd.Focus();
                 return;
             }
@@ -73,7 +73,7 @@ namespace TSS_SYSTEM
             //担当者コードのチェック
             if (chk_tantousya_cd() == false)
             {
-                MessageBox.Show("担当者コードは1文字以上、6バイト以内で入力してください。");
+                MessageBox.Show("担当者コードは6文字で入力してください。");
                 tb_tantousya_cd.Focus();
                 return;
             }
@@ -126,7 +126,7 @@ namespace TSS_SYSTEM
                 tb_mail_address.Focus();
                 return;
             }
-            
+
 
 
             else
@@ -137,28 +137,48 @@ namespace TSS_SYSTEM
                 //既存の区分があるかチェック
                 DataTable dt_work = new DataTable();
                 dt_work = tss.OracleSelect("select * from TSS_TORIHIKISAKI_TANTOU_M where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "' and tantousya_cd = '" + tb_tantousya_cd.Text + "'");
+                
                 if (dt_work.Rows.Count != 0)
-                {
-                    tss.GetUser();
-                    //更新
-                    //bool bl_tss = true;
-                    bl_tss = tss.OracleUpdate("UPDATE TSS_torihikisaki_tantou_m SET TORIHIKISAKI_NAME = '" + tb_torihikisaki_name.Text
-                        + "',YUBIN_NO = '" + tb_yubin_no.Text + "',JUSYO1 = '" + tb_jusyo1.Text + "',JUSYO2 = '" + tb_jusyo2.Text + "',TEL_NO = '" + tb_tel_no.Text
-                        + "',FAX_NO = '" + tb_fax_no.Text + "',KEITAI_NO = '" + tb_keitai_no.Text + "',MAIL_ADDRESS = '" + tb_mail_address.Text
-                        + "',SYOZOKU = '" + tb_syozoku.Text + "',YAKUSYOKU = '" + tb_yakusyoku.Text
-                        + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "' and TANTOUSYA_CD = '" + tb_tantousya_cd.Text + "'");
-                    if (bl_tss != true) 
-                    {
-                        tss.ErrorLogWrite(tss.user_cd, "取引先担当者マスタ／登録", "登録ボタン押下時のOracleUpdate");
-                        MessageBox.Show("登録でエラーが発生しました。処理を中止します。");
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("取引先担当者マスタを更新しました。");
-                        this.Close();
-                    }
-                    //}
+
+                {      
+                        DialogResult result = MessageBox.Show("この担当者コードは既に登録されています。上書きしますか？",
+                        "担当者削除",
+                        MessageBoxButtons.OKCancel,
+                        MessageBoxIcon.Exclamation,
+                        MessageBoxDefaultButton.Button2);
+
+                        //何が選択されたか調べる
+                        if (result == DialogResult.OK)
+                        {
+                            //「はい」が選択された時
+                            tss.GetUser();
+                        //更新
+                        //bool bl_tss = true;
+                        bl_tss = tss.OracleUpdate("UPDATE TSS_torihikisaki_tantou_m SET TORIHIKISAKI_NAME = '" + tb_torihikisaki_name.Text + "',TANTOUSYA_NAME = '" + tb_tantousya_name.Text
+                            + "',YUBIN_NO = '" + tb_yubin_no.Text + "',JUSYO1 = '" + tb_jusyo1.Text + "',JUSYO2 = '" + tb_jusyo2.Text + "',TEL_NO = '" + tb_tel_no.Text
+                            + "',FAX_NO = '" + tb_fax_no.Text + "',KEITAI_NO = '" + tb_keitai_no.Text + "',MAIL_ADDRESS = '" + tb_mail_address.Text
+                            + "',SYOZOKU = '" + tb_syozoku.Text + "',YAKUSYOKU = '" + tb_yakusyoku.Text
+                            + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "' and TANTOUSYA_CD = '" + tb_tantousya_cd.Text + "'");
+                        if (bl_tss != true)
+                        {
+                            tss.ErrorLogWrite(tss.user_cd, "取引先担当者マスタ／登録", "登録ボタン押下時のOracleUpdate");
+                            MessageBox.Show("登録でエラーが発生しました。処理を中止します。");
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("取引先担当者情報を更新しました。");
+                            this.Close();
+                        }
+                            }
+
+           
+                        else if (result == DialogResult.Cancel)
+                        {
+                            //「キャンセル」が選択された時
+                            Console.WriteLine("「キャンセル」が選択されました");
+                        }
+
                 }
                 else
                 {
@@ -177,7 +197,7 @@ namespace TSS_SYSTEM
                         this.Close();
                     }
 
-                    
+
                 }
 
             }
@@ -185,145 +205,188 @@ namespace TSS_SYSTEM
 
 
 
-            private void frm_torihikisaki_tantou_Load(object sender, EventArgs e)
+        private void frm_torihikisaki_tantou_Load(object sender, EventArgs e)
+        {
+            tb_torihikisaki_cd.Text = str_torihikisaki_cd;
+            tb_tantousya_cd.Text = str_tantousya_cd;
+
+            DataTable dt_work = new DataTable();
+            dt_work = tss.OracleSelect("select * from TSS_TORIHIKISAKI_TANTOU_M where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "' and tantousya_cd = '" + tb_tantousya_cd.Text + "'");
+
+            if (dt_work.Rows.Count != 0)
             {
-                tb_torihikisaki_cd.Text = str_torihikisaki_cd;
-                tb_tantousya_cd.Text = str_tantousya_cd;
-
-                DataTable dt_work = new DataTable();
-                dt_work = tss.OracleSelect("select * from TSS_TORIHIKISAKI_TANTOU_M where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "' and tantousya_cd = '" + tb_tantousya_cd.Text + "'");
-
-                if (dt_work.Rows.Count != 0)
-                {
-                    tb_torihikisaki_name.Text = dt_work.Rows[0][2].ToString();
-                    tb_tantousya_name.Text = dt_work.Rows[0][3].ToString();
-                    tb_syozoku.Text = dt_work.Rows[0][9].ToString();
-                    tb_yakusyoku.Text = dt_work.Rows[0][10].ToString();
-                    tb_yubin_no.Text = dt_work.Rows[0][4].ToString();
-                    tb_jusyo1.Text = dt_work.Rows[0][5].ToString();
-                    tb_jusyo2.Text = dt_work.Rows[0][6].ToString();
-                    tb_tel_no.Text = dt_work.Rows[0][7].ToString();
-                    tb_fax_no.Text = dt_work.Rows[0][8].ToString();
-                    tb_keitai_no.Text = dt_work.Rows[0][11].ToString();
-                    tb_mail_address.Text = dt_work.Rows[0][12].ToString();
-                }
-
-                else
-                {
-                    DataTable dt_work2 = new DataTable();
-                    dt_work2 = tss.OracleSelect("select torihikisaki_name from TSS_TORIHIKISAKI_M where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'");
-                    tb_torihikisaki_name.Text = dt_work2.Rows[0][0].ToString();
-                }
-
+                tb_torihikisaki_name.Text = dt_work.Rows[0][2].ToString();
+                tb_tantousya_name.Text = dt_work.Rows[0][3].ToString();
+                tb_syozoku.Text = dt_work.Rows[0][9].ToString();
+                tb_yakusyoku.Text = dt_work.Rows[0][10].ToString();
+                tb_yubin_no.Text = dt_work.Rows[0][4].ToString();
+                tb_jusyo1.Text = dt_work.Rows[0][5].ToString();
+                tb_jusyo2.Text = dt_work.Rows[0][6].ToString();
+                tb_tel_no.Text = dt_work.Rows[0][7].ToString();
+                tb_fax_no.Text = dt_work.Rows[0][8].ToString();
+                tb_keitai_no.Text = dt_work.Rows[0][11].ToString();
+                tb_mail_address.Text = dt_work.Rows[0][12].ToString();
             }
 
-            //フォーム内のテキストボックスチェックメソッド
-            private bool chk_torihikisaki_cd()
+            else
             {
-                bool bl = true; //戻り値用
-
-                if (tb_torihikisaki_cd.Text == null || tb_torihikisaki_cd.Text.Length > 6)
-                {
-                    bl = false;
-                }
-                return bl;
+                DataTable dt_work2 = new DataTable();
+                dt_work2 = tss.OracleSelect("select torihikisaki_name from TSS_TORIHIKISAKI_M where torihikisaki_cd = '" + tb_torihikisaki_cd.Text  + "'");
+                tb_torihikisaki_name.Text = dt_work2.Rows[0][0].ToString();
             }
 
-            private bool chk_torihikisaki_name()
+        }
+
+        //フォーム内のテキストボックスチェックメソッド
+        private bool chk_torihikisaki_cd()
+        {
+            bool bl = true; //戻り値用
+
+            if (tb_torihikisaki_cd.Text == null || tb_torihikisaki_cd.Text.Length > 6 || tb_torihikisaki_cd.Text.Length < 6)
             {
-                bool bl = true; //戻り値用
-
-                if (tb_torihikisaki_name.Text == null || tb_torihikisaki_name.Text.Length == 0 || tss.StringByte(tb_torihikisaki_name.Text) > 40)
-                {
-                    bl = false;
-                }
-                return bl;
+                bl = false;
             }
-            private bool chk_tantousya_cd()
+            return bl;
+        }
+
+        private bool chk_torihikisaki_name()
+        {
+            bool bl = true; //戻り値用
+
+            if (tb_torihikisaki_name.Text == null || tb_torihikisaki_name.Text.Length == 0 || tss.StringByte(tb_torihikisaki_name.Text) > 40)
             {
-                bool bl = true; //戻り値用
-
-                if (tb_tantousya_cd.Text == null || tb_tantousya_cd.Text.Length > 6)
-                {
-                    bl = false;
-                }
-                return bl;
+                bl = false;
             }
+            return bl;
+        }
+        private bool chk_tantousya_cd()
+        {
+            bool bl = true; //戻り値用
 
-            private bool chk_tantousya_name()
+            if (tb_tantousya_cd.Text == null || tb_tantousya_cd.Text.Length > 6 || tb_tantousya_cd.Text.Length < 6)
             {
-                bool bl = true; //戻り値用
-
-                if (tb_tantousya_name.Text == null || tb_tantousya_name.Text.Length == 0 || tss.StringByte(tb_tantousya_name.Text) > 40)
-                {
-                    bl = false;
-                }
-                return bl;
+                bl = false;
             }
-            private bool chk_yubin_no()
+            return bl;
+        }
+
+        private bool chk_tantousya_name()
+        {
+            bool bl = true; //戻り値用
+
+            if (tb_tantousya_name.Text == null || tb_tantousya_name.Text.Length == 0 || tss.StringByte(tb_tantousya_name.Text) > 40)
             {
-                bool bl = true; //戻り値用
-
-                if (tss.StringByte(tb_yubin_no.Text) > 10)
-                {
-                    bl = false;
-                }
-                return bl;
+                bl = false;
             }
+            return bl;
+        }
+        private bool chk_yubin_no()
+        {
+            bool bl = true; //戻り値用
 
-            private bool chk_jusyo1()
+            if (tss.StringByte(tb_yubin_no.Text) > 10)
             {
-                bool bl = true; //戻り値用
-
-                if (tss.StringByte(tb_jusyo1.Text) > 40)
-                {
-                    bl = false;
-                }
-                return bl;
+                bl = false;
             }
+            return bl;
+        }
 
-            private bool chk_jusyo2()
+        private bool chk_jusyo1()
+        {
+            bool bl = true; //戻り値用
+
+            if (tss.StringByte(tb_jusyo1.Text) > 40)
             {
-                bool bl = true; //戻り値用
-
-                if (tss.StringByte(tb_jusyo2.Text) > 40)
-                {
-                    bl = false;
-                }
-                return bl;
+                bl = false;
             }
+            return bl;
+        }
 
-            private bool chk_tel_no()
+        private bool chk_jusyo2()
+        {
+            bool bl = true; //戻り値用
+
+            if (tss.StringByte(tb_jusyo2.Text) > 40)
             {
-                bool bl = true; //戻り値用
-
-                if (tss.StringByte(tb_tel_no.Text) > 20)
-                {
-                    bl = false;
-                }
-                return bl;
+                bl = false;
             }
+            return bl;
+        }
 
-            private bool chk_fax_no()
+        private bool chk_tel_no()
+        {
+            bool bl = true; //戻り値用
+
+            if (tss.StringByte(tb_tel_no.Text) > 20)
             {
-                bool bl = true; //戻り値用
-
-                if (tss.StringByte(tb_fax_no.Text) > 20)
-                {
-                    bl = false;
-                }
-                return bl;
+                bl = false;
             }
+            return bl;
+        }
 
-            private bool chk_mail_address()
+        private bool chk_fax_no()
+        {
+            bool bl = true; //戻り値用
+
+            if (tss.StringByte(tb_fax_no.Text) > 20)
             {
-                bool bl = true; //戻り値用
-
-                if (tss.StringByte(tb_mail_address.Text) > 60)
-                {
-                    bl = false;
-                }
-                return bl;
+                bl = false;
             }
+            return bl;
+        }
+
+        private bool chk_mail_address()
+        {
+            bool bl = true; //戻り値用
+
+            if (tss.StringByte(tb_mail_address.Text) > 60)
+            {
+                bl = false;
+            }
+            return bl;
+        }
+
+        private void btn_sakujyo_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("担当者情報を削除しますか？",
+            "担当者削除",
+            MessageBoxButtons.OKCancel,
+            MessageBoxIcon.Exclamation,
+            MessageBoxDefaultButton.Button2);
+
+            //何が選択されたか調べる
+            if (result == DialogResult.OK)
+            {
+                //「はい」が選択された時
+                tss.GetUser();
+                bool bl_tss;
+                bl_tss = tss.OracleDelete("delete from TSS_TORIHIKISAKI_TANTOU_M where TANTOUSYA_CD = '" + tb_tantousya_cd.Text + "'");
+                    if (bl_tss != true)
+                    {
+                        tss.ErrorLogWrite(tss.user_cd, "取引先担当者マスタ／登録", "登録ボタン押下時のOracleUpdate");
+                        MessageBox.Show("エラーが発生しました。処理を中止します。");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("担当者情報から削除しました。");
+                        this.Close();
+                    }
+            }
+
+           
+            else if (result == DialogResult.Cancel)
+            {
+                //「キャンセル」が選択された時
+                Console.WriteLine("「キャンセル」が選択されました");
+            }
+
+
+        }
+
+        private void bt_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
+}

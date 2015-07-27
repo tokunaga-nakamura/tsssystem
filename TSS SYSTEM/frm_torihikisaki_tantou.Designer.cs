@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_torihikisaki_tantou));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.label1 = new System.Windows.Forms.Label();
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tb_keitai_no = new System.Windows.Forms.TextBox();
@@ -58,8 +57,10 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.tb_tantousya_cd = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btn_sakujyo = new System.Windows.Forms.Button();
             this.btn_touroku = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.bt_close = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -82,7 +83,6 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.btn_hardcopy);
             // 
             // splitContainer1.Panel2
@@ -92,15 +92,6 @@
             this.splitContainer1.SplitterDistance = 62;
             this.splitContainer1.TabIndex = 3;
             this.splitContainer1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(104, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(318, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "区分は一度登録したものは削除できません。　※整合信頼性保持";
             // 
             // btn_hardcopy
             // 
@@ -152,6 +143,8 @@
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.bt_close);
+            this.splitContainer2.Panel2.Controls.Add(this.btn_sakujyo);
             this.splitContainer2.Panel2.Controls.Add(this.btn_touroku);
             this.splitContainer2.Size = new System.Drawing.Size(484, 304);
             this.splitContainer2.SplitterDistance = 270;
@@ -385,9 +378,19 @@
             this.textBox1.TabStop = false;
             this.textBox1.Text = "担当者コード";
             // 
+            // btn_sakujyo
+            // 
+            this.btn_sakujyo.Location = new System.Drawing.Point(95, 3);
+            this.btn_sakujyo.Name = "btn_sakujyo";
+            this.btn_sakujyo.Size = new System.Drawing.Size(75, 23);
+            this.btn_sakujyo.TabIndex = 1;
+            this.btn_sakujyo.Text = "削除";
+            this.btn_sakujyo.UseVisualStyleBackColor = true;
+            this.btn_sakujyo.Click += new System.EventHandler(this.btn_sakujyo_Click);
+            // 
             // btn_touroku
             // 
-            this.btn_touroku.Location = new System.Drawing.Point(381, 3);
+            this.btn_touroku.Location = new System.Drawing.Point(12, 3);
             this.btn_touroku.Name = "btn_touroku";
             this.btn_touroku.Size = new System.Drawing.Size(75, 23);
             this.btn_touroku.TabIndex = 0;
@@ -403,6 +406,16 @@
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // bt_close
+            // 
+            this.bt_close.Location = new System.Drawing.Point(395, 3);
+            this.bt_close.Name = "bt_close";
+            this.bt_close.Size = new System.Drawing.Size(75, 23);
+            this.bt_close.TabIndex = 2;
+            this.bt_close.Text = "終了";
+            this.bt_close.UseVisualStyleBackColor = true;
+            this.bt_close.Click += new System.EventHandler(this.bt_close_Click);
+            // 
             // frm_torihikisaki_tantou
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -414,7 +427,6 @@
             this.Text = "frm_torihikisaki_tantou";
             this.Load += new System.EventHandler(this.frm_torihikisaki_tantou_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -431,7 +443,6 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_hardcopy;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.SplitContainer splitContainer2;
@@ -461,6 +472,8 @@
         private System.Windows.Forms.TextBox tb_tel_no;
         private System.Windows.Forms.TextBox textBox19;
         public System.Windows.Forms.TextBox tb_torihikisaki_cd;
+        private System.Windows.Forms.Button btn_sakujyo;
+        private System.Windows.Forms.Button bt_close;
 
     }
 }
