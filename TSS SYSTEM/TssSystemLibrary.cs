@@ -26,6 +26,7 @@ namespace TSS_SYSTEM
         string fld_UserID;
         string fld_Password;
         string fld_ConnectionString;
+        string fld_CsvPath;
 
         string fld_system_cd;
         string fld_system_name;
@@ -52,6 +53,7 @@ namespace TSS_SYSTEM
             fld_UserID = null;
             fld_Password = null;
             fld_ConnectionString = null;
+            fld_CsvPath = null;
 
             fld_system_cd = null;
             fld_system_name = null;
@@ -75,6 +77,7 @@ namespace TSS_SYSTEM
         public string UserID { get { return fld_UserID; } }
         public string Password { get { return fld_Password; } }
         public string ConnectionString { get { return fld_ConnectionString; } }
+        public string CsvPath { get { return fld_CsvPath; } }
 
         public string system_cd { get { return fld_system_cd; } }
         public string system_name { get { return fld_system_name; } }
@@ -397,31 +400,70 @@ namespace TSS_SYSTEM
         /// <summary>
         /// DataTableをCSVファイルに出力します。
         /// <param name="dt">出力するDataTable名</param>
-        /// <param name="csvPath">CSVファイルのパス</param>
+        /// <param name="SaveFileDialog">ファイルダイアログを使用する時はtrue</param>
+        /// <param name="csvPath">CSVファイルのフルパス（ファイル名まで含める）※SaveFileDialogがtrueの場合はパスを除いたファイル名</param>
         /// <param name="interstring">各データを囲む文字</param>
         /// <param name="writeHeader">ヘッダを書き込む時はtrue</param>
         /// <returns>正常:true 失敗:false</returns>
         /// </summary>
-        public Boolean DataTableCSV(DataTable dt, string csvPath, string interstring, Boolean writeHeader)
+        public Boolean DataTableCSV(DataTable in_dt,bool in_SaveFileDialog, string in_csvPath, string in_interstring, Boolean in_writeHeader)
         {
+            //保存するファイルパスとファイル名を決める
+            string w_str_filename;
+            if(in_SaveFileDialog)
+            {
+                //SaveFileDialogクラスのインスタンスを作成
+                SaveFileDialog sfd = new SaveFileDialog();
+                //はじめのファイル名を指定する
+                sfd.FileName = in_csvPath;
+                //はじめに表示されるフォルダを指定する
+                sfd.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+                //[ファイルの種類]に表示される選択肢を指定する
+                sfd.Filter = "CSVファイル(*.csv)|*.csv|すべてのファイル(*.*)|*.*";
+                //タイトルを設定する
+                sfd.Title = "保存先のファイルを選択してください";
+                //ダイアログボックスを閉じる前に現在のディレクトリを復元するようにする
+                sfd.RestoreDirectory = true;
+                //既に存在するファイル名を指定したとき警告する（デフォルトでTrueなので指定する必要はない）
+                sfd.OverwritePrompt = true;
+                //存在しないパスが指定されたとき警告を表示する（デフォルトでTrueなので指定する必要はない）
+                sfd.CheckPathExists = true;
+
+                //ダイアログを表示する
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    //OKボタンがクリックされたとき選択されたファイル名を表示する
+                    w_str_filename = sfd.FileName;
+                }
+                else
+                {
+                    //OKボタンでない場合はキャンセルとみなし終了する
+                    return false;
+                }
+            }
+            else
+            {
+                w_str_filename = in_csvPath;
+            }
+
             //CSVファイルに書き込むときに使うEncoding
             System.Text.Encoding enc = System.Text.Encoding.GetEncoding("Shift_JIS");
             //書き込むファイルを開く
-            StreamWriter sr = new StreamWriter(csvPath, false, enc);
+            StreamWriter sr = new StreamWriter(w_str_filename, false, enc);
 
-            int columncnt = dt.Columns.Count;
+            int columncnt = in_dt.Columns.Count;
             int lastcolumncnt = columncnt - 1;
             try
             {
                 //ヘッダを書き込む
-                if (writeHeader)
+                if (in_writeHeader)
                 {
                     for (int i = 0; i < columncnt; i++)
                     {
                         //ヘッダの取得
-                        string field = dt.Columns[i].Caption;
+                        string field = in_dt.Columns[i].Caption;
                         //データを囲む処理
-                        field = interstring + field + interstring;
+                        field = in_interstring + field + in_interstring;
                         //フィールドを書き込む
                         sr.Write(field);
                         //カンマを書き込む
@@ -434,14 +476,14 @@ namespace TSS_SYSTEM
                     sr.Write("\r\n");
                 }
                 //レコードを書き込む
-                foreach (DataRow row in dt.Rows)
+                foreach (DataRow row in in_dt.Rows)
                 {
                     for (int i = 0; i < columncnt; i++)
                     {
                         //フィールドの取得
                         string field = row[i].ToString();
                         //データを囲む処理
-                        field = interstring + field + interstring;
+                        field = in_interstring + field + in_interstring;
                         //フィールドを書き込む
                         sr.Write(field);
                         //カンマを書き込む
@@ -593,7 +635,29 @@ namespace TSS_SYSTEM
             frm_sb.Dispose();
             return out_cd;
         }
+        
+        public string GetCsvPath()
+        {
+            /// <summary>
+            /// TSSシステムのデフォルトのCSV形式のファイルの出力先パスを取得する。
+            /// </summary>
 
+            //app.configから必要な情報を取得
+            string CsvPath = ConfigurationManager.AppSettings["CsvPath"];   //データソース名文字列の取得
+
+            if (CsvPath.Length == 0)
+            {
+                MessageBox.Show("設定ファイル:CsvPathを処理できません。");
+                return null;
+            }
+            else
+            {
+                fld_CsvPath = CsvPath;
+            }
+            //戻り値
+            fld_ConnectionString = "Data Source=" + DataSource + ";User Id=" + UserID + ";Password=" + Password;
+            return CsvPath;
+        }
 
 
 

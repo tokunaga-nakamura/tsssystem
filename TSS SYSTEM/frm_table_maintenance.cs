@@ -14,6 +14,7 @@ namespace TSS_SYSTEM
 {
     public partial class frm_table_maintenance : Form
     {
+        TssSystemLibrary tss = new TssSystemLibrary();
         OracleDataAdapter da;
         DataTable dt = new DataTable();
         OracleCommandBuilder cb;
@@ -97,34 +98,15 @@ namespace TSS_SYSTEM
             {
                 return;
             }
-            //保存ダイアログ
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Title = "ファイルを保存";  // ダイアログのタイトルを指定
-            sfd.InitialDirectory = @"c:\"; // 初期フォルダを指定
-            sfd.FileName = string.Empty;   // 初期ファイル名
-            sfd.CheckFileExists = false;   // ファイルが存在するかどうかチェックする
-            sfd.AddExtension = true;       // 拡張子が入力されなければ自動で付与するか否か
-            sfd.OverwritePrompt = true;    // ファイルが既に存在する場合警告するか否か
-            // ファイルの種類、拡張子のフィルターを設定
-            sfd.Filter =
-                "すべてのファイル(*.*)|*.*|" +
-                "CSVファイル(*.CSV)|*.csv";
-            // 初期状態で選択されているフィルターは何番目か
-            // インデックスは１からはじまるので注意
-            sfd.FilterIndex = 2;
-            // ダイアログを表示
-            if (sfd.ShowDialog() == DialogResult.OK)    //←このif文は、ダイアログでOKが押されたら・・・って事。
+            string w_str_now = DateTime.Now.Year.ToString("0000") + DateTime.Now.Month.ToString("00") + DateTime.Now.Day.ToString("00") + DateTime.Now.Hour.ToString("00") + DateTime.Now.Minute.ToString("00") + DateTime.Now.Second.ToString("00");
+            string w_str_filename = "管理者用マスタメンテからのデータ出力" + w_str_now + ".csv";
+            if (tss.DataTableCSV(dt,true, w_str_filename, "\"", true))
             {
-                TssSystemLibrary tssa= new TssSystemLibrary();
-
-                if (tssa.DataTableCSV(dt, sfd.FileName, "\"", true))
-                {
-                    MessageBox.Show("保存しました。");
-                }
-                else
-                {
-                    MessageBox.Show("保存できませんでした。", "エラー");
-                }
+                MessageBox.Show("保存しました。");
+            }
+            else
+            {
+                MessageBox.Show("キャンセルまたはエラー");
             }
             return;
         }

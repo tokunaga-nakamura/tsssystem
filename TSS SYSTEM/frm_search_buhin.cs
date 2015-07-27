@@ -139,12 +139,14 @@ namespace TSS_SYSTEM
         {
             btn_cancel.Text = "終了";
             btn_sentaku.Enabled = false;
+            btn_sentaku.Visible = false;
         }
 
         private void mode2()
         {
             btn_cancel.Text = "キャンセル";
             btn_sentaku.Enabled = true;
+            btn_sentaku.Visible = true;
         }
     
         private void kensaku()
@@ -318,9 +320,9 @@ namespace TSS_SYSTEM
             dgv_m.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             //DataGridView1にユーザーが新しい行を追加できないようにする
             dgv_m.AllowUserToAddRows = false;
-
+            
             dgv_m.DataSource = in_dt;
-
+            dt_m = in_dt;
             //DataGridViewのカラムヘッダーテキストを変更する
             dgv_m.Columns[0].HeaderText = "部品コード";
             dgv_m.Columns[1].HeaderText = "部品名";
@@ -330,7 +332,7 @@ namespace TSS_SYSTEM
             dgv_m.Columns[5].HeaderText = "仕入れ区分";
             dgv_m.Columns[6].HeaderText = "取引先コード";
         }
-
+        
         private void btn_sentaku_Click_1(object sender, EventArgs e)
         {
             form_close_true();
@@ -347,6 +349,27 @@ namespace TSS_SYSTEM
         private void btn_kensaku_Click(object sender, EventArgs e)
         {
             kensaku();
+        }
+
+        private void btn_csv_Click(object sender, EventArgs e)
+        {
+            if(dt_m.Rows.Count != 0)
+            {
+                string w_str_now = DateTime.Now.Year.ToString("0000") + DateTime.Now.Month.ToString("00") + DateTime.Now.Day.ToString("00") + DateTime.Now.Hour.ToString("00") + DateTime.Now.Minute.ToString("00") + DateTime.Now.Second.ToString("00");
+                string w_str_filename = "部品マスタ検索結果" + w_str_now + ".csv";
+                if (tss.DataTableCSV(dt_m, true, w_str_filename, "\"", true))
+                {
+                    MessageBox.Show("保存されました。");
+                }
+                else
+                {
+                    MessageBox.Show("キャンセルまたはエラー");
+                }
+            }
+            else
+            {
+                MessageBox.Show("出力するデータがありません。");
+            }
         }
 
 
