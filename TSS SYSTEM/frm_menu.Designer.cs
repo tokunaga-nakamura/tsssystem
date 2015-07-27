@@ -61,6 +61,7 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.btn_bank_m = new System.Windows.Forms.Button();
             this.btn_buhin_m = new System.Windows.Forms.Button();
             this.btn_torihikisaki_m = new System.Windows.Forms.Button();
             this.btn_seihin_m = new System.Windows.Forms.Button();
@@ -69,7 +70,7 @@
             this.btn_mst_table = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.btn_bank_m = new System.Windows.Forms.Button();
+            this.btn_buhin_kensaku = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -528,6 +529,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.btn_buhin_kensaku);
             this.tabPage6.Controls.Add(this.btn_bank_m);
             this.tabPage6.Controls.Add(this.btn_buhin_m);
             this.tabPage6.Controls.Add(this.btn_torihikisaki_m);
@@ -542,11 +544,21 @@
             this.tabPage6.Text = "システム保守";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // btn_bank_m
+            // 
+            this.btn_bank_m.Location = new System.Drawing.Point(8, 105);
+            this.btn_bank_m.Name = "btn_bank_m";
+            this.btn_bank_m.Size = new System.Drawing.Size(211, 23);
+            this.btn_bank_m.TabIndex = 6;
+            this.btn_bank_m.Text = "銀行マスタ";
+            this.btn_bank_m.UseVisualStyleBackColor = true;
+            this.btn_bank_m.Click += new System.EventHandler(this.btn_bank_m_Click);
+            // 
             // btn_buhin_m
             // 
-            this.btn_buhin_m.Location = new System.Drawing.Point(237, 47);
+            this.btn_buhin_m.Location = new System.Drawing.Point(225, 47);
             this.btn_buhin_m.Name = "btn_buhin_m";
-            this.btn_buhin_m.Size = new System.Drawing.Size(223, 23);
+            this.btn_buhin_m.Size = new System.Drawing.Size(211, 23);
             this.btn_buhin_m.TabIndex = 5;
             this.btn_buhin_m.Text = "部品マスタ";
             this.btn_buhin_m.UseVisualStyleBackColor = true;
@@ -556,7 +568,7 @@
             // 
             this.btn_torihikisaki_m.Location = new System.Drawing.Point(8, 76);
             this.btn_torihikisaki_m.Name = "btn_torihikisaki_m";
-            this.btn_torihikisaki_m.Size = new System.Drawing.Size(223, 23);
+            this.btn_torihikisaki_m.Size = new System.Drawing.Size(211, 23);
             this.btn_torihikisaki_m.TabIndex = 4;
             this.btn_torihikisaki_m.Text = "取引先マスタ";
             this.btn_torihikisaki_m.UseVisualStyleBackColor = true;
@@ -564,9 +576,9 @@
             // 
             // btn_seihin_m
             // 
-            this.btn_seihin_m.Location = new System.Drawing.Point(237, 18);
+            this.btn_seihin_m.Location = new System.Drawing.Point(225, 18);
             this.btn_seihin_m.Name = "btn_seihin_m";
-            this.btn_seihin_m.Size = new System.Drawing.Size(223, 23);
+            this.btn_seihin_m.Size = new System.Drawing.Size(211, 23);
             this.btn_seihin_m.TabIndex = 3;
             this.btn_seihin_m.Text = "製品マスタ";
             this.btn_seihin_m.UseVisualStyleBackColor = true;
@@ -576,7 +588,7 @@
             // 
             this.btn_kubun_m.Location = new System.Drawing.Point(8, 47);
             this.btn_kubun_m.Name = "btn_kubun_m";
-            this.btn_kubun_m.Size = new System.Drawing.Size(223, 23);
+            this.btn_kubun_m.Size = new System.Drawing.Size(211, 23);
             this.btn_kubun_m.TabIndex = 2;
             this.btn_kubun_m.Text = "区分マスタ";
             this.btn_kubun_m.UseVisualStyleBackColor = true;
@@ -586,7 +598,7 @@
             // 
             this.btn_kubun_meisyou_m.Location = new System.Drawing.Point(8, 18);
             this.btn_kubun_meisyou_m.Name = "btn_kubun_meisyou_m";
-            this.btn_kubun_meisyou_m.Size = new System.Drawing.Size(223, 23);
+            this.btn_kubun_meisyou_m.Size = new System.Drawing.Size(211, 23);
             this.btn_kubun_meisyou_m.TabIndex = 1;
             this.btn_kubun_meisyou_m.Text = "区分名称マスタ";
             this.btn_kubun_meisyou_m.UseVisualStyleBackColor = true;
@@ -594,9 +606,9 @@
             // 
             // btn_mst_table
             // 
-            this.btn_mst_table.Location = new System.Drawing.Point(237, 259);
+            this.btn_mst_table.Location = new System.Drawing.Point(225, 259);
             this.btn_mst_table.Name = "btn_mst_table";
-            this.btn_mst_table.Size = new System.Drawing.Size(223, 23);
+            this.btn_mst_table.Size = new System.Drawing.Size(211, 23);
             this.btn_mst_table.TabIndex = 0;
             this.btn_mst_table.Text = "テーブルメンテナンス（管理者用）";
             this.btn_mst_table.UseVisualStyleBackColor = true;
@@ -622,15 +634,15 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
-            // btn_bank_m
+            // btn_buhin_kensaku
             // 
-            this.btn_bank_m.Location = new System.Drawing.Point(8, 105);
-            this.btn_bank_m.Name = "btn_bank_m";
-            this.btn_bank_m.Size = new System.Drawing.Size(223, 23);
-            this.btn_bank_m.TabIndex = 6;
-            this.btn_bank_m.Text = "銀行マスタ";
-            this.btn_bank_m.UseVisualStyleBackColor = true;
-            this.btn_bank_m.Click += new System.EventHandler(this.btn_bank_m_Click);
+            this.btn_buhin_kensaku.Location = new System.Drawing.Point(442, 47);
+            this.btn_buhin_kensaku.Name = "btn_buhin_kensaku";
+            this.btn_buhin_kensaku.Size = new System.Drawing.Size(211, 23);
+            this.btn_buhin_kensaku.TabIndex = 7;
+            this.btn_buhin_kensaku.Text = "部品検索";
+            this.btn_buhin_kensaku.UseVisualStyleBackColor = true;
+            this.btn_buhin_kensaku.Click += new System.EventHandler(this.btn_buhin_kensaku_Click);
             // 
             // frm_menu
             // 
@@ -746,6 +758,7 @@
         private System.Windows.Forms.Button btn_torihikisaki_m;
         private System.Windows.Forms.Button btn_buhin_m;
         private System.Windows.Forms.Button btn_bank_m;
+        private System.Windows.Forms.Button btn_buhin_kensaku;
     }
 }
 

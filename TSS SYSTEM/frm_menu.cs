@@ -18,6 +18,9 @@ namespace TSS_SYSTEM
 {
     public partial class frm_menu : Form
     {
+        TssSystemLibrary tss = new TssSystemLibrary();
+
+
         public frm_menu()
         {
             InitializeComponent();
@@ -168,6 +171,12 @@ namespace TSS_SYSTEM
             frm_bank_m frm_bam = new frm_bank_m();
             frm_bam.ShowDialog(this);
             frm_bam.Dispose();
+        }
+
+        private void btn_buhin_kensaku_Click(object sender, EventArgs e)
+        {
+            //検索画面へ
+            tss.search_buhin("1", "");
         }
     }
 }
