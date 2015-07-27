@@ -34,6 +34,7 @@
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tb_update_datetime = new System.Windows.Forms.TextBox();
             this.tb_buhin_cd = new System.Windows.Forms.TextBox();
@@ -83,7 +84,6 @@
             this.dgv_buhin_nyusyukko_m = new System.Windows.Forms.DataGridView();
             this.btn_touroku = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -114,7 +114,7 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 539);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 540);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(884, 22);
             this.statusStrip1.TabIndex = 0;
@@ -137,7 +137,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(884, 539);
+            this.splitContainer1.Size = new System.Drawing.Size(884, 540);
             this.splitContainer1.SplitterDistance = 62;
             this.splitContainer1.TabIndex = 1;
             this.splitContainer1.TabStop = false;
@@ -170,8 +170,8 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.btn_touroku);
             this.splitContainer2.Panel2.Controls.Add(this.btn_syuuryou);
-            this.splitContainer2.Size = new System.Drawing.Size(884, 473);
-            this.splitContainer2.SplitterDistance = 438;
+            this.splitContainer2.Size = new System.Drawing.Size(884, 474);
+            this.splitContainer2.SplitterDistance = 439;
             this.splitContainer2.TabIndex = 0;
             this.splitContainer2.TabStop = false;
             // 
@@ -227,10 +227,19 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.splitContainer4);
-            this.splitContainer3.Size = new System.Drawing.Size(880, 434);
+            this.splitContainer3.Size = new System.Drawing.Size(880, 435);
             this.splitContainer3.SplitterDistance = 474;
             this.splitContainer3.TabIndex = 37;
             this.splitContainer3.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(240, 256);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 12);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "0:非対象 1:対象";
             // 
             // textBox1
             // 
@@ -470,6 +479,7 @@
             this.tb_kessan_kbn.Name = "tb_kessan_kbn";
             this.tb_kessan_kbn.Size = new System.Drawing.Size(31, 19);
             this.tb_kessan_kbn.TabIndex = 23;
+            this.tb_kessan_kbn.TextChanged += new System.EventHandler(this.tb_kessan_kbn_TextChanged);
             this.tb_kessan_kbn.DoubleClick += new System.EventHandler(this.tb_kessan_kbn_DoubleClick);
             // 
             // textBox5
@@ -617,7 +627,7 @@
             // 
             this.splitContainer4.Panel2.Controls.Add(this.splitContainer6);
             this.splitContainer4.Panel2MinSize = 200;
-            this.splitContainer4.Size = new System.Drawing.Size(402, 434);
+            this.splitContainer4.Size = new System.Drawing.Size(402, 435);
             this.splitContainer4.SplitterDistance = 216;
             this.splitContainer4.TabIndex = 0;
             // 
@@ -707,7 +717,7 @@
             // splitContainer6.Panel2
             // 
             this.splitContainer6.Panel2.Controls.Add(this.dgv_buhin_nyusyukko_m);
-            this.splitContainer6.Size = new System.Drawing.Size(398, 210);
+            this.splitContainer6.Size = new System.Drawing.Size(398, 211);
             this.splitContainer6.SplitterDistance = 30;
             this.splitContainer6.TabIndex = 0;
             // 
@@ -727,7 +737,7 @@
             this.dgv_buhin_nyusyukko_m.Location = new System.Drawing.Point(0, 0);
             this.dgv_buhin_nyusyukko_m.Name = "dgv_buhin_nyusyukko_m";
             this.dgv_buhin_nyusyukko_m.RowTemplate.Height = 21;
-            this.dgv_buhin_nyusyukko_m.Size = new System.Drawing.Size(398, 176);
+            this.dgv_buhin_nyusyukko_m.Size = new System.Drawing.Size(398, 177);
             this.dgv_buhin_nyusyukko_m.TabIndex = 0;
             // 
             // btn_touroku
@@ -749,20 +759,11 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(240, 256);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 12);
-            this.label3.TabIndex = 37;
-            this.label3.Text = "0:非対象 1:対象";
-            // 
             // frm_buhin_m
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 561);
+            this.ClientSize = new System.Drawing.Size(884, 562);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
             this.MinimumSize = new System.Drawing.Size(900, 600);

@@ -83,6 +83,11 @@ namespace TSS_SYSTEM
             this.tb_tani_name.Text = tss.kubun_name_select("02", tb_tani_kbn.Text);
         }
 
+        private void tb_kessan_kbn_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
 
     }
