@@ -34,6 +34,7 @@
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.lbl_buhin_cd = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tb_update_datetime = new System.Windows.Forms.TextBox();
             this.tb_buhin_cd = new System.Windows.Forms.TextBox();
@@ -83,7 +84,7 @@
             this.dgv_buhin_nyusyukko_m = new System.Windows.Forms.DataGridView();
             this.btn_touroku = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.lbl_buhin_cd = new System.Windows.Forms.Label();
+            this.btn_kensaku = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -185,6 +186,7 @@
             // 
             // splitContainer3.Panel1
             // 
+            this.splitContainer3.Panel1.Controls.Add(this.btn_kensaku);
             this.splitContainer3.Panel1.Controls.Add(this.lbl_buhin_cd);
             this.splitContainer3.Panel1.Controls.Add(this.textBox1);
             this.splitContainer3.Panel1.Controls.Add(this.tb_update_datetime);
@@ -231,6 +233,15 @@
             this.splitContainer3.SplitterDistance = 474;
             this.splitContainer3.TabIndex = 37;
             this.splitContainer3.TabStop = false;
+            // 
+            // lbl_buhin_cd
+            // 
+            this.lbl_buhin_cd.AutoSize = true;
+            this.lbl_buhin_cd.Location = new System.Drawing.Point(303, 6);
+            this.lbl_buhin_cd.Name = "lbl_buhin_cd";
+            this.lbl_buhin_cd.Size = new System.Drawing.Size(140, 12);
+            this.lbl_buhin_cd.TabIndex = 37;
+            this.lbl_buhin_cd.Text = "部品コードを入力してください";
             // 
             // textBox1
             // 
@@ -756,14 +767,15 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
-            // lbl_buhin_cd
+            // btn_kensaku
             // 
-            this.lbl_buhin_cd.AutoSize = true;
-            this.lbl_buhin_cd.Location = new System.Drawing.Point(222, 6);
-            this.lbl_buhin_cd.Name = "lbl_buhin_cd";
-            this.lbl_buhin_cd.Size = new System.Drawing.Size(140, 12);
-            this.lbl_buhin_cd.TabIndex = 37;
-            this.lbl_buhin_cd.Text = "部品コードを入力してください";
+            this.btn_kensaku.Location = new System.Drawing.Point(222, 1);
+            this.btn_kensaku.Name = "btn_kensaku";
+            this.btn_kensaku.Size = new System.Drawing.Size(75, 23);
+            this.btn_kensaku.TabIndex = 1;
+            this.btn_kensaku.Text = "検索";
+            this.btn_kensaku.UseVisualStyleBackColor = true;
+            this.btn_kensaku.Click += new System.EventHandler(this.btn_kensaku_Click);
             // 
             // frm_buhin_m
             // 
@@ -866,5 +878,6 @@
         private System.Windows.Forms.Button btn_idou;
         private System.Windows.Forms.Button btn_nyuuko;
         private System.Windows.Forms.Label lbl_buhin_cd;
+        private System.Windows.Forms.Button btn_kensaku;
     }
 }

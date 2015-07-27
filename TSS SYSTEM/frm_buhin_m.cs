@@ -694,6 +694,18 @@ namespace TSS_SYSTEM
 
         }
 
+        private void btn_kensaku_Click(object sender, EventArgs e)
+        {
+            //選択画面へ
+            string w_buhin_cd;
+            w_buhin_cd = tss.search_buhin("2","");
+            if(w_buhin_cd != "")
+            {
+                tb_buhin_cd.Text = w_buhin_cd;
+                chk_buhin_cd();   //決算区分名の表示
+            }
+        }
+
 
 
 
