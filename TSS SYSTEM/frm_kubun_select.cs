@@ -138,9 +138,12 @@ namespace TSS_SYSTEM
         //選択時の終了処理
         private void form_close_true()
         {
-            str_kubun_cd = dgv_kubun_m.CurrentRow.Cells[0].Value.ToString();
-            bl_sentaku = false;
-            this.Close();
+            if(dgv_kubun_m.SelectedRows.Count>=1)
+            {
+                str_kubun_cd = dgv_kubun_m.CurrentRow.Cells[0].Value.ToString();
+                bl_sentaku = false;
+                this.Close();
+            }
         }
     }
 }

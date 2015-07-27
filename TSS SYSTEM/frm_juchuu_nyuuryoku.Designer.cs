@@ -35,12 +35,14 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tb_kousin_riyuu = new System.Windows.Forms.TextBox();
             this.tb_bikou = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cb_seisan_jisseki = new System.Windows.Forms.CheckBox();
+            this.cb_seisan_schedule = new System.Windows.Forms.CheckBox();
+            this.cb_nouhin_schedule = new System.Windows.Forms.CheckBox();
             this.tb_juchuu_suu = new System.Windows.Forms.TextBox();
             this.tb_seihin_name = new System.Windows.Forms.TextBox();
             this.tb_seihin_cd = new System.Windows.Forms.TextBox();
@@ -55,17 +57,15 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btn_touroku = new System.Windows.Forms.Button();
-            this.btn_syuuryou = new System.Windows.Forms.Button();
             this.splitContainer7 = new System.Windows.Forms.SplitContainer();
             this.label2 = new System.Windows.Forms.Label();
             this.dgv_kousin_rireki = new System.Windows.Forms.DataGridView();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.label1 = new System.Windows.Forms.Label();
             this.dgv_nounyuu_schedule = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.btn_touroku = new System.Windows.Forms.Button();
+            this.btn_syuuryou = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -82,7 +82,13 @@
             this.splitContainer6.Panel1.SuspendLayout();
             this.splitContainer6.Panel2.SuspendLayout();
             this.splitContainer6.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).BeginInit();
+            this.splitContainer7.Panel1.SuspendLayout();
+            this.splitContainer7.Panel2.SuspendLayout();
+            this.splitContainer7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_kousin_rireki)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
@@ -91,13 +97,7 @@
             this.splitContainer5.Panel1.SuspendLayout();
             this.splitContainer5.Panel2.SuspendLayout();
             this.splitContainer5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).BeginInit();
-            this.splitContainer7.Panel1.SuspendLayout();
-            this.splitContainer7.Panel2.SuspendLayout();
-            this.splitContainer7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_kousin_rireki)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_nounyuu_schedule)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -221,6 +221,24 @@
             this.splitContainer6.SplitterDistance = 289;
             this.splitContainer6.TabIndex = 0;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tb_kousin_riyuu);
+            this.groupBox2.Location = new System.Drawing.Point(10, 235);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(423, 44);
+            this.groupBox2.TabIndex = 17;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "更新理由";
+            this.groupBox2.Visible = false;
+            // 
+            // tb_kousin_riyuu
+            // 
+            this.tb_kousin_riyuu.Location = new System.Drawing.Point(6, 18);
+            this.tb_kousin_riyuu.Name = "tb_kousin_riyuu";
+            this.tb_kousin_riyuu.Size = new System.Drawing.Size(411, 19);
+            this.tb_kousin_riyuu.TabIndex = 0;
+            // 
             // tb_bikou
             // 
             this.tb_bikou.Location = new System.Drawing.Point(48, 210);
@@ -241,9 +259,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox3);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.cb_seisan_jisseki);
+            this.groupBox1.Controls.Add(this.cb_seisan_schedule);
+            this.groupBox1.Controls.Add(this.cb_nouhin_schedule);
             this.groupBox1.Location = new System.Drawing.Point(12, 116);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(175, 88);
@@ -251,41 +269,41 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "区分";
             // 
-            // checkBox3
+            // cb_seisan_jisseki
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Checked = true;
-            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.Location = new System.Drawing.Point(6, 62);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(124, 16);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "生産実績に反映する";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.cb_seisan_jisseki.AutoSize = true;
+            this.cb_seisan_jisseki.Checked = true;
+            this.cb_seisan_jisseki.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_seisan_jisseki.Location = new System.Drawing.Point(6, 62);
+            this.cb_seisan_jisseki.Name = "cb_seisan_jisseki";
+            this.cb_seisan_jisseki.Size = new System.Drawing.Size(124, 16);
+            this.cb_seisan_jisseki.TabIndex = 2;
+            this.cb_seisan_jisseki.Text = "生産実績に反映する";
+            this.cb_seisan_jisseki.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // cb_seisan_schedule
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Checked = true;
-            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(6, 40);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(156, 16);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "生産スケジュールに反映する";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.cb_seisan_schedule.AutoSize = true;
+            this.cb_seisan_schedule.Checked = true;
+            this.cb_seisan_schedule.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_seisan_schedule.Location = new System.Drawing.Point(6, 40);
+            this.cb_seisan_schedule.Name = "cb_seisan_schedule";
+            this.cb_seisan_schedule.Size = new System.Drawing.Size(156, 16);
+            this.cb_seisan_schedule.TabIndex = 1;
+            this.cb_seisan_schedule.Text = "生産スケジュールに反映する";
+            this.cb_seisan_schedule.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // cb_nouhin_schedule
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(6, 18);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(156, 16);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "納品スケジュールに反映する";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cb_nouhin_schedule.AutoSize = true;
+            this.cb_nouhin_schedule.Checked = true;
+            this.cb_nouhin_schedule.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_nouhin_schedule.Location = new System.Drawing.Point(6, 18);
+            this.cb_nouhin_schedule.Name = "cb_nouhin_schedule";
+            this.cb_nouhin_schedule.Size = new System.Drawing.Size(156, 16);
+            this.cb_nouhin_schedule.TabIndex = 0;
+            this.cb_nouhin_schedule.Text = "納品スケジュールに反映する";
+            this.cb_nouhin_schedule.UseVisualStyleBackColor = true;
             // 
             // tb_juchuu_suu
             // 
@@ -422,6 +440,46 @@
             this.textBox1.TabStop = false;
             this.textBox1.Text = "取引先コード";
             // 
+            // splitContainer7
+            // 
+            this.splitContainer7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer7.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer7.IsSplitterFixed = true;
+            this.splitContainer7.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer7.Name = "splitContainer7";
+            this.splitContainer7.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer7.Panel1
+            // 
+            this.splitContainer7.Panel1.Controls.Add(this.label2);
+            // 
+            // splitContainer7.Panel2
+            // 
+            this.splitContainer7.Panel2.Controls.Add(this.dgv_kousin_rireki);
+            this.splitContainer7.Size = new System.Drawing.Size(442, 141);
+            this.splitContainer7.SplitterDistance = 29;
+            this.splitContainer7.TabIndex = 0;
+            this.splitContainer7.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "更新履歴";
+            // 
+            // dgv_kousin_rireki
+            // 
+            this.dgv_kousin_rireki.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_kousin_rireki.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_kousin_rireki.Location = new System.Drawing.Point(0, 0);
+            this.dgv_kousin_rireki.Name = "dgv_kousin_rireki";
+            this.dgv_kousin_rireki.RowTemplate.Height = 21;
+            this.dgv_kousin_rireki.Size = new System.Drawing.Size(442, 108);
+            this.dgv_kousin_rireki.TabIndex = 0;
+            // 
             // splitContainer4
             // 
             this.splitContainer4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -471,6 +529,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "納入スケジュール";
             // 
+            // dgv_nounyuu_schedule
+            // 
+            this.dgv_nounyuu_schedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_nounyuu_schedule.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_nounyuu_schedule.Location = new System.Drawing.Point(0, 0);
+            this.dgv_nounyuu_schedule.Name = "dgv_nounyuu_schedule";
+            this.dgv_nounyuu_schedule.RowTemplate.Height = 21;
+            this.dgv_nounyuu_schedule.Size = new System.Drawing.Size(430, 364);
+            this.dgv_nounyuu_schedule.TabIndex = 0;
+            // 
             // btn_touroku
             // 
             this.btn_touroku.Location = new System.Drawing.Point(345, 3);
@@ -488,74 +556,6 @@
             this.btn_syuuryou.TabIndex = 0;
             this.btn_syuuryou.Text = "終了";
             this.btn_syuuryou.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer7
-            // 
-            this.splitContainer7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer7.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainer7.IsSplitterFixed = true;
-            this.splitContainer7.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer7.Name = "splitContainer7";
-            this.splitContainer7.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer7.Panel1
-            // 
-            this.splitContainer7.Panel1.Controls.Add(this.label2);
-            // 
-            // splitContainer7.Panel2
-            // 
-            this.splitContainer7.Panel2.Controls.Add(this.dgv_kousin_rireki);
-            this.splitContainer7.Size = new System.Drawing.Size(442, 141);
-            this.splitContainer7.SplitterDistance = 29;
-            this.splitContainer7.TabIndex = 0;
-            this.splitContainer7.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "更新履歴";
-            // 
-            // dgv_kousin_rireki
-            // 
-            this.dgv_kousin_rireki.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_kousin_rireki.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_kousin_rireki.Location = new System.Drawing.Point(0, 0);
-            this.dgv_kousin_rireki.Name = "dgv_kousin_rireki";
-            this.dgv_kousin_rireki.RowTemplate.Height = 21;
-            this.dgv_kousin_rireki.Size = new System.Drawing.Size(442, 108);
-            this.dgv_kousin_rireki.TabIndex = 0;
-            // 
-            // dgv_nounyuu_schedule
-            // 
-            this.dgv_nounyuu_schedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_nounyuu_schedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_nounyuu_schedule.Location = new System.Drawing.Point(0, 0);
-            this.dgv_nounyuu_schedule.Name = "dgv_nounyuu_schedule";
-            this.dgv_nounyuu_schedule.RowTemplate.Height = 21;
-            this.dgv_nounyuu_schedule.Size = new System.Drawing.Size(430, 364);
-            this.dgv_nounyuu_schedule.TabIndex = 0;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.textBox8);
-            this.groupBox2.Location = new System.Drawing.Point(10, 235);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(423, 44);
-            this.groupBox2.TabIndex = 17;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "更新理由";
-            this.groupBox2.Visible = false;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(6, 18);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(411, 19);
-            this.textBox8.TabIndex = 0;
             // 
             // frm_juchuu_nyuuryoku
             // 
@@ -584,8 +584,16 @@
             this.splitContainer6.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).EndInit();
             this.splitContainer6.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.splitContainer7.Panel1.ResumeLayout(false);
+            this.splitContainer7.Panel1.PerformLayout();
+            this.splitContainer7.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).EndInit();
+            this.splitContainer7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_kousin_rireki)).EndInit();
             this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
@@ -595,15 +603,7 @@
             this.splitContainer5.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
             this.splitContainer5.ResumeLayout(false);
-            this.splitContainer7.Panel1.ResumeLayout(false);
-            this.splitContainer7.Panel1.PerformLayout();
-            this.splitContainer7.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).EndInit();
-            this.splitContainer7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_kousin_rireki)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_nounyuu_schedule)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -625,9 +625,9 @@
         private System.Windows.Forms.TextBox tb_bikou;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cb_seisan_jisseki;
+        private System.Windows.Forms.CheckBox cb_seisan_schedule;
+        private System.Windows.Forms.CheckBox cb_nouhin_schedule;
         private System.Windows.Forms.TextBox tb_juchuu_suu;
         private System.Windows.Forms.TextBox tb_seihin_name;
         private System.Windows.Forms.TextBox tb_seihin_cd;
@@ -644,7 +644,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.SplitContainer splitContainer7;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox tb_kousin_riyuu;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgv_kousin_rireki;
         private System.Windows.Forms.DataGridView dgv_nounyuu_schedule;

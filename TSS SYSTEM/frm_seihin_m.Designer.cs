@@ -640,13 +640,12 @@
             // 
             // tb_seihin_name
             // 
-            this.tb_seihin_name.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_seihin_name.BackColor = System.Drawing.SystemColors.Window;
             this.tb_seihin_name.Location = new System.Drawing.Point(93, 29);
             this.tb_seihin_name.MaxLength = 40;
             this.tb_seihin_name.Name = "tb_seihin_name";
             this.tb_seihin_name.Size = new System.Drawing.Size(361, 19);
             this.tb_seihin_name.TabIndex = 1;
-            this.tb_seihin_name.TabStop = false;
             // 
             // tb_seihin_cd
             // 

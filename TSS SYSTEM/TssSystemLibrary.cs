@@ -371,7 +371,7 @@ namespace TSS_SYSTEM
         public bool MessageLogWrite(string user_cd_from, string syori_name, string naiyou, string user_cd_to)
         {
             bool bl = new bool();
-            bl = OracleInsert("insert into tss_message_log_f(message_datetime,user_cd,message_syori_name,message_log_naiyou,create_user_cd,create_datetime) values (sysdate,'" + user_cd_from + "','" + syori_name + "','" + naiyou + "','" + user_cd_to + "',sysdate)");
+            bl = OracleInsert("insert into tss_message_log_f(message_datetime,user_cd,message_syori_name,message_log_naiyou,create_user_cd,create_datetime) values (to_char(sysdate,'yyyy/mm/dd hh24:mi:ss'),'" + user_cd_from + "','" + syori_name + "','" + naiyou + "','" + user_cd_to + "',sysdate)");
             return bl;
         }
         #endregion
@@ -385,7 +385,7 @@ namespace TSS_SYSTEM
         public bool ErrorLogWrite(string user_cd, string syori_name, string naiyou)
         {
             bool bl = new bool();
-            bl = OracleInsert("insert into tss_error_log_f(error_datetime,user_cd,error_syori_name,error_log_naiyou,create_user_cd,create_datetime) values (sysdate,'" + user_cd + "','" + syori_name + "','" + naiyou + "','" + user_cd + "',sysdate)");
+            bl = OracleInsert("insert into tss_error_log_f(error_datetime,user_cd,error_syori_name,error_naiyou,create_user_cd,create_datetime) values (to_char(sysdate,'yyyy/mm/dd hh24:mi:ss'),'" + user_cd + "','" + syori_name + "','" + naiyou + "','" + user_cd + "',sysdate)");
             return bl;
         }
         #endregion
@@ -568,6 +568,31 @@ namespace TSS_SYSTEM
             return out_kubun_cd;
         }
 
+        //部品検索画面の呼び出し
+        public string search_buhin(string in_mode,string in_cd)
+        {
+            //マウスのX座標を取得する
+            //int x = System.Windows.Forms.Cursor.Position.X;
+            //マウスのY座標を取得する
+            //int y = System.Windows.Forms.Cursor.Position.Y;
+
+            string out_cd = "";   //戻り値用
+            frm_search_buhin frm_sb = new frm_search_buhin();
+
+            //フォームをマウスの位置に表示する
+            //frm_sb.Left = x;
+            //frm_sb.Top = y;
+            //frm_sb.StartPosition = FormStartPosition.Manual;
+
+            //子画面のプロパティに値をセットする
+            frm_sb.str_mode = in_mode;
+            frm_sb.str_name = in_cd;
+            frm_sb.ShowDialog();
+            //子画面から値を取得する
+            out_cd = frm_sb.str_cd;
+            frm_sb.Dispose();
+            return out_cd;
+        }
 
 
 

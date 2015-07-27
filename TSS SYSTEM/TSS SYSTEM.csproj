@@ -104,6 +104,12 @@
     <Compile Include="frm_menu.Designer.cs">
       <DependentUpon>frm_menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_search_buhin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_search_buhin.Designer.cs">
+      <DependentUpon>frm_search_buhin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_seihin_m.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_menu.resx">
       <DependentUpon>frm_menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_search_buhin.resx">
+      <DependentUpon>frm_search_buhin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_seihin_m.resx">
       <DependentUpon>frm_seihin_m.cs</DependentUpon>
