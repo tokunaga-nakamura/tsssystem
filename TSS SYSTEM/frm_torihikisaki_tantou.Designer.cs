@@ -350,6 +350,7 @@
             // tb_torihikisaki_cd
             // 
             this.tb_torihikisaki_cd.Location = new System.Drawing.Point(94, 20);
+            this.tb_torihikisaki_cd.MaxLength = 6;
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
             this.tb_torihikisaki_cd.Size = new System.Drawing.Size(53, 19);
             this.tb_torihikisaki_cd.TabIndex = 21;
@@ -368,6 +369,7 @@
             // tb_tantousya_cd
             // 
             this.tb_tantousya_cd.Location = new System.Drawing.Point(93, 45);
+            this.tb_tantousya_cd.MaxLength = 6;
             this.tb_tantousya_cd.Name = "tb_tantousya_cd";
             this.tb_tantousya_cd.Size = new System.Drawing.Size(112, 19);
             this.tb_tantousya_cd.TabIndex = 18;

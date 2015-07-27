@@ -36,6 +36,7 @@
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.btn_tsuika = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label34 = new System.Windows.Forms.Label();
             this.tb_syouhizei_sansyutu_kbn = new System.Windows.Forms.TextBox();
@@ -196,6 +197,7 @@
             // 
             // splitContainer3.Panel1
             // 
+            this.splitContainer3.Panel1.Controls.Add(this.btn_tsuika);
             this.splitContainer3.Panel1.Controls.Add(this.groupBox6);
             this.splitContainer3.Panel1.Controls.Add(this.label33);
             this.splitContainer3.Panel1.Controls.Add(this.label2);
@@ -242,6 +244,16 @@
             this.splitContainer3.SplitterDistance = 328;
             this.splitContainer3.TabIndex = 0;
             // 
+            // btn_tsuika
+            // 
+            this.btn_tsuika.Location = new System.Drawing.Point(113, 299);
+            this.btn_tsuika.Name = "btn_tsuika";
+            this.btn_tsuika.Size = new System.Drawing.Size(75, 23);
+            this.btn_tsuika.TabIndex = 134;
+            this.btn_tsuika.Text = "追加";
+            this.btn_tsuika.UseVisualStyleBackColor = true;
+            this.btn_tsuika.Click += new System.EventHandler(this.btn_tsuika_Click);
+            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.label34);
@@ -265,13 +277,14 @@
             // 
             // tb_syouhizei_sansyutu_kbn
             // 
-            this.tb_syouhizei_sansyutu_kbn.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.tb_syouhizei_sansyutu_kbn.BackColor = System.Drawing.Color.PowderBlue;
             this.tb_syouhizei_sansyutu_kbn.Location = new System.Drawing.Point(110, 10);
             this.tb_syouhizei_sansyutu_kbn.MaxLength = 1;
             this.tb_syouhizei_sansyutu_kbn.Name = "tb_syouhizei_sansyutu_kbn";
             this.tb_syouhizei_sansyutu_kbn.Size = new System.Drawing.Size(37, 19);
             this.tb_syouhizei_sansyutu_kbn.TabIndex = 24;
             this.tb_syouhizei_sansyutu_kbn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_syouhizei_sansyutu_kbn.DoubleClick += new System.EventHandler(this.tb_syouhizei_sansyutu_kbn_DoubleClick);
             // 
             // label35
             // 
@@ -288,9 +301,9 @@
             this.label33.ForeColor = System.Drawing.Color.Red;
             this.label33.Location = new System.Drawing.Point(13, 246);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(124, 12);
+            this.label33.Size = new System.Drawing.Size(130, 12);
             this.label33.TabIndex = 132;
-            this.label33.Text = "※末日の場合は0を入力";
+            this.label33.Text = "※末日の場合は99を入力";
             // 
             // label2
             // 
@@ -303,7 +316,7 @@
             // 
             // btn_hensyu
             // 
-            this.btn_hensyu.Location = new System.Drawing.Point(109, 295);
+            this.btn_hensyu.Location = new System.Drawing.Point(201, 299);
             this.btn_hensyu.Name = "btn_hensyu";
             this.btn_hensyu.Size = new System.Drawing.Size(75, 23);
             this.btn_hensyu.TabIndex = 25;
@@ -363,13 +376,14 @@
             // 
             // tb_hasu_syori_tani
             // 
-            this.tb_hasu_syori_tani.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.tb_hasu_syori_tani.BackColor = System.Drawing.Color.PowderBlue;
             this.tb_hasu_syori_tani.Location = new System.Drawing.Point(110, 10);
             this.tb_hasu_syori_tani.MaxLength = 1;
             this.tb_hasu_syori_tani.Name = "tb_hasu_syori_tani";
             this.tb_hasu_syori_tani.Size = new System.Drawing.Size(37, 19);
             this.tb_hasu_syori_tani.TabIndex = 24;
             this.tb_hasu_syori_tani.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_hasu_syori_tani.DoubleClick += new System.EventHandler(this.tb_hasu_syori_tani_DoubleClick);
             // 
             // label28
             // 
@@ -412,13 +426,14 @@
             // 
             // tb_jisyaden_kbn
             // 
-            this.tb_jisyaden_kbn.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.tb_jisyaden_kbn.BackColor = System.Drawing.Color.PowderBlue;
             this.tb_jisyaden_kbn.Location = new System.Drawing.Point(110, 12);
             this.tb_jisyaden_kbn.MaxLength = 1;
             this.tb_jisyaden_kbn.Name = "tb_jisyaden_kbn";
             this.tb_jisyaden_kbn.Size = new System.Drawing.Size(37, 19);
             this.tb_jisyaden_kbn.TabIndex = 23;
             this.tb_jisyaden_kbn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_jisyaden_kbn.DoubleClick += new System.EventHandler(this.tb_jisyaden_kbn_DoubleClick);
             // 
             // label29
             // 
@@ -471,13 +486,14 @@
             // 
             // tb_hasu_kbn
             // 
-            this.tb_hasu_kbn.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.tb_hasu_kbn.BackColor = System.Drawing.Color.PowderBlue;
             this.tb_hasu_kbn.Location = new System.Drawing.Point(110, 11);
             this.tb_hasu_kbn.MaxLength = 1;
             this.tb_hasu_kbn.Name = "tb_hasu_kbn";
             this.tb_hasu_kbn.Size = new System.Drawing.Size(37, 19);
             this.tb_hasu_kbn.TabIndex = 22;
             this.tb_hasu_kbn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_hasu_kbn.DoubleClick += new System.EventHandler(this.tb_hasu_kbn_DoubleClick);
             // 
             // label4
             // 
@@ -501,7 +517,7 @@
             this.groupBox2.Controls.Add(this.tb_siharai_tuki);
             this.groupBox2.Location = new System.Drawing.Point(5, 204);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(425, 36);
+            this.groupBox2.Size = new System.Drawing.Size(449, 36);
             this.groupBox2.TabIndex = 97;
             this.groupBox2.TabStop = false;
             // 
@@ -610,7 +626,7 @@
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Location = new System.Drawing.Point(5, 162);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(424, 36);
+            this.groupBox1.Size = new System.Drawing.Size(449, 36);
             this.groupBox1.TabIndex = 96;
             this.groupBox1.TabStop = false;
             // 
@@ -889,6 +905,7 @@
             // 
             // dgv_tantousya
             // 
+            this.dgv_tantousya.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -1101,6 +1118,7 @@
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.TextBox tb_syouhizei_sansyutu_kbn;
         private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Button btn_tsuika;
 
     }
 }

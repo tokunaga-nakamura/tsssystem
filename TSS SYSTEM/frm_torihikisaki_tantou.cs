@@ -57,17 +57,76 @@ namespace TSS_SYSTEM
         private void btn_syuuryou_Click(object sender, EventArgs e)
         {
             //取引先コードのチェック
-            if (tb_torihikisaki_cd.Text == null || tb_torihikisaki_cd.Text.Length == 0)
+            if (chk_torihikisaki_cd() == false)
             {
-                MessageBox.Show("取引先コードを半角英数6文字以内で入力してください。");
+                MessageBox.Show("取引先コードは1文字以上、6バイト以内で入力してください。");
                 tb_torihikisaki_cd.Focus();
+                return;
             }
             //取引先名のチェック
-            if (tb_torihikisaki_name.Text == null || tb_torihikisaki_name.Text.Length == 0)
+            if (chk_torihikisaki_name() == false)
             {
-                MessageBox.Show("取引先名を全角20文字以内で入力してください。");
-                tb_torihikisaki_name.Focus();
+                MessageBox.Show("取引先名は1文字以上、40バイト以内で入力してください");
+                tb_torihikisaki_cd.Focus();
+                return;
             }
+            //担当者コードのチェック
+            if (chk_tantousya_cd() == false)
+            {
+                MessageBox.Show("担当者コードは1文字以上、6バイト以内で入力してください。");
+                tb_tantousya_cd.Focus();
+                return;
+            }
+            //担当者名のチェック
+            if (chk_tantousya_name() == false)
+            {
+                MessageBox.Show("取引先名は1文字以上、40バイト以内で入力してください");
+                tb_tantousya_name.Focus();
+                return;
+            }
+            //郵便番号のチェック
+            if (chk_yubin_no() == false)
+            {
+                MessageBox.Show("郵便番号は10バイト以内で入力してください。");
+                tb_yubin_no.Focus();
+                return;
+            }
+            //住所1のチェック
+            if (chk_jusyo1() == false)
+            {
+                MessageBox.Show("住所1は40バイト以内で入力してください。");
+                tb_jusyo1.Focus();
+                return;
+            }
+            //住所2のチェック
+            if (chk_jusyo2() == false)
+            {
+                MessageBox.Show("住所2は40バイト以内で入力してください。");
+                tb_jusyo2.Focus();
+                return;
+            }
+            //電話番号のチェック
+            if (chk_tel_no() == false)
+            {
+                MessageBox.Show("電話番号は20バイト以内で入力してください。");
+                tb_tel_no.Focus();
+                return;
+            }
+            //FAX番号のチェック
+            if (chk_fax_no() == false)
+            {
+                MessageBox.Show("FAX番号は20バイト以内で入力してください。");
+                tb_fax_no.Focus();
+                return;
+            }
+            //メールアドレスのチェック
+            if (chk_mail_address() == false)
+            {
+                MessageBox.Show("URLは60バイト以内で入力してください。");
+                tb_mail_address.Focus();
+                return;
+            }
+            
 
 
             else
@@ -157,6 +216,114 @@ namespace TSS_SYSTEM
                 }
 
             }
-            
+
+            //フォーム内のテキストボックスチェックメソッド
+            private bool chk_torihikisaki_cd()
+            {
+                bool bl = true; //戻り値用
+
+                if (tb_torihikisaki_cd.Text == null || tb_torihikisaki_cd.Text.Length > 6)
+                {
+                    bl = false;
+                }
+                return bl;
+            }
+
+            private bool chk_torihikisaki_name()
+            {
+                bool bl = true; //戻り値用
+
+                if (tb_torihikisaki_name.Text == null || tb_torihikisaki_name.Text.Length == 0 || tss.StringByte(tb_torihikisaki_name.Text) > 40)
+                {
+                    bl = false;
+                }
+                return bl;
+            }
+            private bool chk_tantousya_cd()
+            {
+                bool bl = true; //戻り値用
+
+                if (tb_tantousya_cd.Text == null || tb_tantousya_cd.Text.Length > 6)
+                {
+                    bl = false;
+                }
+                return bl;
+            }
+
+            private bool chk_tantousya_name()
+            {
+                bool bl = true; //戻り値用
+
+                if (tb_tantousya_name.Text == null || tb_tantousya_name.Text.Length == 0 || tss.StringByte(tb_tantousya_name.Text) > 40)
+                {
+                    bl = false;
+                }
+                return bl;
+            }
+            private bool chk_yubin_no()
+            {
+                bool bl = true; //戻り値用
+
+                if (tss.StringByte(tb_yubin_no.Text) > 10)
+                {
+                    bl = false;
+                }
+                return bl;
+            }
+
+            private bool chk_jusyo1()
+            {
+                bool bl = true; //戻り値用
+
+                if (tss.StringByte(tb_jusyo1.Text) > 40)
+                {
+                    bl = false;
+                }
+                return bl;
+            }
+
+            private bool chk_jusyo2()
+            {
+                bool bl = true; //戻り値用
+
+                if (tss.StringByte(tb_jusyo2.Text) > 40)
+                {
+                    bl = false;
+                }
+                return bl;
+            }
+
+            private bool chk_tel_no()
+            {
+                bool bl = true; //戻り値用
+
+                if (tss.StringByte(tb_tel_no.Text) > 20)
+                {
+                    bl = false;
+                }
+                return bl;
+            }
+
+            private bool chk_fax_no()
+            {
+                bool bl = true; //戻り値用
+
+                if (tss.StringByte(tb_fax_no.Text) > 20)
+                {
+                    bl = false;
+                }
+                return bl;
+            }
+
+            private bool chk_mail_address()
+            {
+                bool bl = true; //戻り値用
+
+                if (tss.StringByte(tb_mail_address.Text) > 60)
+                {
+                    bl = false;
+                }
+                return bl;
+            }
         }
     }

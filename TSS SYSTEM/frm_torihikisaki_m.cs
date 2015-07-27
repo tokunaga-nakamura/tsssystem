@@ -29,6 +29,7 @@ namespace TSS_SYSTEM
 
         private void btn_touroku_Click(object sender, EventArgs e)
         {
+            //登録前のチェック
             //取引先コードのチェック
             if (chk_torihikisaki_cd() == false)
             {
@@ -137,7 +138,7 @@ namespace TSS_SYSTEM
             //請求締日のチェック
             if (chk_seikyu_sime_date() == false)
             {
-                MessageBox.Show("請求締日は数字2桁（末日締は0）で入力してください。");
+                MessageBox.Show("末日締の場合はは99を入力してください。その他の日付の場合は1～31の間で入力してください。");
                 tb_seikyu_sime_date.Focus();
                 return;
             }
@@ -151,14 +152,14 @@ namespace TSS_SYSTEM
             //回収日のチェック
             if (chk_kaisyu_hi() == false)
             {
-                MessageBox.Show("回収日は数字2桁（末日回収は0）で入力してください。");
+                MessageBox.Show("末日締の場合はは99を入力してください。その他の日付の場合は1～31の間で入力してください。");
                 tb_kaisyu_hi.Focus();
                 return;
             }
             //支払締日のチェック
             if (chk_siharai_sime_date() == false)
             {
-                MessageBox.Show("支払締日は数字2桁（末日締は0）で入力してください。");
+                MessageBox.Show("末日締の場合はは99を入力してください。その他の日付の場合は1～31の間で入力してください。");
                 tb_siharai_sime_date.Focus();
                 return;
             }
@@ -172,7 +173,7 @@ namespace TSS_SYSTEM
             //支払日のチェック
             if (chk_siharai_hi() == false)
             {
-                MessageBox.Show("支払日は数字2桁（末日回収は99）で入力してください。");
+                MessageBox.Show("末日締の場合はは99を入力してください。その他の日付の場合は1～31の間で入力してください。");
                 tb_siharai_hi.Focus();
                 return;
             }
@@ -274,7 +275,6 @@ namespace TSS_SYSTEM
         {
             
             torihikisaki_disp(tb_torihikisaki_cd.Text);
-
             tantousya_disp(tb_torihikisaki_cd.Text);
 
         }
@@ -338,7 +338,7 @@ namespace TSS_SYSTEM
                 dgv_tantousya.Columns[11].HeaderText = "携帯電話番号";
                 dgv_tantousya.Columns[12].HeaderText = "e-mail";
 
-                dgv_tantousya.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                //dgv_tantousya.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
         }
 
@@ -409,7 +409,9 @@ namespace TSS_SYSTEM
 
          private void frm_torihikisaki_m_Load(object sender, EventArgs e)
          {
+            // torihikisaki_disp(tb_torihikisaki_cd.Text);
 
+             tantousya_disp(tb_torihikisaki_cd.Text);
          }
 
 
@@ -418,7 +420,7 @@ namespace TSS_SYSTEM
          {
              bool bl = true; //戻り値用
 
-             if (tb_torihikisaki_cd.Text == null || tb_torihikisaki_cd.Text.Length < 6)
+             if (tb_torihikisaki_cd.Text == null || tb_torihikisaki_cd.Text.Length > 6)
              {
                  bl = false;
              }
@@ -583,7 +585,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値用
 
-            if (tb_seikyu_sime_date.Text == null || int.Parse(tb_seikyu_sime_date.Text) > 31)
+            if (tb_seikyu_sime_date.Text == null || int.Parse(tb_seikyu_sime_date.Text) > 31 &&  int.Parse(tb_seikyu_sime_date.Text) < 99 || int.Parse(tb_seikyu_sime_date.Text) < 1)
             {
                 bl = false;
             }
@@ -616,7 +618,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値用
 
-            if (tb_siharai_sime_date.Text == null || int.Parse(tb_siharai_sime_date.Text) > 31)
+            if (tb_siharai_sime_date.Text == null || int.Parse(tb_siharai_sime_date.Text) > 31 && int.Parse(tb_siharai_sime_date.Text) < 99 || int.Parse(tb_siharai_sime_date.Text) < 1)
             {
                 bl = false;
             }
@@ -638,7 +640,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値用
 
-            if (tb_siharai_hi.Text == null || int.Parse(tb_siharai_hi.Text) > 31)
+            if (tb_siharai_hi.Text == null || int.Parse(tb_siharai_hi.Text) > 31 && int.Parse(tb_siharai_hi.Text) < 99 || int.Parse(tb_siharai_hi.Text) < 1)
             {
                 bl = false;
             }
@@ -688,7 +690,117 @@ namespace TSS_SYSTEM
             }
             return bl;
         }
+
+
+
+        private void tb_jisyaden_kbn_DoubleClick(object sender, EventArgs e)
+        {
+            //選択用のdatatableの作成
+            DataTable dt_work = new DataTable();
+            //列の定義
+            dt_work.Columns.Add("区分コード");
+            dt_work.Columns.Add("区分名");
+            //行追加
+            DataRow dr_work = dt_work.NewRow();
+            dr_work["区分コード"] = "0";
+            dr_work["区分名"] = "発行しない";
+            dt_work.Rows.Add(dr_work);
+            dr_work = dt_work.NewRow();
+            dr_work["区分コード"] = "1";
+            dr_work["区分名"] = "発行する";
+            dt_work.Rows.Add(dr_work);
+            //選択画面へ
+            this.tb_jisyaden_kbn.Text = tss.kubun_cd_select_dt("自社伝発行区分", dt_work);
+            chk_jisyaden_kbn();   //自社伝発行区分名の表示
+        }
+
+        private void tb_hasu_kbn_DoubleClick(object sender, EventArgs e)
+        {
+            //選択用のdatatableの作成
+            DataTable dt_work = new DataTable();
+            //列の定義
+            dt_work.Columns.Add("区分コード");
+            dt_work.Columns.Add("区分名");
+            //行追加
+            DataRow dr_work = dt_work.NewRow();
+            dr_work["区分コード"] = "0";
+            dr_work["区分名"] = "円未満";
+            dt_work.Rows.Add(dr_work);
+            dr_work = dt_work.NewRow();
+            dr_work["区分コード"] = "1";
+            dr_work["区分名"] = "十円未満";
+            dt_work.Rows.Add(dr_work);
+            dr_work = dt_work.NewRow();
+            dr_work["区分コード"] = "2";
+            dr_work["区分名"] = "百円未満";
+            dt_work.Rows.Add(dr_work);
+            //選択画面へ
+            this.tb_hasu_kbn.Text = tss.kubun_cd_select_dt("端数区分", dt_work);
+            chk_hasu_kbn();   //端数区分名の表示
+        }
+
+        private void tb_hasu_syori_tani_DoubleClick(object sender, EventArgs e)
+        {
+            //選択用のdatatableの作成
+            DataTable dt_work = new DataTable();
+            //列の定義
+            dt_work.Columns.Add("区分コード");
+            dt_work.Columns.Add("区分名");
+            //行追加
+            DataRow dr_work = dt_work.NewRow();
+            dr_work["区分コード"] = "0";
+            dr_work["区分名"] = "切捨て";
+            dt_work.Rows.Add(dr_work);
+            dr_work = dt_work.NewRow();
+            dr_work["区分コード"] = "1";
+            dr_work["区分名"] = "四捨五入";
+            dt_work.Rows.Add(dr_work);
+            dr_work = dt_work.NewRow();
+            dr_work["区分コード"] = "2";
+            dr_work["区分名"] = "切上げ";
+            dt_work.Rows.Add(dr_work);
+            //選択画面へ
+            this.tb_hasu_syori_tani.Text = tss.kubun_cd_select_dt("端数処理単位", dt_work);
+            chk_hasu_syori_tani();   //端数処理単位名の表示
+        }
+
+        private void tb_syouhizei_sansyutu_kbn_DoubleClick(object sender, EventArgs e)
+        {
+            //選択用のdatatableの作成
+            DataTable dt_work = new DataTable();
+            //列の定義
+            dt_work.Columns.Add("区分コード");
+            dt_work.Columns.Add("区分名");
+            //行追加
+            DataRow dr_work = dt_work.NewRow();
+            dr_work["区分コード"] = "0";
+            dr_work["区分名"] = "明細毎";
+            dt_work.Rows.Add(dr_work);
+            dr_work = dt_work.NewRow();
+            dr_work["区分コード"] = "1";
+            dr_work["区分名"] = "伝票単位";
+            dt_work.Rows.Add(dr_work);
+            dr_work = dt_work.NewRow();
+            dr_work["区分コード"] = "2";
+            dr_work["区分名"] = "請求合計";
+            dt_work.Rows.Add(dr_work);
+            //選択画面へ
+            this.tb_syouhizei_sansyutu_kbn.Text = tss.kubun_cd_select_dt("消費税算出区分", dt_work);
+            chk_syouhizei_sansyutu_kbn();   //消費税算出区分名の表示
+        }
+
+        private void btn_tsuika_Click(object sender, EventArgs e)
+        {
+            frm_torihikisaki_tantou frm_tt = new frm_torihikisaki_tantou();
+
+            frm_tt.str_torihikisaki_cd = tb_torihikisaki_cd.Text.ToString();
+            frm_tt.ShowDialog(this);
+            frm_tt.Dispose();
+            tantousya_disp(tb_torihikisaki_cd.Text);
+        }
          
+        
+
 
     }
 }

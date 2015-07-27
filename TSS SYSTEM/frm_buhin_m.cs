@@ -524,6 +524,11 @@ namespace TSS_SYSTEM
             }
         }
 
+        private void tb_kessan_kbn_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
         private void buhin_update()
         {
