@@ -61,6 +61,7 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.btn_buhin_kensaku = new System.Windows.Forms.Button();
             this.btn_bank_m = new System.Windows.Forms.Button();
             this.btn_buhin_m = new System.Windows.Forms.Button();
             this.btn_torihikisaki_m = new System.Windows.Forms.Button();
@@ -70,7 +71,7 @@
             this.btn_mst_table = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.btn_buhin_kensaku = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -480,6 +481,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button4);
             this.tabPage2.Controls.Add(this.btn_juchuu_nyuuryoku);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -543,6 +545,16 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "システム保守";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // btn_buhin_kensaku
+            // 
+            this.btn_buhin_kensaku.Location = new System.Drawing.Point(442, 47);
+            this.btn_buhin_kensaku.Name = "btn_buhin_kensaku";
+            this.btn_buhin_kensaku.Size = new System.Drawing.Size(211, 23);
+            this.btn_buhin_kensaku.TabIndex = 7;
+            this.btn_buhin_kensaku.Text = "部品検索";
+            this.btn_buhin_kensaku.UseVisualStyleBackColor = true;
+            this.btn_buhin_kensaku.Click += new System.EventHandler(this.btn_buhin_kensaku_Click);
             // 
             // btn_bank_m
             // 
@@ -634,15 +646,15 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
-            // btn_buhin_kensaku
+            // button4
             // 
-            this.btn_buhin_kensaku.Location = new System.Drawing.Point(442, 47);
-            this.btn_buhin_kensaku.Name = "btn_buhin_kensaku";
-            this.btn_buhin_kensaku.Size = new System.Drawing.Size(211, 23);
-            this.btn_buhin_kensaku.TabIndex = 7;
-            this.btn_buhin_kensaku.Text = "部品検索";
-            this.btn_buhin_kensaku.UseVisualStyleBackColor = true;
-            this.btn_buhin_kensaku.Click += new System.EventHandler(this.btn_buhin_kensaku_Click);
+            this.button4.Location = new System.Drawing.Point(17, 145);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(180, 23);
+            this.button4.TabIndex = 1;
+            this.button4.Text = "部品入庫処理";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // frm_menu
             // 
@@ -759,6 +771,7 @@
         private System.Windows.Forms.Button btn_buhin_m;
         private System.Windows.Forms.Button btn_bank_m;
         private System.Windows.Forms.Button btn_buhin_kensaku;
+        private System.Windows.Forms.Button button4;
     }
 }
 

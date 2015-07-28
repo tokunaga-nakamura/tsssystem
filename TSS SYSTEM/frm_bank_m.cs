@@ -22,7 +22,7 @@ namespace TSS_SYSTEM
         private void frm_bank_m_Load(object sender, EventArgs e)
         {
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select TSS_BANK_M.torihikisaki_cd as torihikisaki_cd_A,TSS_TORIHIKISAKI_M.torihikisaki_cd as torihikisaki_cd_B,torihikisaki_name,bank_cd,bank_name,siten_cd,siten_name,kouza_syubetu,kouza_no,kouza_meigi from TSS_BANK_M FULL OUTER JOIN TSS_TORIHIKISAKI_M ON TSS_BANK_M.TORIHIKISAKI_CD = TSS_TORIHIKISAKI_M.TORIHIKISAKI_CD ORDER BY TORIHIKISAKI_CD_A");
+            dt_work = tss.OracleSelect("select TSS_BANK_M.torihikisaki_cd as torihikisaki_cd_A,TSS_TORIHIKISAKI_M.torihikisaki_cd as torihikisaki_cd_B,torihikisaki_name,bank_cd,bank_name,siten_cd,siten_name,kouza_syubetu,kouza_no,kouza_meigi from TSS_BANK_M LEFT OUTER JOIN TSS_TORIHIKISAKI_M ON TSS_BANK_M.TORIHIKISAKI_CD = TSS_TORIHIKISAKI_M.TORIHIKISAKI_CD ORDER BY TORIHIKISAKI_CD_A");
 
             dgv_bank_m.DataSource = dt_work;
 
@@ -110,65 +110,93 @@ namespace TSS_SYSTEM
                 bool bl_tss;
                 //既存の区分があるかチェック
                 DataTable dt_work = new DataTable();
-                dt_work = tss.OracleSelect("select * from TSS_BANK_M where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "' and kouza_syubetu = '" + tb_kouza_syubetu.Text + "'and siten_cd = '" + tb_siten_cd.Text + "'");
+                dt_work = tss.OracleSelect("select * from TSS_BANK_M where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'and bank_cd = '" + tb_bank_cd.Text + "'and siten_cd = '" + tb_siten_cd.Text + "' and kouza_syubetu = '" + tb_kouza_syubetu.Text + "'and kouza_no = '" + tb_kouza_no.Text + "'");
 
                 if (dt_work.Rows.Count != 0)
                 {
-                    DialogResult result = MessageBox.Show("この金融機関コードと支店コードは既に登録されています。上書きしますか？",
-                    "担当者削除",
+                    DialogResult result = MessageBox.Show("この口座は既に登録されています。上書きしますか？",
+                    "口座削除",
                     MessageBoxButtons.OKCancel,
                     MessageBoxIcon.Exclamation,
                     MessageBoxDefaultButton.Button2);
 
-                //    //何が選択されたか調べる
-                //    if (result == DialogResult.OK)
-                //    {
-                //        //「はい」が選択された時
-                //        tss.GetUser();
-                //        //更新
-                //        //bool bl_tss = true;
-                //        bl_tss = tss.OracleUpdate("UPDATE TSS_torihikisaki_tantou_m SET TORIHIKISAKI_NAME = '" + tb_torihikisaki_name.Text + "',TANTOUSYA_NAME = '" + tb_tantousya_name.Text
-                //            + "',YUBIN_NO = '" + tb_yubin_no.Text + "',JUSYO1 = '" + tb_jusyo1.Text + "',JUSYO2 = '" + tb_jusyo2.Text + "',TEL_NO = '" + tb_tel_no.Text
-                //            + "',FAX_NO = '" + tb_fax_no.Text + "',KEITAI_NO = '" + tb_keitai_no.Text + "',MAIL_ADDRESS = '" + tb_mail_address.Text
-                //            + "',SYOZOKU = '" + tb_syozoku.Text + "',YAKUSYOKU = '" + tb_yakusyoku.Text
-                //            + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "' and TANTOUSYA_CD = '" + tb_tantousya_cd.Text + "'");
-                //        if (bl_tss != true)
-                //        {
-                //            tss.ErrorLogWrite(tss.user_cd, "取引先担当者マスタ／登録", "登録ボタン押下時のOracleUpdate");
-                //            MessageBox.Show("登録でエラーが発生しました。処理を中止します。");
-                //            this.Close();
-                //        }
-                //        else
-                //        {
-                //            MessageBox.Show("取引先担当者情報を更新しました。");
-                //            this.Close();
-                //        }
-                //    }
+                    //何が選択されたか調べる
+                    if (result == DialogResult.OK)
+                    {
+                        //「はい」が選択された時
+                        tss.GetUser();
+                        //更新
+                        //bool bl_tss = true;
+                        bl_tss = tss.OracleUpdate("UPDATE TSS_bank_m SET BANK_NAME = '" + tb_bank_name.Text
+                            + "',SITEN_NAME = '" + tb_siten_name.Text + "',KOUZA_MEIGI = '" + tb_kouza_meigi.Text
+                            + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'and bank_cd = '" + tb_bank_cd.Text + "'and siten_cd = '" + tb_siten_cd.Text + "' and kouza_syubetu = '" + tb_kouza_syubetu.Text + "'and kouza_no = '" + tb_kouza_no.Text + "'");
+                        if (bl_tss != true)
+                        {
+                            tss.ErrorLogWrite(tss.user_cd, "銀行マスタ／登録", "登録ボタン押下時のOracleUpdate");
+                            MessageBox.Show("登録でエラーが発生しました。処理を中止します。");
+                            //this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("銀行口座情報を更新しました。");
+                            //this.Close();
+                            //DataTable dt_work = new DataTable();
 
 
-                //    else if (result == DialogResult.Cancel)
-                //    {
-                //        //「キャンセル」が選択された時
-                //        Console.WriteLine("「キャンセル」が選択されました");
-                //    }
+                            dgv_disp();
 
-                //}
-                //else
-                //{
-                //    //新規
-                //    bl_tss = tss.OracleInsert("INSERT INTO TSS_TORIHIKISAKI_TANTOU_M (torihikisaki_cd,torihikisaki_name,tantousya_cd,tantousya_name,yubin_no,jusyo1,jusyo2,tel_no,fax_no,syozoku,yakusyoku,keitai_no,mail_address,create_user_cd) "
-                //                              + "VALUES ('" + tb_torihikisaki_cd.Text + "','" + tb_torihikisaki_name.Text + "','" + tb_tantousya_cd.Text + "','" + tb_tantousya_name.Text + "','" + tb_yubin_no.Text + "','" + tb_jusyo1.Text + "','" + tb_jusyo2.Text + "','" + tb_tel_no.Text + "','" + tb_fax_no.Text + "','" + tb_syozoku.Text + "','" + tb_yakusyoku.Text + "','" + tb_keitai_no.Text + "','" + tb_mail_address.Text + "','" + tss.user_cd + "')");
-                //    if (bl_tss != true)
-                //    {
-                //        tss.ErrorLogWrite(tss.UserID, "取引先担当者マスタ／登録", "登録ボタン押下時のOracleInsert");
-                //        MessageBox.Show("登録でエラーが発生しました。処理を中止します。");
-                //        this.Close();
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("取引先担当者マスタに登録しました。");
-                //        this.Close();
-                //    }
+                            //dt_work = tss.OracleSelect("select TSS_BANK_M.torihikisaki_cd as torihikisaki_cd_A,TSS_TORIHIKISAKI_M.torihikisaki_cd as torihikisaki_cd_B,torihikisaki_name,bank_cd,bank_name,siten_cd,siten_name,kouza_syubetu,kouza_no,kouza_meigi from TSS_BANK_M LEFT OUTER JOIN TSS_TORIHIKISAKI_M ON TSS_BANK_M.TORIHIKISAKI_CD = TSS_TORIHIKISAKI_M.TORIHIKISAKI_CD ORDER BY TORIHIKISAKI_CD_A");
+
+                            //dt_work.AcceptChanges();
+                            //dgv_bank_m.DataSource = dt_work;
+
+                            //this.dgv_bank_m.Columns["TORIHIKISAKI_CD_B"].Visible = false;
+
+
+                            //dgv_bank_m.Columns[0].HeaderText = "取引先コード";
+                            //dgv_bank_m.Columns[2].HeaderText = "取引先名";
+                            //dgv_bank_m.Columns[3].HeaderText = "銀行コード";
+                            //dgv_bank_m.Columns[4].HeaderText = "銀行名";
+                            //dgv_bank_m.Columns[5].HeaderText = "支店コード";
+                            //dgv_bank_m.Columns[6].HeaderText = "支店名";
+                            //dgv_bank_m.Columns[7].HeaderText = "口座種別";
+                            //dgv_bank_m.Columns[8].HeaderText = "口座番号";
+                            //dgv_bank_m.Columns[9].HeaderText = "口座名義";
+
+                            //dgv_bank_m.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+                            
+    
+                            
+                        }
+                    }
+
+
+                    else if (result == DialogResult.Cancel)
+                    {
+                        //「キャンセル」が選択された時
+                        Console.WriteLine("「キャンセル」が選択されました");
+                    }
+
+                }
+                else
+                {
+                    //新規
+                    bl_tss = tss.OracleInsert("INSERT INTO TSS_BANK_M (torihikisaki_cd,bank_cd,siten_cd,bank_name,siten_name,kouza_syubetu,kouza_no,kouza_meigi,create_user_cd) "
+                                              + "VALUES ('" + tb_torihikisaki_cd.Text + "','" + tb_bank_cd.Text + "','" + tb_siten_cd.Text + "','" + tb_bank_name.Text + "','" + tb_siten_name.Text + "','" + tb_kouza_syubetu.Text + "','" + tb_kouza_no.Text + "','" + tb_kouza_meigi.Text + "','" + tss.user_cd + "')");
+                    if (bl_tss != true)
+                    {
+                        tss.ErrorLogWrite(tss.UserID, "技b校マスタ／登録", "登録ボタン押下時のOracleInsert");
+                        MessageBox.Show("登録でエラーが発生しました。処理を中止します。");
+                        //this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("銀行口座情報を登録しました。");
+                        //this.Close();
+
+                        dgv_disp();
+                    }
 
 
                 }
@@ -252,11 +280,169 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値用
 
-            if (tb_kouza_meigi.Text == null || tb_kouza_meigi.Text.Length == 0 || tss.StringByte(tb_kouza_meigi.Text) > 10)
+            if (tb_kouza_meigi.Text == null || tb_kouza_meigi.Text.Length == 0 || tss.StringByte(tb_kouza_meigi.Text) > 128)
             {
                 bl = false;
             }
             return bl;
+        }
+
+        private void tb_torihikisaki_cd_Leave(object sender, EventArgs e)
+        {
+            DataTable dt_work2= new DataTable();
+            dt_work2 = tss.OracleSelect("select torihikisaki_name from TSS_TORIHIKISAKI_M where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'");
+
+            if (dt_work2.Rows.Count != 0)
+            {
+                tb_torihikisaki_name.Text = dt_work2.Rows[0][0].ToString();
+            }
+            else
+            {
+                MessageBox.Show("取引先マスタに登録がありません。取引先マスタの登録をしてください。");
+                return;
+            }
+        }
+
+        private void tb_kouza_syubetu_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tb_kouza_syubetu_DoubleClick(object sender, EventArgs e)
+        {
+            //選択用のdatatableの作成
+            DataTable dt_work = new DataTable();
+            //列の定義
+            dt_work.Columns.Add("区分コード");
+            dt_work.Columns.Add("区分名");
+            //行追加
+            DataRow dr_work = dt_work.NewRow();
+            dr_work["区分コード"] = "1";
+            dr_work["区分名"] = "普通";
+            dt_work.Rows.Add(dr_work);
+            dr_work = dt_work.NewRow();
+            dr_work["区分コード"] = "2";
+            dr_work["区分名"] = "当座";
+            dt_work.Rows.Add(dr_work);
+            //選択画面へ
+            this.tb_kouza_syubetu.Text = tss.kubun_cd_select_dt("口座種別", dt_work);
+            chk_kouza_syubetu();   //口座種別の表示
+        }
+
+        private void bt_hensyu_Click(object sender, EventArgs e)
+        {
+
+                int i = dgv_bank_m.CurrentCell.RowIndex;
+
+                tb_torihikisaki_cd.Text = dgv_bank_m[0, i].Value.ToString();
+                tb_torihikisaki_name.Text = dgv_bank_m[2, i].Value.ToString();
+                tb_bank_cd.Text = dgv_bank_m[3, i].Value.ToString();
+                tb_bank_name.Text = dgv_bank_m[4, i].Value.ToString();
+                tb_siten_cd.Text = dgv_bank_m[5, i].Value.ToString();
+                tb_siten_name.Text = dgv_bank_m[6, i].Value.ToString();
+                tb_kouza_syubetu.Text = dgv_bank_m[7, i].Value.ToString();
+                tb_kouza_no.Text = dgv_bank_m[8, i].Value.ToString();
+                tb_kouza_meigi.Text = dgv_bank_m[9, i].Value.ToString();
+                
+        }
+
+        private void bt_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_sakujyo_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("口座情報を削除しますか？",
+           "口座削除",
+           MessageBoxButtons.OKCancel,
+           MessageBoxIcon.Exclamation,
+           MessageBoxDefaultButton.Button2);
+
+            //何が選択されたか調べる
+            if (result == DialogResult.OK)
+            {
+                //「はい」が選択された時
+                int i = dgv_bank_m.CurrentCell.RowIndex;
+
+                tb_torihikisaki_cd.Text = dgv_bank_m[0, i].Value.ToString();
+                tb_torihikisaki_name.Text = dgv_bank_m[2, i].Value.ToString();
+                tb_bank_cd.Text = dgv_bank_m[3, i].Value.ToString();
+                tb_bank_name.Text = dgv_bank_m[4, i].Value.ToString();
+                tb_siten_cd.Text = dgv_bank_m[5, i].Value.ToString();
+                tb_siten_name.Text = dgv_bank_m[6, i].Value.ToString();
+                tb_kouza_syubetu.Text = dgv_bank_m[7, i].Value.ToString();
+                tb_kouza_no.Text = dgv_bank_m[8, i].Value.ToString();
+                tb_kouza_meigi.Text = dgv_bank_m[9, i].Value.ToString();
+
+                tss.GetUser();
+                bool bl_tss;
+                bl_tss = tss.OracleDelete("delete from TSS_BANK_M where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'and bank_cd = '" + tb_bank_cd.Text + "'and siten_cd = '" + tb_siten_cd.Text + "' and kouza_syubetu = '" + tb_kouza_syubetu.Text + "'and kouza_no = '" + tb_kouza_no.Text + "'");
+                if (bl_tss != true)
+                {
+                    tss.ErrorLogWrite(tss.user_cd, "銀行マスタ／登録", "登録ボタン押下時のOracleUpdate");
+                    MessageBox.Show("エラーが発生しました。処理を中止します。");
+                    //this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("口座情報から削除しました。");
+                    dgv_disp();
+                    tb_clear();
+                    //this.Close();
+
+                   
+                }
+            }
+
+
+            else if (result == DialogResult.Cancel)
+            {
+                //「キャンセル」が選択された時
+                Console.WriteLine("「キャンセル」が選択されました");
+            }
+        }
+
+        private void dgv_disp()
+        {
+
+            DataTable dt_work = new DataTable();
+            dt_work = tss.OracleSelect("select TSS_BANK_M.torihikisaki_cd as torihikisaki_cd_A,TSS_TORIHIKISAKI_M.torihikisaki_cd as torihikisaki_cd_B,torihikisaki_name,bank_cd,bank_name,siten_cd,siten_name,kouza_syubetu,kouza_no,kouza_meigi from TSS_BANK_M LEFT OUTER JOIN TSS_TORIHIKISAKI_M ON TSS_BANK_M.TORIHIKISAKI_CD = TSS_TORIHIKISAKI_M.TORIHIKISAKI_CD ORDER BY TORIHIKISAKI_CD_A");
+
+            dt_work.AcceptChanges();
+            dgv_bank_m.DataSource = dt_work;
+
+            this.dgv_bank_m.Columns["TORIHIKISAKI_CD_B"].Visible = false;
+
+
+            dgv_bank_m.Columns[0].HeaderText = "取引先コード";
+            dgv_bank_m.Columns[2].HeaderText = "取引先名";
+            dgv_bank_m.Columns[3].HeaderText = "銀行コード";
+            dgv_bank_m.Columns[4].HeaderText = "銀行名";
+            dgv_bank_m.Columns[5].HeaderText = "支店コード";
+            dgv_bank_m.Columns[6].HeaderText = "支店名";
+            dgv_bank_m.Columns[7].HeaderText = "口座種別";
+            dgv_bank_m.Columns[8].HeaderText = "口座番号";
+            dgv_bank_m.Columns[9].HeaderText = "口座名義";
+
+            dgv_bank_m.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+        }
+        
+        
+        private void tb_clear()
+          {
+
+              tb_torihikisaki_cd.Text = "";
+              tb_torihikisaki_name.Text = "";
+              tb_bank_cd.Text = "";
+              tb_bank_name.Text = "";
+              tb_siten_cd.Text = "";
+              tb_siten_name.Text = "";
+              tb_kouza_syubetu.Text = "";
+              tb_kouza_no.Text = "";
+              tb_kouza_meigi.Text = "";
+
         }
     }
 }

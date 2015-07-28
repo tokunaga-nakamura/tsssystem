@@ -51,13 +51,13 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgv_bank_m = new System.Windows.Forms.DataGridView();
             this.bt_hensyu = new System.Windows.Forms.Button();
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -81,6 +81,7 @@
             this.bt_close.TabIndex = 2;
             this.bt_close.Text = "終了";
             this.bt_close.UseVisualStyleBackColor = true;
+            this.bt_close.Click += new System.EventHandler(this.bt_close_Click);
             // 
             // btn_sakujyo
             // 
@@ -90,6 +91,7 @@
             this.btn_sakujyo.TabIndex = 1;
             this.btn_sakujyo.Text = "削除";
             this.btn_sakujyo.UseVisualStyleBackColor = true;
+            this.btn_sakujyo.Click += new System.EventHandler(this.btn_sakujyo_Click);
             // 
             // btn_touroku
             // 
@@ -143,6 +145,8 @@
             this.tb_kouza_syubetu.Name = "tb_kouza_syubetu";
             this.tb_kouza_syubetu.Size = new System.Drawing.Size(34, 19);
             this.tb_kouza_syubetu.TabIndex = 33;
+            this.tb_kouza_syubetu.TextChanged += new System.EventHandler(this.tb_kouza_syubetu_TextChanged);
+            this.tb_kouza_syubetu.DoubleClick += new System.EventHandler(this.tb_kouza_syubetu_DoubleClick);
             // 
             // textBox13
             // 
@@ -225,6 +229,7 @@
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
             this.tb_torihikisaki_cd.Size = new System.Drawing.Size(53, 19);
             this.tb_torihikisaki_cd.TabIndex = 21;
+            this.tb_torihikisaki_cd.Leave += new System.EventHandler(this.tb_torihikisaki_cd_Leave);
             // 
             // textBox5
             // 
@@ -319,6 +324,15 @@
             this.splitContainer3.SplitterDistance = 171;
             this.splitContainer3.TabIndex = 40;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 146);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "登録一覧";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -346,6 +360,7 @@
             this.bt_hensyu.TabIndex = 3;
             this.bt_hensyu.Text = "編集";
             this.bt_hensyu.UseVisualStyleBackColor = true;
+            this.bt_hensyu.Click += new System.EventHandler(this.bt_hensyu_Click);
             // 
             // btn_hardcopy
             // 
@@ -385,15 +400,6 @@
             this.statusStrip1.Size = new System.Drawing.Size(884, 22);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 146);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 40;
-            this.label2.Text = "登録一覧";
             // 
             // frm_bank_m
             // 

@@ -178,5 +178,12 @@ namespace TSS_SYSTEM
             //検索画面へ
             tss.search_buhin("1", "");
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            frm_buhin_nyusyukkoidou frm_bnsi = new frm_buhin_nyusyukkoidou();
+            frm_bnsi.ShowDialog(this);
+            frm_bnsi.Dispose();
+        }
     }
 }
