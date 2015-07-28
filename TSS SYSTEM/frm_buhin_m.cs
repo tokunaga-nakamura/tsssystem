@@ -165,9 +165,70 @@ namespace TSS_SYSTEM
             tb_update_user_cd.Text = in_dt_work.Rows[0]["update_user_cd"].ToString();
             tb_update_datetime.Text = in_dt_work.Rows[0]["update_datetime"].ToString();
 
-            dgv_buhin_zaiko_m.DataSource = null;
-            dgv_buhin_nyusyukko_m.DataSource = null;
+            zaiko_disp(tb_buhin_cd.Text);
+            rireki_disp(tb_buhin_cd.Text);
         }
+
+        private void zaiko_disp(string in_cd)
+        {
+            dgv_buhin_zaiko_m.DataSource = tss.OracleSelect("select zaiko_kbn,torihikisaki_cd,juchu_cd1,juchu_cd2,zaiko_su from tss_buhin_zaiko_m where buhin_cd = '" + in_cd + "'");
+            //行ヘッダーを非表示にする
+            dgv_buhin_zaiko_m.RowHeadersVisible = false;
+            //カラム幅の自動調整（ヘッダーとセルの両方の最長幅に調整する）
+            dgv_buhin_zaiko_m.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //セルの高さ変更不可
+            dgv_buhin_zaiko_m.AllowUserToResizeRows = false;
+            //カラムヘッダーの高さ変更不可
+            dgv_buhin_zaiko_m.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            //削除不可にする（コードからは削除可）
+            dgv_buhin_zaiko_m.AllowUserToDeleteRows = false;
+            //１行のみ選択可能（複数行の選択不可）
+            dgv_buhin_zaiko_m.MultiSelect = false;
+            //セルを選択すると行全体が選択されるようにする
+            dgv_buhin_zaiko_m.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //DataGridView1にユーザーが新しい行を追加できないようにする
+            dgv_buhin_zaiko_m.AllowUserToAddRows = false;
+            //DataGridViewのカラムヘッダーテキストを変更する
+            dgv_buhin_zaiko_m.Columns[0].HeaderText = "在庫区分";
+            dgv_buhin_zaiko_m.Columns[1].HeaderText = "取引先コード";
+            dgv_buhin_zaiko_m.Columns[2].HeaderText = "受注No1";
+            dgv_buhin_zaiko_m.Columns[3].HeaderText = "受注No2";
+            dgv_buhin_zaiko_m.Columns[4].HeaderText = "在庫数";
+        }
+
+        private void rireki_disp(string in_cd)
+        {
+            dgv_buhin_nyusyukko_m.DataSource = tss.OracleSelect("select buhin_syori_date,buhin_syori_kbn,zaiko_kbn,torihikisaki_cd,juchu_cd1,juchu_cd2,suryou,idousaki_zaiko_kbn,idousaki_torihikisaki_cd,idousaki_juchu_cd1,idousaki_juchu_cd2 from tss_buhin_nyusyukko_m where buhin_cd = '" + in_cd + "' order by buhin_syori_date desc");
+            //行ヘッダーを非表示にする
+            dgv_buhin_nyusyukko_m.RowHeadersVisible = false;
+            //カラム幅の自動調整（ヘッダーとセルの両方の最長幅に調整する）
+            dgv_buhin_nyusyukko_m.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //セルの高さ変更不可
+            dgv_buhin_nyusyukko_m.AllowUserToResizeRows = false;
+            //カラムヘッダーの高さ変更不可
+            dgv_buhin_nyusyukko_m.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            //削除不可にする（コードからは削除可）
+            dgv_buhin_nyusyukko_m.AllowUserToDeleteRows = false;
+            //１行のみ選択可能（複数行の選択不可）
+            dgv_buhin_nyusyukko_m.MultiSelect = false;
+            //セルを選択すると行全体が選択されるようにする
+            dgv_buhin_nyusyukko_m.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //DataGridView1にユーザーが新しい行を追加できないようにする
+            dgv_buhin_nyusyukko_m.AllowUserToAddRows = false;
+            dgv_buhin_nyusyukko_m.Columns[0].HeaderText = "処理日";
+            dgv_buhin_nyusyukko_m.Columns[1].HeaderText = "処理区分";
+            dgv_buhin_nyusyukko_m.Columns[2].HeaderText = "在庫区分";
+            dgv_buhin_nyusyukko_m.Columns[3].HeaderText = "取引先コード";
+            dgv_buhin_nyusyukko_m.Columns[4].HeaderText = "受注No1";
+            dgv_buhin_nyusyukko_m.Columns[5].HeaderText = "受注No2";
+            dgv_buhin_nyusyukko_m.Columns[6].HeaderText = "数量";
+            dgv_buhin_nyusyukko_m.Columns[7].HeaderText = "移動先在庫区分";
+            dgv_buhin_nyusyukko_m.Columns[8].HeaderText = "移動先取引先コード";
+            dgv_buhin_nyusyukko_m.Columns[9].HeaderText = "移動先受注No1";
+            dgv_buhin_nyusyukko_m.Columns[10].HeaderText = "移動先受注No2";
+        }
+
+
 
         private string get_torihikisaki_name(string in_torihikisaki_cd)
         {
@@ -216,11 +277,6 @@ namespace TSS_SYSTEM
             }
             return out_siiresaki_name;
         }
-
-
-
-
-
 
         private void btn_touroku_Click(object sender, EventArgs e)
         {
@@ -540,12 +596,6 @@ namespace TSS_SYSTEM
             }
         }
 
-        private void tb_kessan_kbn_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void buhin_update()
         {
             tss.GetUser();
@@ -705,17 +755,6 @@ namespace TSS_SYSTEM
                 chk_buhin_cd();   //決算区分名の表示
             }
         }
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }

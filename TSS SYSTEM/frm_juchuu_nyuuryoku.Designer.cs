@@ -43,7 +43,7 @@
             this.cb_seisan_jisseki = new System.Windows.Forms.CheckBox();
             this.cb_seisan_schedule = new System.Windows.Forms.CheckBox();
             this.cb_nouhin_schedule = new System.Windows.Forms.CheckBox();
-            this.tb_juchuu_suu = new System.Windows.Forms.TextBox();
+            this.tb_juchu_su = new System.Windows.Forms.TextBox();
             this.tb_seihin_name = new System.Windows.Forms.TextBox();
             this.tb_seihin_cd = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -66,6 +66,17 @@
             this.dgv_nounyuu_schedule = new System.Windows.Forms.DataGridView();
             this.btn_touroku = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.tb_seisan_su = new System.Windows.Forms.TextBox();
+            this.tb_nouhin_su = new System.Windows.Forms.TextBox();
+            this.tb_uriage_su = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.tb_uriage_kanryou_flg = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.tb_sakujo_flg = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -98,6 +109,7 @@
             this.splitContainer5.Panel2.SuspendLayout();
             this.splitContainer5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_nounyuu_schedule)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -137,6 +149,7 @@
             this.btn_hardcopy.Name = "btn_hardcopy";
             this.btn_hardcopy.Size = new System.Drawing.Size(36, 36);
             this.btn_hardcopy.TabIndex = 0;
+            this.btn_hardcopy.TabStop = false;
             this.btn_hardcopy.UseVisualStyleBackColor = true;
             this.btn_hardcopy.Click += new System.EventHandler(this.btn_hardcopy_Click);
             // 
@@ -156,6 +169,7 @@
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.btn_touroku);
             this.splitContainer2.Panel2.Controls.Add(this.btn_syuuryou);
             this.splitContainer2.Size = new System.Drawing.Size(884, 474);
             this.splitContainer2.SplitterDistance = 438;
@@ -199,7 +213,7 @@
             this.splitContainer6.Panel1.Controls.Add(this.tb_bikou);
             this.splitContainer6.Panel1.Controls.Add(this.textBox7);
             this.splitContainer6.Panel1.Controls.Add(this.groupBox1);
-            this.splitContainer6.Panel1.Controls.Add(this.tb_juchuu_suu);
+            this.splitContainer6.Panel1.Controls.Add(this.tb_juchu_su);
             this.splitContainer6.Panel1.Controls.Add(this.tb_seihin_name);
             this.splitContainer6.Panel1.Controls.Add(this.tb_seihin_cd);
             this.splitContainer6.Panel1.Controls.Add(this.textBox6);
@@ -216,10 +230,11 @@
             // 
             // splitContainer6.Panel2
             // 
-            this.splitContainer6.Panel2.Controls.Add(this.splitContainer7);
+            this.splitContainer6.Panel2.Controls.Add(this.groupBox3);
             this.splitContainer6.Size = new System.Drawing.Size(446, 438);
             this.splitContainer6.SplitterDistance = 289;
             this.splitContainer6.TabIndex = 0;
+            this.splitContainer6.TabStop = false;
             // 
             // groupBox2
             // 
@@ -272,8 +287,6 @@
             // cb_seisan_jisseki
             // 
             this.cb_seisan_jisseki.AutoSize = true;
-            this.cb_seisan_jisseki.Checked = true;
-            this.cb_seisan_jisseki.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_seisan_jisseki.Location = new System.Drawing.Point(6, 62);
             this.cb_seisan_jisseki.Name = "cb_seisan_jisseki";
             this.cb_seisan_jisseki.Size = new System.Drawing.Size(124, 16);
@@ -284,8 +297,6 @@
             // cb_seisan_schedule
             // 
             this.cb_seisan_schedule.AutoSize = true;
-            this.cb_seisan_schedule.Checked = true;
-            this.cb_seisan_schedule.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_seisan_schedule.Location = new System.Drawing.Point(6, 40);
             this.cb_seisan_schedule.Name = "cb_seisan_schedule";
             this.cb_seisan_schedule.Size = new System.Drawing.Size(156, 16);
@@ -296,8 +307,6 @@
             // cb_nouhin_schedule
             // 
             this.cb_nouhin_schedule.AutoSize = true;
-            this.cb_nouhin_schedule.Checked = true;
-            this.cb_nouhin_schedule.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_nouhin_schedule.Location = new System.Drawing.Point(6, 18);
             this.cb_nouhin_schedule.Name = "cb_nouhin_schedule";
             this.cb_nouhin_schedule.Size = new System.Drawing.Size(156, 16);
@@ -305,13 +314,12 @@
             this.cb_nouhin_schedule.Text = "納品スケジュールに反映する";
             this.cb_nouhin_schedule.UseVisualStyleBackColor = true;
             // 
-            // tb_juchuu_suu
+            // tb_juchu_su
             // 
-            this.tb_juchuu_suu.Location = new System.Drawing.Point(344, 91);
-            this.tb_juchuu_suu.Name = "tb_juchuu_suu";
-            this.tb_juchuu_suu.Size = new System.Drawing.Size(89, 19);
-            this.tb_juchuu_suu.TabIndex = 13;
-            this.tb_juchuu_suu.Text = "9999999999.99";
+            this.tb_juchu_su.Location = new System.Drawing.Point(344, 91);
+            this.tb_juchu_su.Name = "tb_juchu_su";
+            this.tb_juchu_su.Size = new System.Drawing.Size(89, 19);
+            this.tb_juchu_su.TabIndex = 13;
             // 
             // tb_seihin_name
             // 
@@ -329,7 +337,6 @@
             this.tb_seihin_cd.Name = "tb_seihin_cd";
             this.tb_seihin_cd.Size = new System.Drawing.Size(112, 19);
             this.tb_seihin_cd.TabIndex = 11;
-            this.tb_seihin_cd.Text = "9999999999999999";
             // 
             // textBox6
             // 
@@ -389,7 +396,7 @@
             this.tb_juchu_cd1.Name = "tb_juchu_cd1";
             this.tb_juchu_cd1.Size = new System.Drawing.Size(112, 19);
             this.tb_juchu_cd1.TabIndex = 5;
-            this.tb_juchu_cd1.Text = "9999999999999999";
+            this.tb_juchu_cd1.Validating += new System.ComponentModel.CancelEventHandler(this.tb_juchu_cd1_Validating);
             // 
             // tb_juchuu_cd2
             // 
@@ -397,7 +404,6 @@
             this.tb_juchuu_cd2.Name = "tb_juchuu_cd2";
             this.tb_juchuu_cd2.Size = new System.Drawing.Size(112, 19);
             this.tb_juchuu_cd2.TabIndex = 4;
-            this.tb_juchuu_cd2.Text = "9999999999999999";
             // 
             // tb_torihikisaki_cd
             // 
@@ -405,7 +411,7 @@
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
             this.tb_torihikisaki_cd.Size = new System.Drawing.Size(80, 19);
             this.tb_torihikisaki_cd.TabIndex = 3;
-            this.tb_torihikisaki_cd.Text = "999999";
+            this.tb_torihikisaki_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_torihikisaki_cd_Validating);
             // 
             // textBox3
             // 
@@ -456,7 +462,7 @@
             // splitContainer7.Panel2
             // 
             this.splitContainer7.Panel2.Controls.Add(this.dgv_kousin_rireki);
-            this.splitContainer7.Size = new System.Drawing.Size(442, 141);
+            this.splitContainer7.Size = new System.Drawing.Size(430, 158);
             this.splitContainer7.SplitterDistance = 29;
             this.splitContainer7.TabIndex = 0;
             this.splitContainer7.TabStop = false;
@@ -477,8 +483,9 @@
             this.dgv_kousin_rireki.Location = new System.Drawing.Point(0, 0);
             this.dgv_kousin_rireki.Name = "dgv_kousin_rireki";
             this.dgv_kousin_rireki.RowTemplate.Height = 21;
-            this.dgv_kousin_rireki.Size = new System.Drawing.Size(442, 108);
+            this.dgv_kousin_rireki.Size = new System.Drawing.Size(430, 125);
             this.dgv_kousin_rireki.TabIndex = 0;
+            this.dgv_kousin_rireki.TabStop = false;
             // 
             // splitContainer4
             // 
@@ -494,10 +501,11 @@
             // 
             // splitContainer4.Panel2
             // 
-            this.splitContainer4.Panel2.Controls.Add(this.btn_touroku);
+            this.splitContainer4.Panel2.Controls.Add(this.splitContainer7);
             this.splitContainer4.Size = new System.Drawing.Size(434, 438);
-            this.splitContainer4.SplitterDistance = 402;
+            this.splitContainer4.SplitterDistance = 272;
             this.splitContainer4.TabIndex = 0;
+            this.splitContainer4.TabStop = false;
             // 
             // splitContainer5
             // 
@@ -515,7 +523,7 @@
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.dgv_nounyuu_schedule);
-            this.splitContainer5.Size = new System.Drawing.Size(430, 398);
+            this.splitContainer5.Size = new System.Drawing.Size(430, 268);
             this.splitContainer5.SplitterDistance = 30;
             this.splitContainer5.TabIndex = 0;
             this.splitContainer5.TabStop = false;
@@ -536,12 +544,13 @@
             this.dgv_nounyuu_schedule.Location = new System.Drawing.Point(0, 0);
             this.dgv_nounyuu_schedule.Name = "dgv_nounyuu_schedule";
             this.dgv_nounyuu_schedule.RowTemplate.Height = 21;
-            this.dgv_nounyuu_schedule.Size = new System.Drawing.Size(430, 364);
+            this.dgv_nounyuu_schedule.Size = new System.Drawing.Size(430, 234);
             this.dgv_nounyuu_schedule.TabIndex = 0;
+            this.dgv_nounyuu_schedule.TabStop = false;
             // 
             // btn_touroku
             // 
-            this.btn_touroku.Location = new System.Drawing.Point(345, 3);
+            this.btn_touroku.Location = new System.Drawing.Point(10, 3);
             this.btn_touroku.Name = "btn_touroku";
             this.btn_touroku.Size = new System.Drawing.Size(75, 23);
             this.btn_touroku.TabIndex = 0;
@@ -556,6 +565,131 @@
             this.btn_syuuryou.TabIndex = 0;
             this.btn_syuuryou.Text = "終了";
             this.btn_syuuryou.UseVisualStyleBackColor = true;
+            this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.tb_sakujo_flg);
+            this.groupBox3.Controls.Add(this.textBox11);
+            this.groupBox3.Controls.Add(this.tb_uriage_kanryou_flg);
+            this.groupBox3.Controls.Add(this.textBox14);
+            this.groupBox3.Controls.Add(this.tb_uriage_su);
+            this.groupBox3.Controls.Add(this.tb_nouhin_su);
+            this.groupBox3.Controls.Add(this.tb_seisan_su);
+            this.groupBox3.Controls.Add(this.textBox10);
+            this.groupBox3.Controls.Add(this.textBox9);
+            this.groupBox3.Controls.Add(this.textBox8);
+            this.groupBox3.Location = new System.Drawing.Point(10, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(423, 135);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "関連情報";
+            // 
+            // textBox8
+            // 
+            this.textBox8.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox8.Location = new System.Drawing.Point(6, 18);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(69, 19);
+            this.textBox8.TabIndex = 0;
+            this.textBox8.TabStop = false;
+            this.textBox8.Text = "生産数";
+            // 
+            // textBox9
+            // 
+            this.textBox9.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox9.Location = new System.Drawing.Point(6, 43);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
+            this.textBox9.Size = new System.Drawing.Size(69, 19);
+            this.textBox9.TabIndex = 1;
+            this.textBox9.TabStop = false;
+            this.textBox9.Text = "納品数";
+            // 
+            // textBox10
+            // 
+            this.textBox10.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox10.Location = new System.Drawing.Point(6, 68);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
+            this.textBox10.Size = new System.Drawing.Size(69, 19);
+            this.textBox10.TabIndex = 2;
+            this.textBox10.TabStop = false;
+            this.textBox10.Text = "売上数";
+            // 
+            // tb_seisan_su
+            // 
+            this.tb_seisan_su.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_seisan_su.Location = new System.Drawing.Point(75, 18);
+            this.tb_seisan_su.Name = "tb_seisan_su";
+            this.tb_seisan_su.ReadOnly = true;
+            this.tb_seisan_su.Size = new System.Drawing.Size(100, 19);
+            this.tb_seisan_su.TabIndex = 3;
+            this.tb_seisan_su.TabStop = false;
+            // 
+            // tb_nouhin_su
+            // 
+            this.tb_nouhin_su.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_nouhin_su.Location = new System.Drawing.Point(75, 43);
+            this.tb_nouhin_su.Name = "tb_nouhin_su";
+            this.tb_nouhin_su.ReadOnly = true;
+            this.tb_nouhin_su.Size = new System.Drawing.Size(100, 19);
+            this.tb_nouhin_su.TabIndex = 4;
+            this.tb_nouhin_su.TabStop = false;
+            // 
+            // tb_uriage_su
+            // 
+            this.tb_uriage_su.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_uriage_su.Location = new System.Drawing.Point(75, 68);
+            this.tb_uriage_su.Name = "tb_uriage_su";
+            this.tb_uriage_su.ReadOnly = true;
+            this.tb_uriage_su.Size = new System.Drawing.Size(100, 19);
+            this.tb_uriage_su.TabIndex = 5;
+            this.tb_uriage_su.TabStop = false;
+            // 
+            // textBox14
+            // 
+            this.textBox14.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox14.Location = new System.Drawing.Point(181, 68);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.ReadOnly = true;
+            this.textBox14.Size = new System.Drawing.Size(100, 19);
+            this.textBox14.TabIndex = 6;
+            this.textBox14.TabStop = false;
+            this.textBox14.Text = "売上完了フラグ";
+            // 
+            // tb_uriage_kanryou_flg
+            // 
+            this.tb_uriage_kanryou_flg.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_uriage_kanryou_flg.Location = new System.Drawing.Point(281, 68);
+            this.tb_uriage_kanryou_flg.Name = "tb_uriage_kanryou_flg";
+            this.tb_uriage_kanryou_flg.ReadOnly = true;
+            this.tb_uriage_kanryou_flg.Size = new System.Drawing.Size(42, 19);
+            this.tb_uriage_kanryou_flg.TabIndex = 7;
+            this.tb_uriage_kanryou_flg.TabStop = false;
+            // 
+            // textBox11
+            // 
+            this.textBox11.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox11.Location = new System.Drawing.Point(6, 93);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.ReadOnly = true;
+            this.textBox11.Size = new System.Drawing.Size(69, 19);
+            this.textBox11.TabIndex = 8;
+            this.textBox11.TabStop = false;
+            this.textBox11.Text = "削除フラグ";
+            // 
+            // tb_sakujo_flg
+            // 
+            this.tb_sakujo_flg.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_sakujo_flg.Location = new System.Drawing.Point(75, 93);
+            this.tb_sakujo_flg.Name = "tb_sakujo_flg";
+            this.tb_sakujo_flg.ReadOnly = true;
+            this.tb_sakujo_flg.Size = new System.Drawing.Size(37, 19);
+            this.tb_sakujo_flg.TabIndex = 9;
+            this.tb_sakujo_flg.TabStop = false;
             // 
             // frm_juchuu_nyuuryoku
             // 
@@ -604,6 +738,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
             this.splitContainer5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_nounyuu_schedule)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -628,7 +764,7 @@
         private System.Windows.Forms.CheckBox cb_seisan_jisseki;
         private System.Windows.Forms.CheckBox cb_seisan_schedule;
         private System.Windows.Forms.CheckBox cb_nouhin_schedule;
-        private System.Windows.Forms.TextBox tb_juchuu_suu;
+        private System.Windows.Forms.TextBox tb_juchu_su;
         private System.Windows.Forms.TextBox tb_seihin_name;
         private System.Windows.Forms.TextBox tb_seihin_cd;
         private System.Windows.Forms.TextBox textBox6;
@@ -648,6 +784,17 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgv_kousin_rireki;
         private System.Windows.Forms.DataGridView dgv_nounyuu_schedule;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox tb_sakujo_flg;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox tb_uriage_kanryou_flg;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox tb_uriage_su;
+        private System.Windows.Forms.TextBox tb_nouhin_su;
+        private System.Windows.Forms.TextBox tb_seisan_su;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox8;
 
     }
 }

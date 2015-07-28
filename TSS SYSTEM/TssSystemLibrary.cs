@@ -360,6 +360,9 @@ namespace TSS_SYSTEM
                 catch (Exception)
                 {
                     dt = null;
+                    GetUser();
+                    ErrorLogWrite(user_cd, "oracleselect", sql);
+                    MessageBox.Show("データベースの処理中にエラーが発生しました。");
                 }
             }
             return dt;
