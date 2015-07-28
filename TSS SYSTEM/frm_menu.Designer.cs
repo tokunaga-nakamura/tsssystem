@@ -56,6 +56,7 @@
             this.dgv_timereport = new System.Windows.Forms.DataGridView();
             this.btn_timereport = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_nyuko_syori = new System.Windows.Forms.Button();
             this.btn_juchuu_nyuuryoku = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -71,7 +72,8 @@
             this.btn_mst_table = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_syukko_syori = new System.Windows.Forms.Button();
+            this.btn_idou_syori = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -481,7 +483,9 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button4);
+            this.tabPage2.Controls.Add(this.btn_idou_syori);
+            this.tabPage2.Controls.Add(this.btn_syukko_syori);
+            this.tabPage2.Controls.Add(this.btn_nyuko_syori);
             this.tabPage2.Controls.Add(this.btn_juchuu_nyuuryoku);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -490,6 +494,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "業務処理";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btn_nyuko_syori
+            // 
+            this.btn_nyuko_syori.Location = new System.Drawing.Point(17, 145);
+            this.btn_nyuko_syori.Name = "btn_nyuko_syori";
+            this.btn_nyuko_syori.Size = new System.Drawing.Size(180, 23);
+            this.btn_nyuko_syori.TabIndex = 1;
+            this.btn_nyuko_syori.Text = "部品入庫処理";
+            this.btn_nyuko_syori.UseVisualStyleBackColor = true;
+            this.btn_nyuko_syori.Click += new System.EventHandler(this.btn_nyuko_syori_Click);
             // 
             // btn_juchuu_nyuuryoku
             // 
@@ -646,15 +660,25 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
-            // button4
+            // btn_syukko_syori
             // 
-            this.button4.Location = new System.Drawing.Point(17, 145);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(180, 23);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "部品入庫処理";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btn_syukko_syori.Location = new System.Drawing.Point(17, 174);
+            this.btn_syukko_syori.Name = "btn_syukko_syori";
+            this.btn_syukko_syori.Size = new System.Drawing.Size(180, 23);
+            this.btn_syukko_syori.TabIndex = 2;
+            this.btn_syukko_syori.Text = "部品出庫処理";
+            this.btn_syukko_syori.UseVisualStyleBackColor = true;
+            this.btn_syukko_syori.Click += new System.EventHandler(this.btn_syukko_syori_Click);
+            // 
+            // btn_idou_syori
+            // 
+            this.btn_idou_syori.Location = new System.Drawing.Point(17, 203);
+            this.btn_idou_syori.Name = "btn_idou_syori";
+            this.btn_idou_syori.Size = new System.Drawing.Size(180, 23);
+            this.btn_idou_syori.TabIndex = 3;
+            this.btn_idou_syori.Text = "部品移動処理";
+            this.btn_idou_syori.UseVisualStyleBackColor = true;
+            this.btn_idou_syori.Click += new System.EventHandler(this.btn_idou_syori_Click);
             // 
             // frm_menu
             // 
@@ -771,7 +795,9 @@
         private System.Windows.Forms.Button btn_buhin_m;
         private System.Windows.Forms.Button btn_bank_m;
         private System.Windows.Forms.Button btn_buhin_kensaku;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_nyuko_syori;
+        private System.Windows.Forms.Button btn_syukko_syori;
+        private System.Windows.Forms.Button btn_idou_syori;
     }
 }
 
