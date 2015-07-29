@@ -83,7 +83,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_buhin_m where buhin_cd  = '" + tb_buhin_cd.Text + "'");
+            dt_work = tss.OracleSelect("select * from tss_buhin_m where buhin_cd  = '" + tb_buhin_cd.Text.ToString() + "'");
             if (dt_work.Rows.Count <= 0)
             {
                 //新規
@@ -171,7 +171,7 @@ namespace TSS_SYSTEM
 
         private void zaiko_disp(string in_cd)
         {
-            dgv_buhin_zaiko_m.DataSource = tss.OracleSelect("select zaiko_kbn,torihikisaki_cd,juchu_cd1,juchu_cd2,zaiko_su from tss_buhin_zaiko_m where buhin_cd = '" + in_cd + "'");
+            dgv_buhin_zaiko_m.DataSource = tss.OracleSelect("select zaiko_kbn,torihikisaki_cd,juchu_cd1,juchu_cd2,zaiko_su from tss_buhin_zaiko_m where buhin_cd = '" + in_cd.ToString() + "'");
             //行ヘッダーを非表示にする
             dgv_buhin_zaiko_m.RowHeadersVisible = false;
             //カラム幅の自動調整（ヘッダーとセルの両方の最長幅に調整する）
@@ -198,7 +198,7 @@ namespace TSS_SYSTEM
 
         private void rireki_disp(string in_cd)
         {
-            dgv_buhin_nyusyukko_m.DataSource = tss.OracleSelect("select buhin_syori_date,buhin_syori_kbn,zaiko_kbn,torihikisaki_cd,juchu_cd1,juchu_cd2,suryou,idousaki_zaiko_kbn,idousaki_torihikisaki_cd,idousaki_juchu_cd1,idousaki_juchu_cd2 from tss_buhin_nyusyukko_m where buhin_cd = '" + in_cd + "' order by buhin_syori_date desc");
+            dgv_buhin_nyusyukko_m.DataSource = tss.OracleSelect("select buhin_syori_date,buhin_syori_kbn,zaiko_kbn,torihikisaki_cd,juchu_cd1,juchu_cd2,suryou,idousaki_zaiko_kbn,idousaki_torihikisaki_cd,idousaki_juchu_cd1,idousaki_juchu_cd2 from tss_buhin_nyusyukko_m where buhin_cd = '" + in_cd.ToString() + "' order by buhin_syori_date desc");
             //行ヘッダーを非表示にする
             dgv_buhin_nyusyukko_m.RowHeadersVisible = false;
             //カラム幅の自動調整（ヘッダーとセルの両方の最長幅に調整する）
@@ -234,7 +234,7 @@ namespace TSS_SYSTEM
         {
             string out_torihikisaki_name = "";  //戻り値用
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd = '" + in_torihikisaki_cd + "'");
+            dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd = '" + in_torihikisaki_cd.ToString() + "'");
             if (dt_work.Rows.Count <= 0)
             {
                 out_torihikisaki_name = "";
@@ -250,7 +250,7 @@ namespace TSS_SYSTEM
         {
             string out_kubun_name = "";  //戻り値用
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd = '" + in_kubun_meisyou_cd + "' and kubun_cd = '" + in_kubun_cd + "'");
+            dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd = '" + in_kubun_meisyou_cd.ToString() + "' and kubun_cd = '" + in_kubun_cd.ToString() + "'");
             if (dt_work.Rows.Count <= 0)
             {
                 out_kubun_name = "";
@@ -266,7 +266,7 @@ namespace TSS_SYSTEM
         {
             string out_siiresaki_name = "";  //戻り値用
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd = '" + in_siiresaki_cd + "'");
+            dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd = '" + in_siiresaki_cd.ToString() + "'");
             if (dt_work.Rows.Count <= 0)
             {
                 out_siiresaki_name = "";
@@ -359,7 +359,7 @@ namespace TSS_SYSTEM
             }
 
             //部品コードの新規・更新チェック
-            dt_work = tss.OracleSelect("select * from tss_buhin_m where buhin_cd  = '" + tb_buhin_cd.Text + "'");
+            dt_work = tss.OracleSelect("select * from tss_buhin_m where buhin_cd  = '" + tb_buhin_cd.Text.ToString() + "'");
             if (dt_work.Rows.Count <= 0)
             {
                 //新規
@@ -421,7 +421,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd  = '" + tb_torihikisaki_cd.Text + "'");
+            dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd  = '" + tb_torihikisaki_cd.Text.ToString() + "'");
             if (dt_work.Rows.Count <= 0)
             {
                 //無し
@@ -438,7 +438,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '02' and kubun_cd = '" + tb_tani_kbn.Text + "'");
+            dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '02' and kubun_cd = '" + tb_tani_kbn.Text.ToString() + "'");
             if (dt_work.Rows.Count <= 0)
             {
                 //無し
@@ -467,7 +467,7 @@ namespace TSS_SYSTEM
             if (tb_siiresaki_cd.Text.Length != 0)
             {
                 DataTable dt_work = new DataTable();
-                dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd  = '" + tb_siiresaki_cd.Text + "'");
+                dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd  = '" + tb_siiresaki_cd.Text.ToString() + "'");
                 if (dt_work.Rows.Count <= 0)
                 {
                     //無し
@@ -484,7 +484,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '07' and kubun_cd = '" + tb_siire_kbn.Text + "'");
+            dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '07' and kubun_cd = '" + tb_siire_kbn.Text.ToString() + "'");
             if (dt_work.Rows.Count <= 0)
             {
                 //無し
@@ -587,7 +587,7 @@ namespace TSS_SYSTEM
             //新規書込み
             bool bl_tss = true;
             bl_tss = tss.OracleInsert("INSERT INTO tss_buhin_m (buhin_cd,buhin_name,buhin_hosoku,maker_name,tani_kbn,siiresaki_cd,siire_kbn,torihikisaki_cd,siire_tanka,hanbai_tanka,hokan_basyo,kessan_kbn,bikou,create_user_cd,create_datetime)"
-                                    + " VALUES ('" + tb_buhin_cd.Text + "','" + tb_buhin_name.Text + "','" + tb_buhin_hosoku.Text + "','" + tb_maker_name.Text + "','" + tb_tani_kbn.Text + "','" + tb_siiresaki_cd.Text + "','" + tb_siire_kbn.Text + "','" + tb_torihikisaki_cd.Text + "','" + tb_siire_tanka.Text + "','" + tb_hanbai_tanka.Text + "','" + tb_hokan_basyo.Text + "','" + tb_kessan_kbn.Text + "','" + tb_bikou.Text + "','" + tss.user_cd + "',SYSDATE)");
+                                    + " VALUES ('" + tb_buhin_cd.Text.ToString() + "','" + tb_buhin_name.Text.ToString() + "','" + tb_buhin_hosoku.Text.ToString() + "','" + tb_maker_name.Text.ToString() + "','" + tb_tani_kbn.Text.ToString() + "','" + tb_siiresaki_cd.Text.ToString() + "','" + tb_siire_kbn.Text.ToString() + "','" + tb_torihikisaki_cd.Text.ToString() + "','" + tb_siire_tanka.Text.ToString() + "','" + tb_hanbai_tanka.Text.ToString() + "','" + tb_hokan_basyo.Text.ToString() + "','" + tb_kessan_kbn.Text.ToString() + "','" + tb_bikou.Text.ToString() + "','" + tss.user_cd + "',SYSDATE)");
             if (bl_tss != true)
             {
                 tss.ErrorLogWrite(tss.user_cd, "製品マスタ／登録", "登録ボタン押下時のOracleInsert");
@@ -605,11 +605,11 @@ namespace TSS_SYSTEM
             tss.GetUser();
             //更新
             bool bl_tss = true;
-            bl_tss = tss.OracleUpdate("UPDATE TSS_buhin_m SET buhin_NAME = '" + tb_buhin_name.Text + "',buhin_hosoku = '" + tb_buhin_hosoku.Text + "',maker = '" + tb_maker_name.Text 
-                                    + "',tani_kbn = '" + tb_tani_kbn.Text + "',siiresaki_cd = '" + tb_siiresaki_cd.Text + "',siire_kbn = '" + tb_siire_kbn.Text
-                                    + "',torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "',siire_tanka = '" + tb_siire_tanka.Text + "',hanbai_tanka = '" + tb_hanbai_tanka.Text
-                                    + "',hokan_basyo = '" + tb_hokan_basyo.Text + "',kessan_kbn = '" + tb_kessan_kbn.Text + "',bikou = '" + tb_bikou.Text
-                                    + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE buhin_cd = '" + tb_buhin_cd.Text + "'");
+            bl_tss = tss.OracleUpdate("UPDATE TSS_buhin_m SET buhin_NAME = '" + tb_buhin_name.Text.ToString() + "',buhin_hosoku = '" + tb_buhin_hosoku.Text.ToString() + "',maker = '" + tb_maker_name.Text.ToString() 
+                                    + "',tani_kbn = '" + tb_tani_kbn.Text.ToString() + "',siiresaki_cd = '" + tb_siiresaki_cd.Text.ToString() + "',siire_kbn = '" + tb_siire_kbn.Text.ToString()
+                                    + "',torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "',siire_tanka = '" + tb_siire_tanka.Text.ToString() + "',hanbai_tanka = '" + tb_hanbai_tanka.Text.ToString()
+                                    + "',hokan_basyo = '" + tb_hokan_basyo.Text.ToString() + "',kessan_kbn = '" + tb_kessan_kbn.Text.ToString() + "',bikou = '" + tb_bikou.Text.ToString()
+                                    + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE buhin_cd = '" + tb_buhin_cd.Text.ToString() + "'");
             if (bl_tss != true)
             {
                 tss.ErrorLogWrite(tss.user_cd, "製品マスタ／登録", "登録ボタン押下時のOracleUpdate");

@@ -81,7 +81,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_seihin_m where seihin_cd  = '" + tb_seihin_cd.Text + "'");
+            dt_work = tss.OracleSelect("select * from tss_seihin_m where seihin_cd  = '" + tb_seihin_cd.Text.ToString() + "'");
             if(dt_work.Rows.Count <= 0)
             {
                 //新規
@@ -462,7 +462,7 @@ namespace TSS_SYSTEM
             }
 
             //製品コードの新規・更新チェック
-            dt_work = tss.OracleSelect("select * from tss_seihin_m where seihin_cd  = '" + tb_seihin_cd.Text + "'");
+            dt_work = tss.OracleSelect("select * from tss_seihin_m where seihin_cd  = '" + tb_seihin_cd.Text.ToString() + "'");
             if (dt_work.Rows.Count <= 0)
             {
                 //新規
@@ -528,7 +528,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd  = '" + tb_torihikisaki_cd.Text + "'");
+            dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd  = '" + tb_torihikisaki_cd.Text.ToString() + "'");
             if (dt_work.Rows.Count <= 0)
             {
                 //無し
@@ -545,7 +545,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '02' and kubun_cd = '" + tb_tani_kbn.Text + "'");
+            dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '02' and kubun_cd = '" + tb_tani_kbn.Text.ToString() + "'");
             if (dt_work.Rows.Count <= 0)
             {
                 //無し
@@ -562,7 +562,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '03' and kubun_cd = '" + tb_seihin_syubetu_kbn.Text + "'");
+            dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '03' and kubun_cd = '" + tb_seihin_syubetu_kbn.Text.ToString() + "'");
             if (dt_work.Rows.Count <= 0)
             {
                 //無し
@@ -579,7 +579,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '04' and kubun_cd = '" + tb_seihin_bunrui_kbn.Text + "'");
+            dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '04' and kubun_cd = '" + tb_seihin_bunrui_kbn.Text.ToString() + "'");
             if (dt_work.Rows.Count <= 0)
             {
                 //無し
@@ -596,7 +596,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '05' and kubun_cd = '" + tb_sijou_kbn.Text + "'");
+            dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '05' and kubun_cd = '" + tb_sijou_kbn.Text.ToString() + "'");
             if (dt_work.Rows.Count <= 0)
             {
                 //無し
@@ -613,7 +613,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '06' and kubun_cd = '" + tb_type_kbn.Text + "'");
+            dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '06' and kubun_cd = '" + tb_type_kbn.Text.ToString() + "'");
             if (dt_work.Rows.Count <= 0)
             {
                 //無し
@@ -679,7 +679,7 @@ namespace TSS_SYSTEM
             if(tb_seihin_kousei_no.Text.Length != 0)
             {
                 DataTable dt_work = new DataTable();
-                dt_work = tss.OracleSelect("select * from tss_seihin_kousei_name_m where seihin_cd  = '" + tb_seihin_cd.Text + "' and seihin_kousei_no = '" + tb_seihin_kousei_no.Text + "'");
+                dt_work = tss.OracleSelect("select * from tss_seihin_kousei_name_m where seihin_cd  = '" + tb_seihin_cd.Text.ToString() + "' and seihin_kousei_no = '" + tb_seihin_kousei_no.Text.ToString() + "'");
                 if (dt_work.Rows.Count <= 0)
                 {
                     //無し
@@ -699,7 +699,7 @@ namespace TSS_SYSTEM
             //新規書込み
             bool bl_tss = true;
             bl_tss = tss.OracleInsert("INSERT INTO tss_seihin_m (seihin_cd,seihin_name,bikou,torihikisaki_cd,genka_tanka,hanbai_tanka,tani_kbn,syuukei_syubetu_kbn,syuukei_bunrui_kbn,syuukei_sijou_kbn,syuukei_type_kbn,seihin_kousei_no,create_user_cd,create_datetime)"
-                                    + " VALUES ('" + tb_seihin_cd.Text + "','" + tb_seihin_name.Text + "','" + tb_bikou.Text + "','" + tb_torihikisaki_cd.Text + "','" + tb_genka.Text + "','" + tb_hanbai_tanka.Text + "','" + tb_tani_kbn.Text + "','" + tb_seihin_syubetu_kbn.Text + "','" + tb_seihin_bunrui_kbn.Text + "','" + tb_sijou_kbn.Text + "','" + tb_type_kbn.Text + "','" + tb_seihin_kousei_no.Text + "','" + tss.user_cd + "',SYSDATE)");
+                                    + " VALUES ('" + tb_seihin_cd.Text.ToString() + "','" + tb_seihin_name.Text.ToString() + "','" + tb_bikou.Text.ToString() + "','" + tb_torihikisaki_cd.Text.ToString() + "','" + tb_genka.Text.ToString() + "','" + tb_hanbai_tanka.Text.ToString() + "','" + tb_tani_kbn.Text.ToString() + "','" + tb_seihin_syubetu_kbn.Text.ToString() + "','" + tb_seihin_bunrui_kbn.Text.ToString() + "','" + tb_sijou_kbn.Text.ToString() + "','" + tb_type_kbn.Text.ToString() + "','" + tb_seihin_kousei_no.Text.ToString() + "','" + tss.user_cd + "',SYSDATE)");
             if (bl_tss != true)
             {
                 tss.ErrorLogWrite(tss.user_cd, "製品マスタ／登録", "登録ボタン押下時のOracleInsert");
@@ -718,10 +718,10 @@ namespace TSS_SYSTEM
             tss.GetUser();
             //更新
             bool bl_tss = true;
-            bl_tss = tss.OracleUpdate("UPDATE TSS_seihin_m SET SEIHIN_NAME = '" + tb_seihin_name.Text + "',BIKOU = '" + tb_bikou.Text + "',torihikisaki_cd = '" + tb_torihikisaki_cd.Text
-                + "',genka_tanka = '" + tb_genka.Text + "',hanbai_tanka = '" + tb_hanbai_tanka.Text + "',tani_kbn = '" + tb_tani_kbn.Text + "',syuukei_syubetu_kbn = '" + tb_seihin_syubetu_kbn.Text
-                + "',syuukei_bunrui_kbn = '" + tb_seihin_bunrui_kbn.Text + "',syuukei_sijou_kbn = '" + tb_sijou_kbn.Text + "',syuukei_type_kbn = '" + tb_type_kbn.Text
-                + "',seihin_kousei_no = '" + tb_seihin_kousei_no.Text + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE seihin_cd = '" + tb_seihin_cd.Text + "'");
+            bl_tss = tss.OracleUpdate("UPDATE TSS_seihin_m SET SEIHIN_NAME = '" + tb_seihin_name.Text.ToString() + "',BIKOU = '" + tb_bikou.Text.ToString() + "',torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString()
+                + "',genka_tanka = '" + tb_genka.Text.ToString() + "',hanbai_tanka = '" + tb_hanbai_tanka.Text.ToString() + "',tani_kbn = '" + tb_tani_kbn.Text.ToString() + "',syuukei_syubetu_kbn = '" + tb_seihin_syubetu_kbn.Text.ToString()
+                + "',syuukei_bunrui_kbn = '" + tb_seihin_bunrui_kbn.Text.ToString() + "',syuukei_sijou_kbn = '" + tb_sijou_kbn.Text.ToString() + "',syuukei_type_kbn = '" + tb_type_kbn.Text.ToString()
+                + "',seihin_kousei_no = '" + tb_seihin_kousei_no.Text.ToString() + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE seihin_cd = '" + tb_seihin_cd.Text.ToString() + "'");
             if (bl_tss != true)
             {
                 tss.ErrorLogWrite(tss.user_cd, "製品マスタ／登録", "登録ボタン押下時のOracleUpdate");

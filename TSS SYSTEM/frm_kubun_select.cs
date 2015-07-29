@@ -98,7 +98,7 @@ namespace TSS_SYSTEM
             this.tb_kubun_meisyou_cd.Text = str_kubun_meisyou_cd;
             //画面に区分名称表示
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select kubun_meisyou_cd,kubun_name from tss_kubun_meisyou_m where kubun_meisyou_cd = '" + tb_kubun_meisyou_cd.Text + "'");
+            dt_work = tss.OracleSelect("select kubun_meisyou_cd,kubun_name from tss_kubun_meisyou_m where kubun_meisyou_cd = '" + tb_kubun_meisyou_cd.Text.ToString() + "'");
             if(dt_work == null)
             {
                 MessageBox.Show("該当する区分名称マスタがありません。");
@@ -106,7 +106,7 @@ namespace TSS_SYSTEM
             }
             this.tb_kubun_meisyou_name.Text = dt_work.Rows[0]["KUBUN_NAME"].ToString() ;
             //引数を基にデータを抽出して表示
-            dt_kubun_m = tss.OracleSelect("select kubun_cd,kubun_name from tss_kubun_m where kubun_meisyou_cd = '" + tb_kubun_meisyou_cd.Text + "' order by kubun_cd asc");
+            dt_kubun_m = tss.OracleSelect("select kubun_cd,kubun_name from tss_kubun_m where kubun_meisyou_cd = '" + tb_kubun_meisyou_cd.Text.ToString() + "' order by kubun_cd asc");
             dgv_kubun_m.DataSource = dt_kubun_m;
             //DataGridViewのカラムヘッダーテキストを変更する
             dgv_kubun_m.Columns[0].HeaderText = "区分コード";

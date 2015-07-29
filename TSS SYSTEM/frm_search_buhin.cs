@@ -161,40 +161,40 @@ namespace TSS_SYSTEM
                 if (w_int_hikaku == 0)
                 {
                     //左右同じコード
-                    sql_where[sql_cnt] = "buhin_cd = '" + tb_buhin_cd1.Text + "'";
+                    sql_where[sql_cnt] = "buhin_cd = '" + tb_buhin_cd1.Text.ToString() + "'";
                     sql_cnt++;
                 }
                 else
                     if (w_int_hikaku < 0)
                     {
                         //左辺＜右辺
-                        sql_where[sql_cnt] = "buhin_cd >= '" + tb_buhin_cd1.Text + "' and buhin_cd <= '" + tb_buhin_cd2.Text + "'";
+                        sql_where[sql_cnt] = "buhin_cd >= '" + tb_buhin_cd1.Text.ToString() + "' and buhin_cd <= '" + tb_buhin_cd2.Text.ToString() + "'";
                         sql_cnt++;
                     }
                     else
                         if (w_int_hikaku > 0)
                         {
                             //左辺＞右辺
-                            sql_where[sql_cnt] = "buhin_cd => '" + tb_buhin_cd2.Text + "' and buhin_cd <= '" + tb_buhin_cd1.Text + "'";
+                            sql_where[sql_cnt] = "buhin_cd => '" + tb_buhin_cd2.Text.ToString() + "' and buhin_cd <= '" + tb_buhin_cd1.Text.ToString() + "'";
                             sql_cnt++;
                         }
             }
             //部品名
             if (tb_buhin_name.Text != "")
             {
-                sql_where[sql_cnt] = "buhin_name like '%" + tb_buhin_name.Text + "%'";
+                sql_where[sql_cnt] = "buhin_name like '%" + tb_buhin_name.Text.ToString() + "%'";
                 sql_cnt++;
             }
             //部品補足
             if (tb_buhin_hosoku.Text != "")
             {
-                sql_where[sql_cnt] = "buhin_hosoku like '%" + tb_buhin_hosoku.Text + "%'";
+                sql_where[sql_cnt] = "buhin_hosoku like '%" + tb_buhin_hosoku.Text.ToString() + "%'";
                 sql_cnt++;
             }
             //メーカー
             if (tb_maker_name.Text != "")
             {
-                sql_where[sql_cnt] = "maker_name like '%" + tb_maker_name.Text + "%'";
+                sql_where[sql_cnt] = "maker_name like '%" + tb_maker_name.Text.ToString() + "%'";
                 sql_cnt++;
             }
             //仕入先コード
@@ -202,7 +202,7 @@ namespace TSS_SYSTEM
             {
                 if (chk_torihikisaki_cd(tb_siiresaki_cd.Text))
                 {
-                    sql_where[sql_cnt] = "siiresaki_cd = '" + tb_siiresaki_cd.Text + "'";
+                    sql_where[sql_cnt] = "siiresaki_cd = '" + tb_siiresaki_cd.Text.ToString() + "'";
                     sql_cnt++;
                 }
                 else
@@ -218,7 +218,7 @@ namespace TSS_SYSTEM
             {
                 if(chk_siire_kbn())
                 {
-                    sql_where[sql_cnt] = "siire_kbn = '" + tb_siire_kbn.Text + "'";
+                    sql_where[sql_cnt] = "siire_kbn = '" + tb_siire_kbn.Text.ToString() + "'";
                     sql_cnt++;
                 }
                 else
@@ -234,7 +234,7 @@ namespace TSS_SYSTEM
             {
                 if (chk_torihikisaki_cd(tb_torihikisaki_cd.Text))
                 {
-                    sql_where[sql_cnt] = "torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'";
+                    sql_where[sql_cnt] = "torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "'";
                     sql_cnt++;
                 }
                 else
@@ -272,7 +272,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd  = '" + in_torihikisaki_cd + "'");
+            dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd  = '" + in_torihikisaki_cd.ToString() + "'");
             if (dt_work.Rows.Count <= 0)
             {
                 //無し
@@ -289,7 +289,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '07' and kubun_cd = '" + tb_siire_kbn.Text + "'");
+            dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '07' and kubun_cd = '" + tb_siire_kbn.Text.ToString() + "'");
             if (dt_work.Rows.Count <= 0)
             {
                 //無し

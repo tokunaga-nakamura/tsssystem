@@ -49,7 +49,7 @@ namespace TSS_SYSTEM
                 cmd.CommandType = CommandType.Text;
                 conn.ConnectionString = connStr;
                 da.SelectCommand = cmd;
-                cmd.CommandText = "SELECT * from tss_user_m where user_cd = '" + tb_user_cd.Text + "' and user_password = '" + tb_password.Text + "' and login_kyoka_kbn = '1'";
+                cmd.CommandText = "SELECT * from tss_user_m where user_cd = '" + tb_user_cd.Text.ToString() + "' and user_password = '" + tb_password.Text.ToString() + "' and login_kyoka_kbn = '1'";
                 conn.Close();
                 da.Fill(dt);
                 if (dt.Rows.Count < 1)
@@ -66,7 +66,7 @@ namespace TSS_SYSTEM
                         sw.Write(tb_user_cd.Text);   //ユーザー名を書き込む
                     }
                     //ログイン情報更新
-                    string sql = "UPDATE tss_user_m SET login_flg = '1',login_datetime = sysdate WHERE user_cd = '" + tb_user_cd.Text + "'";
+                    string sql = "UPDATE tss_user_m SET login_flg = '1',login_datetime = sysdate WHERE user_cd = '" + tb_user_cd.Text.ToString() + "'";
                     tsslib.OracleUpdate(sql);
                     //ログイン画面を閉じる
                     this.Close();

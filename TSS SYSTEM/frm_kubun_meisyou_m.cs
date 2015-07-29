@@ -61,11 +61,11 @@ namespace TSS_SYSTEM
                 bool bl_tss;
                 //既存の区分があるかチェック
                 DataTable dt_work = new DataTable();
-                dt_work = tss.OracleSelect("select * from TSS_KUBUN_MEISYOU_M where kubun_meisyou_cd = '" + tb_kubun_meisyou_cd.Text + "'");
+                dt_work = tss.OracleSelect("select * from TSS_KUBUN_MEISYOU_M where kubun_meisyou_cd = '" + tb_kubun_meisyou_cd.Text.ToString() + "'");
                 if (dt_work.Rows.Count != 0)
                 {
                     //更新
-                    bl_tss = tss.OracleUpdate("UPDATE TSS_KUBUN_MEISYOU_M SET KUBUN_NAME = '" + tb_kubun_meisyou.Text + "',BIKOU = '" + tb_bikou.Text + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE KUBUN_MEISYOU_CD = '" + tb_kubun_meisyou_cd.Text + "'");
+                    bl_tss = tss.OracleUpdate("UPDATE TSS_KUBUN_MEISYOU_M SET KUBUN_NAME = '" + tb_kubun_meisyou.Text.ToString() + "',BIKOU = '" + tb_bikou.Text.ToString() + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE KUBUN_MEISYOU_CD = '" + tb_kubun_meisyou_cd.Text.ToString() + "'");
                     if (bl_tss != true)
                     {
                         tss.ErrorLogWrite(tss.user_cd, "区分名称マスタ／登録", "登録ボタン押下時のOracleUpdate");
@@ -76,7 +76,7 @@ namespace TSS_SYSTEM
                 else
                 {
                     //新規
-                    bl_tss = tss.OracleInsert("INSERT INTO tss_kubun_meisyou_m (kubun_meisyou_cd,kubun_name,bikou,create_user_cd) VALUES ('" + tb_kubun_meisyou_cd.Text + "','" + tb_kubun_meisyou.Text + "','" + tb_bikou.Text + "','" + tss.user_cd + "')");
+                    bl_tss = tss.OracleInsert("INSERT INTO tss_kubun_meisyou_m (kubun_meisyou_cd,kubun_name,bikou,create_user_cd) VALUES ('" + tb_kubun_meisyou_cd.Text.ToString() + "','" + tb_kubun_meisyou.Text.ToString() + "','" + tb_bikou.Text.ToString() + "','" + tss.user_cd + "')");
                     if (bl_tss != true)
                     {
                         tss.ErrorLogWrite(tss.user_cd, "区分名称マスタ／登録", "登録ボタン押下時のOracleInsert");
@@ -151,7 +151,7 @@ namespace TSS_SYSTEM
             {
                 //入力された区分コードでデータ読み込み＆表示（なければ新規）
                 DataTable dt_work = new DataTable();
-                dt_work = tss.OracleSelect("select * from TSS_KUBUN_MEISYOU_M where kubun_meisyou_cd = '" + tb_kubun_meisyou_cd.Text + "'");
+                dt_work = tss.OracleSelect("select * from TSS_KUBUN_MEISYOU_M where kubun_meisyou_cd = '" + tb_kubun_meisyou_cd.Text.ToString() + "'");
                 if (dt_work.Rows.Count != 0)
                 {
                     tb_kubun_meisyou.Text = dt_work.Rows[0]["KUBUN_NAME"].ToString();
