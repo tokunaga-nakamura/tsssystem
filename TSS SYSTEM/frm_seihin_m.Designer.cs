@@ -550,7 +550,7 @@
             // tb_seihin_kousei_no
             // 
             this.tb_seihin_kousei_no.Location = new System.Drawing.Point(93, 202);
-            this.tb_seihin_kousei_no.MaxLength = 3;
+            this.tb_seihin_kousei_no.MaxLength = 2;
             this.tb_seihin_kousei_no.Name = "tb_seihin_kousei_no";
             this.tb_seihin_kousei_no.Size = new System.Drawing.Size(53, 19);
             this.tb_seihin_kousei_no.TabIndex = 11;

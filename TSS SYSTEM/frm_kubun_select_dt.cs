@@ -87,6 +87,8 @@ namespace TSS_SYSTEM
 
         private void frm_kubun_select_dt_Load(object sender, EventArgs e)
         {
+            //リードオンリーにする
+            dgv_kubun.ReadOnly = true;
             //行ヘッダーを非表示にする
             dgv_kubun.RowHeadersVisible = false;
             //カラム幅の自動調整（ヘッダーとセルの両方の最長幅に調整する）

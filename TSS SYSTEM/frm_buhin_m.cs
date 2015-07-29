@@ -347,13 +347,13 @@ namespace TSS_SYSTEM
             }
             if (chk_hokan_basyo() == false)
             {
-                MessageBox.Show("メーカー名は40バイト以内で入力してください。");
+                MessageBox.Show("保管場所40バイト以内で入力してください。");
                 tb_hokan_basyo.Focus();
                 return;
             }
             if (chk_bikou() == false)
             {
-                MessageBox.Show("メーカー名は128バイト以内で入力してください。");
+                MessageBox.Show("備考は128バイト以内で入力してください。");
                 tb_kessan_kbn.Focus();
                 return;
             }
@@ -462,17 +462,21 @@ namespace TSS_SYSTEM
         }
         private bool chk_siiresaki_cd()
         {
+            //仕入先コードの空白での登録を可能とする（登録時に仕入先を未登録または仕入先があいまいな場合を想定）
             bool bl = true; //戻り値
-            DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd  = '" + tb_siiresaki_cd.Text + "'");
-            if (dt_work.Rows.Count <= 0)
+            if (tb_siiresaki_cd.Text.Length != 0)
             {
-                //無し
-                bl = false;
-            }
-            else
-            {
-                //既存データ有
+                DataTable dt_work = new DataTable();
+                dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd  = '" + tb_siiresaki_cd.Text + "'");
+                if (dt_work.Rows.Count <= 0)
+                {
+                    //無し
+                    bl = false;
+                }
+                else
+                {
+                    //既存データ有
+                }
             }
             return bl;
         }

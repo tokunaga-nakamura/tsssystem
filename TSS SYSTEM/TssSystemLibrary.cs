@@ -236,6 +236,8 @@ namespace TSS_SYSTEM
                     //トランザクションをロールバック
                     transaction.Rollback();
                     rtncode = false;
+                    GetUser();
+                    ErrorLogWrite(user_cd, "OracleUpdate", sql.Replace("'", "###"));
                 }
                 finally
                 {
@@ -278,6 +280,8 @@ namespace TSS_SYSTEM
                     //トランザクションをロールバック
                     transaction.Rollback();
                     rtncode = false;
+                    GetUser();
+                    ErrorLogWrite(user_cd, "OracleDelete", sql.Replace("'", "#"));
                 }
                 finally
                 {
@@ -320,6 +324,9 @@ namespace TSS_SYSTEM
                     //トランザクションをロールバック
                     transaction.Rollback();
                     rtncode = false;
+                    GetUser();
+                    ErrorLogWrite(user_cd, "OracleInsert", sql.Replace("'", "#"));
+
                 }
                 finally
                 {
@@ -361,7 +368,7 @@ namespace TSS_SYSTEM
                 {
                     dt = null;
                     GetUser();
-                    ErrorLogWrite(user_cd, "oracleselect", sql);
+                    ErrorLogWrite(user_cd, "OracleSelect",sql.Replace("'","#"));
                     MessageBox.Show("データベースの処理中にエラーが発生しました。");
                 }
             }
@@ -638,7 +645,31 @@ namespace TSS_SYSTEM
             frm_sb.Dispose();
             return out_cd;
         }
-        
+
+        public string select_juchu_cd(DataTable in_dt)
+        {
+            //マウスのX座標を取得する
+            //int x = System.Windows.Forms.Cursor.Position.X;
+            //マウスのY座標を取得する
+            //int y = System.Windows.Forms.Cursor.Position.Y;
+
+            string out_cd = "";   //戻り値用
+            frm_select_juchu frm_sb = new frm_select_juchu();
+
+            //フォームをマウスの位置に表示する
+            //frm_sb.Left = x;
+            //frm_sb.Top = y;
+            //frm_sb.StartPosition = FormStartPosition.Manual;
+
+            //子画面のプロパティに値をセットする
+            frm_sb.ppt_str_name = "下記リストから受注を選択してください。";
+            frm_sb.ppt_dt_m = in_dt;
+            frm_sb.ShowDialog();
+            //子画面から値を取得する
+            out_cd = frm_sb.ppt_str_juchu_cd2;
+            frm_sb.Dispose();
+            return out_cd;
+        }
         public string GetCsvPath()
         {
             /// <summary>
@@ -662,8 +693,43 @@ namespace TSS_SYSTEM
             return CsvPath;
         }
 
-
-
+        #region　GetSeq メソッド
+        /// <summary>
+        /// 連番マスタから必要な連番を取得し、取得後連番を＋１する。</summary>
+        /// <param name="string in_cd">
+        /// 取得する連番の連番コード</param>
+        /// <returns>
+        /// double out_seq 取得した連番。エラー時は0を返します。</returns>
+        public double GetSeq(string in_cd)
+        {
+            GetUser();
+            double out_seq = 0;
+            DataTable w_dt = new DataTable();
+            w_dt = OracleSelect("select * from tss_seq_m where seq_m_cd = '" + in_cd + "'");
+            if(w_dt.Rows.Count == 0)
+            {
+                out_seq = 0;
+            }
+            else
+            {
+                //seqは保存されている値が使用される値
+                out_seq = Convert.ToDouble(w_dt.Rows[0]["seq"]);
+                string sql = "update tss_seq_m set seq = '" + (out_seq+1).ToString() + "',UPDATE_USER_CD = '" + user_cd + "',UPDATE_DATETIME = SYSDATE WHERE seq_m_cd = '" + in_cd + "'";
+                //取得後、＋１して書き込む
+                if(OracleUpdate(sql))
+                {
+                    //書込み成功
+                }
+                else
+                {
+                    ErrorLogWrite(user_cd, "GetSeq内のOracleUpdate",sql.Replace("'","#"));
+                    MessageBox.Show("データベースの処理中にエラーが発生しました。");
+                    out_seq = 0;
+                }
+            }
+            return out_seq;
+        }
+        #endregion
 
 
     }

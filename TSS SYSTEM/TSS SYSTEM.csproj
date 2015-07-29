@@ -116,6 +116,12 @@
     <Compile Include="frm_seihin_m.Designer.cs">
       <DependentUpon>frm_seihin_m.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_select_juchu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_select_juchu.Designer.cs">
+      <DependentUpon>frm_select_juchu.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_table_maintenance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_seihin_m.resx">
       <DependentUpon>frm_seihin_m.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_select_juchu.resx">
+      <DependentUpon>frm_select_juchu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_table_maintenance.resx">
       <DependentUpon>frm_table_maintenance.cs</DependentUpon>

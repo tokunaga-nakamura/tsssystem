@@ -304,6 +304,8 @@ namespace TSS_SYSTEM
 
         private void list_disp(DataTable in_dt)
         {
+            //リードオンリーにする
+            dgv_m.ReadOnly = true;
             //行ヘッダーを非表示にする
             dgv_m.RowHeadersVisible = false;
             //カラム幅の自動調整（ヘッダーとセルの両方の最長幅に調整する）

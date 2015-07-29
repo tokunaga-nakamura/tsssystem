@@ -675,16 +675,20 @@ namespace TSS_SYSTEM
         private bool chk_seihin_kousei_no()
         {
             bool bl = true; //戻り値
-            DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_seihin_kousei_name_m where seihin_cd  = '" + tb_seihin_cd.Text + "' and seihin_kousei_no = '" + tb_seihin_kousei_no.Text + "'");
-            if (dt_work.Rows.Count <= 0)
+            //空白のまま登録を許可する（製品の登録時点でまだ部品構成を作っていない場合を考慮）
+            if(tb_seihin_kousei_no.Text.Length != 0)
             {
-                //無し
-                bl = false;
-            }
-            else
-            {
-                //既存データ有
+                DataTable dt_work = new DataTable();
+                dt_work = tss.OracleSelect("select * from tss_seihin_kousei_name_m where seihin_cd  = '" + tb_seihin_cd.Text + "' and seihin_kousei_no = '" + tb_seihin_kousei_no.Text + "'");
+                if (dt_work.Rows.Count <= 0)
+                {
+                    //無し
+                    bl = false;
+                }
+                else
+                {
+                    //既存データ有
+                }
             }
             return bl;
         }
