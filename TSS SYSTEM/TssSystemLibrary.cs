@@ -731,6 +731,21 @@ namespace TSS_SYSTEM
         }
         #endregion
 
+        //部品入出庫画面の呼び出し
+        public string buhin_nyusyukkoidou(string in_mode)
+        {
+            string out_cd = "";   //戻り値用
+            frm_buhin_nyusyukkoidou frm_bnsi = new frm_buhin_nyusyukkoidou();
+
+            //子画面のプロパティに値をセットする
+            frm_bnsi.str_mode = in_mode;
+            frm_bnsi.ShowDialog();
+            frm_bnsi.Dispose();
+
+            //子画面から値を取得する
+            out_cd = frm_bnsi.str_cd;
+            return out_cd;
+        }
 
     }
     #endregion
