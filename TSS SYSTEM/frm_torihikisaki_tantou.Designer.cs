@@ -57,10 +57,10 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.tb_tantousya_cd = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.bt_close = new System.Windows.Forms.Button();
             this.btn_sakujyo = new System.Windows.Forms.Button();
             this.btn_touroku = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.bt_close = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -342,6 +342,7 @@
             // 
             // tb_torihikisaki_cd
             // 
+            this.tb_torihikisaki_cd.BackColor = System.Drawing.SystemColors.Window;
             this.tb_torihikisaki_cd.Location = new System.Drawing.Point(94, 20);
             this.tb_torihikisaki_cd.MaxLength = 6;
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
@@ -378,6 +379,16 @@
             this.textBox1.TabStop = false;
             this.textBox1.Text = "担当者コード";
             // 
+            // bt_close
+            // 
+            this.bt_close.Location = new System.Drawing.Point(395, 3);
+            this.bt_close.Name = "bt_close";
+            this.bt_close.Size = new System.Drawing.Size(75, 23);
+            this.bt_close.TabIndex = 2;
+            this.bt_close.Text = "終了";
+            this.bt_close.UseVisualStyleBackColor = true;
+            this.bt_close.Click += new System.EventHandler(this.bt_close_Click);
+            // 
             // btn_sakujyo
             // 
             this.btn_sakujyo.Location = new System.Drawing.Point(95, 3);
@@ -405,16 +416,6 @@
             this.statusStrip1.Size = new System.Drawing.Size(484, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // bt_close
-            // 
-            this.bt_close.Location = new System.Drawing.Point(395, 3);
-            this.bt_close.Name = "bt_close";
-            this.bt_close.Size = new System.Drawing.Size(75, 23);
-            this.bt_close.TabIndex = 2;
-            this.bt_close.Text = "終了";
-            this.bt_close.UseVisualStyleBackColor = true;
-            this.bt_close.Click += new System.EventHandler(this.bt_close_Click);
             // 
             // frm_torihikisaki_tantou
             // 

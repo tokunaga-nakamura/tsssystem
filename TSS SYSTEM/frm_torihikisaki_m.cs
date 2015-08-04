@@ -811,10 +811,18 @@ namespace TSS_SYSTEM
             frm_tt.Dispose();
             tantousya_disp(tb_torihikisaki_cd.Text);
         }
-         
-        
 
-
+        private void tb_torihikisaki_cd_DoubleClick(object sender, EventArgs e)
+        {
+            //選択画面へ
+            string w_cd;
+            w_cd = tss.search_torihikisaki("2", "");
+            if (w_cd != "")
+            {
+                tb_torihikisaki_cd.Text = w_cd;
+                torihikisaki_disp(tb_torihikisaki_cd.Text);
+            }
+        }
     }
 }
     
