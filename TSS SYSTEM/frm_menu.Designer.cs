@@ -71,6 +71,9 @@
             this.btn_mst_table = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
+            this.btn_nyuko_syori = new System.Windows.Forms.Button();
+            this.btn_syukko_syori = new System.Windows.Forms.Button();
+            this.btn_idou_syori = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -482,6 +485,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btn_idou_syori);
+            this.tabPage2.Controls.Add(this.btn_syukko_syori);
+            this.tabPage2.Controls.Add(this.btn_nyuko_syori);
             this.tabPage2.Controls.Add(this.btn_juchuu_nyuuryoku);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -646,6 +652,36 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
+            // btn_nyuko_syori
+            // 
+            this.btn_nyuko_syori.Location = new System.Drawing.Point(8, 87);
+            this.btn_nyuko_syori.Name = "btn_nyuko_syori";
+            this.btn_nyuko_syori.Size = new System.Drawing.Size(180, 23);
+            this.btn_nyuko_syori.TabIndex = 1;
+            this.btn_nyuko_syori.Text = "入庫処理";
+            this.btn_nyuko_syori.UseVisualStyleBackColor = true;
+            this.btn_nyuko_syori.Click += new System.EventHandler(this.btn_nyuko_syori_Click_1);
+            // 
+            // btn_syukko_syori
+            // 
+            this.btn_syukko_syori.Location = new System.Drawing.Point(6, 116);
+            this.btn_syukko_syori.Name = "btn_syukko_syori";
+            this.btn_syukko_syori.Size = new System.Drawing.Size(180, 23);
+            this.btn_syukko_syori.TabIndex = 2;
+            this.btn_syukko_syori.Text = "出庫処理";
+            this.btn_syukko_syori.UseVisualStyleBackColor = true;
+            this.btn_syukko_syori.Click += new System.EventHandler(this.btn_syukko_syori_Click_1);
+            // 
+            // btn_idou_syori
+            // 
+            this.btn_idou_syori.Location = new System.Drawing.Point(8, 145);
+            this.btn_idou_syori.Name = "btn_idou_syori";
+            this.btn_idou_syori.Size = new System.Drawing.Size(180, 23);
+            this.btn_idou_syori.TabIndex = 3;
+            this.btn_idou_syori.Text = "移動処理";
+            this.btn_idou_syori.UseVisualStyleBackColor = true;
+            this.btn_idou_syori.Click += new System.EventHandler(this.btn_idou_syori_Click_1);
+            // 
             // frm_menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -761,6 +797,9 @@
         private System.Windows.Forms.Button btn_buhin_m;
         private System.Windows.Forms.Button btn_bank_m;
         private System.Windows.Forms.Button btn_buhin_kensaku;
+        private System.Windows.Forms.Button btn_idou_syori;
+        private System.Windows.Forms.Button btn_syukko_syori;
+        private System.Windows.Forms.Button btn_nyuko_syori;
     }
 }
 

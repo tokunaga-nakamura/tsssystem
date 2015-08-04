@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dgv_nyusyukkoidou.cs" />
     <Compile Include="frm_buhin_nyusyukkoidou.cs">
       <SubType>Form</SubType>
     </Compile>

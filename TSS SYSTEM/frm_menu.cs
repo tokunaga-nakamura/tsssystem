@@ -179,19 +179,22 @@ namespace TSS_SYSTEM
             tss.search_buhin("1", "");
         }
 
-        private void btn_nyuko_syori_Click(object sender, EventArgs e)
+
+      
+
+        private void btn_nyuko_syori_Click_1(object sender, EventArgs e)
         {
             //部品入出庫画面へ
             tss.buhin_nyusyukkoidou("1");
         }
 
-        private void btn_syukko_syori_Click(object sender, EventArgs e)
+        private void btn_syukko_syori_Click_1(object sender, EventArgs e)
         {
             //部品入出庫画面へ
             tss.buhin_nyusyukkoidou("2");
         }
 
-        private void btn_idou_syori_Click(object sender, EventArgs e)
+        private void btn_idou_syori_Click_1(object sender, EventArgs e)
         {
             //部品入出庫画面へ
             tss.buhin_nyusyukkoidou("3");
