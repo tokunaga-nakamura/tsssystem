@@ -36,7 +36,7 @@
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.tb_idousaki_torihikisaki_name = new System.Windows.Forms.TextBox();
             this.tb_idousaki_zaiko_kbn_name = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tb_zaiko_kbn_name = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tb_idousaki_juchu_cd2 = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
@@ -44,7 +44,7 @@
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.tb_idousaki_torihikisaki_cd = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtp_buhin_syori_date = new System.Windows.Forms.DateTimePicker();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.tb_idousaki_zaiko_kbn = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
@@ -63,12 +63,20 @@
             this.tb_torihikisaki_cd = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.tb_SEQ = new System.Windows.Forms.TextBox();
+            this.tb_seq = new System.Windows.Forms.TextBox();
             this.tb_denpyou_no = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btn_touroku = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
             this.ss_status = new System.Windows.Forms.StatusStrip();
+            this.dgv_nyusyukkoidou = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -81,6 +89,7 @@
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_nyusyukkoidou)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -100,7 +109,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(745, 430);
+            this.splitContainer1.Size = new System.Drawing.Size(745, 583);
             this.splitContainer1.SplitterDistance = 60;
             this.splitContainer1.TabIndex = 3;
             this.splitContainer1.TabStop = false;
@@ -139,9 +148,10 @@
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.btn_touroku);
             this.splitContainer2.Panel2.Controls.Add(this.btn_syuuryou);
-            this.splitContainer2.Size = new System.Drawing.Size(745, 366);
-            this.splitContainer2.SplitterDistance = 321;
+            this.splitContainer2.Size = new System.Drawing.Size(745, 519);
+            this.splitContainer2.SplitterDistance = 474;
             this.splitContainer2.TabIndex = 0;
             this.splitContainer2.TabStop = false;
             // 
@@ -158,7 +168,7 @@
             // 
             this.splitContainer3.Panel1.Controls.Add(this.tb_idousaki_torihikisaki_name);
             this.splitContainer3.Panel1.Controls.Add(this.tb_idousaki_zaiko_kbn_name);
-            this.splitContainer3.Panel1.Controls.Add(this.textBox3);
+            this.splitContainer3.Panel1.Controls.Add(this.tb_zaiko_kbn_name);
             this.splitContainer3.Panel1.Controls.Add(this.label3);
             this.splitContainer3.Panel1.Controls.Add(this.tb_idousaki_juchu_cd2);
             this.splitContainer3.Panel1.Controls.Add(this.textBox15);
@@ -166,7 +176,7 @@
             this.splitContainer3.Panel1.Controls.Add(this.textBox17);
             this.splitContainer3.Panel1.Controls.Add(this.tb_idousaki_torihikisaki_cd);
             this.splitContainer3.Panel1.Controls.Add(this.textBox13);
-            this.splitContainer3.Panel1.Controls.Add(this.dateTimePicker1);
+            this.splitContainer3.Panel1.Controls.Add(this.dtp_buhin_syori_date);
             this.splitContainer3.Panel1.Controls.Add(this.textBox11);
             this.splitContainer3.Panel1.Controls.Add(this.tb_idousaki_zaiko_kbn);
             this.splitContainer3.Panel1.Controls.Add(this.textBox10);
@@ -185,15 +195,15 @@
             this.splitContainer3.Panel1.Controls.Add(this.tb_torihikisaki_cd);
             this.splitContainer3.Panel1.Controls.Add(this.textBox4);
             this.splitContainer3.Panel1.Controls.Add(this.textBox1);
-            this.splitContainer3.Panel1.Controls.Add(this.tb_SEQ);
+            this.splitContainer3.Panel1.Controls.Add(this.tb_seq);
             this.splitContainer3.Panel1.Controls.Add(this.tb_denpyou_no);
             this.splitContainer3.Panel1.Controls.Add(this.textBox2);
             // 
             // splitContainer3.Panel2
             // 
-            this.splitContainer3.Panel2.Controls.Add(this.btn_touroku);
-            this.splitContainer3.Size = new System.Drawing.Size(745, 321);
-            this.splitContainer3.SplitterDistance = 281;
+            this.splitContainer3.Panel2.Controls.Add(this.dgv_nyusyukkoidou);
+            this.splitContainer3.Size = new System.Drawing.Size(745, 474);
+            this.splitContainer3.SplitterDistance = 274;
             this.splitContainer3.TabIndex = 8;
             // 
             // tb_idousaki_torihikisaki_name
@@ -214,14 +224,14 @@
             this.tb_idousaki_zaiko_kbn_name.Size = new System.Drawing.Size(154, 19);
             this.tb_idousaki_zaiko_kbn_name.TabIndex = 34;
             // 
-            // textBox3
+            // tb_zaiko_kbn_name
             // 
-            this.textBox3.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox3.Location = new System.Drawing.Point(203, 162);
-            this.textBox3.MaxLength = 2;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(154, 19);
-            this.textBox3.TabIndex = 33;
+            this.tb_zaiko_kbn_name.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_zaiko_kbn_name.Location = new System.Drawing.Point(622, 23);
+            this.tb_zaiko_kbn_name.MaxLength = 2;
+            this.tb_zaiko_kbn_name.Name = "tb_zaiko_kbn_name";
+            this.tb_zaiko_kbn_name.Size = new System.Drawing.Size(52, 19);
+            this.tb_zaiko_kbn_name.TabIndex = 33;
             // 
             // label3
             // 
@@ -289,12 +299,12 @@
             this.textBox13.TabStop = false;
             this.textBox13.Text = "移動先取引先コード";
             // 
-            // dateTimePicker1
+            // dtp_buhin_syori_date
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(118, 62);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(107, 19);
-            this.dateTimePicker1.TabIndex = 25;
+            this.dtp_buhin_syori_date.Location = new System.Drawing.Point(118, 62);
+            this.dtp_buhin_syori_date.Name = "dtp_buhin_syori_date";
+            this.dtp_buhin_syori_date.Size = new System.Drawing.Size(107, 19);
+            this.dtp_buhin_syori_date.TabIndex = 25;
             // 
             // textBox11
             // 
@@ -328,7 +338,7 @@
             // 
             // tb_juchu_cd2
             // 
-            this.tb_juchu_cd2.Location = new System.Drawing.Point(118, 212);
+            this.tb_juchu_cd2.Location = new System.Drawing.Point(589, 73);
             this.tb_juchu_cd2.MaxLength = 40;
             this.tb_juchu_cd2.Name = "tb_juchu_cd2";
             this.tb_juchu_cd2.Size = new System.Drawing.Size(85, 19);
@@ -337,7 +347,7 @@
             // textBox9
             // 
             this.textBox9.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox9.Location = new System.Drawing.Point(10, 212);
+            this.textBox9.Location = new System.Drawing.Point(481, 73);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
             this.textBox9.Size = new System.Drawing.Size(108, 19);
@@ -347,7 +357,7 @@
             // 
             // tb_juchu_cd1
             // 
-            this.tb_juchu_cd1.Location = new System.Drawing.Point(118, 187);
+            this.tb_juchu_cd1.Location = new System.Drawing.Point(589, 48);
             this.tb_juchu_cd1.MaxLength = 40;
             this.tb_juchu_cd1.Name = "tb_juchu_cd1";
             this.tb_juchu_cd1.Size = new System.Drawing.Size(85, 19);
@@ -356,7 +366,7 @@
             // textBox6
             // 
             this.textBox6.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox6.Location = new System.Drawing.Point(10, 187);
+            this.textBox6.Location = new System.Drawing.Point(481, 48);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(108, 19);
@@ -366,16 +376,18 @@
             // 
             // tb_zaiko_kbn
             // 
-            this.tb_zaiko_kbn.Location = new System.Drawing.Point(118, 162);
+            this.tb_zaiko_kbn.Location = new System.Drawing.Point(589, 23);
             this.tb_zaiko_kbn.MaxLength = 40;
             this.tb_zaiko_kbn.Name = "tb_zaiko_kbn";
-            this.tb_zaiko_kbn.Size = new System.Drawing.Size(85, 19);
+            this.tb_zaiko_kbn.Size = new System.Drawing.Size(33, 19);
             this.tb_zaiko_kbn.TabIndex = 3;
+            this.tb_zaiko_kbn.DoubleClick += new System.EventHandler(this.tb_zaiko_kbn_DoubleClick);
+            this.tb_zaiko_kbn.Validating += new System.ComponentModel.CancelEventHandler(this.tb_zaiko_kbn_Validating);
             // 
             // textBox7
             // 
             this.textBox7.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox7.Location = new System.Drawing.Point(10, 162);
+            this.textBox7.Location = new System.Drawing.Point(481, 23);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(108, 19);
@@ -385,7 +397,7 @@
             // 
             // tb_suryou
             // 
-            this.tb_suryou.Location = new System.Drawing.Point(118, 237);
+            this.tb_suryou.Location = new System.Drawing.Point(589, 98);
             this.tb_suryou.MaxLength = 40;
             this.tb_suryou.Name = "tb_suryou";
             this.tb_suryou.Size = new System.Drawing.Size(85, 19);
@@ -394,7 +406,7 @@
             // textBox5
             // 
             this.textBox5.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox5.Location = new System.Drawing.Point(10, 237);
+            this.textBox5.Location = new System.Drawing.Point(481, 98);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(108, 19);
@@ -418,6 +430,7 @@
             this.tb_buhin_cd.Name = "tb_buhin_cd";
             this.tb_buhin_cd.Size = new System.Drawing.Size(85, 19);
             this.tb_buhin_cd.TabIndex = 2;
+            this.tb_buhin_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_buhin_cd_Validating);
             // 
             // textBox8
             // 
@@ -446,7 +459,7 @@
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
             this.tb_torihikisaki_cd.Size = new System.Drawing.Size(85, 19);
             this.tb_torihikisaki_cd.TabIndex = 1;
-            this.tb_torihikisaki_cd.Leave += new System.EventHandler(this.tb_torihikisaki_cd_Leave);
+            this.tb_torihikisaki_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_torihikisaki_cd_Validating);
             // 
             // textBox4
             // 
@@ -470,14 +483,15 @@
             this.textBox1.TabStop = false;
             this.textBox1.Text = "SEQ";
             // 
-            // tb_SEQ
+            // tb_seq
             // 
-            this.tb_SEQ.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_SEQ.Location = new System.Drawing.Point(118, 37);
-            this.tb_SEQ.MaxLength = 2;
-            this.tb_SEQ.Name = "tb_SEQ";
-            this.tb_SEQ.Size = new System.Drawing.Size(51, 19);
-            this.tb_SEQ.TabIndex = 12;
+            this.tb_seq.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_seq.Location = new System.Drawing.Point(118, 37);
+            this.tb_seq.MaxLength = 2;
+            this.tb_seq.Name = "tb_seq";
+            this.tb_seq.Size = new System.Drawing.Size(85, 19);
+            this.tb_seq.TabIndex = 12;
+            this.tb_seq.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tb_denpyou_no
             // 
@@ -500,12 +514,13 @@
             // 
             // btn_touroku
             // 
-            this.btn_touroku.Location = new System.Drawing.Point(645, 8);
+            this.btn_touroku.Location = new System.Drawing.Point(540, 11);
             this.btn_touroku.Name = "btn_touroku";
             this.btn_touroku.Size = new System.Drawing.Size(75, 23);
             this.btn_touroku.TabIndex = 3;
             this.btn_touroku.Text = "登録";
             this.btn_touroku.UseVisualStyleBackColor = true;
+            this.btn_touroku.Click += new System.EventHandler(this.btn_touroku_Click);
             // 
             // btn_syuuryou
             // 
@@ -519,17 +534,77 @@
             // 
             // ss_status
             // 
-            this.ss_status.Location = new System.Drawing.Point(0, 430);
+            this.ss_status.Location = new System.Drawing.Point(0, 583);
             this.ss_status.Name = "ss_status";
             this.ss_status.Size = new System.Drawing.Size(745, 22);
             this.ss_status.TabIndex = 2;
             this.ss_status.Text = "statusStrip1";
             // 
+            // dgv_nyusyukkoidou
+            // 
+            this.dgv_nyusyukkoidou.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_nyusyukkoidou.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7});
+            this.dgv_nyusyukkoidou.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_nyusyukkoidou.Location = new System.Drawing.Point(0, 0);
+            this.dgv_nyusyukkoidou.Name = "dgv_nyusyukkoidou";
+            this.dgv_nyusyukkoidou.RowHeadersVisible = false;
+            this.dgv_nyusyukkoidou.RowTemplate.Height = 21;
+            this.dgv_nyusyukkoidou.Size = new System.Drawing.Size(741, 192);
+            this.dgv_nyusyukkoidou.TabIndex = 0;
+            this.dgv_nyusyukkoidou.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgv_nyusyukkoidou_RowsAdded);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "SEQ";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 50;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "部品コード";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 85;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "部品名";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 250;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "在庫区分";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 80;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "受注コード1";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "受注コード2";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "数量";
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 70;
+            // 
             // frm_buhin_nyusyukkoidou
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 452);
+            this.ClientSize = new System.Drawing.Size(745, 605);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.ss_status);
             this.Name = "frm_buhin_nyusyukkoidou";
@@ -549,6 +624,7 @@
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_nyusyukkoidou)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -568,7 +644,7 @@
         private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.TextBox tb_idousaki_torihikisaki_cd;
         private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtp_buhin_syori_date;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.TextBox tb_idousaki_zaiko_kbn;
         private System.Windows.Forms.TextBox textBox10;
@@ -588,13 +664,21 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button btn_touroku;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox tb_SEQ;
+        private System.Windows.Forms.TextBox tb_seq;
         private System.Windows.Forms.TextBox tb_denpyou_no;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btn_syuuryou;
         private System.Windows.Forms.StatusStrip ss_status;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tb_zaiko_kbn_name;
         private System.Windows.Forms.TextBox tb_idousaki_torihikisaki_name;
         private System.Windows.Forms.TextBox tb_idousaki_zaiko_kbn_name;
+        private System.Windows.Forms.DataGridView dgv_nyusyukkoidou;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }
