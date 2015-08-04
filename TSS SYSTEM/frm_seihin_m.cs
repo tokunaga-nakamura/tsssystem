@@ -220,7 +220,7 @@ namespace TSS_SYSTEM
 
         private void tb_torihikisaki_cd_Validating(object sender, CancelEventArgs e)
         {
-            //区分名称区分が空白の場合はOKとする
+            //空白の場合はOKとする
             if (tb_torihikisaki_cd.Text != "")
             {
                 if (chk_torihikisaki_cd() != true)

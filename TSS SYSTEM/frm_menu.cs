@@ -179,9 +179,6 @@ namespace TSS_SYSTEM
             tss.search_buhin("1", "");
         }
 
-
-      
-
         private void btn_nyuko_syori_Click_1(object sender, EventArgs e)
         {
             //部品入出庫画面へ
@@ -198,6 +195,19 @@ namespace TSS_SYSTEM
         {
             //部品入出庫画面へ
             tss.buhin_nyusyukkoidou("3");
+        }
+
+        private void btn_nouhin_schedule_Click(object sender, EventArgs e)
+        {
+            frm_nouhin_schedule frm_ns = new frm_nouhin_schedule();
+            frm_ns.ShowDialog(this);
+            frm_ns.Dispose();
+        }
+
+        private void btn_torihikisaki_kensaku_Click(object sender, EventArgs e)
+        {
+            //検索画面へ
+            tss.search_torihikisaki("1", "");
         }
     }
 }

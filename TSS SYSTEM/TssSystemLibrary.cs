@@ -621,7 +621,7 @@ namespace TSS_SYSTEM
         }
 
         //部品検索画面の呼び出し
-        public string search_buhin(string in_mode,string in_cd)
+        public string search_buhin(string in_mode, string in_cd)
         {
             //マウスのX座標を取得する
             //int x = System.Windows.Forms.Cursor.Position.X;
@@ -630,6 +630,31 @@ namespace TSS_SYSTEM
 
             string out_cd = "";   //戻り値用
             frm_search_buhin frm_sb = new frm_search_buhin();
+
+            //フォームをマウスの位置に表示する
+            //frm_sb.Left = x;
+            //frm_sb.Top = y;
+            //frm_sb.StartPosition = FormStartPosition.Manual;
+
+            //子画面のプロパティに値をセットする
+            frm_sb.str_mode = in_mode;
+            frm_sb.str_name = in_cd;
+            frm_sb.ShowDialog();
+            //子画面から値を取得する
+            out_cd = frm_sb.str_cd;
+            frm_sb.Dispose();
+            return out_cd;
+        }
+        //取引先検索画面の呼び出し
+        public string search_torihikisaki(string in_mode, string in_cd)
+        {
+            //マウスのX座標を取得する
+            //int x = System.Windows.Forms.Cursor.Position.X;
+            //マウスのY座標を取得する
+            //int y = System.Windows.Forms.Cursor.Position.Y;
+
+            string out_cd = "";   //戻り値用
+            frm_search_torihikisaki frm_sb = new frm_search_torihikisaki();
 
             //フォームをマウスの位置に表示する
             //frm_sb.Left = x;
