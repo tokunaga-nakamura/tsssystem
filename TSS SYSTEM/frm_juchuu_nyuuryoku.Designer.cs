@@ -35,12 +35,12 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
-            this.lbl_juchu_no = new System.Windows.Forms.Label();
-            this.tb_bikou = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.cb_seisan_jisseki = new System.Windows.Forms.CheckBox();
+            this.lbl_juchu_no = new System.Windows.Forms.Label();
             this.cb_seisan_schedule = new System.Windows.Forms.CheckBox();
+            this.tb_bikou = new System.Windows.Forms.TextBox();
             this.cb_nouhin_schedule = new System.Windows.Forms.CheckBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.tb_juchu_su = new System.Windows.Forms.TextBox();
             this.tb_seihin_name = new System.Windows.Forms.TextBox();
             this.tb_seihin_cd = new System.Windows.Forms.TextBox();
@@ -240,34 +240,6 @@
             this.splitContainer6.TabIndex = 0;
             this.splitContainer6.TabStop = false;
             // 
-            // lbl_juchu_no
-            // 
-            this.lbl_juchu_no.AutoSize = true;
-            this.lbl_juchu_no.Location = new System.Drawing.Point(208, 56);
-            this.lbl_juchu_no.Name = "lbl_juchu_no";
-            this.lbl_juchu_no.Size = new System.Drawing.Size(137, 12);
-            this.lbl_juchu_no.TabIndex = 18;
-            this.lbl_juchu_no.Text = "受注番号を入力してください";
-            // 
-            // tb_bikou
-            // 
-            this.tb_bikou.Location = new System.Drawing.Point(48, 249);
-            this.tb_bikou.MaxLength = 128;
-            this.tb_bikou.Name = "tb_bikou";
-            this.tb_bikou.Size = new System.Drawing.Size(385, 19);
-            this.tb_bikou.TabIndex = 8;
-            // 
-            // textBox7
-            // 
-            this.textBox7.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox7.Location = new System.Drawing.Point(10, 249);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(38, 19);
-            this.textBox7.TabIndex = 15;
-            this.textBox7.TabStop = false;
-            this.textBox7.Text = "備考";
-            // 
             // cb_seisan_jisseki
             // 
             this.cb_seisan_jisseki.AutoSize = true;
@@ -277,6 +249,15 @@
             this.cb_seisan_jisseki.TabIndex = 7;
             this.cb_seisan_jisseki.Text = "生産実績に反映する";
             this.cb_seisan_jisseki.UseVisualStyleBackColor = true;
+            // 
+            // lbl_juchu_no
+            // 
+            this.lbl_juchu_no.AutoSize = true;
+            this.lbl_juchu_no.Location = new System.Drawing.Point(208, 56);
+            this.lbl_juchu_no.Name = "lbl_juchu_no";
+            this.lbl_juchu_no.Size = new System.Drawing.Size(137, 12);
+            this.lbl_juchu_no.TabIndex = 18;
+            this.lbl_juchu_no.Text = "受注番号を入力してください";
             // 
             // cb_seisan_schedule
             // 
@@ -288,6 +269,14 @@
             this.cb_seisan_schedule.Text = "生産スケジュールに反映する";
             this.cb_seisan_schedule.UseVisualStyleBackColor = true;
             // 
+            // tb_bikou
+            // 
+            this.tb_bikou.Location = new System.Drawing.Point(48, 249);
+            this.tb_bikou.MaxLength = 128;
+            this.tb_bikou.Name = "tb_bikou";
+            this.tb_bikou.Size = new System.Drawing.Size(385, 19);
+            this.tb_bikou.TabIndex = 8;
+            // 
             // cb_nouhin_schedule
             // 
             this.cb_nouhin_schedule.AutoSize = true;
@@ -297,6 +286,17 @@
             this.cb_nouhin_schedule.TabIndex = 5;
             this.cb_nouhin_schedule.Text = "納品スケジュールに反映する";
             this.cb_nouhin_schedule.UseVisualStyleBackColor = true;
+            // 
+            // textBox7
+            // 
+            this.textBox7.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox7.Location = new System.Drawing.Point(10, 249);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(38, 19);
+            this.textBox7.TabIndex = 15;
+            this.textBox7.TabStop = false;
+            this.textBox7.Text = "備考";
             // 
             // tb_juchu_su
             // 
@@ -622,6 +622,9 @@
             this.dgv_nounyuu_schedule.Size = new System.Drawing.Size(430, 234);
             this.dgv_nounyuu_schedule.TabIndex = 0;
             this.dgv_nounyuu_schedule.TabStop = false;
+            this.dgv_nounyuu_schedule.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.dgv_nounyuu_schedule_CellParsing);
+            this.dgv_nounyuu_schedule.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgv_nounyuu_schedule_CellValidating);
+            this.dgv_nounyuu_schedule.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_nounyuu_schedule_DataError);
             // 
             // splitContainer7
             // 

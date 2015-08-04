@@ -13,6 +13,8 @@ namespace TSS_SYSTEM
     public partial class frm_juchuu_nyuuryoku : Form
     {
         TssSystemLibrary tss = new TssSystemLibrary();
+        DataTable w_dt_nouhin_schedule = new DataTable();   //納品スケジュールバインド用
+
 
         public frm_juchuu_nyuuryoku()
         {
@@ -156,6 +158,14 @@ namespace TSS_SYSTEM
             kousin_rireki_disp();
         }
         
+        private void gamen_all_clear()
+        {
+            tb_torihikisaki_cd.Text = "";
+            tb_juchu_cd1.Text = "";
+            tb_juchu_cd2.Text = "";
+            gamen_clear();
+        }
+
         private void gamen_clear()
         {
             tb_seihin_cd.Text = "";
@@ -181,11 +191,10 @@ namespace TSS_SYSTEM
         {
             //納品スケジュールの表示
             //新規の場合でも追加入力できるように、行列のヘッダーが必要（nullではダメ）
-            DataTable w_dt_nouhin_schedule = new DataTable();
-            w_dt_nouhin_schedule = tss.OracleSelect("select nouhin_yotei_date,nouhin_bin,nouhin_yotei_su,nouhin_tantou_cd,kannou_flg,bikou,delete_flg from tss_nouhin_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "' and juchu_cd1 = '" + tb_juchu_cd1.Text.ToString() + "' and juchu_cd2 = '" + tb_juchu_cd2.Text.ToString() + "' order by nouhin_yotei_date asc,nouhin_bin asc");
+            w_dt_nouhin_schedule = tss.OracleSelect("select nouhin_yotei_date,nouhin_bin,nouhin_yotei_su,nouhin_tantou_cd,bikou,kannou_flg,delete_flg from tss_nouhin_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "' and juchu_cd1 = '" + tb_juchu_cd1.Text.ToString() + "' and juchu_cd2 = '" + tb_juchu_cd2.Text.ToString() + "' order by nouhin_yotei_date asc,nouhin_bin asc");
             dgv_nounyuu_schedule.DataSource = w_dt_nouhin_schedule;
             //編集可能にする
-            dgv_nounyuu_schedule.ReadOnly = false;
+            //dgv_nounyuu_schedule.ReadOnly = false;
             //行ヘッダーを表示にする
             //dgv_nounyuu_schedule.RowHeadersVisible = true;
             //カラム幅の自動調整（ヘッダーとセルの両方の最長幅に調整する）
@@ -197,7 +206,7 @@ namespace TSS_SYSTEM
             //削除可能にする（コードからは削除可）
             //dgv_nounyuu_schedule.AllowUserToDeleteRows = true;
             //１行のみ選択可能（複数行の選択不可）
-            //dgv_nounyuu_schedule.MultiSelect = false;
+            //dgv_nounyuu_schedule.MultiSelect = true;
             //セルを選択するとセルが選択されるようにする
             //dgv_nounyuu_schedule.SelectionMode = DataGridViewSelectionMode.CellSelect;
             //新しい行を追加できるようにする
@@ -205,12 +214,28 @@ namespace TSS_SYSTEM
 
             //DataGridViewのカラムヘッダーテキストを変更する
             dgv_nounyuu_schedule.Columns[0].HeaderText = "納品日";
-            dgv_nounyuu_schedule.Columns[1].HeaderText = "便（省略可）";
+            dgv_nounyuu_schedule.Columns[1].HeaderText = "便";
             dgv_nounyuu_schedule.Columns[2].HeaderText = "納品数";
             dgv_nounyuu_schedule.Columns[3].HeaderText = "納品者";
-            dgv_nounyuu_schedule.Columns[4].HeaderText = "完納フラグ";
-            dgv_nounyuu_schedule.Columns[5].HeaderText = "備考";
+            dgv_nounyuu_schedule.Columns[4].HeaderText = "備考";
+            dgv_nounyuu_schedule.Columns[5].HeaderText = "完納フラグ";
             dgv_nounyuu_schedule.Columns[6].HeaderText = "削除フラグ";
+
+            //列を編集不可にする
+            dgv_nounyuu_schedule.Columns[5].ReadOnly = true;
+            dgv_nounyuu_schedule.Columns[6].ReadOnly = true;
+
+            //列の文字数制限
+            ((DataGridViewTextBoxColumn)dgv_nounyuu_schedule.Columns[0]).MaxInputLength = 8;
+            ((DataGridViewTextBoxColumn)dgv_nounyuu_schedule.Columns[1]).MaxInputLength = 2;
+            ((DataGridViewTextBoxColumn)dgv_nounyuu_schedule.Columns[2]).MaxInputLength = 13;
+            ((DataGridViewTextBoxColumn)dgv_nounyuu_schedule.Columns[3]).MaxInputLength = 6;
+            ((DataGridViewTextBoxColumn)dgv_nounyuu_schedule.Columns[4]).MaxInputLength = 128;
+
+            //インデックス0の列のセルの背景色を水色にする
+            dgv_nounyuu_schedule.Columns[5].DefaultCellStyle.BackColor = Color.Gainsboro;
+            dgv_nounyuu_schedule.Columns[6].DefaultCellStyle.BackColor = Color.Gainsboro;
+
         }
 
         private void kousin_rireki_disp()
@@ -328,13 +353,41 @@ namespace TSS_SYSTEM
                 tb_seihin_cd.Focus();
                 return;
             }
+            if (chk_juchu_su() == false)
+            {
+                MessageBox.Show("受注数は0から9999999999.99の範囲で入力してください。");
+                tb_juchu_su.Focus();
+                return;
+            }
             if (chk_bikou() == false)
             {
                 MessageBox.Show("備考は128バイト以内で入力してください。");
                 tb_bikou.Focus();
                 return;
             }
-
+            if(chk_nouhin_schedule() == false)
+            {
+                return;
+            }
+            if(chk_nouhin_key() == false)
+            {
+                MessageBox.Show("同一日時、同一便の行があります。");
+                return;
+            }
+            if(chk_nouhin_su_ttl() == false)
+            {
+                DialogResult result = MessageBox.Show("受注数と納品数の合計が不一致です。このまま登録しますか？","確認",MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    //「キャンセル」が選択された時
+                    return;
+                }
+                else
+                {
+                    tss.GetUser();
+                    bool w_bl = tss.MessageLogWrite(tss.user_cd,"受注入力","受注番号 " + tb_torihikisaki_cd.Text.ToString() + "-" + tb_juchu_cd1.Text.ToString() + "-" + tb_juchu_cd2.Text.ToString() + " の受注数と納品数が不一致のまま登録しました。",tss.user_cd);
+                }
+            }
 
 
             //新規・更新チェック
@@ -346,7 +399,23 @@ namespace TSS_SYSTEM
                 if (result == DialogResult.Yes)
                 {
                     //「はい」が選択された時
-                    data_insert();
+                    if(data_insert())
+                    {
+                        if(nouhin_schedule_write())
+                        {
+                            MessageBox.Show("更新されました。");
+                            gamen_all_clear();
+                            tb_torihikisaki_cd.Focus();
+                        }
+                        else
+                        {
+                            MessageBox.Show("納品スケジュールの書込みでエラーが発生しました。");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("受注情報の書込みでエラーが発生しました。");
+                    }
                     //chk_buhin_cd();
                 }
                 else
@@ -370,7 +439,23 @@ namespace TSS_SYSTEM
                 if (result == DialogResult.Yes)
                 {
                     //「はい」が選択された時
-                    data_update();
+                    if (data_update())
+                    {
+                        if(nouhin_schedule_write())
+                        {
+                            MessageBox.Show("更新されました。");
+                            gamen_all_clear();
+                            tb_torihikisaki_cd.Focus();
+                        }
+                        else
+                        {
+                            MessageBox.Show("納品スケジュールの更新でエラーが発生しました。");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("受注情報の更新でエラーが発生しました。");
+                    }
                     //chk_buhin_cd();
                 }
                 else
@@ -412,10 +497,11 @@ namespace TSS_SYSTEM
         }
         private bool chk_juchu_cd2()
         {
-            //受注コード２は空白を許可する
+            //受注コード２は空白を許可しない
             bool bl = true; //戻り値用
-            
-            if (tss.StringByte(tb_juchu_cd1.Text) > 16)
+
+            //if (tss.StringByte(tb_juchu_cd1.Text) > 16)
+            if (tb_juchu_cd2.Text.Length == 0 || tss.StringByte(tb_juchu_cd1.Text) > 16)
             {
                 bl = false;
             }
@@ -438,7 +524,24 @@ namespace TSS_SYSTEM
             }
             return bl;
         }
-
+        private bool chk_juchu_su()
+        {
+            bool bl = true; //戻り値
+            double db;
+            if (double.TryParse(tb_juchu_su.Text.ToString(), out db))
+            {
+                //変換出来たら、lgにその数値が入る
+                if (db > 9999999999.99 || db < -999999999.99)
+                {
+                    bl = false;
+                }
+            }
+            else
+            {
+                bl = false;
+            }
+            return bl;
+        }
         private bool chk_bikou()
         {
             bool bl = true; //戻り値用
@@ -461,8 +564,140 @@ namespace TSS_SYSTEM
             return bl;
         }
 
-        private void data_insert()
+        private bool chk_nouhin_schedule()
         {
+            bool bl = true; //戻り値用
+            for (int i = 0; i < dgv_nounyuu_schedule.Rows.Count - 1;i++ )
+            {
+                //納品日
+                DateTime w_date;
+                //DateTimeに変換できるか確かめる
+                if (DateTime.TryParse(dgv_nounyuu_schedule.Rows[i].Cells[0].Value.ToString(), out w_date))
+                {
+                    //変換出来たら、dtにその値が入る
+                }
+                else
+                {
+                    MessageBox.Show("納品日が未入力または日付として認識できない値です。");
+                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[i, 0];
+                    bl = false;
+                    return bl;
+                }
+
+                //便
+                if (dgv_nounyuu_schedule.Rows[i].Cells[1].Value.ToString().Length == 0 || tss.StringByte(dgv_nounyuu_schedule.Rows[i].Cells[1].Value.ToString()) > 2)
+                {
+                    MessageBox.Show("便は必須項目です。2バイト以内で入力してください。");
+                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[i, 1];
+                    bl = false;
+                    return bl;
+                }
+
+                //納品数
+                double db;
+                if (double.TryParse(dgv_nounyuu_schedule.Rows[i].Cells[2].Value.ToString(), out db))
+                {
+                    //変換出来たら、lgにその数値が入る
+                    if (db > 9999999999.99 || db < -999999999.99)
+                    {
+                        MessageBox.Show("納品数は0から9999999999.99の範囲で入力してください。");
+                        dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[i, 2];
+                        bl = false;
+                        return bl;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("納品数は0から9999999999.99の範囲で入力してください。");
+                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[i, 2];
+                    bl = false;
+                    return bl;
+                }
+
+                //納品担当者
+                if (tss.StringByte(dgv_nounyuu_schedule.Rows[i].Cells[3].Value.ToString()) > 6)
+                {
+                    MessageBox.Show("納品担当者コードは6バイト以内で入力してください。");
+                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[i, 3];
+                    bl = false;
+                    return bl;
+                }
+                DataTable dt_work = new DataTable();
+                dt_work = tss.OracleSelect("select * from tss_user_m where user_cd  = '" + dgv_nounyuu_schedule.Rows[i].Cells[3].Value.ToString() + "'");
+                if (dt_work.Rows.Count <= 0)
+                {
+                    //無し
+                    MessageBox.Show("入力された納品担当者コードは存在しません。");
+                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[i, 3];
+                    bl = false;
+                }
+
+                //備考
+                if (tss.StringByte(dgv_nounyuu_schedule.Rows[i].Cells[4].Value.ToString()) > 128)
+                {
+                    MessageBox.Show("備考は128バイト以内で入力してください。");
+                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[i, 4];
+                    bl = false;
+                    return bl;
+                }
+            }
+            return bl;
+        }
+
+        private bool chk_nouhin_key()
+        {
+            //重複行のチェック
+            bool bl = true; //戻り値用
+            for (int i = 0; i < dgv_nounyuu_schedule.Rows.Count - 1;i++)
+            {
+                for (int k = i+1; k < dgv_nounyuu_schedule.Rows.Count - 1;k++)
+                {
+                    if (dgv_nounyuu_schedule.Rows[i].Cells["nouhin_yotei_date"].Value.ToString() == dgv_nounyuu_schedule.Rows[k].Cells["nouhin_yotei_date"].Value.ToString() && dgv_nounyuu_schedule.Rows[i].Cells["nouhin_bin"].Value.ToString() == dgv_nounyuu_schedule.Rows[k].Cells["nouhin_bin"].Value.ToString())
+                    {
+                        bl = false;
+                        break;
+                    }
+                }
+            }
+            return bl;
+        }
+
+
+        private bool chk_nouhin_su_ttl()
+        {
+            //受注数と納品数のアンマッチチェック
+            bool bl = true; //戻り値用
+            double w_dou_nouhin_su_ttl = 0;
+            double w_double_dgv;
+            double w_double_tb;
+            for (int i = 0; i < dgv_nounyuu_schedule.Rows.Count - 1; i++)
+            {
+                if (double.TryParse(dgv_nounyuu_schedule.Rows[i].Cells[2].Value.ToString(), out w_double_dgv))
+                {
+                    w_dou_nouhin_su_ttl = w_dou_nouhin_su_ttl + w_double_dgv;
+                }
+            }
+            if (double.TryParse(tb_juchu_su.Text.ToString(), out w_double_tb))
+            {
+                if(w_double_tb != w_dou_nouhin_su_ttl)
+                {
+                    bl = false;
+                }
+                else
+                {
+                    bl = true;
+                }
+            }
+            else
+            {
+                bl = false;
+            }
+            return bl;
+        }
+
+        private bool data_insert()
+        {
+            bool bl = true; //戻り値用
             tss.GetUser();
             //新規書込み
             bool bl_tss = true;
@@ -494,18 +729,21 @@ namespace TSS_SYSTEM
                 //更新履歴の書込み
                 if(rireki_insert("新規登録"))
                 {
-                    MessageBox.Show("新規登録しました。");
+                    bl = true;
                 }
                 else
                 {
+                    bl = false;
                     MessageBox.Show("受注更新履歴の書込みでエラーが発生しました。処理を中止します。");
                     this.Close();
                 }
             }
+            return bl;
         }
 
-        private void data_update()
+        private bool data_update()
         {
+            bool bl = true; //戻り値用
             tss.GetUser();
             //更新
             bool bl_tss = true;
@@ -541,15 +779,170 @@ namespace TSS_SYSTEM
                 //更新履歴の書込み
                 if (rireki_insert(tb_kousin_riyuu.Text))
                 {
-                    MessageBox.Show("更新しました。");
+                    bl = true;
                 }
                 else
                 {
+                    bl = false;
                     MessageBox.Show("受注更新履歴の書込みでエラーが発生しました。処理を中止します。");
                     this.Close();
                 }
             }
+            return bl;
         }
+
+        private bool nouhin_schedule_write()
+        {
+            tss.GetUser();
+            bool bl = true; //戻り値用
+            string w_sql;
+            int w_int_chk;
+
+            //まず、dgvの各レコードと同一キーのレコードがDBにあるか調べ、あった場合は違いがあるか調べる。
+            //これにより、insert、update、スキップのどれを処理するか判断し、処理する。
+            for (int i = 0; i < dgv_nounyuu_schedule.Rows.Count - 1; i++)
+            {
+                //存在するレコードかチェック
+                w_int_chk = record_check(i);
+                if(w_int_chk == 0)
+                {
+                    //新規
+                    w_sql = "insert into tss_nouhin_m (torihikisaki_cd,juchu_cd1,juchu_cd2,nouhin_yotei_date,nouhin_bin,nouhin_jisseki_date,nouhin_yotei_su,nouhin_jisseki_su,nouhin_tantou_cd,kannou_flg,bikou,delete_flg,create_user_cd,create_datetime)"
+                            + " values ('"
+                            + tb_torihikisaki_cd.Text.ToString() + "','"
+                            + tb_juchu_cd1.Text.ToString() + "','"
+                            + tb_juchu_cd2.Text.ToString() + "',"
+                            + "to_date('" + dgv_nounyuu_schedule.Rows[i].Cells["nouhin_yotei_date"].Value.ToString() + "','YYYY/MM/DD HH24:MI:SS'),'"
+                            + dgv_nounyuu_schedule.Rows[i].Cells["nouhin_bin"].Value.ToString()
+                            + "',null,'"
+                            + dgv_nounyuu_schedule.Rows[i].Cells["nouhin_yotei_su"].Value.ToString()
+                            + "',null,'"
+                            + dgv_nounyuu_schedule.Rows[i].Cells["nouhin_tantou_cd"].Value.ToString() + "','"
+                            + "0" + "','"
+                            + dgv_nounyuu_schedule.Rows[i].Cells["bikou"].Value.ToString() + "','"
+                            + "0" + "','"
+                            + tss.user_cd
+                            + "',SYSDATE)";
+                    if(tss.OracleInsert(w_sql) == false)
+                    {
+                        tss.ErrorLogWrite(tss.user_cd, "受注入力", "登録ボタン押下時の納品スケジュールのOracleInsert");
+                        MessageBox.Show("書込みでエラーが発生しました。処理を中止します。");
+                        this.Close();
+                    }
+                }
+                else
+                if (w_int_chk == 2)
+                {
+                    //更新
+                    w_sql = "update tss_nouhin_m set nouhin_yotei_su = '" + dgv_nounyuu_schedule.Rows[i].Cells["nouhin_yotei_su"].Value.ToString()
+                            + "',nouhin_tantou_cd = '" + dgv_nounyuu_schedule.Rows[i].Cells["nouhin_tantou_cd"].Value.ToString()
+                            + "',bikou = '" + dgv_nounyuu_schedule.Rows[i].Cells["bikou"].Value.ToString()
+                            + "',update_user_cd = '" + tss.user_cd
+                            + "',update_datetime = SYSDATE"
+                            + " where torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString()
+                            + "' and juchu_cd1 = '" + tb_juchu_cd1.Text.ToString()
+                            + "' and juchu_cd2 = '" + tb_juchu_cd2.Text.ToString()
+                            + "' and nouhin_yotei_date = to_date('" + dgv_nounyuu_schedule.Rows[i].Cells["nouhin_yotei_date"].Value.ToString() + "','YYYY/MM/DD HH24:MI:SS')"
+                            + " and nouhin_bin = '" + dgv_nounyuu_schedule.Rows[i].Cells["nouhin_bin"].Value.ToString() + "'";
+
+                    if (tss.OracleUpdate(w_sql) == false)
+                    {
+                        tss.ErrorLogWrite(tss.user_cd, "受注入力", "登録ボタン押下時の納品スケジュールのOracleUpdate");
+                        MessageBox.Show("書込みでエラーが発生しました。処理を中止します。");
+                        this.Close();
+                    }
+                }
+            }
+            //次にdb側の同一キーを読み込み、dgvに無いものは削除する
+            DataTable w_dt = new DataTable();
+            int w_find_flg;
+            w_dt = tss.OracleSelect("select * from tss_nouhin_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "' and juchu_cd1 = '" + tb_juchu_cd1.Text.ToString() + "' and juchu_cd2 = '" + tb_juchu_cd2.Text.ToString() + "'");
+            foreach(DataRow dr in w_dt.Rows)
+            {
+                w_find_flg = 0;
+                for(int i = 0;i < dgv_nounyuu_schedule.Rows.Count - 1;i++)
+                {
+                    if(dr["nouhin_yotei_date"].ToString() == dgv_nounyuu_schedule.Rows[i].Cells["nouhin_yotei_date"].Value.ToString() && dr["nouhin_bin"].ToString() == dgv_nounyuu_schedule.Rows[i].Cells["nouhin_bin"].Value.ToString())
+                    {
+                        w_find_flg = 1;
+                    }
+                }
+                if(w_find_flg != 1)
+                {
+                    //無かった場合はそのデータを削除
+                    if(tss.OracleDelete("delete from tss_nouhin_m where torihikisaki_cd = '" + dr["torihikisaki_cd"].ToString() + "' and juchu_cd1 = '" + dr["juchu_cd1"].ToString() + "' and juchu_cd2 = '" + dr["juchu_cd2"].ToString() + "' and nouhin_yotei_date = to_date('" + dr["nouhin_yotei_date"].ToString() + "','YYYY/MM/DD HH24:MI:SS') and nouhin_bin = '" + dr["nouhin_bin"].ToString() + "'") == false)
+                    {
+                        tss.ErrorLogWrite(tss.user_cd, "受注入力", "登録ボタン押下時の納品スケジュールのOracleDelete");
+                        MessageBox.Show("書込みでエラーが発生しました。処理を中止します。");
+                        this.Close();
+                    }
+                }
+            }
+            return bl;
+        }
+
+
+        private int record_check(int in_i)
+        {
+            //指定されたdgvの行のレコードがマスタにあるかチェックする
+            //戻り値
+            //0:無し（新規）
+            //1:有り変更無し（何も処理しない）
+            //2:有り変更有り（更新）
+            int out_chk = 0;
+            int res_chk = 0;
+            DataTable w_dt = new DataTable();
+
+            w_dt = tss.OracleSelect("select * from tss_nouhin_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "' and juchu_cd1 = '" + tb_juchu_cd1.Text.ToString() + "' and juchu_cd2 = '" + tb_juchu_cd2.Text.ToString() + "' and nouhin_yotei_date = to_date('" + dgv_nounyuu_schedule.Rows[in_i].Cells["NOUHIN_YOTEI_DATE"].Value.ToString() + "','YYYY/MM/DD HH24:MI:SS') and nouhin_bin = '" + dgv_nounyuu_schedule.Rows[in_i].Cells["NOUHIN_BIN"].Value.ToString() + "'");
+            if(w_dt.Rows.Count != 0)
+            {
+                //同一キーのレコード有
+                res_chk = record_update_check(in_i, w_dt);
+                if(res_chk == 0)
+                {
+                    //変更無し
+                    out_chk = 1;
+                }
+                else
+                {
+                    //変更有り
+                    out_chk = 2;
+                }
+            }
+            else
+            {
+                //同一キーのレコード無し（新規）
+                out_chk = 0;
+            }
+            return out_chk;
+        }
+
+        private int record_update_check(int in_i,DataTable w_dt)
+        {
+            //戻り値
+            //0:変更無し
+            //1:変更有り
+            int out_chk = 0;
+
+            if (dgv_nounyuu_schedule.Rows[in_i].Cells["nouhin_yotei_su"].Value.ToString() != w_dt.Rows[0]["nouhin_yotei_su"].ToString())
+            {
+                out_chk = 1;
+                return out_chk;
+            }
+            if (dgv_nounyuu_schedule.Rows[in_i].Cells["nouhin_tantou_cd"].Value.ToString() != w_dt.Rows[0]["nouhin_tantou_cd"].ToString())
+            {
+                out_chk = 1;
+                return out_chk;
+            }
+            if (dgv_nounyuu_schedule.Rows[in_i].Cells["bikou"].Value.ToString() != w_dt.Rows[0]["bikou"].ToString())
+            {
+                out_chk = 1;
+                return out_chk;
+            }
+            return out_chk;
+        }
+
+
 
         private void tb_seihin_cd_Validating(object sender, CancelEventArgs e)
         {
@@ -572,7 +965,7 @@ namespace TSS_SYSTEM
         {
             bool out_bl = true;
             double w_dou_seq;
-            w_dou_seq = tss.GetSeq("01");
+            w_dou_seq = tss.GetSeq("04");
             if(w_dou_seq != 0)
             {
                 bool bl_tss;
@@ -591,6 +984,149 @@ namespace TSS_SYSTEM
                 this.Close();
             }
             return out_bl;
+        }
+
+
+        private void dgv_nounyuu_schedule_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
+        {
+            DataGridView dgv = (DataGridView)sender;
+
+            //新しい行のセルでなく、セルの内容が変更されている時だけ検証する
+            if (e.RowIndex == dgv.NewRowIndex || !dgv.IsCurrentCellDirty)
+            {
+                return;
+            }
+
+            //納品日
+            if (dgv.Columns[e.ColumnIndex].Name == "NOUHIN_YOTEI_DATE")
+            {
+                if (e != null)
+                {
+                    if (e.Value != null)
+                    {
+                        if (e.Value.ToString() != "")
+                        {
+                            if (e.Value.ToString().Length == 8)
+                            {
+                                string w_str_date;
+                                w_str_date = e.Value.ToString().Substring(0, 4) + "/" + e.Value.ToString().Substring(4, 2) + "/" + e.Value.ToString().Substring(6);
+                                try
+                                {
+                                    e.Value = DateTime.Parse(w_str_date);
+                                    e.ParsingApplied = true;
+                                    dgv[e.ColumnIndex, e.RowIndex].ErrorText = null;
+                                }
+                                catch (FormatException)
+                                {
+                                    e.ParsingApplied = false;
+                                    dgv[e.ColumnIndex, e.RowIndex].ErrorText = "日付として認識できない値です。";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void dgv_nounyuu_schedule_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            DataGridView dgv = (DataGridView)sender;
+
+            //新しい行のセルでなく、セルの内容が変更されている時だけ検証する
+            if (e.RowIndex == dgv.NewRowIndex || !dgv.IsCurrentCellDirty)
+            {
+                return;
+            }
+
+            //納品日
+            if (dgv.Columns[e.ColumnIndex].Name == "NOUHIN_YOTEI_DATE")
+            {
+                if (e != null)
+                {
+                    if (e.FormattedValue != null)
+                    {
+                        if(e.FormattedValue.ToString() != "")
+                        {
+                            if (e.FormattedValue.ToString().Length != 8)
+                            {
+                                e.Cancel = true;
+                            }
+                            else
+                            {
+
+                            }
+                        }
+                    }
+                }
+            }
+            //便
+            if (dgv.Columns[e.ColumnIndex].Name == "NOUHIN_BIN")
+            {
+                if (e != null)
+                {
+                    if (e.FormattedValue != null)
+                    {
+                        if (e.FormattedValue.ToString() != "")
+                        {
+                            if (e.FormattedValue.ToString().Length > 2)
+                            {
+                                e.Cancel = true;
+                            }
+                            else
+                            {
+
+                            }
+                        }
+                    }
+                }
+            }
+            //納品数
+            if (dgv.Columns[e.ColumnIndex].Name == "NOUHIN_YOTEI_SU")
+            {
+                if (e != null)
+                {
+                    if (e.FormattedValue != null)
+                    {
+                        if (e.FormattedValue.ToString() != "")
+                        {
+                            if (e.FormattedValue.ToString().Length > 13)
+                            {
+                                e.Cancel = true;
+                            }
+                            else
+                            {
+
+                            }
+                        }
+                    }
+                }
+            }
+            //納品担当者
+            if (dgv.Columns[e.ColumnIndex].Name == "NOUHIN_TANTOU_CD")
+            {
+                if (e != null)
+                {
+                    if (e.FormattedValue != null)
+                    {
+                        if (e.FormattedValue.ToString() != "")
+                        {
+                            if (e.FormattedValue.ToString().Length > 6)
+                            {
+                                e.Cancel = true;
+                            }
+                            else
+                            {
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void dgv_nounyuu_schedule_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            return;
         }
 
         
