@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_buhin_idou));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_idou = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.dtp_buhin_syori_date = new System.Windows.Forms.DateTimePicker();
@@ -94,8 +95,9 @@
             this.dgv_idou.Name = "dgv_idou";
             this.dgv_idou.RowHeadersVisible = false;
             this.dgv_idou.RowTemplate.Height = 21;
-            this.dgv_idou.Size = new System.Drawing.Size(880, 298);
+            this.dgv_idou.Size = new System.Drawing.Size(880, 304);
             this.dgv_idou.TabIndex = 0;
+            this.dgv_idou.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_idou_CellClick);
             this.dgv_idou.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_idou_CellEndEdit);
             // 
             // label3
@@ -199,6 +201,7 @@
             this.splitContainer3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer3.IsSplitterFixed = true;
             this.splitContainer3.Location = new System.Drawing.Point(0, 0);
             this.splitContainer3.Name = "splitContainer3";
             this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -217,7 +220,7 @@
             // 
             this.splitContainer3.Panel2.Controls.Add(this.dgv_idou);
             this.splitContainer3.Size = new System.Drawing.Size(884, 432);
-            this.splitContainer3.SplitterDistance = 126;
+            this.splitContainer3.SplitterDistance = 120;
             this.splitContainer3.TabIndex = 8;
             // 
             // tb_seq
@@ -236,6 +239,7 @@
             this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer2.IsSplitterFixed = true;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -278,6 +282,7 @@
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -357,6 +362,10 @@
             // 
             // Column7
             // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N0";
+            dataGridViewCellStyle5.NullValue = null;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column7.HeaderText = "数量";
             this.Column7.Name = "Column7";
             this.Column7.Width = 60;
@@ -374,7 +383,7 @@
             this.Controls.Add(this.ss_status);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frm_buhin_idou";
-            this.Text = "frm_buhin_idou";
+            this.Text = "部品移動";
             this.Load += new System.EventHandler(this.frm_buhin_idou_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_idou)).EndInit();
             this.splitContainer3.Panel1.ResumeLayout(false);

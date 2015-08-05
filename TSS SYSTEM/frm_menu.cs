@@ -228,7 +228,9 @@ namespace TSS_SYSTEM
         private void btn_idou_Click(object sender, EventArgs e)
         {
             //移動画面へ
-            tss.buhin_nyusyukkoidou("3");
+            frm_buhin_idou frm_bi = new frm_buhin_idou();
+            frm_bi.ShowDialog(this);
+            frm_bi.Dispose();
         }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_buhin_nyusyukkoidou));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_hardcopy = new System.Windows.Forms.Button();
@@ -45,6 +46,10 @@
             this.tb_denpyou_no = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dgv_nyusyukkoidou = new System.Windows.Forms.DataGridView();
+            this.btn_sakujyo = new System.Windows.Forms.Button();
+            this.btn_touroku = new System.Windows.Forms.Button();
+            this.btn_syuuryou = new System.Windows.Forms.Button();
+            this.ss_status = new System.Windows.Forms.StatusStrip();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,10 +57,6 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_sakujyo = new System.Windows.Forms.Button();
-            this.btn_touroku = new System.Windows.Forms.Button();
-            this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.ss_status = new System.Windows.Forms.StatusStrip();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -76,6 +77,7 @@
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -117,6 +119,7 @@
             this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer2.IsSplitterFixed = true;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -140,6 +143,7 @@
             this.splitContainer3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer3.IsSplitterFixed = true;
             this.splitContainer3.Location = new System.Drawing.Point(0, 0);
             this.splitContainer3.Name = "splitContainer3";
             this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -161,7 +165,7 @@
             // 
             this.splitContainer3.Panel2.Controls.Add(this.dgv_nyusyukkoidou);
             this.splitContainer3.Size = new System.Drawing.Size(884, 431);
-            this.splitContainer3.SplitterDistance = 167;
+            this.splitContainer3.SplitterDistance = 147;
             this.splitContainer3.TabIndex = 8;
             // 
             // label3
@@ -279,48 +283,9 @@
             this.dgv_nyusyukkoidou.Name = "dgv_nyusyukkoidou";
             this.dgv_nyusyukkoidou.RowHeadersVisible = false;
             this.dgv_nyusyukkoidou.RowTemplate.Height = 21;
-            this.dgv_nyusyukkoidou.Size = new System.Drawing.Size(880, 256);
+            this.dgv_nyusyukkoidou.Size = new System.Drawing.Size(880, 276);
             this.dgv_nyusyukkoidou.TabIndex = 0;
             this.dgv_nyusyukkoidou.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_nyusyukkoidou_CellEndEdit);
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "部品コード";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 85;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "部品名";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 250;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "在庫区分";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 80;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "受注コード1";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "受注コード2";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "数量";
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 70;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "備考";
-            this.Column1.Name = "Column1";
             // 
             // btn_sakujyo
             // 
@@ -360,6 +325,49 @@
             this.ss_status.TabIndex = 2;
             this.ss_status.Text = "statusStrip1";
             // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "部品コード";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 85;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "部品名";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 250;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "在庫区分";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 80;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "受注コード1";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "受注コード2";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column7.HeaderText = "数量";
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 70;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "備考";
+            this.Column1.Name = "Column1";
+            // 
             // frm_buhin_nyusyukkoidou
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -368,7 +376,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.ss_status);
             this.Name = "frm_buhin_nyusyukkoidou";
-            this.Text = "部品入出庫移動";
+            this.Text = "部品入出庫";
             this.Load += new System.EventHandler(this.frm_buhin_nyusyukkoidou_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -411,13 +419,13 @@
         private System.Windows.Forms.Button btn_syuuryou;
         private System.Windows.Forms.StatusStrip ss_status;
         private System.Windows.Forms.DataGridView dgv_nyusyukkoidou;
+        private System.Windows.Forms.Button btn_sakujyo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.Button btn_sakujyo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

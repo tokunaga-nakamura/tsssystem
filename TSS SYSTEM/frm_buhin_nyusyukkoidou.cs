@@ -100,7 +100,7 @@ namespace TSS_SYSTEM
 
             //データグリッドビューの部品名は編集不可
             dgv_nyusyukkoidou.Columns[1].ReadOnly = true;
-
+            dgv_nyusyukkoidou.Columns["Column7"].DefaultCellStyle.Format = "#,0";
         }
 
         private void mode1()
@@ -136,11 +136,6 @@ namespace TSS_SYSTEM
 
         private void label2_Click(object sender, EventArgs e)
         {
-
-
-
-
-
 
         }
 
