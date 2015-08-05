@@ -671,6 +671,33 @@ namespace TSS_SYSTEM
             return out_cd;
         }
 
+        //受注検索画面の呼び出し
+        public string search_juchu(string in_mode, string in_cd)
+        {
+            //マウスのX座標を取得する
+            //int x = System.Windows.Forms.Cursor.Position.X;
+            //マウスのY座標を取得する
+            //int y = System.Windows.Forms.Cursor.Position.Y;
+
+            string out_cd = "";   //戻り値用
+            frm_search_juchu frm_sb = new frm_search_juchu();
+
+            //フォームをマウスの位置に表示する
+            //frm_sb.Left = x;
+            //frm_sb.Top = y;
+            //frm_sb.StartPosition = FormStartPosition.Manual;
+
+            //子画面のプロパティに値をセットする
+            frm_sb.str_mode = in_mode;
+            frm_sb.str_name = in_cd;
+            frm_sb.ShowDialog();
+            //子画面から値を取得する
+            //※受注検索画面の戻り値は、受注Noの３つの項目を１つの文字列にして返す
+            out_cd = frm_sb.str_torihikisaki_cd + frm_sb.str_juchu_cd1 + frm_sb.str_juchu_cd2 ;
+            frm_sb.Dispose();
+            return out_cd;
+        }
+
         public string select_juchu_cd(DataTable in_dt)
         {
             //マウスのX座標を取得する

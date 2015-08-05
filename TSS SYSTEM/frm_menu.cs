@@ -209,5 +209,11 @@ namespace TSS_SYSTEM
             //検索画面へ
             tss.search_torihikisaki("1", "");
         }
+
+        private void btn_juchu_kensaku_Click(object sender, EventArgs e)
+        {
+            //検索画面へ
+            tss.search_juchu("1", "");
+        }
     }
 }

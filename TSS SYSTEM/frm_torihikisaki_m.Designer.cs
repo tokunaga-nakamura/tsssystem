@@ -29,31 +29,50 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_torihikisaki_m));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.btn_tsuika = new System.Windows.Forms.Button();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.textBox24 = new System.Windows.Forms.TextBox();
             this.tb_syouhizei_sansyutu_kbn = new System.Windows.Forms.TextBox();
             this.label35 = new System.Windows.Forms.Label();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
-            this.btn_hensyu = new System.Windows.Forms.Button();
             this.tb_torihikisaki_cd = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.textBox23 = new System.Windows.Forms.TextBox();
             this.tb_hasu_syori_tani = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.tb_torihikisaki_name = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBox21 = new System.Windows.Forms.TextBox();
             this.tb_jisyaden_kbn = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox22 = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.tb_hasu_kbn = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
             this.tb_siharai_sime_date = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -62,6 +81,9 @@
             this.tb_siharai_tuki = new System.Windows.Forms.TextBox();
             this.tb_eigyou_end_time = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
             this.tb_seikyu_sime_date = new System.Windows.Forms.TextBox();
             this.tb_kaisyu_hi = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
@@ -80,36 +102,14 @@
             this.tb_tel_no = new System.Windows.Forms.TextBox();
             this.tb_jusyo2 = new System.Windows.Forms.TextBox();
             this.tb_fax_no = new System.Windows.Forms.TextBox();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btn_tsuika = new System.Windows.Forms.Button();
+            this.btn_hensyu = new System.Windows.Forms.Button();
             this.dgv_tantousya = new System.Windows.Forms.DataGridView();
             this.btn_touroku = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.textBox23 = new System.Windows.Forms.TextBox();
-            this.textBox24 = new System.Windows.Forms.TextBox();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -128,11 +128,11 @@
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_tantousya)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_tantousya)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -246,15 +246,38 @@
             this.splitContainer3.TabIndex = 0;
             this.splitContainer3.TabStop = false;
             // 
-            // btn_tsuika
+            // textBox14
             // 
-            this.btn_tsuika.Location = new System.Drawing.Point(81, 3);
-            this.btn_tsuika.Name = "btn_tsuika";
-            this.btn_tsuika.Size = new System.Drawing.Size(75, 23);
-            this.btn_tsuika.TabIndex = 0;
-            this.btn_tsuika.Text = "追加";
-            this.btn_tsuika.UseVisualStyleBackColor = true;
-            this.btn_tsuika.Click += new System.EventHandler(this.btn_tsuika_Click);
+            this.textBox14.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox14.Location = new System.Drawing.Point(262, 132);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.ReadOnly = true;
+            this.textBox14.Size = new System.Drawing.Size(128, 19);
+            this.textBox14.TabIndex = 144;
+            this.textBox14.TabStop = false;
+            this.textBox14.Text = "営業終了時刻（00:00）";
+            // 
+            // textBox13
+            // 
+            this.textBox13.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox13.Location = new System.Drawing.Point(262, 107);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.ReadOnly = true;
+            this.textBox13.Size = new System.Drawing.Size(128, 19);
+            this.textBox13.TabIndex = 143;
+            this.textBox13.TabStop = false;
+            this.textBox13.Text = "営業開始時刻（00:00）";
+            // 
+            // textBox12
+            // 
+            this.textBox12.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox12.Location = new System.Drawing.Point(10, 132);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.ReadOnly = true;
+            this.textBox12.Size = new System.Drawing.Size(167, 19);
+            this.textBox12.TabIndex = 142;
+            this.textBox12.TabStop = false;
+            this.textBox12.Text = "決算期末月日（半角数字4桁）";
             // 
             // groupBox6
             // 
@@ -266,6 +289,17 @@
             this.groupBox6.Size = new System.Drawing.Size(344, 36);
             this.groupBox6.TabIndex = 133;
             this.groupBox6.TabStop = false;
+            // 
+            // textBox24
+            // 
+            this.textBox24.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox24.Location = new System.Drawing.Point(6, 11);
+            this.textBox24.Name = "textBox24";
+            this.textBox24.ReadOnly = true;
+            this.textBox24.Size = new System.Drawing.Size(100, 19);
+            this.textBox24.TabIndex = 145;
+            this.textBox24.TabStop = false;
+            this.textBox24.Text = "消費税算出区分";
             // 
             // tb_syouhizei_sansyutu_kbn
             // 
@@ -287,6 +321,127 @@
             this.label35.TabIndex = 61;
             this.label35.Text = "0:明細毎　1:伝票合計　2:請求合計";
             // 
+            // textBox11
+            // 
+            this.textBox11.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox11.Location = new System.Drawing.Point(10, 107);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.ReadOnly = true;
+            this.textBox11.Size = new System.Drawing.Size(167, 19);
+            this.textBox11.TabIndex = 141;
+            this.textBox11.TabStop = false;
+            this.textBox11.Text = "決算期首年月（半角数字4桁）";
+            // 
+            // textBox10
+            // 
+            this.textBox10.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox10.Location = new System.Drawing.Point(409, 82);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
+            this.textBox10.Size = new System.Drawing.Size(32, 19);
+            this.textBox10.TabIndex = 140;
+            this.textBox10.TabStop = false;
+            this.textBox10.Text = "URL";
+            // 
+            // textBox9
+            // 
+            this.textBox9.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox9.Location = new System.Drawing.Point(208, 82);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
+            this.textBox9.Size = new System.Drawing.Size(67, 19);
+            this.textBox9.TabIndex = 139;
+            this.textBox9.TabStop = false;
+            this.textBox9.Text = "FAX番号";
+            // 
+            // textBox8
+            // 
+            this.textBox8.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox8.Location = new System.Drawing.Point(10, 82);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(76, 19);
+            this.textBox8.TabIndex = 138;
+            this.textBox8.TabStop = false;
+            this.textBox8.Text = "電話番号";
+            // 
+            // textBox7
+            // 
+            this.textBox7.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox7.Location = new System.Drawing.Point(166, 57);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(67, 19);
+            this.textBox7.TabIndex = 137;
+            this.textBox7.TabStop = false;
+            this.textBox7.Text = "住所";
+            // 
+            // textBox6
+            // 
+            this.textBox6.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox6.Location = new System.Drawing.Point(10, 57);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(76, 19);
+            this.textBox6.TabIndex = 136;
+            this.textBox6.TabStop = false;
+            this.textBox6.Text = "郵便番号";
+            // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox5.Location = new System.Drawing.Point(166, 32);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(67, 19);
+            this.textBox5.TabIndex = 119;
+            this.textBox5.TabStop = false;
+            this.textBox5.Text = "代表者名";
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox4.Location = new System.Drawing.Point(10, 32);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(76, 19);
+            this.textBox4.TabIndex = 109;
+            this.textBox4.TabStop = false;
+            this.textBox4.Text = "略式文字";
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox3.Location = new System.Drawing.Point(458, 7);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(63, 19);
+            this.textBox3.TabIndex = 106;
+            this.textBox3.TabStop = false;
+            this.textBox3.Text = "正式名称";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox2.Location = new System.Drawing.Point(166, 7);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(67, 19);
+            this.textBox2.TabIndex = 104;
+            this.textBox2.TabStop = false;
+            this.textBox2.Text = "取引先名";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox1.Location = new System.Drawing.Point(10, 7);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(76, 19);
+            this.textBox1.TabIndex = 135;
+            this.textBox1.TabStop = false;
+            this.textBox1.Text = "取引先コード";
+            // 
             // label33
             // 
             this.label33.AutoSize = true;
@@ -296,16 +451,6 @@
             this.label33.Size = new System.Drawing.Size(130, 12);
             this.label33.TabIndex = 132;
             this.label33.Text = "※末日の場合は99を入力";
-            // 
-            // btn_hensyu
-            // 
-            this.btn_hensyu.Location = new System.Drawing.Point(162, 3);
-            this.btn_hensyu.Name = "btn_hensyu";
-            this.btn_hensyu.Size = new System.Drawing.Size(75, 23);
-            this.btn_hensyu.TabIndex = 1;
-            this.btn_hensyu.Text = "編集";
-            this.btn_hensyu.UseVisualStyleBackColor = true;
-            this.btn_hensyu.Click += new System.EventHandler(this.btn_hensyu_Click);
             // 
             // tb_torihikisaki_cd
             // 
@@ -328,6 +473,17 @@
             this.groupBox5.Size = new System.Drawing.Size(344, 33);
             this.groupBox5.TabIndex = 130;
             this.groupBox5.TabStop = false;
+            // 
+            // textBox23
+            // 
+            this.textBox23.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox23.Location = new System.Drawing.Point(6, 10);
+            this.textBox23.Name = "textBox23";
+            this.textBox23.ReadOnly = true;
+            this.textBox23.Size = new System.Drawing.Size(100, 19);
+            this.textBox23.TabIndex = 145;
+            this.textBox23.TabStop = false;
+            this.textBox23.Text = "端数処理単位";
             // 
             // tb_hasu_syori_tani
             // 
@@ -369,6 +525,17 @@
             this.groupBox4.TabIndex = 99;
             this.groupBox4.TabStop = false;
             // 
+            // textBox21
+            // 
+            this.textBox21.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox21.Location = new System.Drawing.Point(6, 12);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.ReadOnly = true;
+            this.textBox21.Size = new System.Drawing.Size(100, 19);
+            this.textBox21.TabIndex = 145;
+            this.textBox21.TabStop = false;
+            this.textBox21.Text = "自社伝発行区分";
+            // 
             // tb_jisyaden_kbn
             // 
             this.tb_jisyaden_kbn.BackColor = System.Drawing.Color.PowderBlue;
@@ -399,6 +566,17 @@
             this.groupBox3.Size = new System.Drawing.Size(344, 36);
             this.groupBox3.TabIndex = 98;
             this.groupBox3.TabStop = false;
+            // 
+            // textBox22
+            // 
+            this.textBox22.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox22.Location = new System.Drawing.Point(6, 12);
+            this.textBox22.Name = "textBox22";
+            this.textBox22.ReadOnly = true;
+            this.textBox22.Size = new System.Drawing.Size(100, 19);
+            this.textBox22.TabIndex = 145;
+            this.textBox22.TabStop = false;
+            this.textBox22.Text = "端数区分";
             // 
             // label26
             // 
@@ -436,6 +614,39 @@
             this.groupBox2.Size = new System.Drawing.Size(398, 36);
             this.groupBox2.TabIndex = 97;
             this.groupBox2.TabStop = false;
+            // 
+            // textBox20
+            // 
+            this.textBox20.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox20.Location = new System.Drawing.Point(274, 12);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.ReadOnly = true;
+            this.textBox20.Size = new System.Drawing.Size(50, 19);
+            this.textBox20.TabIndex = 1;
+            this.textBox20.TabStop = false;
+            this.textBox20.Text = "支払日";
+            // 
+            // textBox19
+            // 
+            this.textBox19.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox19.Location = new System.Drawing.Point(137, 12);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.ReadOnly = true;
+            this.textBox19.Size = new System.Drawing.Size(49, 19);
+            this.textBox19.TabIndex = 0;
+            this.textBox19.TabStop = false;
+            this.textBox19.Text = "支払月";
+            // 
+            // textBox18
+            // 
+            this.textBox18.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox18.Location = new System.Drawing.Point(6, 12);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.ReadOnly = true;
+            this.textBox18.Size = new System.Drawing.Size(65, 19);
+            this.textBox18.TabIndex = 145;
+            this.textBox18.TabStop = false;
+            this.textBox18.Text = "支払締日";
             // 
             // tb_siharai_sime_date
             // 
@@ -518,6 +729,39 @@
             this.groupBox1.Size = new System.Drawing.Size(398, 36);
             this.groupBox1.TabIndex = 96;
             this.groupBox1.TabStop = false;
+            // 
+            // textBox17
+            // 
+            this.textBox17.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox17.Location = new System.Drawing.Point(274, 12);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.ReadOnly = true;
+            this.textBox17.Size = new System.Drawing.Size(50, 19);
+            this.textBox17.TabIndex = 1;
+            this.textBox17.TabStop = false;
+            this.textBox17.Text = "回収日";
+            // 
+            // textBox16
+            // 
+            this.textBox16.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox16.Location = new System.Drawing.Point(137, 12);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.ReadOnly = true;
+            this.textBox16.Size = new System.Drawing.Size(49, 19);
+            this.textBox16.TabIndex = 0;
+            this.textBox16.TabStop = false;
+            this.textBox16.Text = "回収月";
+            // 
+            // textBox15
+            // 
+            this.textBox15.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox15.Location = new System.Drawing.Point(6, 12);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.ReadOnly = true;
+            this.textBox15.Size = new System.Drawing.Size(65, 19);
+            this.textBox15.TabIndex = 145;
+            this.textBox15.TabStop = false;
+            this.textBox15.Text = "請求締日";
             // 
             // tb_seikyu_sime_date
             // 
@@ -674,37 +918,89 @@
             this.tb_fax_no.Size = new System.Drawing.Size(128, 19);
             this.tb_fax_no.TabIndex = 8;
             // 
+            // splitContainer4
+            // 
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer4.IsSplitterFixed = true;
+            this.splitContainer4.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer4.Name = "splitContainer4";
+            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.Controls.Add(this.label1);
+            this.splitContainer4.Panel1.Controls.Add(this.btn_tsuika);
+            this.splitContainer4.Panel1.Controls.Add(this.btn_hensyu);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.dgv_tantousya);
+            this.splitContainer4.Size = new System.Drawing.Size(880, 107);
+            this.splitContainer4.SplitterDistance = 30;
+            this.splitContainer4.TabIndex = 134;
+            this.splitContainer4.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "担当者情報";
+            // 
+            // btn_tsuika
+            // 
+            this.btn_tsuika.Location = new System.Drawing.Point(81, 3);
+            this.btn_tsuika.Name = "btn_tsuika";
+            this.btn_tsuika.Size = new System.Drawing.Size(75, 23);
+            this.btn_tsuika.TabIndex = 0;
+            this.btn_tsuika.Text = "追加";
+            this.btn_tsuika.UseVisualStyleBackColor = true;
+            this.btn_tsuika.Click += new System.EventHandler(this.btn_tsuika_Click);
+            // 
+            // btn_hensyu
+            // 
+            this.btn_hensyu.Location = new System.Drawing.Point(162, 3);
+            this.btn_hensyu.Name = "btn_hensyu";
+            this.btn_hensyu.Size = new System.Drawing.Size(75, 23);
+            this.btn_hensyu.TabIndex = 1;
+            this.btn_hensyu.Text = "編集";
+            this.btn_hensyu.UseVisualStyleBackColor = true;
+            this.btn_hensyu.Click += new System.EventHandler(this.btn_hensyu_Click);
+            // 
             // dgv_tantousya
             // 
             this.dgv_tantousya.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tantousya.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tantousya.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_tantousya.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_tantousya.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_tantousya.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_tantousya.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_tantousya.Location = new System.Drawing.Point(0, 0);
             this.dgv_tantousya.Name = "dgv_tantousya";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tantousya.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tantousya.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_tantousya.RowTemplate.Height = 21;
             this.dgv_tantousya.Size = new System.Drawing.Size(880, 73);
             this.dgv_tantousya.TabIndex = 133;
@@ -736,302 +1032,6 @@
             this.statusStrip1.Size = new System.Drawing.Size(884, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox1.Location = new System.Drawing.Point(10, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(76, 19);
-            this.textBox1.TabIndex = 135;
-            this.textBox1.TabStop = false;
-            this.textBox1.Text = "取引先コード";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox2.Location = new System.Drawing.Point(166, 7);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(67, 19);
-            this.textBox2.TabIndex = 104;
-            this.textBox2.TabStop = false;
-            this.textBox2.Text = "取引先名";
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox3.Location = new System.Drawing.Point(458, 7);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(63, 19);
-            this.textBox3.TabIndex = 106;
-            this.textBox3.TabStop = false;
-            this.textBox3.Text = "正式名称";
-            // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox4.Location = new System.Drawing.Point(10, 32);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(76, 19);
-            this.textBox4.TabIndex = 109;
-            this.textBox4.TabStop = false;
-            this.textBox4.Text = "略式文字";
-            // 
-            // textBox5
-            // 
-            this.textBox5.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox5.Location = new System.Drawing.Point(166, 32);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(67, 19);
-            this.textBox5.TabIndex = 119;
-            this.textBox5.TabStop = false;
-            this.textBox5.Text = "代表者名";
-            // 
-            // textBox6
-            // 
-            this.textBox6.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox6.Location = new System.Drawing.Point(10, 57);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(76, 19);
-            this.textBox6.TabIndex = 136;
-            this.textBox6.TabStop = false;
-            this.textBox6.Text = "郵便番号";
-            // 
-            // textBox7
-            // 
-            this.textBox7.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox7.Location = new System.Drawing.Point(166, 57);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(67, 19);
-            this.textBox7.TabIndex = 137;
-            this.textBox7.TabStop = false;
-            this.textBox7.Text = "住所";
-            // 
-            // textBox8
-            // 
-            this.textBox8.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox8.Location = new System.Drawing.Point(10, 82);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(76, 19);
-            this.textBox8.TabIndex = 138;
-            this.textBox8.TabStop = false;
-            this.textBox8.Text = "電話番号";
-            // 
-            // textBox9
-            // 
-            this.textBox9.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox9.Location = new System.Drawing.Point(208, 82);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(67, 19);
-            this.textBox9.TabIndex = 139;
-            this.textBox9.TabStop = false;
-            this.textBox9.Text = "FAX番号";
-            // 
-            // textBox10
-            // 
-            this.textBox10.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox10.Location = new System.Drawing.Point(409, 82);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(32, 19);
-            this.textBox10.TabIndex = 140;
-            this.textBox10.TabStop = false;
-            this.textBox10.Text = "URL";
-            // 
-            // textBox11
-            // 
-            this.textBox11.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox11.Location = new System.Drawing.Point(10, 107);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(167, 19);
-            this.textBox11.TabIndex = 141;
-            this.textBox11.TabStop = false;
-            this.textBox11.Text = "決算期首年月（半角数字4桁）";
-            // 
-            // textBox12
-            // 
-            this.textBox12.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox12.Location = new System.Drawing.Point(10, 132);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(167, 19);
-            this.textBox12.TabIndex = 142;
-            this.textBox12.TabStop = false;
-            this.textBox12.Text = "決算期末月日（半角数字4桁）";
-            // 
-            // textBox13
-            // 
-            this.textBox13.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox13.Location = new System.Drawing.Point(262, 107);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.ReadOnly = true;
-            this.textBox13.Size = new System.Drawing.Size(128, 19);
-            this.textBox13.TabIndex = 143;
-            this.textBox13.TabStop = false;
-            this.textBox13.Text = "営業開始時刻（00:00）";
-            // 
-            // textBox14
-            // 
-            this.textBox14.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox14.Location = new System.Drawing.Point(262, 132);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.ReadOnly = true;
-            this.textBox14.Size = new System.Drawing.Size(128, 19);
-            this.textBox14.TabIndex = 144;
-            this.textBox14.TabStop = false;
-            this.textBox14.Text = "営業終了時刻（00:00）";
-            // 
-            // textBox15
-            // 
-            this.textBox15.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox15.Location = new System.Drawing.Point(6, 12);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.ReadOnly = true;
-            this.textBox15.Size = new System.Drawing.Size(65, 19);
-            this.textBox15.TabIndex = 145;
-            this.textBox15.TabStop = false;
-            this.textBox15.Text = "請求締日";
-            // 
-            // textBox16
-            // 
-            this.textBox16.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox16.Location = new System.Drawing.Point(137, 12);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.ReadOnly = true;
-            this.textBox16.Size = new System.Drawing.Size(49, 19);
-            this.textBox16.TabIndex = 0;
-            this.textBox16.TabStop = false;
-            this.textBox16.Text = "回収月";
-            // 
-            // textBox17
-            // 
-            this.textBox17.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox17.Location = new System.Drawing.Point(274, 12);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.ReadOnly = true;
-            this.textBox17.Size = new System.Drawing.Size(50, 19);
-            this.textBox17.TabIndex = 1;
-            this.textBox17.TabStop = false;
-            this.textBox17.Text = "回収日";
-            // 
-            // textBox18
-            // 
-            this.textBox18.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox18.Location = new System.Drawing.Point(6, 12);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.ReadOnly = true;
-            this.textBox18.Size = new System.Drawing.Size(65, 19);
-            this.textBox18.TabIndex = 145;
-            this.textBox18.TabStop = false;
-            this.textBox18.Text = "支払締日";
-            // 
-            // textBox19
-            // 
-            this.textBox19.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox19.Location = new System.Drawing.Point(137, 12);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.ReadOnly = true;
-            this.textBox19.Size = new System.Drawing.Size(49, 19);
-            this.textBox19.TabIndex = 0;
-            this.textBox19.TabStop = false;
-            this.textBox19.Text = "支払月";
-            // 
-            // textBox20
-            // 
-            this.textBox20.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox20.Location = new System.Drawing.Point(274, 12);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.ReadOnly = true;
-            this.textBox20.Size = new System.Drawing.Size(50, 19);
-            this.textBox20.TabIndex = 1;
-            this.textBox20.TabStop = false;
-            this.textBox20.Text = "支払日";
-            // 
-            // textBox21
-            // 
-            this.textBox21.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox21.Location = new System.Drawing.Point(6, 12);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.ReadOnly = true;
-            this.textBox21.Size = new System.Drawing.Size(100, 19);
-            this.textBox21.TabIndex = 145;
-            this.textBox21.TabStop = false;
-            this.textBox21.Text = "自社伝発行区分";
-            // 
-            // textBox22
-            // 
-            this.textBox22.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox22.Location = new System.Drawing.Point(6, 12);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.ReadOnly = true;
-            this.textBox22.Size = new System.Drawing.Size(100, 19);
-            this.textBox22.TabIndex = 145;
-            this.textBox22.TabStop = false;
-            this.textBox22.Text = "端数区分";
-            // 
-            // textBox23
-            // 
-            this.textBox23.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox23.Location = new System.Drawing.Point(6, 10);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.ReadOnly = true;
-            this.textBox23.Size = new System.Drawing.Size(100, 19);
-            this.textBox23.TabIndex = 145;
-            this.textBox23.TabStop = false;
-            this.textBox23.Text = "端数処理単位";
-            // 
-            // textBox24
-            // 
-            this.textBox24.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox24.Location = new System.Drawing.Point(6, 11);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.ReadOnly = true;
-            this.textBox24.Size = new System.Drawing.Size(100, 19);
-            this.textBox24.TabIndex = 145;
-            this.textBox24.TabStop = false;
-            this.textBox24.Text = "消費税算出区分";
-            // 
-            // splitContainer4
-            // 
-            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer4.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainer4.IsSplitterFixed = true;
-            this.splitContainer4.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer4.Name = "splitContainer4";
-            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer4.Panel1
-            // 
-            this.splitContainer4.Panel1.Controls.Add(this.label1);
-            this.splitContainer4.Panel1.Controls.Add(this.btn_tsuika);
-            this.splitContainer4.Panel1.Controls.Add(this.btn_hensyu);
-            // 
-            // splitContainer4.Panel2
-            // 
-            this.splitContainer4.Panel2.Controls.Add(this.dgv_tantousya);
-            this.splitContainer4.Size = new System.Drawing.Size(880, 107);
-            this.splitContainer4.SplitterDistance = 30;
-            this.splitContainer4.TabIndex = 134;
-            this.splitContainer4.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "担当者情報";
             // 
             // frm_torihikisaki_m
             // 
@@ -1069,12 +1069,12 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_tantousya)).EndInit();
             this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel1.PerformLayout();
             this.splitContainer4.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_tantousya)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

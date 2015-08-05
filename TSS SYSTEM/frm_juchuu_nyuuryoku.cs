@@ -302,25 +302,15 @@ namespace TSS_SYSTEM
 
         private void btn_juchu_kensaku_Click(object sender, EventArgs e)
         {
-            if(tb_torihikisaki_cd.Text.Length >= 1 && tb_juchu_cd1.Text.Length >= 1)
+            //選択画面へ
+            string w_cd;
+            w_cd = tss.search_juchu("2", "");
+            if (w_cd.Length == 38)
             {
-                DataTable w_dt = new DataTable();
-                w_dt = tss.OracleSelect("select a.torihikisaki_cd,a.juchu_cd1,a.juchu_cd2,b.seihin_name from tss_juchu_m a left outer join tss_seihin_m b on a.seihin_cd = b.seihin_cd where a.torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "' and a.juchu_cd1 = '" + tb_juchu_cd1.Text.ToString() + "'");
-                if(w_dt.Rows.Count == 0)
-                {
-                    MessageBox.Show("入力された受注情報はありません。");
-                }
-                else
-                {
-                    string w_str_juchu_cd2;
-                    w_str_juchu_cd2 = tss.select_juchu_cd(w_dt);
-                    //戻り値がnullの場合は、キャンセルまたはエラー
-                    if(w_str_juchu_cd2 != null)
-                    {
-                        tb_juchu_cd2.Text = w_str_juchu_cd2;
-                        find_juchu_cd2(tb_torihikisaki_cd.Text, tb_juchu_cd1.Text, tb_juchu_cd2.Text);
-                    }
-                }
+                tb_torihikisaki_cd.Text = w_cd.Substring(0,6).TrimEnd();
+                tb_juchu_cd1.Text = w_cd.Substring(6, 16).TrimEnd();
+                tb_juchu_cd2.Text = w_cd.Substring(22, 16).TrimEnd();
+                find_juchu_cd2(tb_torihikisaki_cd.Text, tb_juchu_cd1.Text, tb_juchu_cd2.Text);
             }
         }
 

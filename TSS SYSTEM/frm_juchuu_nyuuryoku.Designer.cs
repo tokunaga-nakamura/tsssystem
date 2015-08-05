@@ -389,6 +389,7 @@
             // 
             // tb_juchu_cd2
             // 
+            this.tb_juchu_cd2.BackColor = System.Drawing.Color.PowderBlue;
             this.tb_juchu_cd2.Location = new System.Drawing.Point(90, 53);
             this.tb_juchu_cd2.MaxLength = 16;
             this.tb_juchu_cd2.Name = "tb_juchu_cd2";

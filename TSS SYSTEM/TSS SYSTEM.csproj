@@ -123,6 +123,12 @@
     <Compile Include="frm_search_buhin.Designer.cs">
       <DependentUpon>frm_search_buhin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_search_juchu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_search_juchu.Designer.cs">
+      <DependentUpon>frm_search_juchu.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_search_torihikisaki.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_search_buhin.resx">
       <DependentUpon>frm_search_buhin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_search_juchu.resx">
+      <DependentUpon>frm_search_juchu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_search_torihikisaki.resx">
       <DependentUpon>frm_search_torihikisaki.cs</DependentUpon>

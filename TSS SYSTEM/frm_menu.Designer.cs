@@ -65,6 +65,7 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.btn_torihikisaki_kensaku = new System.Windows.Forms.Button();
             this.btn_buhin_kensaku = new System.Windows.Forms.Button();
             this.btn_bank_m = new System.Windows.Forms.Button();
             this.btn_buhin_m = new System.Windows.Forms.Button();
@@ -75,7 +76,7 @@
             this.btn_mst_table = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.btn_torihikisaki_kensaku = new System.Windows.Forms.Button();
+            this.btn_juchu_kensaku = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -487,6 +488,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btn_juchu_kensaku);
             this.tabPage2.Controls.Add(this.btn_nouhin_schedule);
             this.tabPage2.Controls.Add(this.btn_idou_syori);
             this.tabPage2.Controls.Add(this.btn_syukko_syori);
@@ -502,7 +504,7 @@
             // 
             // btn_nouhin_schedule
             // 
-            this.btn_nouhin_schedule.Location = new System.Drawing.Point(194, 6);
+            this.btn_nouhin_schedule.Location = new System.Drawing.Point(416, 6);
             this.btn_nouhin_schedule.Name = "btn_nouhin_schedule";
             this.btn_nouhin_schedule.Size = new System.Drawing.Size(180, 23);
             this.btn_nouhin_schedule.TabIndex = 4;
@@ -522,7 +524,7 @@
             // 
             // btn_syukko_syori
             // 
-            this.btn_syukko_syori.Location = new System.Drawing.Point(6, 116);
+            this.btn_syukko_syori.Location = new System.Drawing.Point(8, 116);
             this.btn_syukko_syori.Name = "btn_syukko_syori";
             this.btn_syukko_syori.Size = new System.Drawing.Size(180, 23);
             this.btn_syukko_syori.TabIndex = 2;
@@ -595,6 +597,16 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "システム保守";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // btn_torihikisaki_kensaku
+            // 
+            this.btn_torihikisaki_kensaku.Location = new System.Drawing.Point(442, 76);
+            this.btn_torihikisaki_kensaku.Name = "btn_torihikisaki_kensaku";
+            this.btn_torihikisaki_kensaku.Size = new System.Drawing.Size(211, 23);
+            this.btn_torihikisaki_kensaku.TabIndex = 8;
+            this.btn_torihikisaki_kensaku.Text = "取引先検索";
+            this.btn_torihikisaki_kensaku.UseVisualStyleBackColor = true;
+            this.btn_torihikisaki_kensaku.Click += new System.EventHandler(this.btn_torihikisaki_kensaku_Click);
             // 
             // btn_buhin_kensaku
             // 
@@ -696,15 +708,15 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
-            // btn_torihikisaki_kensaku
+            // btn_juchu_kensaku
             // 
-            this.btn_torihikisaki_kensaku.Location = new System.Drawing.Point(442, 76);
-            this.btn_torihikisaki_kensaku.Name = "btn_torihikisaki_kensaku";
-            this.btn_torihikisaki_kensaku.Size = new System.Drawing.Size(211, 23);
-            this.btn_torihikisaki_kensaku.TabIndex = 8;
-            this.btn_torihikisaki_kensaku.Text = "取引先検索";
-            this.btn_torihikisaki_kensaku.UseVisualStyleBackColor = true;
-            this.btn_torihikisaki_kensaku.Click += new System.EventHandler(this.btn_torihikisaki_kensaku_Click);
+            this.btn_juchu_kensaku.Location = new System.Drawing.Point(194, 6);
+            this.btn_juchu_kensaku.Name = "btn_juchu_kensaku";
+            this.btn_juchu_kensaku.Size = new System.Drawing.Size(180, 23);
+            this.btn_juchu_kensaku.TabIndex = 5;
+            this.btn_juchu_kensaku.Text = "受注検索";
+            this.btn_juchu_kensaku.UseVisualStyleBackColor = true;
+            this.btn_juchu_kensaku.Click += new System.EventHandler(this.btn_juchu_kensaku_Click);
             // 
             // frm_menu
             // 
@@ -826,6 +838,7 @@
         private System.Windows.Forms.Button btn_nyuko_syori;
         private System.Windows.Forms.Button btn_nouhin_schedule;
         private System.Windows.Forms.Button btn_torihikisaki_kensaku;
+        private System.Windows.Forms.Button btn_juchu_kensaku;
     }
 }
 
