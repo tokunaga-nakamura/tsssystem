@@ -697,6 +697,30 @@ namespace TSS_SYSTEM
             frm_sb.Dispose();
             return out_cd;
         }
+        public string search_seihin(string in_mode, string in_cd)
+        {
+            //マウスのX座標を取得する
+            //int x = System.Windows.Forms.Cursor.Position.X;
+            //マウスのY座標を取得する
+            //int y = System.Windows.Forms.Cursor.Position.Y;
+
+            string out_cd = "";   //戻り値用
+            frm_search_seihin frm_sb = new frm_search_seihin();
+
+            //フォームをマウスの位置に表示する
+            //frm_sb.Left = x;
+            //frm_sb.Top = y;
+            //frm_sb.StartPosition = FormStartPosition.Manual;
+
+            //子画面のプロパティに値をセットする
+            frm_sb.str_mode = in_mode;
+            frm_sb.str_name = in_cd;
+            frm_sb.ShowDialog();
+            //子画面から値を取得する
+            out_cd = frm_sb.str_cd;
+            frm_sb.Dispose();
+            return out_cd;
+        }
 
         public string select_juchu_cd(DataTable in_dt)
         {

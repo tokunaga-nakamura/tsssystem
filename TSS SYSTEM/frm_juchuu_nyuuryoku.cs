@@ -1131,5 +1131,19 @@ namespace TSS_SYSTEM
                 tb_juchu_cd1.Focus();
             }
         }
+
+        private void tb_seihin_cd_DoubleClick(object sender, EventArgs e)
+        {
+            //選択画面へ
+            string w_cd;
+            w_cd = tss.search_seihin("2", "");
+            if (w_cd != "")
+            {
+                tb_seihin_cd.Text = w_cd;
+                tb_seihin_name.Text = get_seihin_name(tb_seihin_cd.Text);
+                tb_juchu_su.Focus();
+            }
+
+        }
     }
 }

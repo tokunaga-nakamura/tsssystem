@@ -34,7 +34,6 @@
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.btn_kensaku = new System.Windows.Forms.Button();
             this.lbl_buhin_cd = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tb_update_datetime = new System.Windows.Forms.TextBox();
@@ -187,7 +186,6 @@
             // 
             // splitContainer3.Panel1
             // 
-            this.splitContainer3.Panel1.Controls.Add(this.btn_kensaku);
             this.splitContainer3.Panel1.Controls.Add(this.lbl_buhin_cd);
             this.splitContainer3.Panel1.Controls.Add(this.textBox1);
             this.splitContainer3.Panel1.Controls.Add(this.tb_update_datetime);
@@ -235,16 +233,6 @@
             this.splitContainer3.TabIndex = 37;
             this.splitContainer3.TabStop = false;
             // 
-            // btn_kensaku
-            // 
-            this.btn_kensaku.Location = new System.Drawing.Point(222, 1);
-            this.btn_kensaku.Name = "btn_kensaku";
-            this.btn_kensaku.Size = new System.Drawing.Size(75, 23);
-            this.btn_kensaku.TabIndex = 1;
-            this.btn_kensaku.Text = "検索";
-            this.btn_kensaku.UseVisualStyleBackColor = true;
-            this.btn_kensaku.Click += new System.EventHandler(this.btn_kensaku_Click);
-            // 
             // lbl_buhin_cd
             // 
             this.lbl_buhin_cd.AutoSize = true;
@@ -277,11 +265,13 @@
             // 
             // tb_buhin_cd
             // 
+            this.tb_buhin_cd.BackColor = System.Drawing.Color.PowderBlue;
             this.tb_buhin_cd.Location = new System.Drawing.Point(103, 3);
             this.tb_buhin_cd.MaxLength = 16;
             this.tb_buhin_cd.Name = "tb_buhin_cd";
             this.tb_buhin_cd.Size = new System.Drawing.Size(113, 19);
             this.tb_buhin_cd.TabIndex = 0;
+            this.tb_buhin_cd.DoubleClick += new System.EventHandler(this.tb_buhin_cd_DoubleClick);
             this.tb_buhin_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_buhin_cd_Validating);
             // 
             // tb_update_user_cd
@@ -580,11 +570,13 @@
             // 
             // tb_siiresaki_cd
             // 
+            this.tb_siiresaki_cd.BackColor = System.Drawing.Color.PowderBlue;
             this.tb_siiresaki_cd.Location = new System.Drawing.Point(103, 153);
             this.tb_siiresaki_cd.MaxLength = 6;
             this.tb_siiresaki_cd.Name = "tb_siiresaki_cd";
             this.tb_siiresaki_cd.Size = new System.Drawing.Size(57, 19);
             this.tb_siiresaki_cd.TabIndex = 7;
+            this.tb_siiresaki_cd.DoubleClick += new System.EventHandler(this.tb_siiresaki_cd_DoubleClick);
             this.tb_siiresaki_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_siiresaki_cd_Validating);
             // 
             // textBox16
@@ -885,6 +877,5 @@
         private System.Windows.Forms.Button btn_idou;
         private System.Windows.Forms.Button btn_nyuuko;
         private System.Windows.Forms.Label lbl_buhin_cd;
-        private System.Windows.Forms.Button btn_kensaku;
     }
 }

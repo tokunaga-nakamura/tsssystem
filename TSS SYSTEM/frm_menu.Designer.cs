@@ -56,15 +56,14 @@
             this.dgv_timereport = new System.Windows.Forms.DataGridView();
             this.btn_timereport = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_juchu_kensaku = new System.Windows.Forms.Button();
             this.btn_nouhin_schedule = new System.Windows.Forms.Button();
-            this.btn_idou_syori = new System.Windows.Forms.Button();
-            this.btn_syukko_syori = new System.Windows.Forms.Button();
-            this.btn_nyuko_syori = new System.Windows.Forms.Button();
             this.btn_juchuu_nyuuryoku = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.btn_seihin_kensaku = new System.Windows.Forms.Button();
             this.btn_torihikisaki_kensaku = new System.Windows.Forms.Button();
             this.btn_buhin_kensaku = new System.Windows.Forms.Button();
             this.btn_bank_m = new System.Windows.Forms.Button();
@@ -76,7 +75,9 @@
             this.btn_mst_table = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.btn_juchu_kensaku = new System.Windows.Forms.Button();
+            this.btn_idou = new System.Windows.Forms.Button();
+            this.btn_syukko = new System.Windows.Forms.Button();
+            this.btn_nyuko = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -122,6 +123,7 @@
             this.splitContainer10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_timereport)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -490,9 +492,6 @@
             // 
             this.tabPage2.Controls.Add(this.btn_juchu_kensaku);
             this.tabPage2.Controls.Add(this.btn_nouhin_schedule);
-            this.tabPage2.Controls.Add(this.btn_idou_syori);
-            this.tabPage2.Controls.Add(this.btn_syukko_syori);
-            this.tabPage2.Controls.Add(this.btn_nyuko_syori);
             this.tabPage2.Controls.Add(this.btn_juchuu_nyuuryoku);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -501,6 +500,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "業務処理";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btn_juchu_kensaku
+            // 
+            this.btn_juchu_kensaku.Location = new System.Drawing.Point(194, 6);
+            this.btn_juchu_kensaku.Name = "btn_juchu_kensaku";
+            this.btn_juchu_kensaku.Size = new System.Drawing.Size(180, 23);
+            this.btn_juchu_kensaku.TabIndex = 5;
+            this.btn_juchu_kensaku.Text = "受注検索";
+            this.btn_juchu_kensaku.UseVisualStyleBackColor = true;
+            this.btn_juchu_kensaku.Click += new System.EventHandler(this.btn_juchu_kensaku_Click);
             // 
             // btn_nouhin_schedule
             // 
@@ -511,36 +520,6 @@
             this.btn_nouhin_schedule.Text = "納品スケジュール参照";
             this.btn_nouhin_schedule.UseVisualStyleBackColor = true;
             this.btn_nouhin_schedule.Click += new System.EventHandler(this.btn_nouhin_schedule_Click);
-            // 
-            // btn_idou_syori
-            // 
-            this.btn_idou_syori.Location = new System.Drawing.Point(8, 145);
-            this.btn_idou_syori.Name = "btn_idou_syori";
-            this.btn_idou_syori.Size = new System.Drawing.Size(180, 23);
-            this.btn_idou_syori.TabIndex = 3;
-            this.btn_idou_syori.Text = "移動処理";
-            this.btn_idou_syori.UseVisualStyleBackColor = true;
-            this.btn_idou_syori.Click += new System.EventHandler(this.btn_idou_syori_Click_1);
-            // 
-            // btn_syukko_syori
-            // 
-            this.btn_syukko_syori.Location = new System.Drawing.Point(8, 116);
-            this.btn_syukko_syori.Name = "btn_syukko_syori";
-            this.btn_syukko_syori.Size = new System.Drawing.Size(180, 23);
-            this.btn_syukko_syori.TabIndex = 2;
-            this.btn_syukko_syori.Text = "出庫処理";
-            this.btn_syukko_syori.UseVisualStyleBackColor = true;
-            this.btn_syukko_syori.Click += new System.EventHandler(this.btn_syukko_syori_Click_1);
-            // 
-            // btn_nyuko_syori
-            // 
-            this.btn_nyuko_syori.Location = new System.Drawing.Point(8, 87);
-            this.btn_nyuko_syori.Name = "btn_nyuko_syori";
-            this.btn_nyuko_syori.Size = new System.Drawing.Size(180, 23);
-            this.btn_nyuko_syori.TabIndex = 1;
-            this.btn_nyuko_syori.Text = "入庫処理";
-            this.btn_nyuko_syori.UseVisualStyleBackColor = true;
-            this.btn_nyuko_syori.Click += new System.EventHandler(this.btn_nyuko_syori_Click_1);
             // 
             // btn_juchuu_nyuuryoku
             // 
@@ -554,6 +533,9 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btn_idou);
+            this.tabPage3.Controls.Add(this.btn_syukko);
+            this.tabPage3.Controls.Add(this.btn_nyuko);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -582,6 +564,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.btn_seihin_kensaku);
             this.tabPage6.Controls.Add(this.btn_torihikisaki_kensaku);
             this.tabPage6.Controls.Add(this.btn_buhin_kensaku);
             this.tabPage6.Controls.Add(this.btn_bank_m);
@@ -598,9 +581,19 @@
             this.tabPage6.Text = "システム保守";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // btn_seihin_kensaku
+            // 
+            this.btn_seihin_kensaku.Location = new System.Drawing.Point(442, 18);
+            this.btn_seihin_kensaku.Name = "btn_seihin_kensaku";
+            this.btn_seihin_kensaku.Size = new System.Drawing.Size(211, 23);
+            this.btn_seihin_kensaku.TabIndex = 9;
+            this.btn_seihin_kensaku.Text = "製品検索";
+            this.btn_seihin_kensaku.UseVisualStyleBackColor = true;
+            this.btn_seihin_kensaku.Click += new System.EventHandler(this.btn_seihin_kensaku_Click);
+            // 
             // btn_torihikisaki_kensaku
             // 
-            this.btn_torihikisaki_kensaku.Location = new System.Drawing.Point(442, 76);
+            this.btn_torihikisaki_kensaku.Location = new System.Drawing.Point(442, 105);
             this.btn_torihikisaki_kensaku.Name = "btn_torihikisaki_kensaku";
             this.btn_torihikisaki_kensaku.Size = new System.Drawing.Size(211, 23);
             this.btn_torihikisaki_kensaku.TabIndex = 8;
@@ -640,7 +633,7 @@
             // 
             // btn_torihikisaki_m
             // 
-            this.btn_torihikisaki_m.Location = new System.Drawing.Point(8, 76);
+            this.btn_torihikisaki_m.Location = new System.Drawing.Point(225, 105);
             this.btn_torihikisaki_m.Name = "btn_torihikisaki_m";
             this.btn_torihikisaki_m.Size = new System.Drawing.Size(211, 23);
             this.btn_torihikisaki_m.TabIndex = 4;
@@ -708,15 +701,35 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
-            // btn_juchu_kensaku
+            // btn_idou
             // 
-            this.btn_juchu_kensaku.Location = new System.Drawing.Point(194, 6);
-            this.btn_juchu_kensaku.Name = "btn_juchu_kensaku";
-            this.btn_juchu_kensaku.Size = new System.Drawing.Size(180, 23);
-            this.btn_juchu_kensaku.TabIndex = 5;
-            this.btn_juchu_kensaku.Text = "受注検索";
-            this.btn_juchu_kensaku.UseVisualStyleBackColor = true;
-            this.btn_juchu_kensaku.Click += new System.EventHandler(this.btn_juchu_kensaku_Click);
+            this.btn_idou.Location = new System.Drawing.Point(8, 64);
+            this.btn_idou.Name = "btn_idou";
+            this.btn_idou.Size = new System.Drawing.Size(180, 23);
+            this.btn_idou.TabIndex = 6;
+            this.btn_idou.Text = "移動処理";
+            this.btn_idou.UseVisualStyleBackColor = true;
+            this.btn_idou.Click += new System.EventHandler(this.btn_idou_Click);
+            // 
+            // btn_syukko
+            // 
+            this.btn_syukko.Location = new System.Drawing.Point(8, 35);
+            this.btn_syukko.Name = "btn_syukko";
+            this.btn_syukko.Size = new System.Drawing.Size(180, 23);
+            this.btn_syukko.TabIndex = 5;
+            this.btn_syukko.Text = "出庫処理";
+            this.btn_syukko.UseVisualStyleBackColor = true;
+            this.btn_syukko.Click += new System.EventHandler(this.btn_syukko_Click);
+            // 
+            // btn_nyuko
+            // 
+            this.btn_nyuko.Location = new System.Drawing.Point(8, 6);
+            this.btn_nyuko.Name = "btn_nyuko";
+            this.btn_nyuko.Size = new System.Drawing.Size(180, 23);
+            this.btn_nyuko.TabIndex = 4;
+            this.btn_nyuko.Text = "入庫処理";
+            this.btn_nyuko.UseVisualStyleBackColor = true;
+            this.btn_nyuko.Click += new System.EventHandler(this.btn_nyuko_Click);
             // 
             // frm_menu
             // 
@@ -783,6 +796,7 @@
             this.splitContainer10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_timereport)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -833,12 +847,13 @@
         private System.Windows.Forms.Button btn_buhin_m;
         private System.Windows.Forms.Button btn_bank_m;
         private System.Windows.Forms.Button btn_buhin_kensaku;
-        private System.Windows.Forms.Button btn_idou_syori;
-        private System.Windows.Forms.Button btn_syukko_syori;
-        private System.Windows.Forms.Button btn_nyuko_syori;
         private System.Windows.Forms.Button btn_nouhin_schedule;
         private System.Windows.Forms.Button btn_torihikisaki_kensaku;
         private System.Windows.Forms.Button btn_juchu_kensaku;
+        private System.Windows.Forms.Button btn_seihin_kensaku;
+        private System.Windows.Forms.Button btn_idou;
+        private System.Windows.Forms.Button btn_syukko;
+        private System.Windows.Forms.Button btn_nyuko;
     }
 }
 

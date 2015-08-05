@@ -118,6 +118,7 @@ namespace TSS_SYSTEM
 
         private void btn_mst_table_Click(object sender, EventArgs e)
         {
+            //マスタメンテナンス
             frm_table_maintenance frm_mm = new frm_table_maintenance();
             frm_mm.ShowDialog(this);
             frm_mm.Dispose();
@@ -126,6 +127,7 @@ namespace TSS_SYSTEM
 
         private void btn_kubun_meisyou_m_Click(object sender, EventArgs e)
         {
+            //区分名称マスタ
             frm_kubun_meisyou_m frm_kmm = new frm_kubun_meisyou_m();
             frm_kmm.ShowDialog(this);
             frm_kmm.Dispose();
@@ -133,6 +135,7 @@ namespace TSS_SYSTEM
 
         private void btn_kubun_m_Click(object sender, EventArgs e)
         {
+            //区分マスタ
             frm_kubun_m frm_kmm = new frm_kubun_m();
             frm_kmm.ShowDialog(this);
             frm_kmm.Dispose();
@@ -140,6 +143,7 @@ namespace TSS_SYSTEM
 
         private void btn_juchuu_nyuuryoku_Click(object sender, EventArgs e)
         {
+            //受注入力
             frm_juchuu_nyuuryoku frm_jn = new frm_juchuu_nyuuryoku();
             frm_jn.ShowDialog(this);
             frm_jn.Dispose();
@@ -147,6 +151,7 @@ namespace TSS_SYSTEM
 
         private void btn_seihin_m_Click(object sender, EventArgs e)
         {
+            //製品マスタ
             frm_seihin_m frm_sm = new frm_seihin_m();
             frm_sm.ShowDialog(this);
             frm_sm.Dispose();
@@ -154,6 +159,7 @@ namespace TSS_SYSTEM
 
         private void btn_torihikisaki_m_Click(object sender, EventArgs e)
         {
+            //取引先マスタ
             frm_torihikisaki_m frm_tm = new frm_torihikisaki_m();
             frm_tm.ShowDialog(this);
             frm_tm.Dispose();
@@ -161,6 +167,7 @@ namespace TSS_SYSTEM
 
         private void btn_buhin_m_Click(object sender, EventArgs e)
         {
+            //部品マスタ
             frm_buhin_m frm_bm = new frm_buhin_m();
             frm_bm.ShowDialog(this);
             frm_bm.Dispose();
@@ -168,6 +175,7 @@ namespace TSS_SYSTEM
 
         private void btn_bank_m_Click(object sender, EventArgs e)
         {
+            //銀行マスタ
             frm_bank_m frm_bam = new frm_bank_m();
             frm_bam.ShowDialog(this);
             frm_bam.Dispose();
@@ -179,26 +187,9 @@ namespace TSS_SYSTEM
             tss.search_buhin("1", "");
         }
 
-        private void btn_nyuko_syori_Click_1(object sender, EventArgs e)
-        {
-            //部品入出庫画面へ
-            tss.buhin_nyusyukkoidou("1");
-        }
-
-        private void btn_syukko_syori_Click_1(object sender, EventArgs e)
-        {
-            //部品入出庫画面へ
-            tss.buhin_nyusyukkoidou("2");
-        }
-
-        private void btn_idou_syori_Click_1(object sender, EventArgs e)
-        {
-            //部品入出庫画面へ
-            tss.buhin_nyusyukkoidou("3");
-        }
-
         private void btn_nouhin_schedule_Click(object sender, EventArgs e)
         {
+            //納品スケジュール
             frm_nouhin_schedule frm_ns = new frm_nouhin_schedule();
             frm_ns.ShowDialog(this);
             frm_ns.Dispose();
@@ -206,14 +197,38 @@ namespace TSS_SYSTEM
 
         private void btn_torihikisaki_kensaku_Click(object sender, EventArgs e)
         {
-            //検索画面へ
+            //取引先検索画面へ
             tss.search_torihikisaki("1", "");
         }
 
         private void btn_juchu_kensaku_Click(object sender, EventArgs e)
         {
-            //検索画面へ
+            //受注検索画面へ
             tss.search_juchu("1", "");
+        }
+
+        private void btn_seihin_kensaku_Click(object sender, EventArgs e)
+        {
+            //製品検索画面へ
+            tss.search_seihin("1", "");
+        }
+
+        private void btn_nyuko_Click(object sender, EventArgs e)
+        {
+            //入庫画面へ
+            tss.buhin_nyusyukkoidou("1");
+        }
+
+        private void btn_syukko_Click(object sender, EventArgs e)
+        {
+            //出庫画面へ
+            tss.buhin_nyusyukkoidou("2");
+        }
+
+        private void btn_idou_Click(object sender, EventArgs e)
+        {
+            //移動画面へ
+            tss.buhin_nyusyukkoidou("3");
         }
     }
 }

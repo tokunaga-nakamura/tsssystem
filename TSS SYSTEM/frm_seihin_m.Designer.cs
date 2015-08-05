@@ -69,7 +69,6 @@
             this.tb_torihikisaki_name = new System.Windows.Forms.TextBox();
             this.tb_torihikisaki_cd = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.btn_kensaku = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.tb_seihin_name = new System.Windows.Forms.TextBox();
             this.tb_seihin_cd = new System.Windows.Forms.TextBox();
@@ -256,7 +255,6 @@
             this.splitContainer7.Panel1.Controls.Add(this.tb_torihikisaki_name);
             this.splitContainer7.Panel1.Controls.Add(this.tb_torihikisaki_cd);
             this.splitContainer7.Panel1.Controls.Add(this.textBox5);
-            this.splitContainer7.Panel1.Controls.Add(this.btn_kensaku);
             this.splitContainer7.Panel1.Controls.Add(this.textBox4);
             this.splitContainer7.Panel1.Controls.Add(this.tb_seihin_name);
             this.splitContainer7.Panel1.Controls.Add(this.tb_seihin_cd);
@@ -600,11 +598,13 @@
             // 
             // tb_torihikisaki_cd
             // 
+            this.tb_torihikisaki_cd.BackColor = System.Drawing.Color.PowderBlue;
             this.tb_torihikisaki_cd.Location = new System.Drawing.Point(93, 79);
             this.tb_torihikisaki_cd.MaxLength = 6;
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
             this.tb_torihikisaki_cd.Size = new System.Drawing.Size(53, 19);
             this.tb_torihikisaki_cd.TabIndex = 3;
+            this.tb_torihikisaki_cd.DoubleClick += new System.EventHandler(this.tb_torihikisaki_cd_DoubleClick);
             this.tb_torihikisaki_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_torihikisaki_cd_Validating);
             // 
             // textBox5
@@ -617,15 +617,6 @@
             this.textBox5.TabIndex = 5;
             this.textBox5.TabStop = false;
             this.textBox5.Text = "取引先コード";
-            // 
-            // btn_kensaku
-            // 
-            this.btn_kensaku.Location = new System.Drawing.Point(211, 1);
-            this.btn_kensaku.Name = "btn_kensaku";
-            this.btn_kensaku.Size = new System.Drawing.Size(75, 23);
-            this.btn_kensaku.TabIndex = 1;
-            this.btn_kensaku.Text = "検索";
-            this.btn_kensaku.UseVisualStyleBackColor = true;
             // 
             // textBox4
             // 
@@ -649,11 +640,13 @@
             // 
             // tb_seihin_cd
             // 
+            this.tb_seihin_cd.BackColor = System.Drawing.Color.PowderBlue;
             this.tb_seihin_cd.Location = new System.Drawing.Point(93, 3);
             this.tb_seihin_cd.MaxLength = 16;
             this.tb_seihin_cd.Name = "tb_seihin_cd";
             this.tb_seihin_cd.Size = new System.Drawing.Size(112, 19);
             this.tb_seihin_cd.TabIndex = 0;
+            this.tb_seihin_cd.DoubleClick += new System.EventHandler(this.tb_seihin_cd_DoubleClick);
             this.tb_seihin_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_seihin_cd_Validating);
             // 
             // textBox1
@@ -925,7 +918,6 @@
         private System.Windows.Forms.TextBox tb_torihikisaki_name;
         private System.Windows.Forms.TextBox tb_torihikisaki_cd;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button btn_kensaku;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox tb_seihin_name;
         private System.Windows.Forms.TextBox tb_seihin_cd;

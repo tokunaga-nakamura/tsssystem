@@ -748,17 +748,7 @@ namespace TSS_SYSTEM
 
         }
 
-        private void btn_kensaku_Click(object sender, EventArgs e)
-        {
-            //選択画面へ
-            string w_buhin_cd;
-            w_buhin_cd = tss.search_buhin("2","");
-            if(w_buhin_cd != "")
-            {
-                tb_buhin_cd.Text = w_buhin_cd;
-                chk_buhin_cd();   //決算区分名の表示
-            }
-        }
+
 
         private void tb_torihikisaki_cd_DoubleClick(object sender, EventArgs e)
         {
@@ -771,6 +761,33 @@ namespace TSS_SYSTEM
                 tb_torihikisaki_name.Text = get_torihikisaki_name(tb_torihikisaki_cd.Text);
                 tb_tani_kbn.Focus();
             }
+        }
+
+        private void tb_buhin_cd_DoubleClick(object sender, EventArgs e)
+        {
+            //選択画面へ
+            string w_buhin_cd;
+            w_buhin_cd = tss.search_buhin("2", "");
+            if (w_buhin_cd != "")
+            {
+                tb_buhin_cd.Text = w_buhin_cd;
+                chk_buhin_cd();   //決算区分名の表示
+            }
+
+        }
+
+        private void tb_siiresaki_cd_DoubleClick(object sender, EventArgs e)
+        {
+            //選択画面へ
+            string w_cd;
+            w_cd = tss.search_torihikisaki("2", "");
+            if (w_cd != "")
+            {
+                tb_siiresaki_cd.Text = w_cd;
+                tb_siiresaki_name.Text = get_torihikisaki_name(tb_siiresaki_cd.Text);
+                tb_siire_kbn.Focus();
+            }
+
         }
     }
 }
