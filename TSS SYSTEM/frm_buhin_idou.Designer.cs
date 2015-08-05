@@ -28,9 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_buhin_idou));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_idou = new System.Windows.Forms.DataGridView();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.dtp_buhin_syori_date = new System.Windows.Forms.DateTimePicker();
             this.textBox11 = new System.Windows.Forms.TextBox();
@@ -47,18 +59,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_idou)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -95,10 +95,85 @@
             this.dgv_idou.Name = "dgv_idou";
             this.dgv_idou.RowHeadersVisible = false;
             this.dgv_idou.RowTemplate.Height = 21;
-            this.dgv_idou.Size = new System.Drawing.Size(880, 304);
+            this.dgv_idou.Size = new System.Drawing.Size(880, 303);
             this.dgv_idou.TabIndex = 0;
             this.dgv_idou.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_idou_CellClick);
             this.dgv_idou.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_idou_CellEndEdit);
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "部品コード";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 60;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "部品名";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 120;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "在庫区分";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 60;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "取引先コード";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 70;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "受注コード1";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 70;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "受注コード2";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 70;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "移動先在庫区分";
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 70;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "移動先取引先コード";
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 80;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "移動先受注コード1";
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 80;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "移動先受注コード2";
+            this.Column11.Name = "Column11";
+            this.Column11.Width = 80;
+            // 
+            // Column7
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column7.HeaderText = "数量";
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 60;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "備考";
+            this.Column12.Name = "Column12";
             // 
             // label3
             // 
@@ -150,7 +225,7 @@
             // 
             // ss_status
             // 
-            this.ss_status.Location = new System.Drawing.Point(0, 540);
+            this.ss_status.Location = new System.Drawing.Point(0, 539);
             this.ss_status.Name = "ss_status";
             this.ss_status.Size = new System.Drawing.Size(884, 22);
             this.ss_status.TabIndex = 4;
@@ -219,7 +294,7 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.dgv_idou);
-            this.splitContainer3.Size = new System.Drawing.Size(884, 432);
+            this.splitContainer3.Size = new System.Drawing.Size(884, 431);
             this.splitContainer3.SplitterDistance = 120;
             this.splitContainer3.TabIndex = 8;
             // 
@@ -253,8 +328,8 @@
             this.splitContainer2.Panel2.Controls.Add(this.btn_sakujyo);
             this.splitContainer2.Panel2.Controls.Add(this.btn_touroku);
             this.splitContainer2.Panel2.Controls.Add(this.btn_syuuryou);
-            this.splitContainer2.Size = new System.Drawing.Size(884, 498);
-            this.splitContainer2.SplitterDistance = 432;
+            this.splitContainer2.Size = new System.Drawing.Size(884, 497);
+            this.splitContainer2.SplitterDistance = 431;
             this.splitContainer2.TabIndex = 0;
             this.splitContainer2.TabStop = false;
             // 
@@ -295,93 +370,19 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(884, 562);
+            this.splitContainer1.Size = new System.Drawing.Size(884, 561);
             this.splitContainer1.SplitterDistance = 60;
             this.splitContainer1.TabIndex = 5;
             this.splitContainer1.TabStop = false;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "部品コード";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 60;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "部品名";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 120;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "在庫区分";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 60;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "取引先コード";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 70;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "受注コード1";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 70;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "受注コード2";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 70;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "移動先在庫区分";
-            this.Column9.Name = "Column9";
-            this.Column9.Width = 70;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "移動先取引先コード";
-            this.Column8.Name = "Column8";
-            this.Column8.Width = 80;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "移動先受注コード1";
-            this.Column10.Name = "Column10";
-            this.Column10.Width = 80;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "移動先受注コード2";
-            this.Column11.Name = "Column11";
-            this.Column11.Width = 80;
-            // 
-            // Column7
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N0";
-            dataGridViewCellStyle5.NullValue = null;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column7.HeaderText = "数量";
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 60;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "備考";
-            this.Column12.Name = "Column12";
             // 
             // frm_buhin_idou
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 562);
+            this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.ss_status);
             this.Controls.Add(this.splitContainer1);
+            this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "frm_buhin_idou";
             this.Text = "部品移動";
             this.Load += new System.EventHandler(this.frm_buhin_idou_Load);
