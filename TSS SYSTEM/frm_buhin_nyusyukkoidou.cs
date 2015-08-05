@@ -137,6 +137,11 @@ namespace TSS_SYSTEM
         private void label2_Click(object sender, EventArgs e)
         {
 
+
+
+
+
+
         }
 
         private void btn_syuuryou_Click(object sender, EventArgs e)
