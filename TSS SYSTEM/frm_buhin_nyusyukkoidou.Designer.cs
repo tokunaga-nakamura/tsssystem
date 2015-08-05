@@ -34,19 +34,9 @@
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.tb_idousaki_torihikisaki_name = new System.Windows.Forms.TextBox();
-            this.tb_idousaki_zaiko_kbn_name = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.tb_idousaki_juchu_cd2 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.tb_idousaki_juchu_cd1 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.tb_idousaki_torihikisaki_cd = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
             this.dtp_buhin_syori_date = new System.Windows.Forms.DateTimePicker();
             this.textBox11 = new System.Windows.Forms.TextBox();
-            this.tb_idousaki_zaiko_kbn = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
             this.tb_torihikisaki_name = new System.Windows.Forms.TextBox();
             this.tb_torihikisaki_cd = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -55,13 +45,14 @@
             this.tb_denpyou_no = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dgv_nyusyukkoidou = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_sakujyo = new System.Windows.Forms.Button();
             this.btn_touroku = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
             this.ss_status = new System.Windows.Forms.StatusStrip();
@@ -97,7 +88,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(745, 583);
+            this.splitContainer1.Size = new System.Drawing.Size(884, 540);
             this.splitContainer1.SplitterDistance = 60;
             this.splitContainer1.TabIndex = 3;
             this.splitContainer1.TabStop = false;
@@ -136,10 +127,11 @@
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.btn_sakujyo);
             this.splitContainer2.Panel2.Controls.Add(this.btn_touroku);
             this.splitContainer2.Panel2.Controls.Add(this.btn_syuuryou);
-            this.splitContainer2.Size = new System.Drawing.Size(745, 519);
-            this.splitContainer2.SplitterDistance = 474;
+            this.splitContainer2.Size = new System.Drawing.Size(884, 476);
+            this.splitContainer2.SplitterDistance = 431;
             this.splitContainer2.TabIndex = 0;
             this.splitContainer2.TabStop = false;
             // 
@@ -154,19 +146,9 @@
             // 
             // splitContainer3.Panel1
             // 
-            this.splitContainer3.Panel1.Controls.Add(this.tb_idousaki_torihikisaki_name);
-            this.splitContainer3.Panel1.Controls.Add(this.tb_idousaki_zaiko_kbn_name);
             this.splitContainer3.Panel1.Controls.Add(this.label3);
-            this.splitContainer3.Panel1.Controls.Add(this.tb_idousaki_juchu_cd2);
-            this.splitContainer3.Panel1.Controls.Add(this.textBox15);
-            this.splitContainer3.Panel1.Controls.Add(this.tb_idousaki_juchu_cd1);
-            this.splitContainer3.Panel1.Controls.Add(this.textBox17);
-            this.splitContainer3.Panel1.Controls.Add(this.tb_idousaki_torihikisaki_cd);
-            this.splitContainer3.Panel1.Controls.Add(this.textBox13);
             this.splitContainer3.Panel1.Controls.Add(this.dtp_buhin_syori_date);
             this.splitContainer3.Panel1.Controls.Add(this.textBox11);
-            this.splitContainer3.Panel1.Controls.Add(this.tb_idousaki_zaiko_kbn);
-            this.splitContainer3.Panel1.Controls.Add(this.textBox10);
             this.splitContainer3.Panel1.Controls.Add(this.tb_torihikisaki_name);
             this.splitContainer3.Panel1.Controls.Add(this.tb_torihikisaki_cd);
             this.splitContainer3.Panel1.Controls.Add(this.textBox4);
@@ -178,27 +160,9 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.dgv_nyusyukkoidou);
-            this.splitContainer3.Size = new System.Drawing.Size(745, 474);
+            this.splitContainer3.Size = new System.Drawing.Size(884, 431);
             this.splitContainer3.SplitterDistance = 167;
             this.splitContainer3.TabIndex = 8;
-            // 
-            // tb_idousaki_torihikisaki_name
-            // 
-            this.tb_idousaki_torihikisaki_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_idousaki_torihikisaki_name.Location = new System.Drawing.Point(570, 62);
-            this.tb_idousaki_torihikisaki_name.MaxLength = 2;
-            this.tb_idousaki_torihikisaki_name.Name = "tb_idousaki_torihikisaki_name";
-            this.tb_idousaki_torihikisaki_name.Size = new System.Drawing.Size(154, 19);
-            this.tb_idousaki_torihikisaki_name.TabIndex = 35;
-            // 
-            // tb_idousaki_zaiko_kbn_name
-            // 
-            this.tb_idousaki_zaiko_kbn_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_idousaki_zaiko_kbn_name.Location = new System.Drawing.Point(570, 37);
-            this.tb_idousaki_zaiko_kbn_name.MaxLength = 2;
-            this.tb_idousaki_zaiko_kbn_name.Name = "tb_idousaki_zaiko_kbn_name";
-            this.tb_idousaki_zaiko_kbn_name.Size = new System.Drawing.Size(154, 19);
-            this.tb_idousaki_zaiko_kbn_name.TabIndex = 34;
             // 
             // label3
             // 
@@ -208,63 +172,6 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 19);
             this.label3.TabIndex = 32;
-            // 
-            // tb_idousaki_juchu_cd2
-            // 
-            this.tb_idousaki_juchu_cd2.Location = new System.Drawing.Point(485, 112);
-            this.tb_idousaki_juchu_cd2.MaxLength = 40;
-            this.tb_idousaki_juchu_cd2.Name = "tb_idousaki_juchu_cd2";
-            this.tb_idousaki_juchu_cd2.Size = new System.Drawing.Size(85, 19);
-            this.tb_idousaki_juchu_cd2.TabIndex = 10;
-            // 
-            // textBox15
-            // 
-            this.textBox15.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox15.Location = new System.Drawing.Point(377, 112);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.ReadOnly = true;
-            this.textBox15.Size = new System.Drawing.Size(108, 19);
-            this.textBox15.TabIndex = 31;
-            this.textBox15.TabStop = false;
-            this.textBox15.Text = "移動先受注コード2";
-            // 
-            // tb_idousaki_juchu_cd1
-            // 
-            this.tb_idousaki_juchu_cd1.Location = new System.Drawing.Point(485, 87);
-            this.tb_idousaki_juchu_cd1.MaxLength = 40;
-            this.tb_idousaki_juchu_cd1.Name = "tb_idousaki_juchu_cd1";
-            this.tb_idousaki_juchu_cd1.Size = new System.Drawing.Size(85, 19);
-            this.tb_idousaki_juchu_cd1.TabIndex = 9;
-            // 
-            // textBox17
-            // 
-            this.textBox17.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox17.Location = new System.Drawing.Point(377, 87);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.ReadOnly = true;
-            this.textBox17.Size = new System.Drawing.Size(108, 19);
-            this.textBox17.TabIndex = 29;
-            this.textBox17.TabStop = false;
-            this.textBox17.Text = "移動先受注コード1";
-            // 
-            // tb_idousaki_torihikisaki_cd
-            // 
-            this.tb_idousaki_torihikisaki_cd.Location = new System.Drawing.Point(485, 62);
-            this.tb_idousaki_torihikisaki_cd.MaxLength = 40;
-            this.tb_idousaki_torihikisaki_cd.Name = "tb_idousaki_torihikisaki_cd";
-            this.tb_idousaki_torihikisaki_cd.Size = new System.Drawing.Size(85, 19);
-            this.tb_idousaki_torihikisaki_cd.TabIndex = 8;
-            // 
-            // textBox13
-            // 
-            this.textBox13.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox13.Location = new System.Drawing.Point(377, 62);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.ReadOnly = true;
-            this.textBox13.Size = new System.Drawing.Size(108, 19);
-            this.textBox13.TabIndex = 27;
-            this.textBox13.TabStop = false;
-            this.textBox13.Text = "移動先取引先コード";
             // 
             // dtp_buhin_syori_date
             // 
@@ -284,25 +191,6 @@
             this.textBox11.TabIndex = 24;
             this.textBox11.TabStop = false;
             this.textBox11.Text = "日付";
-            // 
-            // tb_idousaki_zaiko_kbn
-            // 
-            this.tb_idousaki_zaiko_kbn.Location = new System.Drawing.Point(485, 37);
-            this.tb_idousaki_zaiko_kbn.MaxLength = 40;
-            this.tb_idousaki_zaiko_kbn.Name = "tb_idousaki_zaiko_kbn";
-            this.tb_idousaki_zaiko_kbn.Size = new System.Drawing.Size(85, 19);
-            this.tb_idousaki_zaiko_kbn.TabIndex = 7;
-            // 
-            // textBox10
-            // 
-            this.textBox10.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox10.Location = new System.Drawing.Point(377, 37);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(108, 19);
-            this.textBox10.TabIndex = 23;
-            this.textBox10.TabStop = false;
-            this.textBox10.Text = "移動先在庫区分";
             // 
             // tb_torihikisaki_name
             // 
@@ -379,28 +267,21 @@
             // 
             this.dgv_nyusyukkoidou.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_nyusyukkoidou.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
             this.Column2,
             this.Column3,
             this.Column4,
             this.Column5,
             this.Column6,
-            this.Column7});
+            this.Column7,
+            this.Column1});
             this.dgv_nyusyukkoidou.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_nyusyukkoidou.Location = new System.Drawing.Point(0, 0);
             this.dgv_nyusyukkoidou.Name = "dgv_nyusyukkoidou";
             this.dgv_nyusyukkoidou.RowHeadersVisible = false;
             this.dgv_nyusyukkoidou.RowTemplate.Height = 21;
-            this.dgv_nyusyukkoidou.Size = new System.Drawing.Size(741, 299);
+            this.dgv_nyusyukkoidou.Size = new System.Drawing.Size(880, 256);
             this.dgv_nyusyukkoidou.TabIndex = 0;
             this.dgv_nyusyukkoidou.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_nyusyukkoidou_CellEndEdit);
-            this.dgv_nyusyukkoidou.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgv_nyusyukkoidou_RowsAdded);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "SEQ";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 50;
             // 
             // Column2
             // 
@@ -436,9 +317,24 @@
             this.Column7.Name = "Column7";
             this.Column7.Width = 70;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "備考";
+            this.Column1.Name = "Column1";
+            // 
+            // btn_sakujyo
+            // 
+            this.btn_sakujyo.Location = new System.Drawing.Point(10, 11);
+            this.btn_sakujyo.Name = "btn_sakujyo";
+            this.btn_sakujyo.Size = new System.Drawing.Size(108, 23);
+            this.btn_sakujyo.TabIndex = 4;
+            this.btn_sakujyo.Text = "1行削除";
+            this.btn_sakujyo.UseVisualStyleBackColor = true;
+            this.btn_sakujyo.Click += new System.EventHandler(this.btn_sakujyo_Click);
+            // 
             // btn_touroku
             // 
-            this.btn_touroku.Location = new System.Drawing.Point(540, 11);
+            this.btn_touroku.Location = new System.Drawing.Point(685, 7);
             this.btn_touroku.Name = "btn_touroku";
             this.btn_touroku.Size = new System.Drawing.Size(75, 23);
             this.btn_touroku.TabIndex = 3;
@@ -448,7 +344,7 @@
             // 
             // btn_syuuryou
             // 
-            this.btn_syuuryou.Location = new System.Drawing.Point(645, 11);
+            this.btn_syuuryou.Location = new System.Drawing.Point(790, 7);
             this.btn_syuuryou.Name = "btn_syuuryou";
             this.btn_syuuryou.Size = new System.Drawing.Size(75, 23);
             this.btn_syuuryou.TabIndex = 0;
@@ -458,9 +354,9 @@
             // 
             // ss_status
             // 
-            this.ss_status.Location = new System.Drawing.Point(0, 583);
+            this.ss_status.Location = new System.Drawing.Point(0, 540);
             this.ss_status.Name = "ss_status";
-            this.ss_status.Size = new System.Drawing.Size(745, 22);
+            this.ss_status.Size = new System.Drawing.Size(884, 22);
             this.ss_status.TabIndex = 2;
             this.ss_status.Text = "statusStrip1";
             // 
@@ -468,7 +364,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 605);
+            this.ClientSize = new System.Drawing.Size(884, 562);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.ss_status);
             this.Name = "frm_buhin_nyusyukkoidou";
@@ -502,16 +398,8 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tb_idousaki_juchu_cd2;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox tb_idousaki_juchu_cd1;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox tb_idousaki_torihikisaki_cd;
-        private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.DateTimePicker dtp_buhin_syori_date;
         private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox tb_idousaki_zaiko_kbn;
-        private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox tb_torihikisaki_name;
         private System.Windows.Forms.TextBox tb_torihikisaki_cd;
         private System.Windows.Forms.TextBox textBox4;
@@ -522,15 +410,14 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btn_syuuryou;
         private System.Windows.Forms.StatusStrip ss_status;
-        private System.Windows.Forms.TextBox tb_idousaki_torihikisaki_name;
-        private System.Windows.Forms.TextBox tb_idousaki_zaiko_kbn_name;
         private System.Windows.Forms.DataGridView dgv_nyusyukkoidou;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.Button btn_sakujyo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
