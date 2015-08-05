@@ -50,7 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dgv_nyusyukkoidou.cs" />
+    <Compile Include="frm_buhin_idou.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_buhin_idou.Designer.cs">
+      <DependentUpon>frm_buhin_idou.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_buhin_nyusyukkoidou.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +167,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TssSystemLibrary.cs" />
+    <EmbeddedResource Include="frm_buhin_idou.resx">
+      <DependentUpon>frm_buhin_idou.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_buhin_nyusyukkoidou.resx">
       <DependentUpon>frm_buhin_nyusyukkoidou.cs</DependentUpon>
     </EmbeddedResource>

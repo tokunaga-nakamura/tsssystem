@@ -194,7 +194,9 @@ namespace TSS_SYSTEM
         private void btn_idou_syori_Click_1(object sender, EventArgs e)
         {
             //部品入出庫画面へ
-            tss.buhin_nyusyukkoidou("3");
+            frm_buhin_idou frm_bi = new frm_buhin_idou();
+            frm_bi.ShowDialog(this);
+            frm_bi.Dispose();
         }
 
         private void btn_nouhin_schedule_Click(object sender, EventArgs e)
