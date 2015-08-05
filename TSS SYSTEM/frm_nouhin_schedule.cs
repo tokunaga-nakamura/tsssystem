@@ -14,6 +14,7 @@ namespace TSS_SYSTEM
     {
         TssSystemLibrary tss = new TssSystemLibrary();
         DataTable w_dt_schedule = new DataTable();
+        DataTable w_dt_rireki = new DataTable();
 
         public frm_nouhin_schedule()
         {
@@ -372,7 +373,7 @@ namespace TSS_SYSTEM
             //w_dt_scheduleを表示・印刷に使用する
 
             //１）指定月・指定取引先のnouhin_mを抽出
-            string sql = "select * from tss_nouhin_m where to_char(nouhin_yotei_date, 'yyyy/mm') = '" + nud_year.Value.ToString() + "/" + nud_month.Value.ToString() + "'";
+            string sql = "select * from tss_nouhin_m where to_char(nouhin_yotei_date, 'yyyy/mm') = '" + nud_year.Value.ToString() + "/" + nud_month.Value.ToString("00") + "'";
             for (int i = 1; i <= sql_cnt; i++)
             {
                 sql = sql + " and " + sql_where[i - 1];
@@ -382,6 +383,7 @@ namespace TSS_SYSTEM
             //２）抽出したnouhin_mを集計区分を確認しながらw_dt_scheduleに書き込んでいく
             //w_dt_scheduleの空枠の作成
             w_dt_schedule.Rows.Clear();
+            w_dt_schedule.Columns.Clear();
             w_dt_schedule.Clear();
             //列の定義
             w_dt_schedule.Columns.Add("torihikisaki_cd");
@@ -390,7 +392,6 @@ namespace TSS_SYSTEM
             w_dt_schedule.Columns.Add("seihin_cd");
             w_dt_schedule.Columns.Add("seihin_name");
             w_dt_schedule.Columns.Add("juchu_su");
-            w_dt_schedule.Columns.Add("nouhin_yotei_su");
             w_dt_schedule.Columns.Add("01");
             w_dt_schedule.Columns.Add("02");
             w_dt_schedule.Columns.Add("03");
@@ -455,7 +456,7 @@ namespace TSS_SYSTEM
                 //w_dt_scheduleの中から同じ受注を探す
                 w_int_gyou = 0; //見つけた行
                 w_gyou_find = false;    //見つけたらtrue
-                for(int i = 0;i < w_dt_schedule.Rows.Count - 1;i++)
+                for(int i = 0;i <= w_dt_schedule.Rows.Count - 1;i++)
                 {
                     if(w_dt_schedule.Rows[i]["torihikisaki_cd"].ToString() == dr["torihikisaki_cd"].ToString() && w_dt_schedule.Rows[i]["juchu_cd1"].ToString() == dr["juchu_cd1"].ToString() && w_dt_schedule.Rows[i]["juchu_cd2"].ToString() == dr["juchu_cd2"].ToString())
                     {
@@ -471,14 +472,20 @@ namespace TSS_SYSTEM
                     {
                         //w_dt_scheduleの日の値をdoubleに変換
                         double w_dou1 = new double();
-                        if (double.TryParse(w_dt_schedule.Rows[w_int_gyou][w_date.Day.ToString()].ToString(), out w_dou1))
+                        if (double.TryParse(w_dt_schedule.Rows[w_int_gyou][w_date.Day.ToString("00")].ToString(), out w_dou1))
                         {
-                            //納品マスタの納品数をdoubleに変換
-                            double w_dou2 = new double();
-                            if (double.TryParse(dr["nouhin_yotei_su"].ToString(), out w_dou2))
-                            {
-                                w_dt_schedule.Rows[w_int_gyou][w_date.Day.ToString()] = w_dou1 + w_dou2; 
-                            }
+                            //変換された場合は何もしない
+                        }
+                        else
+                        {
+                            //変換されなかったという事はnullだったんじゃないかな？
+                            w_dou1 = 0;
+                        }
+                        //納品マスタの納品数をdoubleに変換
+                        double w_dou2 = new double();
+                        if (double.TryParse(dr["nouhin_yotei_su"].ToString(), out w_dou2))
+                        {
+                            w_dt_schedule.Rows[w_int_gyou][w_date.Day.ToString("00")] = w_dou1 + w_dou2; 
                         }
                     }
                 }
@@ -494,11 +501,12 @@ namespace TSS_SYSTEM
                     w_dr_schedule["seihin_cd"] = w_dt_seihin_m.Rows[0]["seihin_cd"].ToString();
                     w_dr_schedule["seihin_name"] = w_dt_seihin_m.Rows[0]["seihin_name"].ToString();
                     w_dr_schedule["juchu_su"] = w_dt_juchu_m.Rows[0]["juchu_su"].ToString();
-                    w_dr_schedule[w_date.Day.ToString()] = w_dt_juchu_m.Rows[0]["juchu_su"].ToString();
+                    w_dr_schedule[w_date.Day.ToString("00")] = dr["nouhin_yotei_su"].ToString();
                     w_dt_schedule.Rows.Add(w_dr_schedule);
                 }
             }
             list_disp(w_dt_schedule);
+            rireki_disp(w_dt_schedule);
         }
 
         private void list_disp(DataTable in_dt)
@@ -524,17 +532,76 @@ namespace TSS_SYSTEM
 
             dgv_nouhin_schedule.DataSource = in_dt;
             //DataGridViewのカラムヘッダーテキストを変更する
-            dgv_nouhin_schedule.Columns[0].HeaderText = "部品コード";
-            dgv_nouhin_schedule.Columns[1].HeaderText = "部品名";
-            dgv_nouhin_schedule.Columns[2].HeaderText = "部品補足";
-            dgv_nouhin_schedule.Columns[3].HeaderText = "メーカー名";
-            dgv_nouhin_schedule.Columns[4].HeaderText = "仕入先コード";
-            dgv_nouhin_schedule.Columns[5].HeaderText = "仕入れ区分";
-            dgv_nouhin_schedule.Columns[6].HeaderText = "取引先コード";
+            dgv_nouhin_schedule.Columns[0].HeaderText = "取引先コード";
+            dgv_nouhin_schedule.Columns[1].HeaderText = "受注コード1";
+            dgv_nouhin_schedule.Columns[2].HeaderText = "受注コード2";
+            dgv_nouhin_schedule.Columns[3].HeaderText = "製品コード";
+            dgv_nouhin_schedule.Columns[4].HeaderText = "製品名";
+            dgv_nouhin_schedule.Columns[5].HeaderText = "受注数";
         }
 
+        private void rireki_disp(DataTable in_dt)
+        {
+            //リードオンリーにする
+            dgv_nouhin_rireki.ReadOnly = true;
+            //行ヘッダーを非表示にする
+            dgv_nouhin_rireki.RowHeadersVisible = false;
+            //カラム幅の自動調整（ヘッダーとセルの両方の最長幅に調整する）
+            dgv_nouhin_rireki.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //セルの高さ変更不可
+            dgv_nouhin_rireki.AllowUserToResizeRows = false;
+            //カラムヘッダーの高さ変更不可
+            dgv_nouhin_rireki.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            //削除不可にする（コードからは削除可）
+            dgv_nouhin_rireki.AllowUserToDeleteRows = false;
+            //１行のみ選択可能（複数行の選択不可）
+            dgv_nouhin_rireki.MultiSelect = false;
+            //セルを選択すると行全体が選択されるようにする
+            dgv_nouhin_rireki.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //DataGridView1にユーザーが新しい行を追加できないようにする
+            dgv_nouhin_rireki.AllowUserToAddRows = false;
+
+            //履歴用のw_dt_rirekiを作成する
+            //w_dt_scheduleの空枠の作成
+            w_dt_rireki.Rows.Clear();
+            w_dt_rireki.Columns.Clear();
+            w_dt_rireki.Clear();
+            //列の定義
+            w_dt_rireki.Columns.Add("torihikisaki_cd");
+            w_dt_rireki.Columns.Add("juchu_cd1");
+            w_dt_rireki.Columns.Add("juchu_cd2");
+            w_dt_rireki.Columns.Add("kousin_no");
+            w_dt_rireki.Columns.Add("kousin_naiyou");
 
 
+            DataTable w_dt = new DataTable();
+            DataRow w_dr_rireki;
+
+            foreach(DataRow dr in in_dt.Rows)
+            {
+                w_dt = tss.OracleSelect("select * from tss_juchu_rireki_f where torihikisaki_cd = '" + dr["torihikisaki_cd"].ToString() + "' and juchu_cd1 = '" + dr["juchu_cd1"].ToString() + "' and juchu_cd2 = '" + dr["juchu_cd2"].ToString() + "'");
+                if(w_dt.Rows.Count != 0)
+                {
+                    foreach(DataRow dr2 in w_dt.Rows)
+                    {
+                        w_dr_rireki = w_dt_rireki.NewRow();
+                        w_dr_rireki["torihikisaki_cd"] = dr2["torihikisaki_cd"].ToString();
+                        w_dr_rireki["juchu_cd1"] = dr2["juchu_cd1"].ToString();
+                        w_dr_rireki["juchu_cd2"] = dr2["juchu_cd2"].ToString();
+                        w_dr_rireki["kousin_no"] = dr2["kousin_no"].ToString();
+                        w_dr_rireki["kousin_naiyou"] = dr2["kousin_naiyou"].ToString();
+                        w_dt_rireki.Rows.Add(w_dr_rireki);
+                    }
+                }
+            }
+            dgv_nouhin_rireki.DataSource = w_dt_rireki;
+            //DataGridViewのカラムヘッダーテキストを変更する
+            dgv_nouhin_rireki.Columns[0].HeaderText = "取引先コード";
+            dgv_nouhin_rireki.Columns[1].HeaderText = "受注コード1";
+            dgv_nouhin_rireki.Columns[2].HeaderText = "受注コード2";
+            dgv_nouhin_rireki.Columns[3].HeaderText = "更新No";
+            dgv_nouhin_rireki.Columns[4].HeaderText = "更新内容";
+        }
 
 
     }

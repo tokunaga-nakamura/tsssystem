@@ -452,6 +452,7 @@
             // splitContainer5
             // 
             this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer5.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer5.Location = new System.Drawing.Point(0, 0);
             this.splitContainer5.Name = "splitContainer5";
             this.splitContainer5.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -464,7 +465,7 @@
             // 
             this.splitContainer5.Panel2.Controls.Add(this.dgv_nouhin_rireki);
             this.splitContainer5.Size = new System.Drawing.Size(880, 118);
-            this.splitContainer5.SplitterDistance = 27;
+            this.splitContainer5.SplitterDistance = 26;
             this.splitContainer5.TabIndex = 0;
             // 
             // label1
@@ -483,7 +484,7 @@
             this.dgv_nouhin_rireki.Location = new System.Drawing.Point(0, 0);
             this.dgv_nouhin_rireki.Name = "dgv_nouhin_rireki";
             this.dgv_nouhin_rireki.RowTemplate.Height = 21;
-            this.dgv_nouhin_rireki.Size = new System.Drawing.Size(880, 87);
+            this.dgv_nouhin_rireki.Size = new System.Drawing.Size(880, 88);
             this.dgv_nouhin_rireki.TabIndex = 0;
             this.dgv_nouhin_rireki.TabStop = false;
             // 
