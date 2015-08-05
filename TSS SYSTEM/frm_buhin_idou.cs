@@ -30,7 +30,6 @@ namespace TSS_SYSTEM
 
             //データグリッドビューの部品名は編集不可
             dgv_idou.Columns[1].ReadOnly = true;
-
         }
 
 
@@ -79,6 +78,8 @@ namespace TSS_SYSTEM
                 {
                     MessageBox.Show("この部品コードは登録されていません。部品登録してください。");
                     dgv.Rows[i].Cells[1].Value = "";
+                    dgv_idou.Focus();
+                    dgv_idou.CurrentCell = dgv_idou[i, 0];
                 }
                 else
                 {
@@ -99,7 +100,7 @@ namespace TSS_SYSTEM
             if (chk_denpyou_no() == false)
             {
                 MessageBox.Show("伝票番号の値が異常です");
-                //tb_torihikisaki_cd.Focus();
+                tb_denpyou_no.Focus();
                 return;
             }
             
@@ -127,29 +128,23 @@ namespace TSS_SYSTEM
                     MessageBox.Show("在庫区分を入力してください");
                     return;
                 }
-
                 //DataTable dt_work = new DataTable();
                 dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '01' and kubun_cd = '" + dgv_idou.Rows[i].Cells[2].Value.ToString() + "'");
                 if (dt_work.Rows.Count <= 0)
                 {
-                    MessageBox.Show("入力された移動元の在庫区分が存在しません");
+                    MessageBox.Show("入力された在庫区分が存在しません");
                     return;
                 }
-                dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '01' and kubun_cd = '" + dgv_idou.Rows[i].Cells[6].Value.ToString() + "'");
+                //DataTable dt_work = new DataTable();
+                dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd  =  '" + dgv_idou.Rows[i].Cells[3].Value.ToString() + "'");
                 if (dt_work.Rows.Count <= 0)
                 {
-                    MessageBox.Show("入力された移動先の在庫区分が存在しません");
+                    MessageBox.Show("入力された移動元の取引先コードが存在しません");
                     return;
                 }
-
                 if (dgv_idou.Rows[i].Cells[2].Value.ToString() == "02" && dgv_idou.Rows[0].Cells[4].Value == null)
                 {
                     MessageBox.Show("受注コード1を入力してください");
-                    return;
-                }
-                if (dgv_idou.Rows[i].Cells[10].Value == null)
-                {
-                    MessageBox.Show("数量を入力してください");
                     return;
                 }
                 if (dgv_idou.Rows[i].Cells[2].Value.ToString() == "01" && dgv_idou.Rows[i].Cells[3].Value != null && dgv_idou.Rows[i].Cells[4].Value != null)
@@ -157,31 +152,36 @@ namespace TSS_SYSTEM
                     MessageBox.Show("在庫区分01の時は、受注コード1、2に入力しないでください。");
                     return;
                 }
+                dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd  = '01' and kubun_cd = '" + dgv_idou.Rows[i].Cells[6].Value.ToString() + "'");
+                if (dt_work.Rows.Count <= 0)
+                {
+                    MessageBox.Show("入力された移動先在庫区分が存在しません");
+                    return;
+                }
+                //dt_work = new DataTable();
+                dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd  =  '" + dgv_idou.Rows[i].Cells[7].Value.ToString() + "'");
+                if (dt_work.Rows.Count <= 0)
+                {
+                    MessageBox.Show("入力された移動先取引先コードが存在しません");
+                    return;
+                }
                 if (dgv_idou.Rows[i].Cells[6].Value.ToString() == "01" && dgv_idou.Rows[i].Cells[8].Value != null && dgv_idou.Rows[i].Cells[9].Value != null)
                 {
-                    MessageBox.Show("移動先在庫区分01の時は、受注コード1、2に入力しないでください。");
+                    MessageBox.Show("移動先在庫区分が01の時は、受注コード1、2に入力しないでください。");
                     return;
                 }
 
-                ////受注コードが空白の場合、9999999999999999を代入
-                //if (dgv_idou.Rows[i].Cells[2].Value.ToString() == "01" && dgv_idou.Rows[i].Cells[4].Value == null || dgv_idou.Rows[i].Cells[5].Value == null)
-                //{
-                //    dgv_idou.Rows[i].Cells[4].Value = 9999999999999999;
-                //    dgv_idou.Rows[i].Cells[5].Value = 9999999999999999;
-                //}
-
-                //if (dgv_idou.Rows[i].Cells[6].Value.ToString() == "01" && dgv_idou.Rows[i].Cells[8].Value == null || dgv_idou.Rows[i].Cells[9].Value == null)
-                //{
-                //    dgv_idou.Rows[i].Cells[8].Value = 9999999999999999;
-                //    dgv_idou.Rows[i].Cells[9].Value = 9999999999999999;
-                //}
-
+                if (dgv_idou.Rows[i].Cells[10].Value == null)
+                {
+                    MessageBox.Show("数量を入力してください");
+                    return;
+                }
+                
                 //備考が空白の場合、""を代入  空欄だとnull扱いされ、SQエラー回避
                 if (dgv_idou.Rows[i].Cells[11].Value == null)
                 {
                     dgv_idou.Rows[i].Cells[11].Value = "";
                 }
-
 
             }
 
@@ -189,16 +189,16 @@ namespace TSS_SYSTEM
             for (int i = 0; i < dgvrc - 1; i++)
             {
                 //受注コードが空白の場合、9999999999999999を代入
-                if (dgv_idou.Rows[i].Cells[2].Value.ToString() == "02" && dgv_idou.Rows[i].Cells[3].Value != null && dgv_idou.Rows[i].Cells[4].Value == null)
+                if (dgv_idou.Rows[i].Cells[2].Value.ToString() == "02" && dgv_idou.Rows[i].Cells[4].Value != null && dgv_idou.Rows[i].Cells[5].Value == null)
                 {
                     dgv_idou.Rows[i].Cells[4].Value = 9999999999999999;
                 }
 
               
-                if (dgv_idou.Rows[i].Cells[2].Value.ToString() == "01" && dgv_idou.Rows[i].Cells[3].Value == null && dgv_idou.Rows[i].Cells[4].Value == null)
+                if (dgv_idou.Rows[i].Cells[2].Value.ToString() == "01" && dgv_idou.Rows[i].Cells[4].Value == null && dgv_idou.Rows[i].Cells[5].Value == null)
                 {
-                    dgv_idou.Rows[i].Cells[3].Value = 9999999999999999;
                     dgv_idou.Rows[i].Cells[4].Value = 9999999999999999;
+                    dgv_idou.Rows[i].Cells[5].Value = 9999999999999999;
                 }
 
                 if (dgv_idou.Rows[i].Cells[6].Value.ToString() == "02" && dgv_idou.Rows[i].Cells[8].Value != null && dgv_idou.Rows[i].Cells[9].Value == null)
@@ -346,6 +346,19 @@ namespace TSS_SYSTEM
                 bl = false;
             }
             return bl;
+        }
+
+        private void dgv_idou_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+
+            if (e.ColumnIndex >= 0)
+            {
+                if (dgv.Columns[e.ColumnIndex] is DataGridViewTextBoxColumn)
+                {
+                    SendKeys.Send("{F2}");
+                }
+            }
         }
     }
 
