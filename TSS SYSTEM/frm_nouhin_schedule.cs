@@ -349,8 +349,6 @@ namespace TSS_SYSTEM
                 tb_torihikisaki_name.Text = get_torihikisaki_name(tb_torihikisaki_cd.Text);
                 cb_syubetu_kbn.Focus();
             }
-
         }
-
     }
 }
