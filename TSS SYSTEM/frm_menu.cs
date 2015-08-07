@@ -49,6 +49,7 @@ namespace TSS_SYSTEM
         {
             this.Opacity = 1;
             status_disp();
+            message_log_check();
         }
 
         private void btn_hardcopy_Click(object sender, EventArgs e)
@@ -232,13 +233,45 @@ namespace TSS_SYSTEM
             frm_bi.ShowDialog(this);
             frm_bi.Dispose();
         }
-
-        private void button4_Click(object sender, EventArgs e)
+        private void message_log_check()
         {
-            //移動画面へ
-            frm_seihin_kousei_m frm_sk = new frm_seihin_kousei_m();
-            frm_sk.ShowDialog(this);
-            frm_sk.Dispose();
+            tss.GetUser();
+            DataTable w_dt = new DataTable();
+            w_dt = tss.OracleSelect("select * from tss_message_log_f where user_cd_from = '" + tss.user_cd + "'");
+            if(w_dt.Rows.Count > 0)
+            {
+                btn_message_log.Visible = true;
+                int w_cnt = 0;
+                for(int i = 0;i <= w_dt.Rows.Count -1;i++)
+                {
+                    if(w_dt.Rows[i]["kidoku_datetime"].ToString().Length == 0)
+                    {
+                        w_cnt++;
+                    }
+                }
+                if(w_cnt > 0)
+                {
+                    btn_message_log.BackColor = System.Drawing.Color.Orange;
+                    btn_message_log.Text = w_cnt.ToString() + "件の未読システムメッセージがあります。";
+                }
+                else
+                {
+                    btn_message_log.BackColor = System.Drawing.SystemColors.Control;
+                    btn_message_log.Text = "未読のシステムメッセージはありません。";
+                }
+            }
+            else
+            {
+                btn_message_log.Visible = false;
+            }
+        }
+
+        private void btn_message_log_Click(object sender, EventArgs e)
+        {
+            //システムメッセージログ
+            frm_message_log frm_ml = new frm_message_log();
+            frm_ml.ShowDialog(this);
+            frm_ml.Dispose();
         }
     }
 }

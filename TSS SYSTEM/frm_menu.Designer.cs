@@ -76,10 +76,9 @@
             this.btn_kubun_m = new System.Windows.Forms.Button();
             this.btn_kubun_meisyou_m = new System.Windows.Forms.Button();
             this.btn_mst_table = new System.Windows.Forms.Button();
+            this.btn_message_log = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.btn_rireki = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -149,6 +148,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btn_message_log);
             this.splitContainer1.Panel1.Controls.Add(this.btn_hardcopy);
             // 
             // splitContainer1.Panel2
@@ -535,7 +535,6 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.btn_rireki);
             this.tabPage3.Controls.Add(this.btn_idou);
             this.tabPage3.Controls.Add(this.btn_syukko);
             this.tabPage3.Controls.Add(this.btn_nyuko);
@@ -597,7 +596,6 @@
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.button4);
             this.tabPage6.Controls.Add(this.btn_seihin_kensaku);
             this.tabPage6.Controls.Add(this.btn_torihikisaki_kensaku);
             this.tabPage6.Controls.Add(this.btn_buhin_kensaku);
@@ -715,6 +713,18 @@
             this.btn_mst_table.UseVisualStyleBackColor = true;
             this.btn_mst_table.Click += new System.EventHandler(this.btn_mst_table_Click);
             // 
+            // btn_message_log
+            // 
+            this.btn_message_log.BackColor = System.Drawing.Color.Orange;
+            this.btn_message_log.Location = new System.Drawing.Point(603, 3);
+            this.btn_message_log.Name = "btn_message_log";
+            this.btn_message_log.Size = new System.Drawing.Size(284, 23);
+            this.btn_message_log.TabIndex = 0;
+            this.btn_message_log.Text = "システムメッセージが届いています";
+            this.btn_message_log.UseVisualStyleBackColor = false;
+            this.btn_message_log.Visible = false;
+            this.btn_message_log.Click += new System.EventHandler(this.btn_message_log_Click);
+            // 
             // btn_logout
             // 
             this.btn_logout.Location = new System.Drawing.Point(710, 3);
@@ -734,25 +744,6 @@
             this.btn_syuuryou.Text = "終了";
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
-            // 
-            // btn_rireki
-            // 
-            this.btn_rireki.Location = new System.Drawing.Point(224, 6);
-            this.btn_rireki.Name = "btn_rireki";
-            this.btn_rireki.Size = new System.Drawing.Size(180, 23);
-            this.btn_rireki.TabIndex = 7;
-            this.btn_rireki.Text = "入出庫移動履歴";
-            this.btn_rireki.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(225, 76);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(211, 23);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "製品構成マスタ";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // frm_menu
             // 
@@ -877,8 +868,7 @@
         private System.Windows.Forms.Button btn_idou;
         private System.Windows.Forms.Button btn_syukko;
         private System.Windows.Forms.Button btn_nyuko;
-        private System.Windows.Forms.Button btn_rireki;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_message_log;
     }
 }
 

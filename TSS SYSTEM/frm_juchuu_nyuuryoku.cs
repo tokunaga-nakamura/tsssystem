@@ -375,7 +375,7 @@ namespace TSS_SYSTEM
                 else
                 {
                     tss.GetUser();
-                    bool w_bl = tss.MessageLogWrite(tss.user_cd,"受注入力","受注番号 " + tb_torihikisaki_cd.Text.ToString() + "-" + tb_juchu_cd1.Text.ToString() + "-" + tb_juchu_cd2.Text.ToString() + " の受注数と納品数が不一致のまま登録しました。",tss.user_cd);
+                    bool w_bl = tss.MessageLogWrite(tss.user_cd,"000000","受注入力","受注番号 " + tb_torihikisaki_cd.Text.ToString() + "-" + tb_juchu_cd1.Text.ToString() + "-" + tb_juchu_cd2.Text.ToString() + " の受注数と納品数が不一致のまま登録しました。");
                 }
             }
 

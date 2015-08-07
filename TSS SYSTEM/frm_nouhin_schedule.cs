@@ -101,43 +101,43 @@ namespace TSS_SYSTEM
             //チェックボックスによるコントロールの表示・非表示
             if(cb_syubetu_kbn.Checked ==true)
             {
-                tb_syubetu_kbn.Enabled = true;
-                tb_syubetu_name.Enabled = true;
+                tb_syubetu_kbn.Visible = true;
+                tb_syubetu_name.Visible = true;
             }
             else
             {
-                tb_syubetu_kbn.Enabled = false;
-                tb_syubetu_name.Enabled = false;
+                tb_syubetu_kbn.Visible = false;
+                tb_syubetu_name.Visible = false;
             }
             if (cb_bunrui_kbn.Checked == true)
             {
-                tb_bunrui_kbn.Enabled = true;
-                tb_bunrui_name.Enabled = true;
+                tb_bunrui_kbn.Visible = true;
+                tb_bunrui_name.Visible = true;
             }
             else
             {
-                tb_bunrui_kbn.Enabled = false;
-                tb_bunrui_name.Enabled = false;
+                tb_bunrui_kbn.Visible = false;
+                tb_bunrui_name.Visible = false;
             }
             if (cb_sijou_kbn.Checked == true)
             {
-                tb_sijou_kbn.Enabled = true;
-                tb_sijou_name.Enabled = true;
+                tb_sijou_kbn.Visible = true;
+                tb_sijou_name.Visible = true;
             }
             else
             {
-                tb_sijou_kbn.Enabled = false;
-                tb_sijou_name.Enabled = false;
+                tb_sijou_kbn.Visible = false;
+                tb_sijou_name.Visible = false;
             }
             if (cb_type_kbn.Checked == true)
             {
-                tb_type_kbn.Enabled = true;
-                tb_type_name.Enabled = true;
+                tb_type_kbn.Visible = true;
+                tb_type_name.Visible = true;
             }
             else
             {
-                tb_type_kbn.Enabled = false;
-                tb_type_name.Enabled = false;
+                tb_type_kbn.Visible = false;
+                tb_type_name.Visible = false;
             }
         }
 
@@ -238,7 +238,7 @@ namespace TSS_SYSTEM
 
         private void tb_sijou_kbn_Validating(object sender, CancelEventArgs e)
         {
-                        //市場区分が空白の場合はOKとする
+            //市場区分が空白の場合はOKとする
             if (tb_sijou_kbn.Text != "")
             {
                 if (chk_sijou_kbn() != true)
@@ -355,6 +355,11 @@ namespace TSS_SYSTEM
 
         private void btn_hyouji_Click(object sender, EventArgs e)
         {
+            //入力項目のチェック
+            if (input_check() == false)
+            {
+                return;
+            }
             DataTable w_dt = new DataTable();
             string[] sql_where = new string[7];
             int sql_cnt = 0;
@@ -392,6 +397,10 @@ namespace TSS_SYSTEM
             w_dt_schedule.Columns.Add("seihin_cd");
             w_dt_schedule.Columns.Add("seihin_name");
             w_dt_schedule.Columns.Add("juchu_su");
+            w_dt_schedule.Columns.Add("syuukei_syubetu_kbn");
+            w_dt_schedule.Columns.Add("syuukei_bunrui_kbn");
+            w_dt_schedule.Columns.Add("syuukei_sijou_kbn");
+            w_dt_schedule.Columns.Add("syuukei_type_kbn");
             w_dt_schedule.Columns.Add("01");
             w_dt_schedule.Columns.Add("02");
             w_dt_schedule.Columns.Add("03");
@@ -440,7 +449,7 @@ namespace TSS_SYSTEM
                     tss.GetUser();
                     MessageBox.Show("納品マスタと受注マスタの整合性に異常があります。処理を中止します。");
                     tss.ErrorLogWrite(tss.user_cd, "納品スケジュール参照", "表示ボタン押下後のOracleSelect");
-                    tss.MessageLogWrite(tss.user_cd,"納品スケジュールの表示でエラーが発生しました。","納品マスタと受注マスタの整合性が取れていない可能性があります。受注コード " + dr["torihikisaki_cd"].ToString() + "-" + dr["juchu_cd2"].ToString() + "-" + dr["juchu_cd2"].ToString() + " を確認してください。","000000");
+                    tss.MessageLogWrite(tss.user_cd,"000000","納品スケジュールの表示でエラーが発生しました。","納品マスタと受注マスタの整合性が取れていない可能性があります。受注コード " + dr["torihikisaki_cd"].ToString() + "-" + dr["juchu_cd2"].ToString() + "-" + dr["juchu_cd2"].ToString() + " を確認してください。");
                     this.Close();
                 }
                 //受注マスタから製品マスタをリンク
@@ -450,59 +459,100 @@ namespace TSS_SYSTEM
                     tss.GetUser();
                     MessageBox.Show("受注マスタと製品マスタの整合性に異常があります。処理を中止します。");
                     tss.ErrorLogWrite(tss.user_cd, "納品スケジュール参照", "表示ボタン押下後のOracleSelect");
-                    tss.MessageLogWrite(tss.user_cd, "納品スケジュールの表示でエラーが発生しました。", "受注マスタと製品マスタの整合性が取れていない可能性があります。受注コード " + w_dt_juchu_m.Rows[0]["torihikisaki_cd"].ToString() + "-" + w_dt_juchu_m.Rows[0]["juchu_cd2"].ToString() + "-" + w_dt_juchu_m.Rows[0]["juchu_cd2"].ToString() + " 製品コード " + w_dt_juchu_m.Rows[0]["seihin_cd"] + " を確認してください。", "000000");
+                    tss.MessageLogWrite(tss.user_cd, "000000","納品スケジュールの表示でエラーが発生しました。", "受注マスタと製品マスタの整合性が取れていない可能性があります。受注コード " + w_dt_juchu_m.Rows[0]["torihikisaki_cd"].ToString() + "-" + w_dt_juchu_m.Rows[0]["juchu_cd2"].ToString() + "-" + w_dt_juchu_m.Rows[0]["juchu_cd2"].ToString() + " 製品コード " + w_dt_juchu_m.Rows[0]["seihin_cd"] + " を確認してください。");
                     this.Close();
                 }
-                //w_dt_scheduleの中から同じ受注を探す
-                w_int_gyou = 0; //見つけた行
-                w_gyou_find = false;    //見つけたらtrue
-                for(int i = 0;i <= w_dt_schedule.Rows.Count - 1;i++)
+                //集計区分の判定
+                int w_syubetu_flg = 1;  //区分が一致した場合はフラグを１にして、抽出レコードに含める
+                int w_bunrui_flg = 1;  //区分が一致した場合はフラグを１にして、抽出レコードに含める
+                int w_sijou_flg = 1;  //区分が一致した場合はフラグを１にして、抽出レコードに含める
+                int w_type_flg = 1;  //区分が一致した場合はフラグを１にして、抽出レコードに含める
+                if(cb_syubetu_kbn.Checked == true)
                 {
-                    if(w_dt_schedule.Rows[i]["torihikisaki_cd"].ToString() == dr["torihikisaki_cd"].ToString() && w_dt_schedule.Rows[i]["juchu_cd1"].ToString() == dr["juchu_cd1"].ToString() && w_dt_schedule.Rows[i]["juchu_cd2"].ToString() == dr["juchu_cd2"].ToString())
+                    if (tb_syubetu_kbn.Text.ToString() != w_dt_seihin_m.Rows[0]["syuukei_syubetu_kbn"].ToString())
                     {
-                        w_int_gyou = i;
-                        w_gyou_find = true;
-                        break;
+                        w_syubetu_flg = 0;
                     }
                 }
-                if(w_gyou_find)
+                if (cb_bunrui_kbn.Checked == true)
                 {
-                    //見つけたら日に足す
-                    if (DateTime.TryParse(dr["nouhin_yotei_date"].ToString(), out w_date))
+                    if (tb_bunrui_kbn.Text.ToString() != w_dt_seihin_m.Rows[0]["syuukei_bunrui_kbn"].ToString())
                     {
-                        //w_dt_scheduleの日の値をdoubleに変換
-                        double w_dou1 = new double();
-                        if (double.TryParse(w_dt_schedule.Rows[w_int_gyou][w_date.Day.ToString("00")].ToString(), out w_dou1))
-                        {
-                            //変換された場合は何もしない
-                        }
-                        else
-                        {
-                            //変換されなかったという事はnullだったんじゃないかな？
-                            w_dou1 = 0;
-                        }
-                        //納品マスタの納品数をdoubleに変換
-                        double w_dou2 = new double();
-                        if (double.TryParse(dr["nouhin_yotei_su"].ToString(), out w_dou2))
-                        {
-                            w_dt_schedule.Rows[w_int_gyou][w_date.Day.ToString("00")] = w_dou1 + w_dou2; 
-                        }
+                        w_bunrui_flg = 0;
                     }
                 }
-                else
+                if (cb_sijou_kbn.Checked == true)
                 {
-                    //見つけなかったら新規レコードを作成してから、日に足す
-                    //w_dt_scheduleにレコードを作成
-                    DateTime.TryParse(dr["nouhin_yotei_date"].ToString(), out w_date);
-                    w_dr_schedule = w_dt_schedule.NewRow();
-                    w_dr_schedule["torihikisaki_cd"] = dr["torihikisaki_cd"].ToString();
-                    w_dr_schedule["juchu_cd1"] = dr["juchu_cd1"].ToString();
-                    w_dr_schedule["juchu_cd2"] = dr["juchu_cd2"].ToString();
-                    w_dr_schedule["seihin_cd"] = w_dt_seihin_m.Rows[0]["seihin_cd"].ToString();
-                    w_dr_schedule["seihin_name"] = w_dt_seihin_m.Rows[0]["seihin_name"].ToString();
-                    w_dr_schedule["juchu_su"] = w_dt_juchu_m.Rows[0]["juchu_su"].ToString();
-                    w_dr_schedule[w_date.Day.ToString("00")] = dr["nouhin_yotei_su"].ToString();
-                    w_dt_schedule.Rows.Add(w_dr_schedule);
+                    if (tb_sijou_kbn.Text.ToString() != w_dt_seihin_m.Rows[0]["syuukei_sijou_kbn"].ToString())
+                    {
+                        w_sijou_flg = 0;
+                    }
+                }
+                if (cb_type_kbn.Checked == true)
+                {
+                    if (tb_type_kbn.Text.ToString() != w_dt_seihin_m.Rows[0]["syuukei_type_kbn"].ToString())
+                    {
+                        w_type_flg = 0;
+                    }
+                }
+
+                if(w_syubetu_flg == 1 && w_bunrui_flg == 1 && w_sijou_flg == 1 && w_type_flg == 1)
+                {
+                    //w_dt_scheduleの中から同じ受注を探す
+                    w_int_gyou = 0; //見つけた行
+                    w_gyou_find = false;    //見つけたらtrue
+                    for(int i = 0;i <= w_dt_schedule.Rows.Count - 1;i++)
+                    {
+                        if(w_dt_schedule.Rows[i]["torihikisaki_cd"].ToString() == dr["torihikisaki_cd"].ToString() && w_dt_schedule.Rows[i]["juchu_cd1"].ToString() == dr["juchu_cd1"].ToString() && w_dt_schedule.Rows[i]["juchu_cd2"].ToString() == dr["juchu_cd2"].ToString())
+                        {
+                            w_int_gyou = i;
+                            w_gyou_find = true;
+                            break;
+                        }
+                    }
+                    if(w_gyou_find)
+                    {
+                        //見つけたら日に足す
+                        if (DateTime.TryParse(dr["nouhin_yotei_date"].ToString(), out w_date))
+                        {
+                            //w_dt_scheduleの日の値をdoubleに変換
+                            double w_dou1 = new double();
+                            if (double.TryParse(w_dt_schedule.Rows[w_int_gyou][w_date.Day.ToString("00")].ToString(), out w_dou1))
+                            {
+                                //変換された場合は何もしない
+                            }
+                            else
+                            {
+                                //変換されなかったという事はnullだったんじゃないかな？
+                                w_dou1 = 0;
+                            }
+                            //納品マスタの納品数をdoubleに変換
+                            double w_dou2 = new double();
+                            if (double.TryParse(dr["nouhin_yotei_su"].ToString(), out w_dou2))
+                            {
+                                w_dt_schedule.Rows[w_int_gyou][w_date.Day.ToString("00")] = w_dou1 + w_dou2; 
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //見つけなかったら新規レコードを作成してから、日に足す
+                        //w_dt_scheduleにレコードを作成
+                        DateTime.TryParse(dr["nouhin_yotei_date"].ToString(), out w_date);
+                        w_dr_schedule = w_dt_schedule.NewRow();
+                        w_dr_schedule["torihikisaki_cd"] = dr["torihikisaki_cd"].ToString();
+                        w_dr_schedule["juchu_cd1"] = dr["juchu_cd1"].ToString();
+                        w_dr_schedule["juchu_cd2"] = dr["juchu_cd2"].ToString();
+                        w_dr_schedule["seihin_cd"] = w_dt_seihin_m.Rows[0]["seihin_cd"].ToString();
+                        w_dr_schedule["seihin_name"] = w_dt_seihin_m.Rows[0]["seihin_name"].ToString();
+                        w_dr_schedule["juchu_su"] = w_dt_juchu_m.Rows[0]["juchu_su"].ToString();
+                        w_dr_schedule["syuukei_syubetu_kbn"] = w_dt_seihin_m.Rows[0]["syuukei_syubetu_kbn"].ToString();
+                        w_dr_schedule["syuukei_bunrui_kbn"] = w_dt_seihin_m.Rows[0]["syuukei_bunrui_kbn"].ToString();
+                        w_dr_schedule["syuukei_sijou_kbn"] = w_dt_seihin_m.Rows[0]["syuukei_sijou_kbn"].ToString();
+                        w_dr_schedule["syuukei_type_kbn"] = w_dt_seihin_m.Rows[0]["syuukei_type_kbn"].ToString();
+                        w_dr_schedule[w_date.Day.ToString("00")] = dr["nouhin_yotei_su"].ToString();
+                        w_dt_schedule.Rows.Add(w_dr_schedule);
+                    }
                 }
             }
             list_disp(w_dt_schedule);
@@ -530,7 +580,23 @@ namespace TSS_SYSTEM
             //DataGridView1にユーザーが新しい行を追加できないようにする
             dgv_nouhin_schedule.AllowUserToAddRows = false;
 
-            dgv_nouhin_schedule.DataSource = in_dt;
+            //表示・印刷用にデータをソートしたdtを作成する
+            // dtのスキーマや制約をコピーしたDataTableを作成します。
+            DataTable w_dt_view = in_dt.Clone();
+            DataRow[] w_rows = in_dt.Select(null, "torihikisaki_cd,syuukei_syubetu_kbn,syuukei_bunrui_kbn,syuukei_sijou_kbn,syuukei_type_kbn");
+            foreach (DataRow row in w_rows)
+            {
+                DataRow addRow = w_dt_view.NewRow();
+                // カラム情報をコピーします。
+                addRow.ItemArray = row.ItemArray;
+                // DataTableに格納します。
+                w_dt_view.Rows.Add(addRow);
+            }
+
+            //データを表示
+            dgv_nouhin_schedule.DataSource = w_dt_view;
+            //dgv_nouhin_schedule.DataSource = in_dt;
+
             //DataGridViewのカラムヘッダーテキストを変更する
             dgv_nouhin_schedule.Columns[0].HeaderText = "取引先コード";
             dgv_nouhin_schedule.Columns[1].HeaderText = "受注コード1";
@@ -538,6 +604,10 @@ namespace TSS_SYSTEM
             dgv_nouhin_schedule.Columns[3].HeaderText = "製品コード";
             dgv_nouhin_schedule.Columns[4].HeaderText = "製品名";
             dgv_nouhin_schedule.Columns[5].HeaderText = "受注数";
+            dgv_nouhin_schedule.Columns[6].HeaderText = "種別区分";
+            dgv_nouhin_schedule.Columns[7].HeaderText = "分類区分";
+            dgv_nouhin_schedule.Columns[8].HeaderText = "市場区分";
+            dgv_nouhin_schedule.Columns[9].HeaderText = "タイプ区分";
         }
 
         private void rireki_disp(DataTable in_dt)
@@ -570,9 +640,8 @@ namespace TSS_SYSTEM
             w_dt_rireki.Columns.Add("torihikisaki_cd");
             w_dt_rireki.Columns.Add("juchu_cd1");
             w_dt_rireki.Columns.Add("juchu_cd2");
-            w_dt_rireki.Columns.Add("kousin_no");
+            w_dt_rireki.Columns.Add("kousin_no",Type.GetType("System.Double"));
             w_dt_rireki.Columns.Add("kousin_naiyou");
-
 
             DataTable w_dt = new DataTable();
             DataRow w_dr_rireki;
@@ -603,6 +672,58 @@ namespace TSS_SYSTEM
             dgv_nouhin_rireki.Columns[4].HeaderText = "更新内容";
         }
 
+        private bool input_check()
+        {
+            bool bl = true;
+
+            //空白の場合はOKとする
+            if (tb_torihikisaki_cd.Text != "")
+            {
+                if (chk_torihikisaki_cd() != true)
+                {
+                    MessageBox.Show("取引先コードに異常があります。");
+                    tb_torihikisaki_cd.Focus();
+                    bl = false;
+                }
+            }
+            if (cb_syubetu_kbn.Checked == true)
+            {
+                if (chk_syubetu_kbn() == false)
+                {
+                    MessageBox.Show("種別区分に異常があります。");
+                    tb_syubetu_kbn.Focus();
+                    bl = false;
+                }
+            }
+            if (cb_bunrui_kbn.Checked == true)
+            {
+                if (chk_bunrui_kbn() == false)
+                {
+                    MessageBox.Show("分類区分に異常があります。");
+                    tb_bunrui_kbn.Focus();
+                    bl = false;
+                }
+            }
+            if (cb_sijou_kbn.Checked == true)
+            {
+                if (chk_sijou_kbn() == false)
+                {
+                    MessageBox.Show("市場区分に異常があります。");
+                    tb_sijou_kbn.Focus();
+                    bl = false;
+                }
+            }
+            if (cb_type_kbn.Checked == true)
+            {
+                if (chk_type_kbn() == false)
+                {
+                    MessageBox.Show("タイプ区分に異常があります。");
+                    tb_type_kbn.Focus();
+                    bl = false;
+                }
+            }
+            return bl;
+        }
 
     }
 }
