@@ -238,7 +238,7 @@ namespace TSS_SYSTEM
 
         private void tb_sijou_kbn_Validating(object sender, CancelEventArgs e)
         {
-                        //市場区分が空白の場合はOKとする
+            //市場区分が空白の場合はOKとする
             if (tb_sijou_kbn.Text != "")
             {
                 if (chk_sijou_kbn() != true)
@@ -449,7 +449,7 @@ namespace TSS_SYSTEM
                     tss.GetUser();
                     MessageBox.Show("納品マスタと受注マスタの整合性に異常があります。処理を中止します。");
                     tss.ErrorLogWrite(tss.user_cd, "納品スケジュール参照", "表示ボタン押下後のOracleSelect");
-                    tss.MessageLogWrite(tss.user_cd,"納品スケジュールの表示でエラーが発生しました。","納品マスタと受注マスタの整合性が取れていない可能性があります。受注コード " + dr["torihikisaki_cd"].ToString() + "-" + dr["juchu_cd2"].ToString() + "-" + dr["juchu_cd2"].ToString() + " を確認してください。","000000");
+                    tss.MessageLogWrite(tss.user_cd,"000000","納品スケジュールの表示でエラーが発生しました。","納品マスタと受注マスタの整合性が取れていない可能性があります。受注コード " + dr["torihikisaki_cd"].ToString() + "-" + dr["juchu_cd2"].ToString() + "-" + dr["juchu_cd2"].ToString() + " を確認してください。");
                     this.Close();
                 }
                 //受注マスタから製品マスタをリンク
@@ -459,7 +459,7 @@ namespace TSS_SYSTEM
                     tss.GetUser();
                     MessageBox.Show("受注マスタと製品マスタの整合性に異常があります。処理を中止します。");
                     tss.ErrorLogWrite(tss.user_cd, "納品スケジュール参照", "表示ボタン押下後のOracleSelect");
-                    tss.MessageLogWrite(tss.user_cd, "納品スケジュールの表示でエラーが発生しました。", "受注マスタと製品マスタの整合性が取れていない可能性があります。受注コード " + w_dt_juchu_m.Rows[0]["torihikisaki_cd"].ToString() + "-" + w_dt_juchu_m.Rows[0]["juchu_cd2"].ToString() + "-" + w_dt_juchu_m.Rows[0]["juchu_cd2"].ToString() + " 製品コード " + w_dt_juchu_m.Rows[0]["seihin_cd"] + " を確認してください。", "000000");
+                    tss.MessageLogWrite(tss.user_cd, "000000","納品スケジュールの表示でエラーが発生しました。", "受注マスタと製品マスタの整合性が取れていない可能性があります。受注コード " + w_dt_juchu_m.Rows[0]["torihikisaki_cd"].ToString() + "-" + w_dt_juchu_m.Rows[0]["juchu_cd2"].ToString() + "-" + w_dt_juchu_m.Rows[0]["juchu_cd2"].ToString() + " 製品コード " + w_dt_juchu_m.Rows[0]["seihin_cd"] + " を確認してください。");
                     this.Close();
                 }
                 //集計区分の判定
@@ -495,7 +495,6 @@ namespace TSS_SYSTEM
                         w_type_flg = 0;
                     }
                 }
-
 
                 if(w_syubetu_flg == 1 && w_bunrui_flg == 1 && w_sijou_flg == 1 && w_type_flg == 1)
                 {
@@ -581,7 +580,6 @@ namespace TSS_SYSTEM
             //DataGridView1にユーザーが新しい行を追加できないようにする
             dgv_nouhin_schedule.AllowUserToAddRows = false;
 
-
             //表示・印刷用にデータをソートしたdtを作成する
             // dtのスキーマや制約をコピーしたDataTableを作成します。
             DataTable w_dt_view = in_dt.Clone();
@@ -644,7 +642,6 @@ namespace TSS_SYSTEM
             w_dt_rireki.Columns.Add("juchu_cd2");
             w_dt_rireki.Columns.Add("kousin_no",Type.GetType("System.Double"));
             w_dt_rireki.Columns.Add("kousin_naiyou");
-
 
             DataTable w_dt = new DataTable();
             DataRow w_dr_rireki;
