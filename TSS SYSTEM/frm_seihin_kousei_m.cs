@@ -182,7 +182,7 @@ namespace TSS_SYSTEM
                     MessageBox.Show("この部品コードは登録されていません。部品登録してください。");
                     dgv.Rows[i].Cells[2].Value = "";
                     dgv_seihin_kousei.Focus();
-                    dgv_seihin_kousei.CurrentCell = dgv_seihin_kousei[i, 2];
+                    //dgv_seihin_kousei.CurrentCell = dgv_seihin_kousei[i, 2];
                 }
                 else
                 {
@@ -322,7 +322,7 @@ namespace TSS_SYSTEM
             for (int i = 0; i < rc - 1; i++)
             {
      
-                //dt_work.Rows.Add();
+                dt_work.Rows.Add();
 
                 dt_work.Rows[i][0] = tb_seihin_cd.Text.ToString();
                 dt_work.Rows[i][1] = tb_seihin_kousei_no.Text.ToString();
@@ -377,11 +377,26 @@ namespace TSS_SYSTEM
             }
 
             
-            //tss.OracleDelete("delete * from TSS_SEIHIN_KOUSEI_M WHERE seihin_cd = '" + tb_seihin_cd.Text.ToString() + "' and seihin_kousei_no = '" + tb_seihin_kousei_no.Text.ToString() + "'");
+            tss.OracleDelete("delete from TSS_SEIHIN_KOUSEI_M WHERE seihin_cd = '" + tb_seihin_cd.Text.ToString() + "' and seihin_kousei_no = '" + tb_seihin_kousei_no.Text.ToString() + "'");
 
-
-
-
+            for (int i = 0; i < rc - 1 ; i++)
+            {
+                tss.OracleInsert("INSERT INTO tss_seihin_kousei_m (seihin_cd,seihin_kousei_no,seq,buhin_level,buhin_cd,oya_seq,oya_buhin_cd,siyou_su,gokan_buhin_cd,bikou,create_user_cd,create_datetime,update_user_cd,update_datetime)"
+                                   + " VALUES ('"
+                                   + dt_work.Rows[i][0].ToString() + "','"
+                                   + dt_work.Rows[i][1].ToString() + "','"
+                                   + dt_work.Rows[i][2].ToString() + "','"
+                                   + dt_work.Rows[i][3].ToString() + "','"
+                                   + dt_work.Rows[i][4].ToString() + "','"
+                                   + dt_work.Rows[i][5].ToString() + "','"
+                                   + dt_work.Rows[i][6].ToString() + "','"
+                                   + dt_work.Rows[i][7].ToString() + "','"
+                                   + dt_work.Rows[i][8].ToString() + "','"
+                                   + dt_work.Rows[i][9].ToString() + "','"
+                                   + dt_work.Rows[i][10].ToString() + "',"
+                                   + "to_date('" + dt_work.Rows[i][11].ToString() + "','YYYY/MM/DD HH24:MI:SS'),'"
+                                   + tss.user_cd + "',SYSDATE)");
+            }
         }
 
     }
