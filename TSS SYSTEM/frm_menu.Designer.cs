@@ -80,6 +80,7 @@
             this.btn_mst_table = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
+            this.btn_eigyou_calender = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -609,6 +610,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.btn_eigyou_calender);
             this.tabPage6.Controls.Add(this.btn_seihin_kousei_m);
             this.tabPage6.Controls.Add(this.btn_seihin_kensaku);
             this.tabPage6.Controls.Add(this.btn_torihikisaki_kensaku);
@@ -757,6 +759,16 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
+            // btn_eigyou_calender
+            // 
+            this.btn_eigyou_calender.Location = new System.Drawing.Point(8, 134);
+            this.btn_eigyou_calender.Name = "btn_eigyou_calender";
+            this.btn_eigyou_calender.Size = new System.Drawing.Size(211, 23);
+            this.btn_eigyou_calender.TabIndex = 11;
+            this.btn_eigyou_calender.Text = "営業カレンダー";
+            this.btn_eigyou_calender.UseVisualStyleBackColor = true;
+            this.btn_eigyou_calender.Click += new System.EventHandler(this.btn_eigyou_calender_Click);
+            // 
             // frm_menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -882,6 +894,7 @@
         private System.Windows.Forms.Button btn_nyuko;
         private System.Windows.Forms.Button btn_message_log;
         private System.Windows.Forms.Button btn_seihin_kousei_m;
+        private System.Windows.Forms.Button btn_eigyou_calender;
     }
 }
 

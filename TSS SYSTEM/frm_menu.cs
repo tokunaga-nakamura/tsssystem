@@ -280,5 +280,12 @@ namespace TSS_SYSTEM
             frm_skm.ShowDialog(this);
             frm_skm.Dispose();
         }
+
+        private void btn_eigyou_calender_Click(object sender, EventArgs e)
+        {
+            frm_eigyou_calendar frm_skm = new frm_eigyou_calendar();
+            frm_skm.ShowDialog(this);
+            frm_skm.Dispose();
+        }
     }
 }
