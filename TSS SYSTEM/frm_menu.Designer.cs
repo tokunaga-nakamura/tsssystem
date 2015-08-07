@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_menu));
             this.ss_status = new System.Windows.Forms.StatusStrip();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btn_message_log = new System.Windows.Forms.Button();
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
@@ -66,6 +67,7 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.btn_seihin_kousei_m = new System.Windows.Forms.Button();
             this.btn_seihin_kensaku = new System.Windows.Forms.Button();
             this.btn_torihikisaki_kensaku = new System.Windows.Forms.Button();
             this.btn_buhin_kensaku = new System.Windows.Forms.Button();
@@ -76,9 +78,9 @@
             this.btn_kubun_m = new System.Windows.Forms.Button();
             this.btn_kubun_meisyou_m = new System.Windows.Forms.Button();
             this.btn_mst_table = new System.Windows.Forms.Button();
-            this.btn_message_log = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -157,6 +159,18 @@
             this.splitContainer1.Size = new System.Drawing.Size(894, 572);
             this.splitContainer1.SplitterDistance = 60;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // btn_message_log
+            // 
+            this.btn_message_log.BackColor = System.Drawing.Color.Orange;
+            this.btn_message_log.Location = new System.Drawing.Point(603, 3);
+            this.btn_message_log.Name = "btn_message_log";
+            this.btn_message_log.Size = new System.Drawing.Size(284, 23);
+            this.btn_message_log.TabIndex = 0;
+            this.btn_message_log.Text = "システムメッセージが届いています";
+            this.btn_message_log.UseVisualStyleBackColor = false;
+            this.btn_message_log.Visible = false;
+            this.btn_message_log.Click += new System.EventHandler(this.btn_message_log_Click);
             // 
             // btn_hardcopy
             // 
@@ -596,6 +610,8 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.button4);
+            this.tabPage6.Controls.Add(this.btn_seihin_kousei_m);
             this.tabPage6.Controls.Add(this.btn_seihin_kensaku);
             this.tabPage6.Controls.Add(this.btn_torihikisaki_kensaku);
             this.tabPage6.Controls.Add(this.btn_buhin_kensaku);
@@ -612,6 +628,16 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "システム保守";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // btn_seihin_kousei_m
+            // 
+            this.btn_seihin_kousei_m.Location = new System.Drawing.Point(225, 76);
+            this.btn_seihin_kousei_m.Name = "btn_seihin_kousei_m";
+            this.btn_seihin_kousei_m.Size = new System.Drawing.Size(211, 23);
+            this.btn_seihin_kousei_m.TabIndex = 10;
+            this.btn_seihin_kousei_m.Text = "製品構成マスタ";
+            this.btn_seihin_kousei_m.UseVisualStyleBackColor = true;
+            this.btn_seihin_kousei_m.Click += new System.EventHandler(this.btn_seihin_kousei_m_Click);
             // 
             // btn_seihin_kensaku
             // 
@@ -713,18 +739,6 @@
             this.btn_mst_table.UseVisualStyleBackColor = true;
             this.btn_mst_table.Click += new System.EventHandler(this.btn_mst_table_Click);
             // 
-            // btn_message_log
-            // 
-            this.btn_message_log.BackColor = System.Drawing.Color.Orange;
-            this.btn_message_log.Location = new System.Drawing.Point(603, 3);
-            this.btn_message_log.Name = "btn_message_log";
-            this.btn_message_log.Size = new System.Drawing.Size(284, 23);
-            this.btn_message_log.TabIndex = 0;
-            this.btn_message_log.Text = "システムメッセージが届いています";
-            this.btn_message_log.UseVisualStyleBackColor = false;
-            this.btn_message_log.Visible = false;
-            this.btn_message_log.Click += new System.EventHandler(this.btn_message_log_Click);
-            // 
             // btn_logout
             // 
             this.btn_logout.Location = new System.Drawing.Point(710, 3);
@@ -744,6 +758,15 @@
             this.btn_syuuryou.Text = "終了";
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(383, 322);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(211, 23);
+            this.button4.TabIndex = 11;
+            this.button4.Text = "取引先マスタ";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // frm_menu
             // 
@@ -869,6 +892,8 @@
         private System.Windows.Forms.Button btn_syukko;
         private System.Windows.Forms.Button btn_nyuko;
         private System.Windows.Forms.Button btn_message_log;
+        private System.Windows.Forms.Button btn_seihin_kousei_m;
+        private System.Windows.Forms.Button button4;
     }
 }
 

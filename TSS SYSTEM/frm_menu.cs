@@ -273,5 +273,12 @@ namespace TSS_SYSTEM
             frm_ml.ShowDialog(this);
             frm_ml.Dispose();
         }
+
+        private void btn_seihin_kousei_m_Click(object sender, EventArgs e)
+        {
+            frm_seihin_kousei_m frm_skm = new frm_seihin_kousei_m();
+            frm_skm.ShowDialog(this);
+            frm_skm.Dispose();
+        }
     }
 }
