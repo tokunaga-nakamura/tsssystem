@@ -60,6 +60,9 @@
             this.btn_nouhin_schedule = new System.Windows.Forms.Button();
             this.btn_juchuu_nyuuryoku = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btn_idou = new System.Windows.Forms.Button();
+            this.btn_syukko = new System.Windows.Forms.Button();
+            this.btn_nyuko = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
@@ -75,9 +78,8 @@
             this.btn_mst_table = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.btn_idou = new System.Windows.Forms.Button();
-            this.btn_syukko = new System.Windows.Forms.Button();
-            this.btn_nyuko = new System.Windows.Forms.Button();
+            this.btn_rireki = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -533,6 +535,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btn_rireki);
             this.tabPage3.Controls.Add(this.btn_idou);
             this.tabPage3.Controls.Add(this.btn_syukko);
             this.tabPage3.Controls.Add(this.btn_nyuko);
@@ -543,6 +546,36 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "部品処理";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btn_idou
+            // 
+            this.btn_idou.Location = new System.Drawing.Point(8, 64);
+            this.btn_idou.Name = "btn_idou";
+            this.btn_idou.Size = new System.Drawing.Size(180, 23);
+            this.btn_idou.TabIndex = 6;
+            this.btn_idou.Text = "移動処理";
+            this.btn_idou.UseVisualStyleBackColor = true;
+            this.btn_idou.Click += new System.EventHandler(this.btn_idou_Click);
+            // 
+            // btn_syukko
+            // 
+            this.btn_syukko.Location = new System.Drawing.Point(8, 35);
+            this.btn_syukko.Name = "btn_syukko";
+            this.btn_syukko.Size = new System.Drawing.Size(180, 23);
+            this.btn_syukko.TabIndex = 5;
+            this.btn_syukko.Text = "出庫処理";
+            this.btn_syukko.UseVisualStyleBackColor = true;
+            this.btn_syukko.Click += new System.EventHandler(this.btn_syukko_Click);
+            // 
+            // btn_nyuko
+            // 
+            this.btn_nyuko.Location = new System.Drawing.Point(8, 6);
+            this.btn_nyuko.Name = "btn_nyuko";
+            this.btn_nyuko.Size = new System.Drawing.Size(180, 23);
+            this.btn_nyuko.TabIndex = 4;
+            this.btn_nyuko.Text = "入庫処理";
+            this.btn_nyuko.UseVisualStyleBackColor = true;
+            this.btn_nyuko.Click += new System.EventHandler(this.btn_nyuko_Click);
             // 
             // tabPage4
             // 
@@ -564,6 +597,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.button4);
             this.tabPage6.Controls.Add(this.btn_seihin_kensaku);
             this.tabPage6.Controls.Add(this.btn_torihikisaki_kensaku);
             this.tabPage6.Controls.Add(this.btn_buhin_kensaku);
@@ -701,35 +735,24 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
-            // btn_idou
+            // btn_rireki
             // 
-            this.btn_idou.Location = new System.Drawing.Point(8, 64);
-            this.btn_idou.Name = "btn_idou";
-            this.btn_idou.Size = new System.Drawing.Size(180, 23);
-            this.btn_idou.TabIndex = 6;
-            this.btn_idou.Text = "移動処理";
-            this.btn_idou.UseVisualStyleBackColor = true;
-            this.btn_idou.Click += new System.EventHandler(this.btn_idou_Click);
+            this.btn_rireki.Location = new System.Drawing.Point(224, 6);
+            this.btn_rireki.Name = "btn_rireki";
+            this.btn_rireki.Size = new System.Drawing.Size(180, 23);
+            this.btn_rireki.TabIndex = 7;
+            this.btn_rireki.Text = "入出庫移動履歴";
+            this.btn_rireki.UseVisualStyleBackColor = true;
             // 
-            // btn_syukko
+            // button4
             // 
-            this.btn_syukko.Location = new System.Drawing.Point(8, 35);
-            this.btn_syukko.Name = "btn_syukko";
-            this.btn_syukko.Size = new System.Drawing.Size(180, 23);
-            this.btn_syukko.TabIndex = 5;
-            this.btn_syukko.Text = "出庫処理";
-            this.btn_syukko.UseVisualStyleBackColor = true;
-            this.btn_syukko.Click += new System.EventHandler(this.btn_syukko_Click);
-            // 
-            // btn_nyuko
-            // 
-            this.btn_nyuko.Location = new System.Drawing.Point(8, 6);
-            this.btn_nyuko.Name = "btn_nyuko";
-            this.btn_nyuko.Size = new System.Drawing.Size(180, 23);
-            this.btn_nyuko.TabIndex = 4;
-            this.btn_nyuko.Text = "入庫処理";
-            this.btn_nyuko.UseVisualStyleBackColor = true;
-            this.btn_nyuko.Click += new System.EventHandler(this.btn_nyuko_Click);
+            this.button4.Location = new System.Drawing.Point(225, 76);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(211, 23);
+            this.button4.TabIndex = 10;
+            this.button4.Text = "製品構成マスタ";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // frm_menu
             // 
@@ -854,6 +877,8 @@
         private System.Windows.Forms.Button btn_idou;
         private System.Windows.Forms.Button btn_syukko;
         private System.Windows.Forms.Button btn_nyuko;
+        private System.Windows.Forms.Button btn_rireki;
+        private System.Windows.Forms.Button button4;
     }
 }
 

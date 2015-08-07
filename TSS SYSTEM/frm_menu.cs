@@ -232,5 +232,13 @@ namespace TSS_SYSTEM
             frm_bi.ShowDialog(this);
             frm_bi.Dispose();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //移動画面へ
+            frm_seihin_kousei_m frm_sk = new frm_seihin_kousei_m();
+            frm_sk.ShowDialog(this);
+            frm_sk.Dispose();
+        }
     }
 }
