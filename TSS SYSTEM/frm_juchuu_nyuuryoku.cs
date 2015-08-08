@@ -192,6 +192,7 @@ namespace TSS_SYSTEM
             //納品スケジュールの表示
             //新規の場合でも追加入力できるように、行列のヘッダーが必要（nullではダメ）
             w_dt_nouhin_schedule = tss.OracleSelect("select nouhin_yotei_date,nouhin_bin,nouhin_yotei_su,nouhin_tantou_cd,bikou,kannou_flg,delete_flg from tss_nouhin_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "' and juchu_cd1 = '" + tb_juchu_cd1.Text.ToString() + "' and juchu_cd2 = '" + tb_juchu_cd2.Text.ToString() + "' order by nouhin_yotei_date asc,nouhin_bin asc");
+            dgv_nounyuu_schedule.DataSource = null;
             dgv_nounyuu_schedule.DataSource = w_dt_nouhin_schedule;
             //編集可能にする
             //dgv_nounyuu_schedule.ReadOnly = false;
@@ -245,6 +246,7 @@ namespace TSS_SYSTEM
             //更新履歴の表示
             DataTable w_dt_kousin_rireki = new DataTable();
             w_dt_kousin_rireki = tss.OracleSelect("select kousin_no,kousin_naiyou,create_user_cd,create_datetime from tss_juchu_rireki_f where torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "' and juchu_cd1 = '" + tb_juchu_cd1.Text.ToString() + "' and juchu_cd2 = '" + tb_juchu_cd2.Text.ToString() + "' order by kousin_no asc");
+            dgv_kousin_rireki.DataSource = null;
             dgv_kousin_rireki.DataSource = w_dt_kousin_rireki;
             //行ヘッダーを非表示にする
             dgv_kousin_rireki.RowHeadersVisible = false;
@@ -569,7 +571,7 @@ namespace TSS_SYSTEM
                 else
                 {
                     MessageBox.Show("納品日が未入力または日付として認識できない値です。");
-                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[i, 0];
+                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[0,i];
                     bl = false;
                     return bl;
                 }
@@ -578,7 +580,7 @@ namespace TSS_SYSTEM
                 if (dgv_nounyuu_schedule.Rows[i].Cells[1].Value.ToString().Length == 0 || tss.StringByte(dgv_nounyuu_schedule.Rows[i].Cells[1].Value.ToString()) > 2)
                 {
                     MessageBox.Show("便は必須項目です。2バイト以内で入力してください。");
-                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[i, 1];
+                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[1,i];
                     bl = false;
                     return bl;
                 }
@@ -591,7 +593,7 @@ namespace TSS_SYSTEM
                     if (db > 9999999999.99 || db < -999999999.99)
                     {
                         MessageBox.Show("納品数は0から9999999999.99の範囲で入力してください。");
-                        dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[i, 2];
+                        dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[2,i];
                         bl = false;
                         return bl;
                     }
@@ -599,7 +601,7 @@ namespace TSS_SYSTEM
                 else
                 {
                     MessageBox.Show("納品数は0から9999999999.99の範囲で入力してください。");
-                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[i, 2];
+                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[2,i];
                     bl = false;
                     return bl;
                 }
@@ -608,7 +610,7 @@ namespace TSS_SYSTEM
                 if (tss.StringByte(dgv_nounyuu_schedule.Rows[i].Cells[3].Value.ToString()) > 6)
                 {
                     MessageBox.Show("納品担当者コードは6バイト以内で入力してください。");
-                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[i, 3];
+                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[3,i];
                     bl = false;
                     return bl;
                 }
@@ -618,7 +620,7 @@ namespace TSS_SYSTEM
                 {
                     //無し
                     MessageBox.Show("入力された納品担当者コードは存在しません。");
-                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[i, 3];
+                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[3,i];
                     bl = false;
                 }
 
@@ -626,7 +628,7 @@ namespace TSS_SYSTEM
                 if (tss.StringByte(dgv_nounyuu_schedule.Rows[i].Cells[4].Value.ToString()) > 128)
                 {
                     MessageBox.Show("備考は128バイト以内で入力してください。");
-                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[i, 4];
+                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[4,i];
                     bl = false;
                     return bl;
                 }

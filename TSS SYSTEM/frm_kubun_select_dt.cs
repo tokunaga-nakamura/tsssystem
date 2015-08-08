@@ -110,6 +110,7 @@ namespace TSS_SYSTEM
             //画面に引数の区分名を表示
             this.lbl_kubun_name.Text = ppt_str_kubun_name;
             //引数のデータテーブルを表示
+            dgv_kubun.DataSource = null;
             dgv_kubun.DataSource = ppt_dt_kubun;
             //DataGridViewのカラムヘッダーテキストを変更する
             //dgv_kubun.Columns[0].HeaderText = "区分コード";

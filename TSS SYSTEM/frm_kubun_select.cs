@@ -107,6 +107,7 @@ namespace TSS_SYSTEM
             this.tb_kubun_meisyou_name.Text = dt_work.Rows[0]["KUBUN_NAME"].ToString() ;
             //引数を基にデータを抽出して表示
             dt_kubun_m = tss.OracleSelect("select kubun_cd,kubun_name from tss_kubun_m where kubun_meisyou_cd = '" + tb_kubun_meisyou_cd.Text.ToString() + "' order by kubun_cd asc");
+            dgv_kubun_m.DataSource = null;
             dgv_kubun_m.DataSource = dt_kubun_m;
             //DataGridViewのカラムヘッダーテキストを変更する
             dgv_kubun_m.Columns[0].HeaderText = "区分コード";

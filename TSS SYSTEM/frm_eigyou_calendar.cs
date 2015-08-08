@@ -51,7 +51,36 @@ namespace TSS_SYSTEM
                     this.Close();
                 }
             }
+            //dgvにdtをバインド
+            dgv_calendar.DataSource = null;
+            dgv_calendar.Rows.Clear();
+            dgv_calendar.Columns.Clear();
             dgv_calendar.DataSource = w_dt_calendar;
+
+            //DataGridView1にユーザーが新しい行を追加できないようにする（最下行を非表示にする）
+            //rows.countに影響するので、先に設定する
+            dgv_calendar.AllowUserToAddRows = false;
+
+
+            //曜日表示用に列を追加
+            DataGridViewTextBoxColumn textColumn = new DataGridViewTextBoxColumn();
+            dgv_calendar.Columns.Insert(3,textColumn);
+            for (int i = 0; i < dgv_calendar.Rows.Count;i++)
+            {
+                int w_yyyy = int.Parse(dgv_calendar.Rows[i].Cells[0].Value.ToString());
+                int w_mm = int.Parse(dgv_calendar.Rows[i].Cells[1].Value.ToString());
+                int w_dd = int.Parse(dgv_calendar.Rows[i].Cells[2].Value.ToString());
+                DateTime youbi = new DateTime(w_yyyy,w_mm,w_dd,0,0,0);
+                dgv_calendar.Rows[i].Cells[3].Value = youbi.ToString("ddd");
+                if (dgv_calendar.Rows[i].Cells[3].Value.ToString() == "土")
+                {
+                    dgv_calendar.Rows[i].DefaultCellStyle.BackColor = Color.LightBlue;
+                }
+                if (dgv_calendar.Rows[i].Cells[3].Value.ToString() == "日")
+                {
+                    dgv_calendar.Rows[i].DefaultCellStyle.BackColor = Color.Pink;
+                }
+            }
 
             //セルの高さ変更不可
             dgv_calendar.AllowUserToResizeRows = false;
@@ -65,55 +94,62 @@ namespace TSS_SYSTEM
             //行ヘッダーを非表示にする
             dgv_calendar.RowHeadersVisible = false;
 
-            //DataGridView1にユーザーが新しい行を追加できないようにする（最下行を非表示にする）
-            dgv_calendar.AllowUserToAddRows = false;
 
             //DataGridViewのカラムヘッダーテキストを変更する
             dgv_calendar.Columns[0].HeaderText = "年";
             dgv_calendar.Columns[1].HeaderText = "月";
             dgv_calendar.Columns[2].HeaderText = "日";
-            dgv_calendar.Columns[3].HeaderText = "祝祭日名称";
-            dgv_calendar.Columns[4].HeaderText = "営業区分";
-            dgv_calendar.Columns[5].HeaderText = "営業開始時刻";
-            dgv_calendar.Columns[6].HeaderText = "営業終了時刻";
-            dgv_calendar.Columns[7].HeaderText = "内容";
-            dgv_calendar.Columns[8].HeaderText = "作成者コード";
-            dgv_calendar.Columns[9].HeaderText = "作成日時";
-            dgv_calendar.Columns[10].HeaderText = "更新者コード";
-            dgv_calendar.Columns[11].HeaderText = "更新日時";
+            dgv_calendar.Columns[3].HeaderText = "曜日";
+            dgv_calendar.Columns[4].HeaderText = "祝祭日名称";
+            dgv_calendar.Columns[5].HeaderText = "営業区分";
+            dgv_calendar.Columns[6].HeaderText = "営業開始時刻";
+            dgv_calendar.Columns[7].HeaderText = "営業終了時刻";
+            dgv_calendar.Columns[8].HeaderText = "内容";
+            dgv_calendar.Columns[9].HeaderText = "作成者コード";
+            dgv_calendar.Columns[10].HeaderText = "作成日時";
+            dgv_calendar.Columns[11].HeaderText = "更新者コード";
+            dgv_calendar.Columns[12].HeaderText = "更新日時";
 
             //列を編集不可にする
             dgv_calendar.Columns[0].ReadOnly = true;
             dgv_calendar.Columns[1].ReadOnly = true;
             dgv_calendar.Columns[2].ReadOnly = true;
-            dgv_calendar.Columns[8].ReadOnly = true;
+            dgv_calendar.Columns[3].ReadOnly = true;
             dgv_calendar.Columns[9].ReadOnly = true;
             dgv_calendar.Columns[10].ReadOnly = true;
             dgv_calendar.Columns[11].ReadOnly = true;
+            dgv_calendar.Columns[12].ReadOnly = true;
 
             //入力不可項目の列をグレーにする
             dgv_calendar.Columns[0].DefaultCellStyle.BackColor = Color.Gainsboro;
             dgv_calendar.Columns[1].DefaultCellStyle.BackColor = Color.Gainsboro;
             dgv_calendar.Columns[2].DefaultCellStyle.BackColor = Color.Gainsboro;
-            dgv_calendar.Columns[8].DefaultCellStyle.BackColor = Color.Gainsboro;
+            dgv_calendar.Columns[3].DefaultCellStyle.BackColor = Color.Gainsboro;
             dgv_calendar.Columns[9].DefaultCellStyle.BackColor = Color.Gainsboro;
             dgv_calendar.Columns[10].DefaultCellStyle.BackColor = Color.Gainsboro;
             dgv_calendar.Columns[11].DefaultCellStyle.BackColor = Color.Gainsboro;
+            dgv_calendar.Columns[12].DefaultCellStyle.BackColor = Color.Gainsboro;
 
             //列の文字数制限（TextBoxのMaxLengthと同じ動作になる）
-            ((DataGridViewTextBoxColumn)dgv_calendar.Columns[3]).MaxInputLength = 1;    //祝祭日名称
-            ((DataGridViewTextBoxColumn)dgv_calendar.Columns[4]).MaxInputLength = 1;    //営業区分
-            ((DataGridViewTextBoxColumn)dgv_calendar.Columns[7]).MaxInputLength = 1;    //内容
+            ((DataGridViewTextBoxColumn)dgv_calendar.Columns[4]).MaxInputLength = 32;    //祝祭日名称
+            ((DataGridViewTextBoxColumn)dgv_calendar.Columns[5]).MaxInputLength = 1;    //営業区分
+            ((DataGridViewTextBoxColumn)dgv_calendar.Columns[8]).MaxInputLength = 32;    //内容
 
             //指定列を非表示にする
-            dgv_calendar.Columns[0].Visible = false;
-            dgv_calendar.Columns[1].Visible = false;
-            dgv_calendar.Columns[5].Visible = false;
+            //dgv_calendar.Columns[0].Visible = false;
+            //dgv_calendar.Columns[1].Visible = false;
             dgv_calendar.Columns[6].Visible = false;
-            dgv_calendar.Columns[8].Visible = false;
+            dgv_calendar.Columns[7].Visible = false;
             dgv_calendar.Columns[9].Visible = false;
             dgv_calendar.Columns[10].Visible = false;
             dgv_calendar.Columns[11].Visible = false;
+            dgv_calendar.Columns[12].Visible = false;
+
+            //列の幅を最適幅にする
+            dgv_calendar.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgv_calendar.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgv_calendar.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgv_calendar.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
 
 
@@ -133,6 +169,9 @@ namespace TSS_SYSTEM
 
         private void get_calendar()
         {
+            w_dt_calendar.Rows.Clear();
+            w_dt_calendar.Columns.Clear();
+            w_dt_calendar.Clear();
             w_dt_calendar = tss.OracleSelect("select * from tss_calendar_f where calendar_year = '" + nud_year.Value.ToString() + "' and calendar_month = '" + nud_month.Value.ToString("00") + "'");
         }
 
@@ -148,8 +187,10 @@ namespace TSS_SYSTEM
             {
                 return;
             }
-
-
+            if(touroku_write() != false)
+            {
+                MessageBox.Show("登録しました。");
+            }
 
         }
 
@@ -159,17 +200,35 @@ namespace TSS_SYSTEM
 
             for (int i = 0; i <= dgv_calendar.Rows.Count - 1;i++)
             {
-                if(dgv_calendar.Rows[i].Cells[4].Value.ToString().Length != 0 && dgv_calendar.Rows[i].Cells[4].Value.ToString() != "1" && dgv_calendar.Rows[i].Cells[4].Value.ToString() != "2")
+                if(dgv_calendar.Rows[i].Cells[5].Value.ToString().Length != 0 && dgv_calendar.Rows[i].Cells[5].Value.ToString() != "1" && dgv_calendar.Rows[i].Cells[5].Value.ToString() != "2")
                 {
                     MessageBox.Show("営業区分に異常があります。");
                     bl = false;
                     //dgvのカレントセルをエラーのセルにする
-                    dgv_calendar.CurrentCell = dgv_calendar[4,i];
+                    dgv_calendar.CurrentCell = dgv_calendar[5,i];
                     break;
                 }
             }
             return bl;
         }
+        private bool touroku_write()
+        {
+            tss.GetUser();
+            bool bl = true; //戻り値用
+            for (int i = 0; i <= dgv_calendar.Rows.Count - 1; i++)
+            {
+                if (tss.OracleUpdate("update tss_calendar_f set syukujitu_mei = '" + dgv_calendar.Rows[i].Cells[4].Value.ToString() + "',eigyou_kbn = '" + dgv_calendar.Rows[i].Cells[5].Value.ToString() + "',naiyou = '" + dgv_calendar.Rows[i].Cells[8].Value.ToString() + "',update_user_cd = '" + tss.user_cd + "',update_datetime = sysdate where calendar_year = '" + dgv_calendar.Rows[i].Cells[0].Value.ToString() + "' and calendar_month = '" + dgv_calendar.Rows[i].Cells[1].Value + "' and calendar_day = '" + dgv_calendar.Rows[i].Cells[2].Value + "'") == false)
+                {
+                    MessageBox.Show("書き込み中にエラーが発生しました。処理を中止します。");
+                    bl = false;
+                    break;
+                }
+            }
+            return bl;
+        }
+
+
+
 
 
 

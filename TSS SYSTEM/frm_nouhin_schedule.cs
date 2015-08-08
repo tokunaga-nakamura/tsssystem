@@ -57,6 +57,10 @@ namespace TSS_SYSTEM
                     tb_torihikisaki_name.Text = get_torihikisaki_name(tb_torihikisaki_cd.Text);
                 }
             }
+            else
+            {
+                tb_torihikisaki_name.Text = "";
+            }
         }
 
 
@@ -432,6 +436,7 @@ namespace TSS_SYSTEM
             w_dt_schedule.Columns.Add("29");
             w_dt_schedule.Columns.Add("30");
             w_dt_schedule.Columns.Add("31");
+            w_dt_schedule.Columns.Add("bikou");
 
             //行追加
             DataTable w_dt_juchu_m = new DataTable();
@@ -551,6 +556,7 @@ namespace TSS_SYSTEM
                         w_dr_schedule["syuukei_sijou_kbn"] = w_dt_seihin_m.Rows[0]["syuukei_sijou_kbn"].ToString();
                         w_dr_schedule["syuukei_type_kbn"] = w_dt_seihin_m.Rows[0]["syuukei_type_kbn"].ToString();
                         w_dr_schedule[w_date.Day.ToString("00")] = dr["nouhin_yotei_su"].ToString();
+                        w_dr_schedule["bikou"] = w_dt_juchu_m.Rows[0]["bikou"].ToString();
                         w_dt_schedule.Rows.Add(w_dr_schedule);
                     }
                 }
@@ -594,6 +600,7 @@ namespace TSS_SYSTEM
             }
 
             //データを表示
+            dgv_nouhin_schedule.DataSource = null;
             dgv_nouhin_schedule.DataSource = w_dt_view;
             //dgv_nouhin_schedule.DataSource = in_dt;
 
@@ -608,6 +615,19 @@ namespace TSS_SYSTEM
             dgv_nouhin_schedule.Columns[7].HeaderText = "分類区分";
             dgv_nouhin_schedule.Columns[8].HeaderText = "市場区分";
             dgv_nouhin_schedule.Columns[9].HeaderText = "タイプ区分";
+            dgv_nouhin_schedule.Columns[41].HeaderText = "備考";
+
+            //休日をグレーにする
+            DataTable w_dt_youbi = new DataTable();
+            w_dt_youbi = tss.OracleSelect("select * from tss_calendar_f where calendar_year = '" + nud_year.Value.ToString("0000") + "' and calendar_month = '" + nud_month.Value.ToString("00") + "'");
+            foreach (DataRow dr in w_dt_youbi.Rows)
+            {
+                if (dr["eigyou_kbn"].ToString() == "1")
+                {
+                    dgv_nouhin_schedule.Columns[dr["calendar_day"].ToString()].DefaultCellStyle.BackColor = Color.Pink;
+                    dgv_nouhin_schedule.Columns[dr["calendar_day"].ToString()].HeaderCell.Style.BackColor = Color.Pink;
+                }
+            }
         }
 
         private void rireki_disp(DataTable in_dt)
@@ -663,6 +683,7 @@ namespace TSS_SYSTEM
                     }
                 }
             }
+            dgv_nouhin_rireki.DataSource = null;
             dgv_nouhin_rireki.DataSource = w_dt_rireki;
             //DataGridViewのカラムヘッダーテキストを変更する
             dgv_nouhin_rireki.Columns[0].HeaderText = "取引先コード";
@@ -670,6 +691,14 @@ namespace TSS_SYSTEM
             dgv_nouhin_rireki.Columns[2].HeaderText = "受注コード2";
             dgv_nouhin_rireki.Columns[3].HeaderText = "更新No";
             dgv_nouhin_rireki.Columns[4].HeaderText = "更新内容";
+
+            //dgvをソートする
+            //dgvにバインドされているDataTableを取得
+            DataTable w_dt_sort = (DataTable)dgv_nouhin_rireki.DataSource;
+            //DataViewを取得
+            DataView dv = w_dt_sort.DefaultView;
+            //Column1とColumn2で昇順に並び替える
+            dv.Sort = "kousin_no DESC";
         }
 
         private bool input_check()

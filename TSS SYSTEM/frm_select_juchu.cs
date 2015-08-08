@@ -152,6 +152,7 @@ namespace TSS_SYSTEM
             //画面に引数の区分名を表示
             this.lbl_name.Text = ppt_str_name;
             //引数のデータテーブルを表示
+            dgv_m.DataSource = null;
             dgv_m.DataSource = ppt_dt_m;
             //DataGridViewのカラムヘッダーテキストを変更する
             dgv_m.Columns[0].HeaderText = "取引先コード";
