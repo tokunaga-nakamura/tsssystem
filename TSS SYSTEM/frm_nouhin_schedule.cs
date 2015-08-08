@@ -433,6 +433,8 @@ namespace TSS_SYSTEM
             w_dt_schedule.Columns.Add("30");
             w_dt_schedule.Columns.Add("31");
 
+
+
             //行追加
             DataTable w_dt_juchu_m = new DataTable();
             DataTable w_dt_seihin_m = new DataTable();
@@ -608,6 +610,18 @@ namespace TSS_SYSTEM
             dgv_nouhin_schedule.Columns[7].HeaderText = "分類区分";
             dgv_nouhin_schedule.Columns[8].HeaderText = "市場区分";
             dgv_nouhin_schedule.Columns[9].HeaderText = "タイプ区分";
+
+            //休日をグレーにする
+            DataTable w_dt_youbi = new DataTable();
+            w_dt_youbi = tss.OracleSelect("select * from tss_calendar_f where calendar_year = '" + nud_year.Value.ToString("0000") + "' and calendar_month = '" + nud_month.Value.ToString("00") + "'");
+            foreach (DataRow dr in w_dt_youbi.Rows)
+            {
+                if (dr["eigyou_kbn"].ToString() == "1")
+                {
+                    dgv_nouhin_schedule.Columns[dr["calendar_day"].ToString()].DefaultCellStyle.BackColor = Color.Pink;
+                    dgv_nouhin_schedule.Columns[dr["calendar_day"].ToString()].HeaderCell.Style.BackColor = Color.Pink;
+                }
+            }
         }
 
         private void rireki_disp(DataTable in_dt)

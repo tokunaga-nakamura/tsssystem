@@ -34,6 +34,7 @@
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.btn_hyouji = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.nud_month = new System.Windows.Forms.NumericUpDown();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -41,7 +42,7 @@
             this.dgv_calendar = new System.Windows.Forms.DataGridView();
             this.btn_touroku = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.btn_hyouji = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -79,6 +80,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.btn_hardcopy);
             // 
             // splitContainer1.Panel2
@@ -145,6 +147,16 @@
             this.splitContainer3.SplitterDistance = 28;
             this.splitContainer3.TabIndex = 0;
             this.splitContainer3.TabStop = false;
+            // 
+            // btn_hyouji
+            // 
+            this.btn_hyouji.Location = new System.Drawing.Point(162, 1);
+            this.btn_hyouji.Name = "btn_hyouji";
+            this.btn_hyouji.Size = new System.Drawing.Size(75, 23);
+            this.btn_hyouji.TabIndex = 4;
+            this.btn_hyouji.Text = "表示";
+            this.btn_hyouji.UseVisualStyleBackColor = true;
+            this.btn_hyouji.Click += new System.EventHandler(this.btn_hyouji_Click);
             // 
             // textBox2
             // 
@@ -242,15 +254,14 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
-            // btn_hyouji
+            // label1
             // 
-            this.btn_hyouji.Location = new System.Drawing.Point(162, 1);
-            this.btn_hyouji.Name = "btn_hyouji";
-            this.btn_hyouji.Size = new System.Drawing.Size(75, 23);
-            this.btn_hyouji.TabIndex = 4;
-            this.btn_hyouji.Text = "表示";
-            this.btn_hyouji.UseVisualStyleBackColor = true;
-            this.btn_hyouji.Click += new System.EventHandler(this.btn_hyouji_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(247, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(149, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "営業区分 1:休日 2:変則出勤";
             // 
             // frm_eigyou_calendar
             // 
@@ -264,6 +275,7 @@
             this.Text = "営業カレンダー";
             this.Load += new System.EventHandler(this.frm_eigyou_calender_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -299,5 +311,6 @@
         private System.Windows.Forms.DataGridView dgv_calendar;
         private System.Windows.Forms.Button btn_touroku;
         private System.Windows.Forms.Button btn_hyouji;
+        private System.Windows.Forms.Label label1;
     }
 }
