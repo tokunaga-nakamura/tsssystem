@@ -51,6 +51,7 @@ namespace TSS_SYSTEM
                 dt_kubun_m = null;
             }
             //区分マスタ表示
+            dgv_kubun_m.DataSource = null;
             dgv_kubun_m.DataSource = dt_kubun_m;
             //カラム名
             dgv_kubun_m.Columns[0].HeaderText = "区分名称コード";

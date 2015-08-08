@@ -260,6 +260,7 @@ namespace TSS_SYSTEM
             //DataGridView1にユーザーが新しい行を追加できないようにする
             dgv_m.AllowUserToAddRows = false;
 
+            dgv_m.DataSource = null;
             dgv_m.DataSource = in_dt;
             dt_m = in_dt;
             //DataGridViewのカラムヘッダーテキストを変更する

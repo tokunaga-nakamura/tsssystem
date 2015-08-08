@@ -421,6 +421,7 @@ namespace TSS_SYSTEM
         private void frm_torihikisaki_m_Load(object sender, EventArgs e)
          {
              tantousya_disp(tb_torihikisaki_cd.Text);
+             tb_torihikisaki_cd.Focus();
          }
 
 

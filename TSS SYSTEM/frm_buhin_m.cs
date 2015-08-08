@@ -171,6 +171,7 @@ namespace TSS_SYSTEM
 
         private void zaiko_disp(string in_cd)
         {
+            dgv_buhin_zaiko_m.DataSource = null;
             dgv_buhin_zaiko_m.DataSource = tss.OracleSelect("select zaiko_kbn,torihikisaki_cd,juchu_cd1,juchu_cd2,zaiko_su from tss_buhin_zaiko_m where buhin_cd = '" + in_cd.ToString() + "'");
             //行ヘッダーを非表示にする
             dgv_buhin_zaiko_m.RowHeadersVisible = false;
@@ -198,6 +199,7 @@ namespace TSS_SYSTEM
 
         private void rireki_disp(string in_cd)
         {
+            dgv_buhin_nyusyukko_m.DataSource = null;
             dgv_buhin_nyusyukko_m.DataSource = tss.OracleSelect("select buhin_syori_date,buhin_syori_kbn,zaiko_kbn,torihikisaki_cd,juchu_cd1,juchu_cd2,suryou,idousaki_zaiko_kbn,idousaki_torihikisaki_cd,idousaki_juchu_cd1,idousaki_juchu_cd2 from tss_buhin_nyusyukko_m where buhin_cd = '" + in_cd.ToString() + "' order by buhin_syori_date desc");
             //行ヘッダーを非表示にする
             dgv_buhin_nyusyukko_m.RowHeadersVisible = false;

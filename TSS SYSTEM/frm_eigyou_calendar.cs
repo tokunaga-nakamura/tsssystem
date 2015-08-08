@@ -52,12 +52,20 @@ namespace TSS_SYSTEM
                 }
             }
             //dgvにdtをバインド
+            dgv_calendar.DataSource = null;
+            dgv_calendar.Rows.Clear();
+            dgv_calendar.Columns.Clear();
             dgv_calendar.DataSource = w_dt_calendar;
+
+            //DataGridView1にユーザーが新しい行を追加できないようにする（最下行を非表示にする）
+            //rows.countに影響するので、先に設定する
+            dgv_calendar.AllowUserToAddRows = false;
+
 
             //曜日表示用に列を追加
             DataGridViewTextBoxColumn textColumn = new DataGridViewTextBoxColumn();
             dgv_calendar.Columns.Insert(3,textColumn);
-            for (int i = 0; i < dgv_calendar.Rows.Count - 1;i++)
+            for (int i = 0; i < dgv_calendar.Rows.Count;i++)
             {
                 int w_yyyy = int.Parse(dgv_calendar.Rows[i].Cells[0].Value.ToString());
                 int w_mm = int.Parse(dgv_calendar.Rows[i].Cells[1].Value.ToString());
@@ -86,8 +94,6 @@ namespace TSS_SYSTEM
             //行ヘッダーを非表示にする
             dgv_calendar.RowHeadersVisible = false;
 
-            //DataGridView1にユーザーが新しい行を追加できないようにする（最下行を非表示にする）
-            dgv_calendar.AllowUserToAddRows = false;
 
             //DataGridViewのカラムヘッダーテキストを変更する
             dgv_calendar.Columns[0].HeaderText = "年";
@@ -130,14 +136,20 @@ namespace TSS_SYSTEM
             ((DataGridViewTextBoxColumn)dgv_calendar.Columns[8]).MaxInputLength = 32;    //内容
 
             //指定列を非表示にする
-            dgv_calendar.Columns[0].Visible = false;
-            dgv_calendar.Columns[1].Visible = false;
+            //dgv_calendar.Columns[0].Visible = false;
+            //dgv_calendar.Columns[1].Visible = false;
             dgv_calendar.Columns[6].Visible = false;
             dgv_calendar.Columns[7].Visible = false;
             dgv_calendar.Columns[9].Visible = false;
             dgv_calendar.Columns[10].Visible = false;
             dgv_calendar.Columns[11].Visible = false;
             dgv_calendar.Columns[12].Visible = false;
+
+            //列の幅を最適幅にする
+            dgv_calendar.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgv_calendar.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgv_calendar.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgv_calendar.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
 
 
@@ -157,6 +169,9 @@ namespace TSS_SYSTEM
 
         private void get_calendar()
         {
+            w_dt_calendar.Rows.Clear();
+            w_dt_calendar.Columns.Clear();
+            w_dt_calendar.Clear();
             w_dt_calendar = tss.OracleSelect("select * from tss_calendar_f where calendar_year = '" + nud_year.Value.ToString() + "' and calendar_month = '" + nud_month.Value.ToString("00") + "'");
         }
 

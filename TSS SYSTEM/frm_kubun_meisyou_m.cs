@@ -104,6 +104,7 @@ namespace TSS_SYSTEM
         private void kubun_meisyou_m_disp()
         {
             dt = tss.OracleSelect("select * from TSS_KUBUN_MEISYOU_M order by kubun_meisyou_cd asc");
+            dgv_kubun.DataSource = null;
             dgv_kubun.DataSource = dt;
             dgv_kubun.Columns[0].HeaderText = "区分名称コード";
             dgv_kubun.Columns[1].HeaderText = "区分名称";

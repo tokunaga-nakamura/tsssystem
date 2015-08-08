@@ -67,6 +67,7 @@ namespace TSS_SYSTEM
                 cb = new OracleCommandBuilder(da);
                 das = new DataSet();
                 da.Fill(dt);
+                dgv_table.DataSource = null;
                 dgv_table.DataSource = dt;
             }
             catch

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_torihikisaki_m));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -163,6 +163,7 @@
             this.btn_hardcopy.Name = "btn_hardcopy";
             this.btn_hardcopy.Size = new System.Drawing.Size(36, 36);
             this.btn_hardcopy.TabIndex = 0;
+            this.btn_hardcopy.TabStop = false;
             this.btn_hardcopy.UseVisualStyleBackColor = true;
             // 
             // splitContainer2
@@ -664,7 +665,7 @@
             this.label30.Location = new System.Drawing.Point(114, 15);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(17, 12);
-            this.label30.TabIndex = 70;
+            this.label30.TabIndex = 0;
             this.label30.Text = "日";
             // 
             // label27
@@ -692,7 +693,7 @@
             this.label20.Location = new System.Drawing.Point(367, 15);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(17, 12);
-            this.label20.TabIndex = 67;
+            this.label20.TabIndex = 1;
             this.label20.Text = "日";
             // 
             // tb_siharai_tuki
@@ -711,7 +712,7 @@
             this.tb_eigyou_end_time.MaxLength = 20;
             this.tb_eigyou_end_time.Name = "tb_eigyou_end_time";
             this.tb_eigyou_end_time.Size = new System.Drawing.Size(107, 19);
-            this.tb_eigyou_end_time.TabIndex = 13;
+            this.tb_eigyou_end_time.TabIndex = 14;
             // 
             // groupBox1
             // 
@@ -748,7 +749,7 @@
             this.textBox16.Name = "textBox16";
             this.textBox16.ReadOnly = true;
             this.textBox16.Size = new System.Drawing.Size(49, 19);
-            this.textBox16.TabIndex = 0;
+            this.textBox16.TabIndex = 1;
             this.textBox16.TabStop = false;
             this.textBox16.Text = "回収月";
             // 
@@ -789,7 +790,7 @@
             this.label31.Location = new System.Drawing.Point(114, 15);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(17, 12);
-            this.label31.TabIndex = 73;
+            this.label31.TabIndex = 0;
             this.label31.Text = "日";
             // 
             // label14
@@ -798,7 +799,7 @@
             this.label14.Location = new System.Drawing.Point(367, 15);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(17, 12);
-            this.label14.TabIndex = 63;
+            this.label14.TabIndex = 1;
             this.label14.Text = "日";
             // 
             // label5
@@ -835,7 +836,7 @@
             this.tb_eigyou_start_time.MaxLength = 20;
             this.tb_eigyou_start_time.Name = "tb_eigyou_start_time";
             this.tb_eigyou_start_time.Size = new System.Drawing.Size(107, 19);
-            this.tb_eigyou_start_time.TabIndex = 11;
+            this.tb_eigyou_start_time.TabIndex = 12;
             // 
             // tb_kessan_start_mmdd
             // 
@@ -843,7 +844,7 @@
             this.tb_kessan_start_mmdd.MaxLength = 4;
             this.tb_kessan_start_mmdd.Name = "tb_kessan_start_mmdd";
             this.tb_kessan_start_mmdd.Size = new System.Drawing.Size(79, 19);
-            this.tb_kessan_start_mmdd.TabIndex = 10;
+            this.tb_kessan_start_mmdd.TabIndex = 11;
             // 
             // tb_daihyousya_name
             // 
@@ -859,7 +860,7 @@
             this.tb_kessan_end_mmdd.MaxLength = 4;
             this.tb_kessan_end_mmdd.Name = "tb_kessan_end_mmdd";
             this.tb_kessan_end_mmdd.Size = new System.Drawing.Size(79, 19);
-            this.tb_kessan_end_mmdd.TabIndex = 12;
+            this.tb_kessan_end_mmdd.TabIndex = 13;
             // 
             // tb_yubin_no
             // 
@@ -884,7 +885,7 @@
             this.tb_url.MaxLength = 60;
             this.tb_url.Name = "tb_url";
             this.tb_url.Size = new System.Drawing.Size(418, 19);
-            this.tb_url.TabIndex = 9;
+            this.tb_url.TabIndex = 10;
             // 
             // tb_jusyo1
             // 
@@ -900,7 +901,7 @@
             this.tb_tel_no.MaxLength = 20;
             this.tb_tel_no.Name = "tb_tel_no";
             this.tb_tel_no.Size = new System.Drawing.Size(116, 19);
-            this.tb_tel_no.TabIndex = 7;
+            this.tb_tel_no.TabIndex = 8;
             // 
             // tb_jusyo2
             // 
@@ -908,7 +909,7 @@
             this.tb_jusyo2.MaxLength = 40;
             this.tb_jusyo2.Name = "tb_jusyo2";
             this.tb_jusyo2.Size = new System.Drawing.Size(342, 19);
-            this.tb_jusyo2.TabIndex = 8;
+            this.tb_jusyo2.TabIndex = 7;
             // 
             // tb_fax_no
             // 
@@ -916,7 +917,7 @@
             this.tb_fax_no.MaxLength = 20;
             this.tb_fax_no.Name = "tb_fax_no";
             this.tb_fax_no.Size = new System.Drawing.Size(128, 19);
-            this.tb_fax_no.TabIndex = 8;
+            this.tb_fax_no.TabIndex = 9;
             // 
             // splitContainer4
             // 
@@ -955,7 +956,7 @@
             this.btn_tsuika.Location = new System.Drawing.Point(81, 3);
             this.btn_tsuika.Name = "btn_tsuika";
             this.btn_tsuika.Size = new System.Drawing.Size(75, 23);
-            this.btn_tsuika.TabIndex = 0;
+            this.btn_tsuika.TabIndex = 1;
             this.btn_tsuika.Text = "追加";
             this.btn_tsuika.UseVisualStyleBackColor = true;
             this.btn_tsuika.Click += new System.EventHandler(this.btn_tsuika_Click);
@@ -965,7 +966,7 @@
             this.btn_hensyu.Location = new System.Drawing.Point(162, 3);
             this.btn_hensyu.Name = "btn_hensyu";
             this.btn_hensyu.Size = new System.Drawing.Size(75, 23);
-            this.btn_hensyu.TabIndex = 1;
+            this.btn_hensyu.TabIndex = 2;
             this.btn_hensyu.Text = "編集";
             this.btn_hensyu.UseVisualStyleBackColor = true;
             this.btn_hensyu.Click += new System.EventHandler(this.btn_hensyu_Click);
@@ -973,34 +974,34 @@
             // dgv_tantousya
             // 
             this.dgv_tantousya.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tantousya.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tantousya.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_tantousya.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_tantousya.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_tantousya.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_tantousya.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_tantousya.Location = new System.Drawing.Point(0, 0);
             this.dgv_tantousya.Name = "dgv_tantousya";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tantousya.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tantousya.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_tantousya.RowTemplate.Height = 21;
             this.dgv_tantousya.Size = new System.Drawing.Size(880, 73);
             this.dgv_tantousya.TabIndex = 133;
