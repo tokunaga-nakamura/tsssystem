@@ -32,15 +32,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btn_sakujyo = new System.Windows.Forms.Button();
+            this.btn_tuika = new System.Windows.Forms.Button();
             this.btn_touroku = new System.Windows.Forms.Button();
             this.ss_status = new System.Windows.Forms.StatusStrip();
             this.dgv_seihin_kousei = new System.Windows.Forms.DataGridView();
             this.btn_syuuryou = new System.Windows.Forms.Button();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btn_sentaku = new System.Windows.Forms.Button();
             this.tb_seihin_kousei_no = new System.Windows.Forms.TextBox();
             this.tb_seihin_kousei_name = new System.Windows.Forms.TextBox();
             this.tb_update_datetime = new System.Windows.Forms.TextBox();
@@ -106,14 +104,15 @@
             this.textBox1.TabStop = false;
             this.textBox1.Text = "製品構成番号";
             // 
-            // btn_sakujyo
+            // btn_tuika
             // 
-            this.btn_sakujyo.Location = new System.Drawing.Point(10, 11);
-            this.btn_sakujyo.Name = "btn_sakujyo";
-            this.btn_sakujyo.Size = new System.Drawing.Size(108, 23);
-            this.btn_sakujyo.TabIndex = 4;
-            this.btn_sakujyo.Text = "1行削除";
-            this.btn_sakujyo.UseVisualStyleBackColor = true;
+            this.btn_tuika.Location = new System.Drawing.Point(10, 11);
+            this.btn_tuika.Name = "btn_tuika";
+            this.btn_tuika.Size = new System.Drawing.Size(108, 23);
+            this.btn_tuika.TabIndex = 4;
+            this.btn_tuika.Text = "1行追加";
+            this.btn_tuika.UseVisualStyleBackColor = true;
+            this.btn_tuika.Click += new System.EventHandler(this.btn_tsuika_Click);
             // 
             // btn_touroku
             // 
@@ -139,9 +138,8 @@
             this.dgv_seihin_kousei.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_seihin_kousei.Location = new System.Drawing.Point(0, 0);
             this.dgv_seihin_kousei.Name = "dgv_seihin_kousei";
-            this.dgv_seihin_kousei.RowHeadersVisible = false;
             this.dgv_seihin_kousei.RowTemplate.Height = 21;
-            this.dgv_seihin_kousei.Size = new System.Drawing.Size(880, 275);
+            this.dgv_seihin_kousei.Size = new System.Drawing.Size(880, 278);
             this.dgv_seihin_kousei.TabIndex = 0;
             this.dgv_seihin_kousei.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_seihin_kousei_CellEndEdit);
             // 
@@ -172,7 +170,7 @@
             // 
             this.splitContainer3.Panel2.Controls.Add(this.dgv_seihin_kousei);
             this.splitContainer3.Size = new System.Drawing.Size(884, 431);
-            this.splitContainer3.SplitterDistance = 148;
+            this.splitContainer3.SplitterDistance = 145;
             this.splitContainer3.TabIndex = 8;
             // 
             // splitContainer4
@@ -184,8 +182,6 @@
             // 
             // splitContainer4.Panel1
             // 
-            this.splitContainer4.Panel1.Controls.Add(this.button1);
-            this.splitContainer4.Panel1.Controls.Add(this.btn_sentaku);
             this.splitContainer4.Panel1.Controls.Add(this.tb_seihin_kousei_no);
             this.splitContainer4.Panel1.Controls.Add(this.textBox4);
             this.splitContainer4.Panel1.Controls.Add(this.tb_seihin_kousei_name);
@@ -202,37 +198,20 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.dgv_seihin_kousei_name);
-            this.splitContainer4.Size = new System.Drawing.Size(884, 148);
-            this.splitContainer4.SplitterDistance = 444;
+            this.splitContainer4.Size = new System.Drawing.Size(884, 145);
+            this.splitContainer4.SplitterDistance = 484;
             this.splitContainer4.TabIndex = 33;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(43, 118);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 23);
-            this.button1.TabIndex = 45;
-            this.button1.Text = "ひょうじ";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btn_sentaku
-            // 
-            this.btn_sentaku.Location = new System.Drawing.Point(336, 62);
-            this.btn_sentaku.Name = "btn_sentaku";
-            this.btn_sentaku.Size = new System.Drawing.Size(90, 23);
-            this.btn_sentaku.TabIndex = 44;
-            this.btn_sentaku.Text = "選択";
-            this.btn_sentaku.UseVisualStyleBackColor = true;
-            this.btn_sentaku.Click += new System.EventHandler(this.btn_sentaku_Click);
             // 
             // tb_seihin_kousei_no
             // 
+            this.tb_seihin_kousei_no.BackColor = System.Drawing.Color.PowderBlue;
             this.tb_seihin_kousei_no.Location = new System.Drawing.Point(118, 37);
             this.tb_seihin_kousei_no.MaxLength = 2;
             this.tb_seihin_kousei_no.Name = "tb_seihin_kousei_no";
             this.tb_seihin_kousei_no.Size = new System.Drawing.Size(83, 19);
             this.tb_seihin_kousei_no.TabIndex = 42;
             this.tb_seihin_kousei_no.TextChanged += new System.EventHandler(this.tb_seihin_kousei_no_TextChanged);
+            this.tb_seihin_kousei_no.DoubleClick += new System.EventHandler(this.tb_seihin_kousei_no_DoubleClick);
             this.tb_seihin_kousei_no.Validating += new System.ComponentModel.CancelEventHandler(this.tb_seihin_kousei_no_Validating);
             // 
             // tb_seihin_kousei_name
@@ -247,7 +226,7 @@
             // tb_update_datetime
             // 
             this.tb_update_datetime.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_update_datetime.Location = new System.Drawing.Point(299, 123);
+            this.tb_update_datetime.Location = new System.Drawing.Point(93, 107);
             this.tb_update_datetime.Name = "tb_update_datetime";
             this.tb_update_datetime.ReadOnly = true;
             this.tb_update_datetime.Size = new System.Drawing.Size(127, 19);
@@ -268,7 +247,7 @@
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox3.Location = new System.Drawing.Point(216, 104);
+            this.textBox3.Location = new System.Drawing.Point(10, 88);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(38, 19);
@@ -279,7 +258,7 @@
             // tb_update_user_cd
             // 
             this.tb_update_user_cd.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_update_user_cd.Location = new System.Drawing.Point(254, 123);
+            this.tb_update_user_cd.Location = new System.Drawing.Point(48, 107);
             this.tb_update_user_cd.Name = "tb_update_user_cd";
             this.tb_update_user_cd.ReadOnly = true;
             this.tb_update_user_cd.Size = new System.Drawing.Size(45, 19);
@@ -299,7 +278,7 @@
             // tb_create_user_cd
             // 
             this.tb_create_user_cd.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_create_user_cd.Location = new System.Drawing.Point(254, 104);
+            this.tb_create_user_cd.Location = new System.Drawing.Point(48, 88);
             this.tb_create_user_cd.Name = "tb_create_user_cd";
             this.tb_create_user_cd.ReadOnly = true;
             this.tb_create_user_cd.Size = new System.Drawing.Size(45, 19);
@@ -309,7 +288,7 @@
             // tb_create_datetime
             // 
             this.tb_create_datetime.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_create_datetime.Location = new System.Drawing.Point(299, 104);
+            this.tb_create_datetime.Location = new System.Drawing.Point(93, 88);
             this.tb_create_datetime.Name = "tb_create_datetime";
             this.tb_create_datetime.ReadOnly = true;
             this.tb_create_datetime.Size = new System.Drawing.Size(127, 19);
@@ -319,7 +298,7 @@
             // textBox9
             // 
             this.textBox9.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox9.Location = new System.Drawing.Point(216, 123);
+            this.textBox9.Location = new System.Drawing.Point(10, 107);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
             this.textBox9.Size = new System.Drawing.Size(38, 19);
@@ -334,7 +313,7 @@
             this.dgv_seihin_kousei_name.Location = new System.Drawing.Point(0, 0);
             this.dgv_seihin_kousei_name.Name = "dgv_seihin_kousei_name";
             this.dgv_seihin_kousei_name.RowTemplate.Height = 21;
-            this.dgv_seihin_kousei_name.Size = new System.Drawing.Size(432, 144);
+            this.dgv_seihin_kousei_name.Size = new System.Drawing.Size(392, 141);
             this.dgv_seihin_kousei_name.TabIndex = 43;
             // 
             // splitContainer2
@@ -353,7 +332,7 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.btn_sakujyo);
+            this.splitContainer2.Panel2.Controls.Add(this.btn_tuika);
             this.splitContainer2.Panel2.Controls.Add(this.btn_touroku);
             this.splitContainer2.Panel2.Controls.Add(this.btn_syuuryou);
             this.splitContainer2.Size = new System.Drawing.Size(884, 476);
@@ -400,6 +379,7 @@
             this.ClientSize = new System.Drawing.Size(884, 562);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.ss_status);
+            this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "frm_seihin_kousei_m";
             this.Text = "製品構成マスタ";
             this.Load += new System.EventHandler(this.frm_seihin_kousei_m_Load);
@@ -433,7 +413,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btn_sakujyo;
+        private System.Windows.Forms.Button btn_tuika;
         private System.Windows.Forms.Button btn_touroku;
         private System.Windows.Forms.StatusStrip ss_status;
         private System.Windows.Forms.DataGridView dgv_seihin_kousei;
@@ -452,9 +432,7 @@
         private System.Windows.Forms.TextBox tb_create_user_cd;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox tb_seihin_kousei_no;
-        private System.Windows.Forms.Button btn_sentaku;
         private System.Windows.Forms.DataGridView dgv_seihin_kousei_name;
         private System.Windows.Forms.SplitContainer splitContainer4;
-        private System.Windows.Forms.Button button1;
     }
 }

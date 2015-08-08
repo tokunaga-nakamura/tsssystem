@@ -726,32 +726,7 @@ namespace TSS_SYSTEM
         //端数区分ダブルクリック時の動き
         private void tb_hasu_kbn_DoubleClick(object sender, EventArgs e)
         {
-            //選択用のdatatableの作成
-            DataTable dt_work = new DataTable();
-            //列の定義
-            dt_work.Columns.Add("区分コード");
-            dt_work.Columns.Add("区分名");
-            //行追加
-            DataRow dr_work = dt_work.NewRow();
-            dr_work["区分コード"] = "0";
-            dr_work["区分名"] = "円未満";
-            dt_work.Rows.Add(dr_work);
-            dr_work = dt_work.NewRow();
-            dr_work["区分コード"] = "1";
-            dr_work["区分名"] = "十円未満";
-            dt_work.Rows.Add(dr_work);
-            dr_work = dt_work.NewRow();
-            dr_work["区分コード"] = "2";
-            dr_work["区分名"] = "百円未満";
-            dt_work.Rows.Add(dr_work);
-            //選択画面へ
-            this.tb_hasu_kbn.Text = tss.kubun_cd_select_dt("端数区分", dt_work);
-            chk_hasu_kbn();   //端数区分名の表示
-        }
 
-        //端数処理単位ダブルクリック時の動き
-        private void tb_hasu_syori_tani_DoubleClick(object sender, EventArgs e)
-        {
             //選択用のdatatableの作成
             DataTable dt_work = new DataTable();
             //列の定義
@@ -771,8 +746,35 @@ namespace TSS_SYSTEM
             dr_work["区分名"] = "切上げ";
             dt_work.Rows.Add(dr_work);
             //選択画面へ
-            this.tb_hasu_syori_tani.Text = tss.kubun_cd_select_dt("端数処理単位", dt_work);
+            this.tb_hasu_kbn.Text = tss.kubun_cd_select_dt("端数区分", dt_work);
             chk_hasu_syori_tani();   //端数処理単位名の表示
+        }
+
+        //端数処理単位ダブルクリック時の動き
+        private void tb_hasu_syori_tani_DoubleClick(object sender, EventArgs e)
+        {
+            //選択用のdatatableの作成
+            DataTable dt_work = new DataTable();
+            //列の定義
+            dt_work.Columns.Add("区分コード");
+            dt_work.Columns.Add("区分名");
+            //行追加
+            DataRow dr_work = dt_work.NewRow();
+            dr_work["区分コード"] = "0";
+            dr_work["区分名"] = "円未満";
+            dt_work.Rows.Add(dr_work);
+            dr_work = dt_work.NewRow();
+            dr_work["区分コード"] = "1";
+            dr_work["区分名"] = "十円未満";
+            dt_work.Rows.Add(dr_work);
+            dr_work = dt_work.NewRow();
+            dr_work["区分コード"] = "2";
+            dr_work["区分名"] = "百円未満";
+            dt_work.Rows.Add(dr_work);
+            //選択画面へ
+            this.tb_hasu_syori_tani.Text = tss.kubun_cd_select_dt("端数処理単位", dt_work);
+            chk_hasu_kbn();   //端数区分名の表示
+           
         }
 
         //消費税算出区分ダブルクリック時の動き
