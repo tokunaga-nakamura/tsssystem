@@ -49,7 +49,6 @@
             this.tb_create_datetime = new System.Windows.Forms.TextBox();
             this.tb_create_user_cd = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.cb_login_kyoka_kbn = new System.Windows.Forms.CheckBox();
             this.mtb_password = new System.Windows.Forms.MaskedTextBox();
             this.tb_logout_datetime = new System.Windows.Forms.TextBox();
             this.textBox39 = new System.Windows.Forms.TextBox();
@@ -90,6 +89,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.tb_kinmu_time1 = new System.Windows.Forms.TextBox();
             this.tb_kinmu_time2 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tb_login_kyoka_kbn = new System.Windows.Forms.TextBox();
+            this.tb_login_kyoka_kbn_name = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -153,6 +156,10 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.label4);
+            this.splitContainer2.Panel1.Controls.Add(this.tb_login_kyoka_kbn_name);
+            this.splitContainer2.Panel1.Controls.Add(this.tb_login_kyoka_kbn);
+            this.splitContainer2.Panel1.Controls.Add(this.textBox4);
             this.splitContainer2.Panel1.Controls.Add(this.tb_kinmu_time2);
             this.splitContainer2.Panel1.Controls.Add(this.tb_kinmu_time1);
             this.splitContainer2.Panel1.Controls.Add(this.tb_kengen6_name);
@@ -171,7 +178,6 @@
             this.splitContainer2.Panel1.Controls.Add(this.tb_create_datetime);
             this.splitContainer2.Panel1.Controls.Add(this.tb_create_user_cd);
             this.splitContainer2.Panel1.Controls.Add(this.textBox2);
-            this.splitContainer2.Panel1.Controls.Add(this.cb_login_kyoka_kbn);
             this.splitContainer2.Panel1.Controls.Add(this.mtb_password);
             this.splitContainer2.Panel1.Controls.Add(this.tb_logout_datetime);
             this.splitContainer2.Panel1.Controls.Add(this.textBox39);
@@ -221,7 +227,7 @@
             // tb_kengen6_name
             // 
             this.tb_kengen6_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_kengen6_name.Location = new System.Drawing.Point(132, 300);
+            this.tb_kengen6_name.Location = new System.Drawing.Point(132, 303);
             this.tb_kengen6_name.Name = "tb_kengen6_name";
             this.tb_kengen6_name.ReadOnly = true;
             this.tb_kengen6_name.Size = new System.Drawing.Size(100, 19);
@@ -231,7 +237,7 @@
             // tb_kengen5_name
             // 
             this.tb_kengen5_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_kengen5_name.Location = new System.Drawing.Point(132, 275);
+            this.tb_kengen5_name.Location = new System.Drawing.Point(132, 278);
             this.tb_kengen5_name.Name = "tb_kengen5_name";
             this.tb_kengen5_name.ReadOnly = true;
             this.tb_kengen5_name.Size = new System.Drawing.Size(100, 19);
@@ -241,7 +247,7 @@
             // tb_kengen4_name
             // 
             this.tb_kengen4_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_kengen4_name.Location = new System.Drawing.Point(132, 250);
+            this.tb_kengen4_name.Location = new System.Drawing.Point(132, 253);
             this.tb_kengen4_name.Name = "tb_kengen4_name";
             this.tb_kengen4_name.ReadOnly = true;
             this.tb_kengen4_name.Size = new System.Drawing.Size(100, 19);
@@ -251,7 +257,7 @@
             // tb_kengen3_name
             // 
             this.tb_kengen3_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_kengen3_name.Location = new System.Drawing.Point(132, 225);
+            this.tb_kengen3_name.Location = new System.Drawing.Point(132, 228);
             this.tb_kengen3_name.Name = "tb_kengen3_name";
             this.tb_kengen3_name.ReadOnly = true;
             this.tb_kengen3_name.Size = new System.Drawing.Size(100, 19);
@@ -261,7 +267,7 @@
             // tb_kengen2_name
             // 
             this.tb_kengen2_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_kengen2_name.Location = new System.Drawing.Point(132, 200);
+            this.tb_kengen2_name.Location = new System.Drawing.Point(132, 203);
             this.tb_kengen2_name.Name = "tb_kengen2_name";
             this.tb_kengen2_name.ReadOnly = true;
             this.tb_kengen2_name.Size = new System.Drawing.Size(100, 19);
@@ -271,7 +277,7 @@
             // tb_kengen1_name
             // 
             this.tb_kengen1_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_kengen1_name.Location = new System.Drawing.Point(132, 175);
+            this.tb_kengen1_name.Location = new System.Drawing.Point(132, 178);
             this.tb_kengen1_name.Name = "tb_kengen1_name";
             this.tb_kengen1_name.ReadOnly = true;
             this.tb_kengen1_name.Size = new System.Drawing.Size(100, 19);
@@ -281,7 +287,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(422, 153);
+            this.label3.Location = new System.Drawing.Point(422, 156);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(302, 12);
             this.label3.TabIndex = 53;
@@ -308,7 +314,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(238, 178);
+            this.label1.Location = new System.Drawing.Point(238, 181);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(147, 12);
             this.label1.TabIndex = 50;
@@ -317,7 +323,7 @@
             // tb_update_datetime
             // 
             this.tb_update_datetime.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_update_datetime.Location = new System.Drawing.Point(742, 400);
+            this.tb_update_datetime.Location = new System.Drawing.Point(742, 403);
             this.tb_update_datetime.Name = "tb_update_datetime";
             this.tb_update_datetime.ReadOnly = true;
             this.tb_update_datetime.Size = new System.Drawing.Size(128, 19);
@@ -327,7 +333,7 @@
             // tb_update_user_cd
             // 
             this.tb_update_user_cd.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_update_user_cd.Location = new System.Drawing.Point(688, 400);
+            this.tb_update_user_cd.Location = new System.Drawing.Point(688, 403);
             this.tb_update_user_cd.Name = "tb_update_user_cd";
             this.tb_update_user_cd.ReadOnly = true;
             this.tb_update_user_cd.Size = new System.Drawing.Size(54, 19);
@@ -337,7 +343,7 @@
             // textBox8
             // 
             this.textBox8.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox8.Location = new System.Drawing.Point(648, 400);
+            this.textBox8.Location = new System.Drawing.Point(648, 403);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(40, 19);
@@ -348,7 +354,7 @@
             // tb_create_datetime
             // 
             this.tb_create_datetime.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_create_datetime.Location = new System.Drawing.Point(742, 381);
+            this.tb_create_datetime.Location = new System.Drawing.Point(742, 384);
             this.tb_create_datetime.Name = "tb_create_datetime";
             this.tb_create_datetime.ReadOnly = true;
             this.tb_create_datetime.Size = new System.Drawing.Size(128, 19);
@@ -358,7 +364,7 @@
             // tb_create_user_cd
             // 
             this.tb_create_user_cd.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_create_user_cd.Location = new System.Drawing.Point(688, 381);
+            this.tb_create_user_cd.Location = new System.Drawing.Point(688, 384);
             this.tb_create_user_cd.Name = "tb_create_user_cd";
             this.tb_create_user_cd.ReadOnly = true;
             this.tb_create_user_cd.Size = new System.Drawing.Size(54, 19);
@@ -368,7 +374,7 @@
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox2.Location = new System.Drawing.Point(648, 381);
+            this.textBox2.Location = new System.Drawing.Point(648, 384);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(40, 19);
@@ -376,28 +382,18 @@
             this.textBox2.TabStop = false;
             this.textBox2.Text = "作成";
             // 
-            // cb_login_kyoka_kbn
-            // 
-            this.cb_login_kyoka_kbn.AutoSize = true;
-            this.cb_login_kyoka_kbn.Location = new System.Drawing.Point(110, 128);
-            this.cb_login_kyoka_kbn.Name = "cb_login_kyoka_kbn";
-            this.cb_login_kyoka_kbn.Size = new System.Drawing.Size(112, 16);
-            this.cb_login_kyoka_kbn.TabIndex = 43;
-            this.cb_login_kyoka_kbn.Text = "ログインを許可する";
-            this.cb_login_kyoka_kbn.UseVisualStyleBackColor = true;
-            // 
             // mtb_password
             // 
             this.mtb_password.Location = new System.Drawing.Point(110, 53);
             this.mtb_password.Name = "mtb_password";
             this.mtb_password.PasswordChar = '*';
             this.mtb_password.Size = new System.Drawing.Size(166, 19);
-            this.mtb_password.TabIndex = 42;
+            this.mtb_password.TabIndex = 3;
             // 
             // tb_logout_datetime
             // 
             this.tb_logout_datetime.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_logout_datetime.Location = new System.Drawing.Point(110, 400);
+            this.tb_logout_datetime.Location = new System.Drawing.Point(110, 403);
             this.tb_logout_datetime.Name = "tb_logout_datetime";
             this.tb_logout_datetime.ReadOnly = true;
             this.tb_logout_datetime.Size = new System.Drawing.Size(128, 19);
@@ -407,7 +403,7 @@
             // textBox39
             // 
             this.textBox39.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox39.Location = new System.Drawing.Point(10, 400);
+            this.textBox39.Location = new System.Drawing.Point(10, 403);
             this.textBox39.Name = "textBox39";
             this.textBox39.ReadOnly = true;
             this.textBox39.Size = new System.Drawing.Size(100, 19);
@@ -418,7 +414,7 @@
             // tb_login_datetime
             // 
             this.tb_login_datetime.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_login_datetime.Location = new System.Drawing.Point(110, 375);
+            this.tb_login_datetime.Location = new System.Drawing.Point(110, 378);
             this.tb_login_datetime.Name = "tb_login_datetime";
             this.tb_login_datetime.ReadOnly = true;
             this.tb_login_datetime.Size = new System.Drawing.Size(128, 19);
@@ -428,7 +424,7 @@
             // textBox37
             // 
             this.textBox37.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox37.Location = new System.Drawing.Point(10, 375);
+            this.textBox37.Location = new System.Drawing.Point(10, 378);
             this.textBox37.Name = "textBox37";
             this.textBox37.ReadOnly = true;
             this.textBox37.Size = new System.Drawing.Size(100, 19);
@@ -439,7 +435,7 @@
             // tb_login_flg
             // 
             this.tb_login_flg.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_login_flg.Location = new System.Drawing.Point(110, 350);
+            this.tb_login_flg.Location = new System.Drawing.Point(110, 353);
             this.tb_login_flg.MaxLength = 1;
             this.tb_login_flg.Name = "tb_login_flg";
             this.tb_login_flg.ReadOnly = true;
@@ -450,7 +446,7 @@
             // textBox35
             // 
             this.textBox35.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox35.Location = new System.Drawing.Point(10, 350);
+            this.textBox35.Location = new System.Drawing.Point(10, 353);
             this.textBox35.Name = "textBox35";
             this.textBox35.ReadOnly = true;
             this.textBox35.Size = new System.Drawing.Size(100, 19);
@@ -460,15 +456,15 @@
             // 
             // tb_bikou
             // 
-            this.tb_bikou.Location = new System.Drawing.Point(110, 325);
+            this.tb_bikou.Location = new System.Drawing.Point(110, 328);
             this.tb_bikou.Name = "tb_bikou";
             this.tb_bikou.Size = new System.Drawing.Size(760, 19);
-            this.tb_bikou.TabIndex = 34;
+            this.tb_bikou.TabIndex = 15;
             // 
             // textBox33
             // 
             this.textBox33.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox33.Location = new System.Drawing.Point(10, 325);
+            this.textBox33.Location = new System.Drawing.Point(10, 328);
             this.textBox33.Name = "textBox33";
             this.textBox33.ReadOnly = true;
             this.textBox33.Size = new System.Drawing.Size(100, 19);
@@ -479,16 +475,17 @@
             // tb_kengen6
             // 
             this.tb_kengen6.BackColor = System.Drawing.Color.PowderBlue;
-            this.tb_kengen6.Location = new System.Drawing.Point(110, 300);
+            this.tb_kengen6.Location = new System.Drawing.Point(110, 303);
             this.tb_kengen6.Name = "tb_kengen6";
             this.tb_kengen6.Size = new System.Drawing.Size(22, 19);
-            this.tb_kengen6.TabIndex = 32;
+            this.tb_kengen6.TabIndex = 14;
+            this.tb_kengen6.DoubleClick += new System.EventHandler(this.tb_kengen6_DoubleClick);
             this.tb_kengen6.Validating += new System.ComponentModel.CancelEventHandler(this.tb_kengen6_Validating);
             // 
             // textBox31
             // 
             this.textBox31.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox31.Location = new System.Drawing.Point(10, 300);
+            this.textBox31.Location = new System.Drawing.Point(10, 303);
             this.textBox31.Name = "textBox31";
             this.textBox31.ReadOnly = true;
             this.textBox31.Size = new System.Drawing.Size(100, 19);
@@ -499,16 +496,17 @@
             // tb_kengen5
             // 
             this.tb_kengen5.BackColor = System.Drawing.Color.PowderBlue;
-            this.tb_kengen5.Location = new System.Drawing.Point(110, 275);
+            this.tb_kengen5.Location = new System.Drawing.Point(110, 278);
             this.tb_kengen5.Name = "tb_kengen5";
             this.tb_kengen5.Size = new System.Drawing.Size(22, 19);
-            this.tb_kengen5.TabIndex = 30;
+            this.tb_kengen5.TabIndex = 13;
+            this.tb_kengen5.DoubleClick += new System.EventHandler(this.tb_kengen5_DoubleClick);
             this.tb_kengen5.Validating += new System.ComponentModel.CancelEventHandler(this.tb_kengen5_Validating);
             // 
             // textBox29
             // 
             this.textBox29.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox29.Location = new System.Drawing.Point(10, 275);
+            this.textBox29.Location = new System.Drawing.Point(10, 278);
             this.textBox29.Name = "textBox29";
             this.textBox29.ReadOnly = true;
             this.textBox29.Size = new System.Drawing.Size(100, 19);
@@ -519,16 +517,17 @@
             // tb_kengen4
             // 
             this.tb_kengen4.BackColor = System.Drawing.Color.PowderBlue;
-            this.tb_kengen4.Location = new System.Drawing.Point(110, 250);
+            this.tb_kengen4.Location = new System.Drawing.Point(110, 253);
             this.tb_kengen4.Name = "tb_kengen4";
             this.tb_kengen4.Size = new System.Drawing.Size(22, 19);
-            this.tb_kengen4.TabIndex = 28;
+            this.tb_kengen4.TabIndex = 12;
+            this.tb_kengen4.DoubleClick += new System.EventHandler(this.tb_kengen4_DoubleClick);
             this.tb_kengen4.Validating += new System.ComponentModel.CancelEventHandler(this.tb_kengen4_Validating);
             // 
             // textBox27
             // 
             this.textBox27.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox27.Location = new System.Drawing.Point(10, 250);
+            this.textBox27.Location = new System.Drawing.Point(10, 253);
             this.textBox27.Name = "textBox27";
             this.textBox27.ReadOnly = true;
             this.textBox27.Size = new System.Drawing.Size(100, 19);
@@ -539,16 +538,17 @@
             // tb_kengen3
             // 
             this.tb_kengen3.BackColor = System.Drawing.Color.PowderBlue;
-            this.tb_kengen3.Location = new System.Drawing.Point(110, 225);
+            this.tb_kengen3.Location = new System.Drawing.Point(110, 228);
             this.tb_kengen3.Name = "tb_kengen3";
             this.tb_kengen3.Size = new System.Drawing.Size(22, 19);
-            this.tb_kengen3.TabIndex = 26;
+            this.tb_kengen3.TabIndex = 11;
+            this.tb_kengen3.DoubleClick += new System.EventHandler(this.tb_kengen3_DoubleClick);
             this.tb_kengen3.Validating += new System.ComponentModel.CancelEventHandler(this.tb_kengen3_Validating);
             // 
             // textBox25
             // 
             this.textBox25.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox25.Location = new System.Drawing.Point(10, 225);
+            this.textBox25.Location = new System.Drawing.Point(10, 228);
             this.textBox25.Name = "textBox25";
             this.textBox25.ReadOnly = true;
             this.textBox25.Size = new System.Drawing.Size(100, 19);
@@ -559,16 +559,17 @@
             // tb_kengen2
             // 
             this.tb_kengen2.BackColor = System.Drawing.Color.PowderBlue;
-            this.tb_kengen2.Location = new System.Drawing.Point(110, 200);
+            this.tb_kengen2.Location = new System.Drawing.Point(110, 203);
             this.tb_kengen2.Name = "tb_kengen2";
             this.tb_kengen2.Size = new System.Drawing.Size(22, 19);
-            this.tb_kengen2.TabIndex = 24;
+            this.tb_kengen2.TabIndex = 10;
+            this.tb_kengen2.DoubleClick += new System.EventHandler(this.tb_kengen2_DoubleClick);
             this.tb_kengen2.Validating += new System.ComponentModel.CancelEventHandler(this.tb_kengen2_Validating);
             // 
             // textBox23
             // 
             this.textBox23.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox23.Location = new System.Drawing.Point(10, 200);
+            this.textBox23.Location = new System.Drawing.Point(10, 203);
             this.textBox23.Name = "textBox23";
             this.textBox23.ReadOnly = true;
             this.textBox23.Size = new System.Drawing.Size(100, 19);
@@ -579,16 +580,17 @@
             // tb_kengen1
             // 
             this.tb_kengen1.BackColor = System.Drawing.Color.PowderBlue;
-            this.tb_kengen1.Location = new System.Drawing.Point(110, 175);
+            this.tb_kengen1.Location = new System.Drawing.Point(110, 178);
             this.tb_kengen1.Name = "tb_kengen1";
             this.tb_kengen1.Size = new System.Drawing.Size(22, 19);
-            this.tb_kengen1.TabIndex = 22;
+            this.tb_kengen1.TabIndex = 9;
+            this.tb_kengen1.DoubleClick += new System.EventHandler(this.tb_kengen1_DoubleClick);
             this.tb_kengen1.Validating += new System.ComponentModel.CancelEventHandler(this.tb_kengen1_Validating);
             // 
             // textBox21
             // 
             this.textBox21.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox21.Location = new System.Drawing.Point(10, 175);
+            this.textBox21.Location = new System.Drawing.Point(10, 178);
             this.textBox21.Name = "textBox21";
             this.textBox21.ReadOnly = true;
             this.textBox21.Size = new System.Drawing.Size(100, 19);
@@ -599,7 +601,7 @@
             // textBox19
             // 
             this.textBox19.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox19.Location = new System.Drawing.Point(216, 150);
+            this.textBox19.Location = new System.Drawing.Point(216, 153);
             this.textBox19.Name = "textBox19";
             this.textBox19.ReadOnly = true;
             this.textBox19.Size = new System.Drawing.Size(100, 19);
@@ -610,7 +612,7 @@
             // textBox18
             // 
             this.textBox18.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox18.Location = new System.Drawing.Point(10, 150);
+            this.textBox18.Location = new System.Drawing.Point(10, 153);
             this.textBox18.Name = "textBox18";
             this.textBox18.ReadOnly = true;
             this.textBox18.Size = new System.Drawing.Size(100, 19);
@@ -635,7 +637,7 @@
             this.tb_busyo_cd.MaxLength = 6;
             this.tb_busyo_cd.Name = "tb_busyo_cd";
             this.tb_busyo_cd.Size = new System.Drawing.Size(64, 19);
-            this.tb_busyo_cd.TabIndex = 12;
+            this.tb_busyo_cd.TabIndex = 5;
             this.tb_busyo_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_busyo_cd_Validating);
             // 
             // textBox12
@@ -666,7 +668,8 @@
             this.tb_syain_kbn.MaxLength = 1;
             this.tb_syain_kbn.Name = "tb_syain_kbn";
             this.tb_syain_kbn.Size = new System.Drawing.Size(22, 19);
-            this.tb_syain_kbn.TabIndex = 9;
+            this.tb_syain_kbn.TabIndex = 4;
+            this.tb_syain_kbn.DoubleClick += new System.EventHandler(this.tb_syain_kbn_DoubleClick);
             this.tb_syain_kbn.Validating += new System.ComponentModel.CancelEventHandler(this.tb_syain_kbn_Validating);
             // 
             // textBox9
@@ -697,7 +700,7 @@
             this.tb_user_name2.MaxLength = 10;
             this.tb_user_name2.Name = "tb_user_name2";
             this.tb_user_name2.Size = new System.Drawing.Size(100, 19);
-            this.tb_user_name2.TabIndex = 5;
+            this.tb_user_name2.TabIndex = 2;
             // 
             // textBox5
             // 
@@ -716,7 +719,7 @@
             this.tb_user_name.MaxLength = 40;
             this.tb_user_name.Name = "tb_user_name";
             this.tb_user_name.Size = new System.Drawing.Size(313, 19);
-            this.tb_user_name.TabIndex = 3;
+            this.tb_user_name.TabIndex = 1;
             // 
             // textBox3
             // 
@@ -736,7 +739,7 @@
             this.tb_user_cd.MaxLength = 6;
             this.tb_user_cd.Name = "tb_user_cd";
             this.tb_user_cd.Size = new System.Drawing.Size(64, 19);
-            this.tb_user_cd.TabIndex = 1;
+            this.tb_user_cd.TabIndex = 0;
             this.tb_user_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_user_cd_Validating);
             // 
             // textBox1
@@ -755,7 +758,7 @@
             this.btn_touroku.Location = new System.Drawing.Point(10, 3);
             this.btn_touroku.Name = "btn_touroku";
             this.btn_touroku.Size = new System.Drawing.Size(75, 23);
-            this.btn_touroku.TabIndex = 1;
+            this.btn_touroku.TabIndex = 0;
             this.btn_touroku.Text = "登録";
             this.btn_touroku.UseVisualStyleBackColor = true;
             this.btn_touroku.Click += new System.EventHandler(this.btn_touroku_Click);
@@ -765,26 +768,66 @@
             this.button2.Location = new System.Drawing.Point(795, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 0;
+            this.button2.TabIndex = 1;
             this.button2.Text = "終了";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // tb_kinmu_time1
             // 
-            this.tb_kinmu_time1.Location = new System.Drawing.Point(110, 150);
+            this.tb_kinmu_time1.Location = new System.Drawing.Point(110, 153);
             this.tb_kinmu_time1.MaxLength = 5;
             this.tb_kinmu_time1.Name = "tb_kinmu_time1";
             this.tb_kinmu_time1.Size = new System.Drawing.Size(100, 19);
-            this.tb_kinmu_time1.TabIndex = 60;
+            this.tb_kinmu_time1.TabIndex = 7;
             // 
             // tb_kinmu_time2
             // 
-            this.tb_kinmu_time2.Location = new System.Drawing.Point(316, 150);
+            this.tb_kinmu_time2.Location = new System.Drawing.Point(316, 153);
             this.tb_kinmu_time2.MaxLength = 5;
             this.tb_kinmu_time2.Name = "tb_kinmu_time2";
             this.tb_kinmu_time2.Size = new System.Drawing.Size(100, 19);
-            this.tb_kinmu_time2.TabIndex = 61;
+            this.tb_kinmu_time2.TabIndex = 8;
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox4.Location = new System.Drawing.Point(10, 128);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(100, 19);
+            this.textBox4.TabIndex = 62;
+            this.textBox4.TabStop = false;
+            this.textBox4.Text = "ログイン許可区分";
+            // 
+            // tb_login_kyoka_kbn
+            // 
+            this.tb_login_kyoka_kbn.BackColor = System.Drawing.Color.PowderBlue;
+            this.tb_login_kyoka_kbn.Location = new System.Drawing.Point(110, 128);
+            this.tb_login_kyoka_kbn.Name = "tb_login_kyoka_kbn";
+            this.tb_login_kyoka_kbn.Size = new System.Drawing.Size(22, 19);
+            this.tb_login_kyoka_kbn.TabIndex = 6;
+            this.tb_login_kyoka_kbn.DoubleClick += new System.EventHandler(this.tb_login_kyoka_kbn_DoubleClick);
+            this.tb_login_kyoka_kbn.Validating += new System.ComponentModel.CancelEventHandler(this.tb_login_kyoka_kbn_Validating);
+            // 
+            // tb_login_kyoka_kbn_name
+            // 
+            this.tb_login_kyoka_kbn_name.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_login_kyoka_kbn_name.Location = new System.Drawing.Point(132, 128);
+            this.tb_login_kyoka_kbn_name.Name = "tb_login_kyoka_kbn_name";
+            this.tb_login_kyoka_kbn_name.ReadOnly = true;
+            this.tb_login_kyoka_kbn_name.Size = new System.Drawing.Size(100, 19);
+            this.tb_login_kyoka_kbn_name.TabIndex = 64;
+            this.tb_login_kyoka_kbn_name.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(238, 131);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 12);
+            this.label4.TabIndex = 65;
+            this.label4.Text = "0:不可 1:許可";
             // 
             // frm_user_m
             // 
@@ -854,7 +897,6 @@
         private System.Windows.Forms.Button btn_touroku;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.MaskedTextBox mtb_password;
-        private System.Windows.Forms.CheckBox cb_login_kyoka_kbn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tb_update_datetime;
         private System.Windows.Forms.TextBox tb_update_user_cd;
@@ -873,5 +915,9 @@
         private System.Windows.Forms.TextBox tb_kengen1_name;
         private System.Windows.Forms.TextBox tb_kinmu_time2;
         private System.Windows.Forms.TextBox tb_kinmu_time1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tb_login_kyoka_kbn_name;
+        private System.Windows.Forms.TextBox tb_login_kyoka_kbn;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }

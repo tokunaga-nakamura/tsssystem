@@ -28,6 +28,7 @@ namespace TSS_SYSTEM
         public DataTable fld_dt_kubun = new DataTable();    //選択する区分テーブル
         public string fld_kubun_cd;                         //選択された区分コード
         public bool fld_kubun_sentaku;                      //区分選択フラグ 選択:true エラーまたはキャンセル:false
+        public string fld_initial_cd;                       //初期値として受け取ったコード
 
         public string ppt_str_kubun_name
         {
@@ -73,7 +74,17 @@ namespace TSS_SYSTEM
                 fld_kubun_sentaku = value;
             }
         }
-
+        public string ppt_str_initial_cd
+        {
+            get
+            {
+                return fld_initial_cd;
+            }
+            set
+            {
+                fld_initial_cd = value;
+            }
+        }
 
         public frm_kubun_select_dt()
         {
@@ -120,6 +131,18 @@ namespace TSS_SYSTEM
             {
                 MessageBox.Show("該当する区分マスタがありません。");
                 form_close_false();
+            }
+            //initial_cdに何かが入っていたら、初期選択行をinitial_cdと同一の行にする
+            if(ppt_str_initial_cd != null && ppt_str_initial_cd != "")
+            {
+                for(int i = 0;i < dgv_kubun.Rows.Count;i++)
+                {
+                    if(dgv_kubun.Rows[i].Cells[0].Value.ToString() == ppt_str_initial_cd)
+                    {
+                        dgv_kubun.Rows[i].Selected = true;
+                        break;
+                    }
+                }
             }
         }
 

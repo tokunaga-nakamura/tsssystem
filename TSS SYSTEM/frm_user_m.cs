@@ -72,7 +72,7 @@ namespace TSS_SYSTEM
             tb_syain_kbn_name.Text = "";
             tb_busyo_cd.Text = "";
             tb_busyo_cd_name.Text = "";
-            cb_login_kyoka_kbn.Checked = false;
+            tb_login_kyoka_kbn.Text = "";
             tb_kinmu_time1.Text = "";
             tb_kinmu_time2.Text = "";
             tb_kengen1.Text = "";
@@ -101,14 +101,8 @@ namespace TSS_SYSTEM
             tb_syain_kbn_name.Text = get_syain_kbn(tb_syain_kbn.Text);
             tb_busyo_cd.Text = in_dt_work.Rows[0]["busyo_cd"].ToString();
             tb_busyo_cd_name.Text = get_busyo_cd(tb_busyo_cd.Text);
-            if (in_dt_work.Rows[0]["login_kyoka_kbn"].ToString() == "1")
-            {
-                cb_login_kyoka_kbn.Checked = true;
-            }
-            else
-            {
-                cb_login_kyoka_kbn.Checked = false;
-            }
+            tb_login_kyoka_kbn.Text = in_dt_work.Rows[0]["login_kyoka_kbn"].ToString();
+            tb_login_kyoka_kbn_name.Text = get_login_kyoka_kbn(tb_login_kyoka_kbn.Text);
             tb_kinmu_time1.Text = in_dt_work.Rows[0]["kinmu_time1"].ToString();
             tb_kinmu_time2.Text = in_dt_work.Rows[0]["kinmu_time2"].ToString();
             tb_kengen1.Text = in_dt_work.Rows[0]["kengen1"].ToString();
@@ -166,6 +160,24 @@ namespace TSS_SYSTEM
 
             //現在はまだ未使用の為、なんでもOKにする
 
+            return out_name;
+        }
+
+        private string get_login_kyoka_kbn(string in_cd)
+        {
+            string out_name = "";  //戻り値用
+            switch (in_cd)
+            {
+                case "0":
+                    out_name = "許可しない";
+                    break;
+                case "1":
+                    out_name = "許可する";
+                    break;
+                default:
+                    out_name = "";
+                    break;
+            }
             return out_name;
         }
 
@@ -299,7 +311,10 @@ namespace TSS_SYSTEM
         {
             tb_busyo_cd_name.Text = get_busyo_cd(tb_busyo_cd.Text);
         }
-
+        private void tb_login_kyoka_kbn_Validating(object sender, CancelEventArgs e)
+        {
+            tb_login_kyoka_kbn_name.Text = get_login_kyoka_kbn(tb_login_kyoka_kbn.Text);
+        }
         private void tb_kengen1_Validating(object sender, CancelEventArgs e)
         {
             tb_kengen1_name.Text = get_kengen1(tb_kengen1.Text);
@@ -422,6 +437,41 @@ namespace TSS_SYSTEM
                 tb_bikou.Focus();
                 return;
             }
+            //新規・更新チェック
+            DataTable dt_work = new DataTable();
+            dt_work = tss.OracleSelect("select * from tss_user_m where user_cd  = '" + tb_user_cd.Text.ToString() + "'");
+            if (dt_work.Rows.Count <= 0)
+            {
+                //新規
+                DialogResult result = MessageBox.Show("新規に登録します。よろしいですか？", "確認", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    //「はい」が選択された時
+                    record_insert();
+                    chk_user_cd();
+                }
+                else
+                {
+                    //「いいえ」が選択された時
+                    return;
+                }
+            }
+            else
+            {
+                //既存データ有
+                DialogResult result = MessageBox.Show("既存データを更新します。よろしいですか？", "確認", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    //「はい」が選択された時
+                    record_update();
+                    chk_user_cd();
+                }
+                else
+                {
+                    //「いいえ」が選択された時
+                    return;
+                }
+            }
         }
 
         private bool chk_user_name()
@@ -468,6 +518,19 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値用
             //現在、部署コードは未使用なので、なんでもOKにする
+            return bl;
+        }
+        private bool chk_login_kyoka_kbn()
+        {
+            bool bl = true; //戻り値用
+            if (tb_login_kyoka_kbn.Text == null || tb_login_kyoka_kbn.Text.Length == 0 || tss.StringByte(tb_login_kyoka_kbn.Text) > 1)
+            {
+                bl = false;
+            }
+            if (get_login_kyoka_kbn(tb_login_kyoka_kbn.Text) == "")
+            {
+                bl = false;
+            }
             return bl;
         }
         private bool chk_kinmu_time1()
@@ -579,5 +642,286 @@ namespace TSS_SYSTEM
             }
             return bl;
         }
+
+        private void record_insert()
+        {
+            tss.GetUser();
+            //新規書込み
+            bool bl_tss = true;
+            bl_tss = tss.OracleInsert("INSERT INTO tss_user_m (user_cd,user_name,user_name2,password,syain_kbn,busyo_cd,login_kyoka_kbn,kinmu_time1,kinmu_time2,kengen1,kengen2,kengen3,kengen4,kengen5,kengen6,bikou,create_user_cd,create_datetime)"
+                                    + " VALUES ('" + tb_user_cd.Text.ToString() + "','" + tb_user_name.Text.ToString() + "','" + tb_user_name2.Text.ToString() + "','" + mtb_password.Text.ToString() + "','" + tb_syain_kbn.Text.ToString() + "','" + tb_busyo_cd.Text.ToString() + "','" + tb_login_kyoka_kbn.Text.ToString() + "','" + tb_kinmu_time1.Text.ToString() + "','" + tb_kinmu_time2.Text.ToString() + "','" + tb_kengen1.Text.ToString() + "','" + tb_kengen2.Text.ToString() + "','" + tb_kengen3.Text.ToString() + "','" + tb_kengen4.Text.ToString() + "','" + tb_kengen5.Text.ToString() + "','" + tb_kengen6.Text.ToString() + "','" + tb_bikou.Text.ToString() + "','" + tss.user_cd + "',SYSDATE)");
+            if (bl_tss != true)
+            {
+                tss.ErrorLogWrite(tss.user_cd, "ユーザーマスタ／登録", "登録ボタン押下時のOracleInsert");
+                MessageBox.Show("書込みでエラーが発生しました。処理を中止します。");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("新規登録しました。");
+            }
+        }
+
+
+        private void record_update()
+        {
+            tss.GetUser();
+            //更新
+            bool bl_tss = true;
+            bl_tss = tss.OracleUpdate("UPDATE TSS_user_m SET user_name = '" + tb_user_name.Text.ToString() + "',user_name2 = '" + tb_user_name2.Text.ToString()
+                + "',password = '" + mtb_password.Text.ToString() + "',syain_kbn = '" + tb_syain_kbn.Text.ToString() + "',busyo_cd = '" + tb_busyo_cd.Text.ToString()
+                + "',login_kyoka_kbn = '" + tb_login_kyoka_kbn.Text.ToString() + "',kinmu_time1 = '" + tb_kinmu_time1.Text.ToString() + "',kinmu_time2 = '" + tb_kinmu_time2.Text.ToString()
+                + "',kengen1 = '" + tb_kengen1.Text.ToString() + "',kengen2 = '" + tb_kengen2.Text.ToString() + "',kengen3 = '" + tb_kengen3.Text.ToString()
+                + "',kengen4 = '" + tb_kengen4.Text.ToString() + "',kengen5 = '" + tb_kengen5.Text.ToString() + "',kengen6 = '" + tb_kengen6.Text.ToString()
+                + "',bikou = '" + tb_bikou.Text.ToString() + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE "
+                + "WHERE user_cd = '" + tb_user_cd.Text.ToString() + "'");
+            if (bl_tss != true)
+            {
+                tss.ErrorLogWrite(tss.user_cd, "ユーザーマスタ／登録", "登録ボタン押下時のOracleUpdate");
+                MessageBox.Show("書込みでエラーが発生しました。処理を中止します。");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("更新しました。");
+            }
+        }
+
+        private void tb_syain_kbn_DoubleClick(object sender, EventArgs e)
+        {
+            //選択用のdatatableの作成
+            DataTable dt_work = new DataTable();
+            //列の定義
+            dt_work.Columns.Add("区分");
+            dt_work.Columns.Add("区分名");
+            //行追加
+            DataRow dr_work = dt_work.NewRow();
+            dr_work["区分"] = "0";
+            dr_work["区分名"] = "未使用";
+            dt_work.Rows.Add(dr_work);
+
+            dr_work = dt_work.NewRow();
+            dr_work["区分"] = "1";
+            dr_work["区分名"] = "正社員";
+            dt_work.Rows.Add(dr_work);
+            
+            dr_work = dt_work.NewRow();
+            dr_work["区分"] = "2";
+            dr_work["区分名"] = "パート";
+            dt_work.Rows.Add(dr_work);
+            
+            dr_work = dt_work.NewRow();
+            dr_work["区分"] = "3";
+            dr_work["区分名"] = "嘱託";
+            dt_work.Rows.Add(dr_work);
+            
+            dr_work = dt_work.NewRow();
+            dr_work["区分"] = "4";
+            dr_work["区分名"] = "派遣・アルバイト・臨時";
+            dt_work.Rows.Add(dr_work);
+            
+            //選択画面へ
+            this.tb_syain_kbn.Text = tss.kubun_cd_select_dt("社員区分", dt_work,tb_syain_kbn.Text);
+            tb_syain_kbn_name.Text = get_syain_kbn(tb_syain_kbn.Text);
+        }
+
+        private void tb_login_kyoka_kbn_DoubleClick(object sender, EventArgs e)
+        {
+            //選択用のdatatableの作成
+            DataTable dt_work = new DataTable();
+            //列の定義
+            dt_work.Columns.Add("区分");
+            dt_work.Columns.Add("区分名");
+            //行追加
+            DataRow dr_work = dt_work.NewRow();
+            dr_work["区分"] = "0";
+            dr_work["区分名"] = "許可しない";
+            dt_work.Rows.Add(dr_work);
+
+            dr_work = dt_work.NewRow();
+            dr_work["区分"] = "1";
+            dr_work["区分名"] = "許可する";
+            dt_work.Rows.Add(dr_work);
+
+            //選択画面へ
+            this.tb_login_kyoka_kbn.Text = tss.kubun_cd_select_dt("ログイン許可区分", dt_work,tb_login_kyoka_kbn.Text);
+            tb_login_kyoka_kbn_name.Text = get_login_kyoka_kbn(tb_login_kyoka_kbn.Text);
+        }
+
+        private void tb_kengen1_DoubleClick(object sender, EventArgs e)
+        {
+            //選択用のdatatableの作成
+            DataTable dt_work = new DataTable();
+            //列の定義
+            dt_work.Columns.Add("区分");
+            dt_work.Columns.Add("区分名");
+            //行追加
+            DataRow dr_work = dt_work.NewRow();
+            dr_work["区分"] = "0";
+            dr_work["区分名"] = "不可";
+            dt_work.Rows.Add(dr_work);
+
+            dr_work = dt_work.NewRow();
+            dr_work["区分"] = "1";
+            dr_work["区分名"] = "参照のみ";
+            dt_work.Rows.Add(dr_work);
+
+            dr_work = dt_work.NewRow();
+            dr_work["区分"] = "9";
+            dr_work["区分名"] = "すべて可";
+            dt_work.Rows.Add(dr_work);
+
+            //選択画面へ
+            this.tb_kengen1.Text = tss.kubun_cd_select_dt("権限（受注）", dt_work,tb_kengen1.Text);
+            tb_kengen1_name.Text = get_kengen1(tb_kengen1.Text);
+        }
+
+        private void tb_kengen2_DoubleClick(object sender, EventArgs e)
+        {
+            //選択用のdatatableの作成
+            DataTable dt_work = new DataTable();
+            //列の定義
+            dt_work.Columns.Add("区分");
+            dt_work.Columns.Add("区分名");
+            //行追加
+            DataRow dr_work = dt_work.NewRow();
+            dr_work["区分"] = "0";
+            dr_work["区分名"] = "不可";
+            dt_work.Rows.Add(dr_work);
+
+            dr_work = dt_work.NewRow();
+            dr_work["区分"] = "1";
+            dr_work["区分名"] = "参照のみ";
+            dt_work.Rows.Add(dr_work);
+
+            dr_work = dt_work.NewRow();
+            dr_work["区分"] = "9";
+            dr_work["区分名"] = "すべて可";
+            dt_work.Rows.Add(dr_work);
+
+            //選択画面へ
+            this.tb_kengen2.Text = tss.kubun_cd_select_dt("権限（売上）", dt_work, tb_kengen2.Text);
+            tb_kengen2_name.Text = get_kengen2(tb_kengen2.Text);
+        }
+
+        private void tb_kengen3_DoubleClick(object sender, EventArgs e)
+        {
+            //選択用のdatatableの作成
+            DataTable dt_work = new DataTable();
+            //列の定義
+            dt_work.Columns.Add("区分");
+            dt_work.Columns.Add("区分名");
+            //行追加
+            DataRow dr_work = dt_work.NewRow();
+            dr_work["区分"] = "0";
+            dr_work["区分名"] = "不可";
+            dt_work.Rows.Add(dr_work);
+
+            dr_work = dt_work.NewRow();
+            dr_work["区分"] = "1";
+            dr_work["区分名"] = "参照のみ";
+            dt_work.Rows.Add(dr_work);
+
+            dr_work = dt_work.NewRow();
+            dr_work["区分"] = "9";
+            dr_work["区分名"] = "すべて可";
+            dt_work.Rows.Add(dr_work);
+
+            //選択画面へ
+            this.tb_kengen3.Text = tss.kubun_cd_select_dt("権限（仕入）", dt_work, tb_kengen3.Text);
+            tb_kengen3_name.Text = get_kengen3(tb_kengen3.Text);
+        }
+
+        private void tb_kengen4_DoubleClick(object sender, EventArgs e)
+        {
+            //選択用のdatatableの作成
+            DataTable dt_work = new DataTable();
+            //列の定義
+            dt_work.Columns.Add("区分");
+            dt_work.Columns.Add("区分名");
+            //行追加
+            DataRow dr_work = dt_work.NewRow();
+            dr_work["区分"] = "0";
+            dr_work["区分名"] = "不可";
+            dt_work.Rows.Add(dr_work);
+
+            dr_work = dt_work.NewRow();
+            dr_work["区分"] = "1";
+            dr_work["区分名"] = "参照のみ";
+            dt_work.Rows.Add(dr_work);
+
+            dr_work = dt_work.NewRow();
+            dr_work["区分"] = "9";
+            dr_work["区分名"] = "すべて可";
+            dt_work.Rows.Add(dr_work);
+
+            //選択画面へ
+            this.tb_kengen4.Text = tss.kubun_cd_select_dt("権限（在庫）", dt_work, tb_kengen4.Text);
+            tb_kengen4_name.Text = get_kengen4(tb_kengen4.Text);
+        }
+
+        private void tb_kengen5_DoubleClick(object sender, EventArgs e)
+        {
+            //選択用のdatatableの作成
+            DataTable dt_work = new DataTable();
+            //列の定義
+            dt_work.Columns.Add("区分");
+            dt_work.Columns.Add("区分名");
+            //行追加
+            DataRow dr_work = dt_work.NewRow();
+            dr_work["区分"] = "0";
+            dr_work["区分名"] = "不可";
+            dt_work.Rows.Add(dr_work);
+
+            dr_work = dt_work.NewRow();
+            dr_work["区分"] = "1";
+            dr_work["区分名"] = "参照のみ";
+            dt_work.Rows.Add(dr_work);
+
+            dr_work = dt_work.NewRow();
+            dr_work["区分"] = "9";
+            dr_work["区分名"] = "すべて可";
+            dt_work.Rows.Add(dr_work);
+
+            //選択画面へ
+            this.tb_kengen5.Text = tss.kubun_cd_select_dt("権限（社内情報）", dt_work, tb_kengen5.Text);
+            tb_kengen5_name.Text = get_kengen5(tb_kengen5.Text);
+        }
+
+        private void tb_kengen6_DoubleClick(object sender, EventArgs e)
+        {
+            //選択用のdatatableの作成
+            DataTable dt_work = new DataTable();
+            //列の定義
+            dt_work.Columns.Add("区分");
+            dt_work.Columns.Add("区分名");
+            //行追加
+            DataRow dr_work = dt_work.NewRow();
+            dr_work["区分"] = "0";
+            dr_work["区分名"] = "不可";
+            dt_work.Rows.Add(dr_work);
+
+            dr_work = dt_work.NewRow();
+            dr_work["区分"] = "1";
+            dr_work["区分名"] = "参照のみ";
+            dt_work.Rows.Add(dr_work);
+
+            dr_work = dt_work.NewRow();
+            dr_work["区分"] = "9";
+            dr_work["区分名"] = "すべて可";
+            dt_work.Rows.Add(dr_work);
+
+            //選択画面へ
+            this.tb_kengen6.Text = tss.kubun_cd_select_dt("権限（マスタ）", dt_work, tb_kengen6.Text);
+            tb_kengen6_name.Text = get_kengen6(tb_kengen6.Text);
+        }
+
+
+
+
+
+
+
+
     }
 }
