@@ -164,6 +164,12 @@
     <Compile Include="frm_seihin_kousei_m.Designer.cs">
       <DependentUpon>frm_seihin_kousei_m.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_seihin_kousei_select.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_seihin_kousei_select.Designer.cs">
+      <DependentUpon>frm_seihin_kousei_select.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_seihin_m.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_seihin_kousei_m.resx">
       <DependentUpon>frm_seihin_kousei_m.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_seihin_kousei_select.resx">
+      <DependentUpon>frm_seihin_kousei_select.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_seihin_m.resx">
       <DependentUpon>frm_seihin_m.cs</DependentUpon>
