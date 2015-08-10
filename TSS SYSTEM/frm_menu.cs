@@ -287,5 +287,12 @@ namespace TSS_SYSTEM
             frm_skm.ShowDialog(this);
             frm_skm.Dispose();
         }
+
+        private void btn_user_m_Click(object sender, EventArgs e)
+        {
+            frm_user_m frm_skm = new frm_user_m();
+            frm_skm.ShowDialog(this);
+            frm_skm.Dispose();
+        }
     }
 }

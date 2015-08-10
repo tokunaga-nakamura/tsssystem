@@ -67,6 +67,7 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.btn_eigyou_calender = new System.Windows.Forms.Button();
             this.btn_seihin_kousei_m = new System.Windows.Forms.Button();
             this.btn_seihin_kensaku = new System.Windows.Forms.Button();
             this.btn_torihikisaki_kensaku = new System.Windows.Forms.Button();
@@ -80,7 +81,7 @@
             this.btn_mst_table = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.btn_eigyou_calender = new System.Windows.Forms.Button();
+            this.btn_user_m = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -610,6 +611,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.btn_user_m);
             this.tabPage6.Controls.Add(this.btn_eigyou_calender);
             this.tabPage6.Controls.Add(this.btn_seihin_kousei_m);
             this.tabPage6.Controls.Add(this.btn_seihin_kensaku);
@@ -628,6 +630,16 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "システム保守";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // btn_eigyou_calender
+            // 
+            this.btn_eigyou_calender.Location = new System.Drawing.Point(8, 134);
+            this.btn_eigyou_calender.Name = "btn_eigyou_calender";
+            this.btn_eigyou_calender.Size = new System.Drawing.Size(211, 23);
+            this.btn_eigyou_calender.TabIndex = 11;
+            this.btn_eigyou_calender.Text = "営業カレンダー";
+            this.btn_eigyou_calender.UseVisualStyleBackColor = true;
+            this.btn_eigyou_calender.Click += new System.EventHandler(this.btn_eigyou_calender_Click);
             // 
             // btn_seihin_kousei_m
             // 
@@ -759,15 +771,15 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
-            // btn_eigyou_calender
+            // btn_user_m
             // 
-            this.btn_eigyou_calender.Location = new System.Drawing.Point(8, 134);
-            this.btn_eigyou_calender.Name = "btn_eigyou_calender";
-            this.btn_eigyou_calender.Size = new System.Drawing.Size(211, 23);
-            this.btn_eigyou_calender.TabIndex = 11;
-            this.btn_eigyou_calender.Text = "営業カレンダー";
-            this.btn_eigyou_calender.UseVisualStyleBackColor = true;
-            this.btn_eigyou_calender.Click += new System.EventHandler(this.btn_eigyou_calender_Click);
+            this.btn_user_m.Location = new System.Drawing.Point(8, 163);
+            this.btn_user_m.Name = "btn_user_m";
+            this.btn_user_m.Size = new System.Drawing.Size(211, 23);
+            this.btn_user_m.TabIndex = 12;
+            this.btn_user_m.Text = "ユーザーマスタ";
+            this.btn_user_m.UseVisualStyleBackColor = true;
+            this.btn_user_m.Click += new System.EventHandler(this.btn_user_m_Click);
             // 
             // frm_menu
             // 
@@ -895,6 +907,7 @@
         private System.Windows.Forms.Button btn_message_log;
         private System.Windows.Forms.Button btn_seihin_kousei_m;
         private System.Windows.Forms.Button btn_eigyou_calender;
+        private System.Windows.Forms.Button btn_user_m;
     }
 }
 
