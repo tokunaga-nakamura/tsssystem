@@ -31,7 +31,7 @@ namespace TSS_SYSTEM
 
         private void tb_siire_kbn_DoubleClick(object sender, EventArgs e)
         {
-            this.tb_siire_kbn.Text = tss.kubun_cd_select("07");
+            this.tb_siire_kbn.Text = tss.kubun_cd_select("07",tb_siire_kbn.Text);
             this.tb_siire_kbn_name.Text = tss.kubun_name_select("07", tb_siire_kbn.Text);
         }
 
@@ -52,16 +52,13 @@ namespace TSS_SYSTEM
             dr_work["区分名"] = "対象";
             dt_work.Rows.Add(dr_work);
             //選択画面へ
-            this.tb_kessan_kbn.Text = tss.kubun_cd_select_dt("決算区分",dt_work);
+            this.tb_kessan_kbn.Text = tss.kubun_cd_select_dt("決算区分",dt_work,tb_kessan_kbn.Text);
             chk_kessan_kbn();   //決算区分名の表示
         }
 
-
-
-
         private void tb_tani_kbn_DoubleClick(object sender, EventArgs e)
         {
-            this.tb_tani_kbn.Text = tss.kubun_cd_select("02");
+            this.tb_tani_kbn.Text = tss.kubun_cd_select("02",tb_tani_kbn.Text);
             this.tb_tani_name.Text = tss.kubun_name_select("02", tb_tani_kbn.Text);
         }
 
@@ -102,12 +99,7 @@ namespace TSS_SYSTEM
             gamen_clear();
             tb_buhin_cd.Text = in_buhin_cd;
             lbl_buhin_cd.Text = "新規の部品です。";
-            //tb_buhin_name.ReadOnly = false;
-            //tb_buhin_name.TabStop = true;
-            //tb_buhin_name.BackColor = System.Drawing.SystemColors.Window;
-            //tb_buhin_name.Focus();
         }
-
 
         private void gamen_clear()
         {
@@ -172,7 +164,9 @@ namespace TSS_SYSTEM
         private void zaiko_disp(string in_cd)
         {
             dgv_buhin_zaiko_m.DataSource = null;
-            dgv_buhin_zaiko_m.DataSource = tss.OracleSelect("select zaiko_kbn,torihikisaki_cd,juchu_cd1,juchu_cd2,zaiko_su from tss_buhin_zaiko_m where buhin_cd = '" + in_cd.ToString() + "'");
+            dgv_buhin_zaiko_m.DataSource = tss.OracleSelect("select zaiko_kbn,torihikisaki_cd,juchu_cd1,juchu_cd2,zaiko_su from tss_buhin_zaiko_m where buhin_cd = '" + in_cd.ToString() + "' order by zaiko_kbn,torihikisaki_cd,juchu_cd1,juchu_cd2");
+            //リードオンリーにする（編集できなくなる）
+            dgv_buhin_zaiko_m.ReadOnly = true;
             //行ヘッダーを非表示にする
             dgv_buhin_zaiko_m.RowHeadersVisible = false;
             //カラム幅の自動調整（ヘッダーとセルの両方の最長幅に調整する）
@@ -195,12 +189,29 @@ namespace TSS_SYSTEM
             dgv_buhin_zaiko_m.Columns[2].HeaderText = "受注No1";
             dgv_buhin_zaiko_m.Columns[3].HeaderText = "受注No2";
             dgv_buhin_zaiko_m.Columns[4].HeaderText = "在庫数";
+            //合計在庫数を求めて表示
+            double w_zaiko_su = new double();
+            for(int i = 0;i < dgv_buhin_zaiko_m.Rows.Count;i++)
+            {
+                double w_dou;
+                if (double.TryParse(dgv_buhin_zaiko_m.Rows[i].Cells[4].Value.ToString(), out w_dou))
+                {
+                    w_zaiko_su = w_zaiko_su + w_dou;
+                }
+                else
+                {
+
+                }
+            }
+            tb_goukei_zaiko_su.Text = w_zaiko_su.ToString("0.00");
         }
 
         private void rireki_disp(string in_cd)
         {
             dgv_buhin_nyusyukko_m.DataSource = null;
             dgv_buhin_nyusyukko_m.DataSource = tss.OracleSelect("select buhin_syori_date,buhin_syori_kbn,zaiko_kbn,torihikisaki_cd,juchu_cd1,juchu_cd2,suryou,idousaki_zaiko_kbn,idousaki_torihikisaki_cd,idousaki_juchu_cd1,idousaki_juchu_cd2 from tss_buhin_nyusyukko_m where buhin_cd = '" + in_cd.ToString() + "' order by buhin_syori_date desc");
+            //リードオンリーにする（編集できなくなる）
+            dgv_buhin_nyusyukko_m.ReadOnly = true;
             //行ヘッダーを非表示にする
             dgv_buhin_nyusyukko_m.RowHeadersVisible = false;
             //カラム幅の自動調整（ヘッダーとセルの両方の最長幅に調整する）
@@ -229,8 +240,6 @@ namespace TSS_SYSTEM
             dgv_buhin_nyusyukko_m.Columns[9].HeaderText = "移動先受注No1";
             dgv_buhin_nyusyukko_m.Columns[10].HeaderText = "移動先受注No2";
         }
-
-
 
         private string get_torihikisaki_name(string in_torihikisaki_cd)
         {
@@ -394,10 +403,7 @@ namespace TSS_SYSTEM
                     tb_buhin_hosoku.Focus();
                 }
             }
-
         }
-
-
 
         private bool chk_buhin_name()
         {
@@ -607,7 +613,7 @@ namespace TSS_SYSTEM
             tss.GetUser();
             //更新
             bool bl_tss = true;
-            bl_tss = tss.OracleUpdate("UPDATE TSS_buhin_m SET buhin_NAME = '" + tb_buhin_name.Text.ToString() + "',buhin_hosoku = '" + tb_buhin_hosoku.Text.ToString() + "',maker = '" + tb_maker_name.Text.ToString() 
+            bl_tss = tss.OracleUpdate("UPDATE TSS_buhin_m SET buhin_NAME = '" + tb_buhin_name.Text.ToString() + "',buhin_hosoku = '" + tb_buhin_hosoku.Text.ToString() + "',maker_name = '" + tb_maker_name.Text.ToString() 
                                     + "',tani_kbn = '" + tb_tani_kbn.Text.ToString() + "',siiresaki_cd = '" + tb_siiresaki_cd.Text.ToString() + "',siire_kbn = '" + tb_siire_kbn.Text.ToString()
                                     + "',torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "',siire_tanka = '" + tb_siire_tanka.Text.ToString() + "',hanbai_tanka = '" + tb_hanbai_tanka.Text.ToString()
                                     + "',hokan_basyo = '" + tb_hokan_basyo.Text.ToString() + "',kessan_kbn = '" + tb_kessan_kbn.Text.ToString() + "',bikou = '" + tb_bikou.Text.ToString()
@@ -789,7 +795,6 @@ namespace TSS_SYSTEM
                 tb_siiresaki_name.Text = get_torihikisaki_name(tb_siiresaki_cd.Text);
                 tb_siire_kbn.Focus();
             }
-
         }
     }
 }

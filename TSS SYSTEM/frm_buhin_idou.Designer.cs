@@ -95,7 +95,7 @@
             this.dgv_idou.Name = "dgv_idou";
             this.dgv_idou.RowHeadersVisible = false;
             this.dgv_idou.RowTemplate.Height = 21;
-            this.dgv_idou.Size = new System.Drawing.Size(880, 303);
+            this.dgv_idou.Size = new System.Drawing.Size(880, 311);
             this.dgv_idou.TabIndex = 0;
             this.dgv_idou.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_idou_CellClick);
             this.dgv_idou.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_idou_CellEndEdit);
@@ -205,9 +205,9 @@
             // 
             // btn_sakujyo
             // 
-            this.btn_sakujyo.Location = new System.Drawing.Point(10, 11);
+            this.btn_sakujyo.Location = new System.Drawing.Point(10, 3);
             this.btn_sakujyo.Name = "btn_sakujyo";
-            this.btn_sakujyo.Size = new System.Drawing.Size(108, 23);
+            this.btn_sakujyo.Size = new System.Drawing.Size(75, 23);
             this.btn_sakujyo.TabIndex = 4;
             this.btn_sakujyo.Text = "1行削除";
             this.btn_sakujyo.UseVisualStyleBackColor = true;
@@ -215,7 +215,7 @@
             // 
             // btn_touroku
             // 
-            this.btn_touroku.Location = new System.Drawing.Point(689, 11);
+            this.btn_touroku.Location = new System.Drawing.Point(714, 3);
             this.btn_touroku.Name = "btn_touroku";
             this.btn_touroku.Size = new System.Drawing.Size(75, 23);
             this.btn_touroku.TabIndex = 3;
@@ -263,7 +263,7 @@
             // 
             // btn_syuuryou
             // 
-            this.btn_syuuryou.Location = new System.Drawing.Point(786, 11);
+            this.btn_syuuryou.Location = new System.Drawing.Point(795, 3);
             this.btn_syuuryou.Name = "btn_syuuryou";
             this.btn_syuuryou.Size = new System.Drawing.Size(75, 23);
             this.btn_syuuryou.TabIndex = 0;
@@ -294,7 +294,7 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.dgv_idou);
-            this.splitContainer3.Size = new System.Drawing.Size(884, 431);
+            this.splitContainer3.Size = new System.Drawing.Size(884, 439);
             this.splitContainer3.SplitterDistance = 120;
             this.splitContainer3.TabIndex = 8;
             // 
@@ -329,7 +329,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.btn_touroku);
             this.splitContainer2.Panel2.Controls.Add(this.btn_syuuryou);
             this.splitContainer2.Size = new System.Drawing.Size(884, 497);
-            this.splitContainer2.SplitterDistance = 431;
+            this.splitContainer2.SplitterDistance = 439;
             this.splitContainer2.TabIndex = 0;
             this.splitContainer2.TabStop = false;
             // 

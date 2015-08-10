@@ -31,7 +31,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_kensaku = new System.Windows.Forms.Button();
-            this.tb_tokuisaki_name = new System.Windows.Forms.TextBox();
+            this.tb_torihikisaki_name = new System.Windows.Forms.TextBox();
             this.tb_siiresaki_name = new System.Windows.Forms.TextBox();
             this.tb_siire_kbn_name = new System.Windows.Forms.TextBox();
             this.tb_siire_kbn = new System.Windows.Forms.TextBox();
@@ -89,7 +89,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btn_kensaku);
-            this.groupBox1.Controls.Add(this.tb_tokuisaki_name);
+            this.groupBox1.Controls.Add(this.tb_torihikisaki_name);
             this.groupBox1.Controls.Add(this.tb_siiresaki_name);
             this.groupBox1.Controls.Add(this.tb_siire_kbn_name);
             this.groupBox1.Controls.Add(this.tb_siire_kbn);
@@ -125,15 +125,15 @@
             this.btn_kensaku.UseVisualStyleBackColor = true;
             this.btn_kensaku.Click += new System.EventHandler(this.btn_kensaku_Click);
             // 
-            // tb_tokuisaki_name
+            // tb_torihikisaki_name
             // 
-            this.tb_tokuisaki_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_tokuisaki_name.Location = new System.Drawing.Point(540, 68);
-            this.tb_tokuisaki_name.Name = "tb_tokuisaki_name";
-            this.tb_tokuisaki_name.ReadOnly = true;
-            this.tb_tokuisaki_name.Size = new System.Drawing.Size(206, 19);
-            this.tb_tokuisaki_name.TabIndex = 18;
-            this.tb_tokuisaki_name.TabStop = false;
+            this.tb_torihikisaki_name.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_torihikisaki_name.Location = new System.Drawing.Point(540, 68);
+            this.tb_torihikisaki_name.Name = "tb_torihikisaki_name";
+            this.tb_torihikisaki_name.ReadOnly = true;
+            this.tb_torihikisaki_name.Size = new System.Drawing.Size(206, 19);
+            this.tb_torihikisaki_name.TabIndex = 18;
+            this.tb_torihikisaki_name.TabStop = false;
             // 
             // tb_siiresaki_name
             // 
@@ -154,10 +154,13 @@
             // 
             // tb_siire_kbn
             // 
+            this.tb_siire_kbn.BackColor = System.Drawing.Color.PowderBlue;
             this.tb_siire_kbn.Location = new System.Drawing.Point(434, 43);
             this.tb_siire_kbn.Name = "tb_siire_kbn";
             this.tb_siire_kbn.Size = new System.Drawing.Size(36, 19);
             this.tb_siire_kbn.TabIndex = 15;
+            this.tb_siire_kbn.DoubleClick += new System.EventHandler(this.tb_siire_kbn_DoubleClick);
+            this.tb_siire_kbn.Validating += new System.ComponentModel.CancelEventHandler(this.tb_siire_kbn_Validating);
             // 
             // textBox15
             // 
@@ -172,10 +175,13 @@
             // 
             // tb_siiresaki_cd
             // 
+            this.tb_siiresaki_cd.BackColor = System.Drawing.Color.PowderBlue;
             this.tb_siiresaki_cd.Location = new System.Drawing.Point(434, 18);
             this.tb_siiresaki_cd.Name = "tb_siiresaki_cd";
             this.tb_siiresaki_cd.Size = new System.Drawing.Size(100, 19);
             this.tb_siiresaki_cd.TabIndex = 13;
+            this.tb_siiresaki_cd.DoubleClick += new System.EventHandler(this.tb_siiresaki_cd_DoubleClick);
+            this.tb_siiresaki_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_siiresaki_cd_Validating);
             // 
             // textBox13
             // 
@@ -190,10 +196,12 @@
             // 
             // tb_torihikisaki_cd
             // 
+            this.tb_torihikisaki_cd.BackColor = System.Drawing.Color.PowderBlue;
             this.tb_torihikisaki_cd.Location = new System.Drawing.Point(434, 68);
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
             this.tb_torihikisaki_cd.Size = new System.Drawing.Size(100, 19);
             this.tb_torihikisaki_cd.TabIndex = 10;
+            this.tb_torihikisaki_cd.DoubleClick += new System.EventHandler(this.tb_torihikisaki_cd_DoubleClick);
             // 
             // textBox10
             // 
@@ -392,7 +400,7 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btn_kensaku;
-        private System.Windows.Forms.TextBox tb_tokuisaki_name;
+        private System.Windows.Forms.TextBox tb_torihikisaki_name;
         private System.Windows.Forms.TextBox tb_siiresaki_name;
         private System.Windows.Forms.TextBox tb_siire_kbn_name;
         private System.Windows.Forms.TextBox tb_siire_kbn;

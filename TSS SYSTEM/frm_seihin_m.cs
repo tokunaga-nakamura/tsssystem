@@ -21,7 +21,7 @@ namespace TSS_SYSTEM
 
         private void tb_tani_kbn_DoubleClick(object sender, EventArgs e)
         {
-            this.tb_tani_kbn.Text = tss.kubun_cd_select("02");
+            this.tb_tani_kbn.Text = tss.kubun_cd_select("02",tb_tani_kbn.Text);
             this.tb_tani_name.Text = tss.kubun_name_select("02", tb_tani_kbn.Text);
         }
 
@@ -32,25 +32,25 @@ namespace TSS_SYSTEM
 
         private void tb_seihin_syubetu_kbn_DoubleClick(object sender, EventArgs e)
         {
-            this.tb_seihin_syubetu_kbn.Text = tss.kubun_cd_select("03");
+            this.tb_seihin_syubetu_kbn.Text = tss.kubun_cd_select("03",tb_seihin_bunrui_kbn.Text);
             this.tb_seihin_syubetu_name.Text = tss.kubun_name_select("03",tb_seihin_syubetu_kbn.Text);
         }
 
         private void tb_seihin_bunrui_kbn_DoubleClick(object sender, EventArgs e)
         {
-            this.tb_seihin_bunrui_kbn.Text = tss.kubun_cd_select("04");
+            this.tb_seihin_bunrui_kbn.Text = tss.kubun_cd_select("04",tb_seihin_bunrui_kbn.Text);
             this.tb_seihin_bunrui_name.Text = tss.kubun_name_select("04", tb_seihin_bunrui_kbn.Text);
         }
 
         private void tb_sijou_kbn_DoubleClick(object sender, EventArgs e)
         {
-            this.tb_sijou_kbn.Text = tss.kubun_cd_select("05");
+            this.tb_sijou_kbn.Text = tss.kubun_cd_select("05",tb_sijou_kbn.Text);
             this.tb_sijou_name.Text = tss.kubun_name_select("05", tb_sijou_kbn.Text);
         }
 
         private void tb_type_kbn_DoubleClick(object sender, EventArgs e)
         {
-            this.tb_type_kbn.Text = tss.kubun_cd_select("06");
+            this.tb_type_kbn.Text = tss.kubun_cd_select("06",tb_type_kbn.Text);
             this.tb_type_name.Text = tss.kubun_name_select("06", tb_type_kbn.Text);
         }
 
@@ -165,9 +165,37 @@ namespace TSS_SYSTEM
             tb_update_user_cd.Text = in_dt_work.Rows[0]["update_user_cd"].ToString();
             tb_update_datetime.Text = in_dt_work.Rows[0]["update_datetime"].ToString();
 
-            dgv_seihin_kousei.DataSource = null;
+            seihin_kousei_disp(tb_seihin_cd.Text);
             dgv_seihin_koutei.DataSource = null;
             dgv_tanka.DataSource = null;
+        }
+        private void seihin_kousei_disp(string in_cd)
+        {
+            DataTable w_dt = new DataTable();
+            w_dt = tss.OracleSelect("select seihin_kousei_no,seihin_kousei_name from tss_seihin_kousei_name_m where seihin_cd = '" + in_cd + "' order by seihin_kousei_no");
+            dgv_seihin_kousei.DataSource = null;
+            dgv_seihin_kousei.DataSource = w_dt;
+            //リードオンリーにする（編集できなくなる）
+            dgv_seihin_kousei.ReadOnly = true;
+            //行ヘッダーを非表示にする
+            dgv_seihin_kousei.RowHeadersVisible = false;
+            //カラム幅の自動調整（ヘッダーとセルの両方の最長幅に調整する）
+            dgv_seihin_kousei.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //セルの高さ変更不可
+            dgv_seihin_kousei.AllowUserToResizeRows = false;
+            //カラムヘッダーの高さ変更不可
+            dgv_seihin_kousei.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            //削除不可にする（コードからは削除可）
+            dgv_seihin_kousei.AllowUserToDeleteRows = false;
+            //１行のみ選択可能（複数行の選択不可）
+            dgv_seihin_kousei.MultiSelect = false;
+            //セルを選択すると行全体が選択されるようにする
+            dgv_seihin_kousei.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //DataGridView1にユーザーが新しい行を追加できないようにする
+            dgv_seihin_kousei.AllowUserToAddRows = false;
+            //DataGridViewのカラムヘッダーテキストを変更する
+            dgv_seihin_kousei.Columns[0].HeaderText = "構成番号";
+            dgv_seihin_kousei.Columns[1].HeaderText = "構成名称";
         }
 
         private string get_torihikisaki_name(string in_torihikisaki_cd)

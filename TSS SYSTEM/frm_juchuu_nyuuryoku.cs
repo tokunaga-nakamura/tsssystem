@@ -1145,7 +1145,6 @@ namespace TSS_SYSTEM
                 tb_seihin_name.Text = get_seihin_name(tb_seihin_cd.Text);
                 tb_juchu_su.Focus();
             }
-
         }
     }
 }

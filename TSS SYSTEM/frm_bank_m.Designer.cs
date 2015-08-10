@@ -78,7 +78,7 @@
             this.bt_close.Location = new System.Drawing.Point(795, 3);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(75, 23);
-            this.bt_close.TabIndex = 2;
+            this.bt_close.TabIndex = 3;
             this.bt_close.Text = "終了";
             this.bt_close.UseVisualStyleBackColor = true;
             this.bt_close.Click += new System.EventHandler(this.bt_close_Click);
@@ -88,14 +88,14 @@
             this.btn_sakujyo.Location = new System.Drawing.Point(714, 3);
             this.btn_sakujyo.Name = "btn_sakujyo";
             this.btn_sakujyo.Size = new System.Drawing.Size(75, 23);
-            this.btn_sakujyo.TabIndex = 1;
+            this.btn_sakujyo.TabIndex = 2;
             this.btn_sakujyo.Text = "削除";
             this.btn_sakujyo.UseVisualStyleBackColor = true;
             this.btn_sakujyo.Click += new System.EventHandler(this.btn_sakujyo_Click);
             // 
             // btn_touroku
             // 
-            this.btn_touroku.Location = new System.Drawing.Point(787, 108);
+            this.btn_touroku.Location = new System.Drawing.Point(10, 3);
             this.btn_touroku.Name = "btn_touroku";
             this.btn_touroku.Size = new System.Drawing.Size(75, 23);
             this.btn_touroku.TabIndex = 0;
@@ -105,15 +105,15 @@
             // 
             // tb_kouza_meigi
             // 
-            this.tb_kouza_meigi.Location = new System.Drawing.Point(549, 74);
+            this.tb_kouza_meigi.Location = new System.Drawing.Point(329, 78);
             this.tb_kouza_meigi.Name = "tb_kouza_meigi";
             this.tb_kouza_meigi.Size = new System.Drawing.Size(313, 19);
-            this.tb_kouza_meigi.TabIndex = 38;
+            this.tb_kouza_meigi.TabIndex = 6;
             // 
             // textBox17
             // 
             this.textBox17.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox17.Location = new System.Drawing.Point(466, 74);
+            this.textBox17.Location = new System.Drawing.Point(244, 78);
             this.textBox17.Name = "textBox17";
             this.textBox17.ReadOnly = true;
             this.textBox17.Size = new System.Drawing.Size(85, 19);
@@ -123,35 +123,35 @@
             // 
             // tb_kouza_no
             // 
-            this.tb_kouza_no.Location = new System.Drawing.Point(549, 50);
+            this.tb_kouza_no.Location = new System.Drawing.Point(93, 78);
             this.tb_kouza_no.Name = "tb_kouza_no";
             this.tb_kouza_no.Size = new System.Drawing.Size(145, 19);
-            this.tb_kouza_no.TabIndex = 36;
+            this.tb_kouza_no.TabIndex = 5;
             // 
             // textBox15
             // 
             this.textBox15.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox15.Location = new System.Drawing.Point(466, 50);
+            this.textBox15.Location = new System.Drawing.Point(10, 78);
             this.textBox15.Name = "textBox15";
             this.textBox15.ReadOnly = true;
-            this.textBox15.Size = new System.Drawing.Size(85, 19);
+            this.textBox15.Size = new System.Drawing.Size(83, 19);
             this.textBox15.TabIndex = 35;
             this.textBox15.TabStop = false;
             this.textBox15.Text = "口座番号";
             // 
             // tb_kouza_syubetu
             // 
-            this.tb_kouza_syubetu.Location = new System.Drawing.Point(549, 25);
+            this.tb_kouza_syubetu.Location = new System.Drawing.Point(93, 103);
             this.tb_kouza_syubetu.Name = "tb_kouza_syubetu";
             this.tb_kouza_syubetu.Size = new System.Drawing.Size(34, 19);
-            this.tb_kouza_syubetu.TabIndex = 33;
+            this.tb_kouza_syubetu.TabIndex = 7;
             this.tb_kouza_syubetu.TextChanged += new System.EventHandler(this.tb_kouza_syubetu_TextChanged);
             this.tb_kouza_syubetu.DoubleClick += new System.EventHandler(this.tb_kouza_syubetu_DoubleClick);
             // 
             // textBox13
             // 
             this.textBox13.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox13.Location = new System.Drawing.Point(466, 25);
+            this.textBox13.Location = new System.Drawing.Point(10, 103);
             this.textBox13.Name = "textBox13";
             this.textBox13.ReadOnly = true;
             this.textBox13.Size = new System.Drawing.Size(83, 19);
@@ -161,15 +161,15 @@
             // 
             // tb_siten_name
             // 
-            this.tb_siten_name.Location = new System.Drawing.Point(317, 75);
+            this.tb_siten_name.Location = new System.Drawing.Point(235, 53);
             this.tb_siten_name.Name = "tb_siten_name";
-            this.tb_siten_name.Size = new System.Drawing.Size(112, 19);
-            this.tb_siten_name.TabIndex = 31;
+            this.tb_siten_name.Size = new System.Drawing.Size(292, 19);
+            this.tb_siten_name.TabIndex = 4;
             // 
             // textBox11
             // 
             this.textBox11.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox11.Location = new System.Drawing.Point(234, 75);
+            this.textBox11.Location = new System.Drawing.Point(152, 53);
             this.textBox11.Name = "textBox11";
             this.textBox11.ReadOnly = true;
             this.textBox11.Size = new System.Drawing.Size(83, 19);
@@ -179,15 +179,15 @@
             // 
             // tb_siten_cd
             // 
-            this.tb_siten_cd.Location = new System.Drawing.Point(116, 75);
+            this.tb_siten_cd.Location = new System.Drawing.Point(93, 53);
             this.tb_siten_cd.Name = "tb_siten_cd";
-            this.tb_siten_cd.Size = new System.Drawing.Size(112, 19);
-            this.tb_siten_cd.TabIndex = 29;
+            this.tb_siten_cd.Size = new System.Drawing.Size(53, 19);
+            this.tb_siten_cd.TabIndex = 3;
             // 
             // textBox9
             // 
             this.textBox9.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox9.Location = new System.Drawing.Point(33, 75);
+            this.textBox9.Location = new System.Drawing.Point(10, 53);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
             this.textBox9.Size = new System.Drawing.Size(83, 19);
@@ -197,15 +197,15 @@
             // 
             // tb_bank_name
             // 
-            this.tb_bank_name.Location = new System.Drawing.Point(317, 50);
+            this.tb_bank_name.Location = new System.Drawing.Point(235, 28);
             this.tb_bank_name.Name = "tb_bank_name";
-            this.tb_bank_name.Size = new System.Drawing.Size(112, 19);
-            this.tb_bank_name.TabIndex = 27;
+            this.tb_bank_name.Size = new System.Drawing.Size(292, 19);
+            this.tb_bank_name.TabIndex = 2;
             // 
             // textBox7
             // 
             this.textBox7.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox7.Location = new System.Drawing.Point(234, 50);
+            this.textBox7.Location = new System.Drawing.Point(152, 28);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(83, 19);
@@ -216,7 +216,7 @@
             // tb_torihikisaki_name
             // 
             this.tb_torihikisaki_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_torihikisaki_name.Location = new System.Drawing.Point(168, 25);
+            this.tb_torihikisaki_name.Location = new System.Drawing.Point(146, 3);
             this.tb_torihikisaki_name.Name = "tb_torihikisaki_name";
             this.tb_torihikisaki_name.Size = new System.Drawing.Size(180, 19);
             this.tb_torihikisaki_name.TabIndex = 24;
@@ -224,17 +224,17 @@
             // 
             // tb_torihikisaki_cd
             // 
-            this.tb_torihikisaki_cd.Location = new System.Drawing.Point(117, 25);
+            this.tb_torihikisaki_cd.Location = new System.Drawing.Point(93, 3);
             this.tb_torihikisaki_cd.MaxLength = 6;
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
             this.tb_torihikisaki_cd.Size = new System.Drawing.Size(53, 19);
-            this.tb_torihikisaki_cd.TabIndex = 21;
+            this.tb_torihikisaki_cd.TabIndex = 0;
             this.tb_torihikisaki_cd.Leave += new System.EventHandler(this.tb_torihikisaki_cd_Leave);
             // 
             // textBox5
             // 
             this.textBox5.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox5.Location = new System.Drawing.Point(33, 25);
+            this.textBox5.Location = new System.Drawing.Point(10, 3);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(83, 19);
@@ -244,16 +244,16 @@
             // 
             // tb_bank_cd
             // 
-            this.tb_bank_cd.Location = new System.Drawing.Point(117, 50);
+            this.tb_bank_cd.Location = new System.Drawing.Point(93, 28);
             this.tb_bank_cd.MaxLength = 6;
             this.tb_bank_cd.Name = "tb_bank_cd";
-            this.tb_bank_cd.Size = new System.Drawing.Size(112, 19);
-            this.tb_bank_cd.TabIndex = 18;
+            this.tb_bank_cd.Size = new System.Drawing.Size(53, 19);
+            this.tb_bank_cd.TabIndex = 1;
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox1.Location = new System.Drawing.Point(33, 50);
+            this.textBox1.Location = new System.Drawing.Point(10, 28);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(83, 19);
@@ -280,8 +280,9 @@
             this.splitContainer2.Panel2.Controls.Add(this.bt_hensyu);
             this.splitContainer2.Panel2.Controls.Add(this.bt_close);
             this.splitContainer2.Panel2.Controls.Add(this.btn_sakujyo);
+            this.splitContainer2.Panel2.Controls.Add(this.btn_touroku);
             this.splitContainer2.Size = new System.Drawing.Size(884, 474);
-            this.splitContainer2.SplitterDistance = 439;
+            this.splitContainer2.SplitterDistance = 438;
             this.splitContainer2.TabIndex = 0;
             this.splitContainer2.TabStop = false;
             // 
@@ -289,6 +290,7 @@
             // 
             this.splitContainer3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer3.IsSplitterFixed = true;
             this.splitContainer3.Location = new System.Drawing.Point(0, 0);
             this.splitContainer3.Name = "splitContainer3";
@@ -300,7 +302,6 @@
             this.splitContainer3.Panel1.Controls.Add(this.textBox13);
             this.splitContainer3.Panel1.Controls.Add(this.tb_bank_cd);
             this.splitContainer3.Panel1.Controls.Add(this.tb_siten_name);
-            this.splitContainer3.Panel1.Controls.Add(this.btn_touroku);
             this.splitContainer3.Panel1.Controls.Add(this.tb_kouza_no);
             this.splitContainer3.Panel1.Controls.Add(this.textBox11);
             this.splitContainer3.Panel1.Controls.Add(this.label1);
@@ -320,14 +321,14 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.dgv_bank_m);
-            this.splitContainer3.Size = new System.Drawing.Size(884, 439);
-            this.splitContainer3.SplitterDistance = 171;
+            this.splitContainer3.Size = new System.Drawing.Size(884, 438);
+            this.splitContainer3.SplitterDistance = 158;
             this.splitContainer3.TabIndex = 40;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 146);
+            this.label2.Location = new System.Drawing.Point(10, 135);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 40;
@@ -336,7 +337,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(586, 28);
+            this.label1.Location = new System.Drawing.Point(133, 106);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 12);
             this.label1.TabIndex = 39;
@@ -349,7 +350,7 @@
             this.dgv_bank_m.Location = new System.Drawing.Point(0, 0);
             this.dgv_bank_m.Name = "dgv_bank_m";
             this.dgv_bank_m.RowTemplate.Height = 21;
-            this.dgv_bank_m.Size = new System.Drawing.Size(880, 260);
+            this.dgv_bank_m.Size = new System.Drawing.Size(880, 272);
             this.dgv_bank_m.TabIndex = 0;
             // 
             // bt_hensyu
@@ -357,7 +358,7 @@
             this.bt_hensyu.Location = new System.Drawing.Point(631, 3);
             this.bt_hensyu.Name = "bt_hensyu";
             this.bt_hensyu.Size = new System.Drawing.Size(77, 23);
-            this.bt_hensyu.TabIndex = 3;
+            this.bt_hensyu.TabIndex = 1;
             this.bt_hensyu.Text = "編集";
             this.bt_hensyu.UseVisualStyleBackColor = true;
             this.bt_hensyu.Click += new System.EventHandler(this.bt_hensyu_Click);
@@ -369,6 +370,7 @@
             this.btn_hardcopy.Name = "btn_hardcopy";
             this.btn_hardcopy.Size = new System.Drawing.Size(36, 36);
             this.btn_hardcopy.TabIndex = 0;
+            this.btn_hardcopy.TabStop = false;
             this.btn_hardcopy.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
@@ -409,7 +411,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
             this.Name = "frm_bank_m";
-            this.Text = "frm_bank_m";
+            this.Text = "銀行マスタ";
             this.Load += new System.EventHandler(this.frm_bank_m_Load);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);

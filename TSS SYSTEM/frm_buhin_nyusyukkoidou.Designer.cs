@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_buhin_nyusyukkoidou));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_hardcopy = new System.Windows.Forms.Button();
@@ -134,7 +134,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.btn_touroku);
             this.splitContainer2.Panel2.Controls.Add(this.btn_syuuryou);
             this.splitContainer2.Size = new System.Drawing.Size(884, 475);
-            this.splitContainer2.SplitterDistance = 430;
+            this.splitContainer2.SplitterDistance = 439;
             this.splitContainer2.TabIndex = 0;
             this.splitContainer2.TabStop = false;
             // 
@@ -164,7 +164,7 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.dgv_nyusyukkoidou);
-            this.splitContainer3.Size = new System.Drawing.Size(884, 430);
+            this.splitContainer3.Size = new System.Drawing.Size(884, 439);
             this.splitContainer3.SplitterDistance = 147;
             this.splitContainer3.TabIndex = 8;
             // 
@@ -283,7 +283,7 @@
             this.dgv_nyusyukkoidou.Name = "dgv_nyusyukkoidou";
             this.dgv_nyusyukkoidou.RowHeadersVisible = false;
             this.dgv_nyusyukkoidou.RowTemplate.Height = 21;
-            this.dgv_nyusyukkoidou.Size = new System.Drawing.Size(880, 275);
+            this.dgv_nyusyukkoidou.Size = new System.Drawing.Size(880, 284);
             this.dgv_nyusyukkoidou.TabIndex = 0;
             this.dgv_nyusyukkoidou.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_nyusyukkoidou_CellEndEdit);
             // 
@@ -317,10 +317,10 @@
             // 
             // Column7
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column7.HeaderText = "数量";
             this.Column7.Name = "Column7";
             this.Column7.Width = 70;
@@ -332,9 +332,9 @@
             // 
             // btn_sakujyo
             // 
-            this.btn_sakujyo.Location = new System.Drawing.Point(10, 11);
+            this.btn_sakujyo.Location = new System.Drawing.Point(10, 3);
             this.btn_sakujyo.Name = "btn_sakujyo";
-            this.btn_sakujyo.Size = new System.Drawing.Size(108, 23);
+            this.btn_sakujyo.Size = new System.Drawing.Size(75, 23);
             this.btn_sakujyo.TabIndex = 4;
             this.btn_sakujyo.Text = "1行削除";
             this.btn_sakujyo.UseVisualStyleBackColor = true;
@@ -342,7 +342,7 @@
             // 
             // btn_touroku
             // 
-            this.btn_touroku.Location = new System.Drawing.Point(685, 7);
+            this.btn_touroku.Location = new System.Drawing.Point(714, 3);
             this.btn_touroku.Name = "btn_touroku";
             this.btn_touroku.Size = new System.Drawing.Size(75, 23);
             this.btn_touroku.TabIndex = 3;
@@ -352,7 +352,7 @@
             // 
             // btn_syuuryou
             // 
-            this.btn_syuuryou.Location = new System.Drawing.Point(790, 7);
+            this.btn_syuuryou.Location = new System.Drawing.Point(795, 3);
             this.btn_syuuryou.Name = "btn_syuuryou";
             this.btn_syuuryou.Size = new System.Drawing.Size(75, 23);
             this.btn_syuuryou.TabIndex = 0;
