@@ -92,7 +92,7 @@ namespace TSS_SYSTEM
                 {
                     tb_seihin_name.Text = get_seihin_name(tb_seihin_cd.Text);
                     DataTable dt_work = new DataTable();
-                    dt_work = tss.OracleSelect("select seihin_cd,seihin_kousei_no,seihin_kousei_name from tss_seihin_kousei_name_m where seihin_cd  = '" + tb_seihin_cd.Text.ToString() + "'");
+                    dt_work = tss.OracleSelect("select seihin_cd,seihin_kousei_no,seihin_kousei_name from tss_seihin_kousei_name_m where seihin_cd  = '" + tb_seihin_cd.Text.ToString() + "' ORDER BY seihin_kousei_no");
 
 
                     dgv_seihin_kousei_name.DataSource = dt_work;
@@ -100,6 +100,7 @@ namespace TSS_SYSTEM
                     dgv_seihin_kousei_name.Columns[1].HeaderText = "製品構成番号";
                     dgv_seihin_kousei_name.Columns[2].HeaderText = "製品構成名称";
 
+                    //製品構成に何も登録されていない場合
                     if (dt_work.Rows.Count == 0)
                     {
                         DialogResult result = MessageBox.Show("製品構成に登録がありません。新規に登録しますか？",
@@ -130,90 +131,49 @@ namespace TSS_SYSTEM
                                 dgv_seihin_kousei.DataSource = dt_work;
 
                                 //「はい」が選択された時
-                                //選択用のdatatableの作成
-                                
                                 //製品コードと製品構成選択フォームの表示
-
-                                //選択用のdatatableの作成
-                                DataTable dt_work_2 = new DataTable();
-
-                                dt_work_2 = tss.OracleSelect("select seihin_kousei_no,seihin_kousei_name from tss_seihin_kousei_name_m where seihin_cd = '" + tb_seihin_cd.Text.ToString() + "'");
-                                dt_work_2.Columns["seihin_kousei_no"].ColumnName = "製品構成番号";
-                                dt_work_2.Columns["seihin_kousei_name"].ColumnName = "製品構成名称";
-
-                                //選択画面表示
-                                //this.tb_seihin_kousei_no.Text = tss.kubun_cd_select_dt("製品構成", dt_work);
-
-
-                                if (dt_work_2.Rows.Count <= 0)
-                                {
-                                    //行追加
-                                    DataRow dr_work = dt_work_2.NewRow();
-                                    dt_work_2.Rows.Add(dr_work);
-                                    dr_work["製品構成番号"] = "01";
-                                    dr_work["製品構成名称"] = "初回登録";
-                                    //選択画面表示
-                                    this.tb_seihin_kousei_no.Text = tss.kubun_cd_select_dt("製品構成", dt_work_2);
-                                }
-                                else
-                                {
-                                    //選択画面表示
-                                    this.tb_seihin_kousei_no.Text = tss.kubun_cd_select_dt("製品構成", dt_work_2);
-                                    this.tb_seihin_kousei_name.Text = get_seihin_kousei_name(tb_seihin_cd.Text, tb_seihin_kousei_no.Text);
-                                }
-
-                                ////////////////////////////////////////////////////////////////////////
+                                //区分名称マスタ
+                                frm_seihin_kousei_select frm_sks = new frm_seihin_kousei_select();
+                                frm_sks.Show();
+                                //frm_sks.Dispose();
                                 
-                                DataTable dt_work2 = new DataTable();
-
-                                dt_work2 = tss.OracleSelect("select seihin_kousei_no,seihin_kousei_name from tss_seihin_kousei_name_m where seihin_cd = '" + tb_seihin_cd.Text.ToString() + "'");
-                                dt_work2.Columns["seihin_kousei_no"].ColumnName = "製品構成番号";
-                                dt_work2.Columns["seihin_kousei_name"].ColumnName = "製品構成名称";
-
-                                if (dt_work2.Rows.Count > 0)
-                                {
-                                    //選択画面表示
-                                    //this.tb_seihin_kousei_no.Text = tss.kubun_cd_select_dt("製品構成", dt_work2);
-                                    this.tb_seihin_kousei_name.Text = "";
-
-                                    string str_w = tss.kubun_cd_select_dt("製品構成", dt_work2);
-
-                                    DataTable dt_work3 = new DataTable();
-                                    dt_work3 = tss.OracleSelect("select buhin_level,t.BUHIN_CD,s1.BUHIN_NAME,SIYOU_SU,t.GOKAN_BUHIN_CD,s2.BUHIN_NAME 互換部品名,t.bikou from TSS_SEIHIN_KOUSEI_M t LEFT OUTER JOIN TSS_BUHIN_M s1 ON t.BUHIN_CD = s1.BUHIN_CD LEFT OUTER JOIN TSS_BUHIN_M s2 ON t.GOKAN_BUHIN_CD = s2.BUHIN_CD WHERE seihin_cd = '" + tb_seihin_cd.Text.ToString() + "' and seihin_kousei_no = '" + str_w.ToString() + "' ORDER BY t.SEQ");
-
-                                    dgv_seihin_kousei.DataSource = dt_work3;
-
-                                    dgv_seihin_kousei.Columns[0].HeaderText = "部品レベル";
-                                    dgv_seihin_kousei.Columns[1].HeaderText = "部品コード";
-                                    dgv_seihin_kousei.Columns[2].HeaderText = "部品名";
-                                    dgv_seihin_kousei.Columns[3].HeaderText = "使用数";
-                                    //dgv_seihin_kousei.Columns[4].HeaderText = "親部品コード";
-                                    //dgv_seihin_kousei.Columns[5].HeaderText = "親部品名";
-                                    dgv_seihin_kousei.Columns[4].HeaderText = "互換部品コード";
-                                    dgv_seihin_kousei.Columns[5].HeaderText = "互換部品名";
-                                    dgv_seihin_kousei.Columns[6].HeaderText = "備考";
-                                }
-                                else
-                                {
-                                    tss.GetUser();
-                                    dgv_seihin_kousei.DataSource = dt_work_2;
-                                    dgv_seihin_kousei.Columns[0].HeaderText = "部品レベル";
-                                    dgv_seihin_kousei.Columns[1].HeaderText = "部品コード";
-                                    dgv_seihin_kousei.Columns[2].HeaderText = "部品名";
-                                    dgv_seihin_kousei.Columns[3].HeaderText = "使用数";
-                                    dgv_seihin_kousei.Columns[4].HeaderText = "互換部品コード";
-                                    dgv_seihin_kousei.Columns[5].HeaderText = "互換部品名";
-                                    dgv_seihin_kousei.Columns[6].HeaderText = "備考";
-                                    //tb_seihin_kousei_no.Text = "01";
-                                    //tb_seihin_kousei_name.Text = "初回登録";
-                                    this.tb_seihin_kousei_name.Text = "";
-                                }
                             }
+                            
+                            if (result2 == DialogResult.No)
+                            {
+                                //MessageBox.Show("新規入力");
+                                tb_seihin_kousei_no.Text = "01";
+                                tb_seihin_kousei_name.Text = "初回登録";
 
+                                //DataTable dt_work5 = new DataTable();
+                                //dt_work5 = tss.OracleSelect("select buhin_level,t.BUHIN_CD,s1.BUHIN_NAME,SIYOU_SU,t.GOKAN_BUHIN_CD,s2.BUHIN_NAME 互換部品名,t.bikou from TSS_SEIHIN_KOUSEI_M t LEFT OUTER JOIN TSS_BUHIN_M s1 ON t.BUHIN_CD = s1.BUHIN_CD LEFT OUTER JOIN TSS_BUHIN_M s2 ON t.GOKAN_BUHIN_CD = s2.BUHIN_CD WHERE seihin_cd = '" + tb_seihin_cd.Text.ToString() + "' and seihin_kousei_no = '" + tb_seihin_kousei_no.Text.ToString() + "' ORDER BY t.SEQ");
+
+                                //dgv_seihin_kousei.DataSource = dt_work5;
+                                //dgv_seihin_kousei.Columns[0].HeaderText = "部品レベル";
+                                //dgv_seihin_kousei.Columns[1].HeaderText = "部品コード";
+                                //dgv_seihin_kousei.Columns[2].HeaderText = "部品名";
+                                //dgv_seihin_kousei.Columns[3].HeaderText = "使用数";
+                                //dgv_seihin_kousei.Columns[4].HeaderText = "互換部品コード";
+                                //dgv_seihin_kousei.Columns[5].HeaderText = "互換部品名";
+                                //dgv_seihin_kousei.Columns[6].HeaderText = "備考";
+                      
+                            }
+                            else if (result == DialogResult.Cancel)
+                            {
+                                //「キャンセル」が選択された時
+                                Console.WriteLine("「キャンセル」が選択されました");
+                                return;
+                            }
                         }
 
+                      }
 
-                    }
+                    //製品構成に何か登録されている場合
+                    else
+                      {
+                        dgv_seihin_kousei_name.DataSource = dt_work;
+      
+                       }
                 }
 
             }
@@ -328,42 +288,6 @@ namespace TSS_SYSTEM
 
         }
 
-        private void btn_hyouji_Click(object sender, EventArgs e)
-        {
-            DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select buhin_level,t.BUHIN_CD,s1.BUHIN_NAME,SIYOU_SU,t.GOKAN_BUHIN_CD,s2.BUHIN_NAME 互換部品名,t.bikou from TSS_SEIHIN_KOUSEI_M t LEFT OUTER JOIN TSS_BUHIN_M s1 ON t.BUHIN_CD = s1.BUHIN_CD LEFT OUTER JOIN TSS_BUHIN_M s2 ON t.GOKAN_BUHIN_CD = s2.BUHIN_CD WHERE seihin_cd = '" + tb_seihin_cd.Text.ToString() + "' and seihin_kousei_no = '" + tb_seihin_kousei_no.Text.ToString() + "' ORDER BY t.SEQ");
-            //dt_work = tss.OracleSelect("select buhin_level,t.BUHIN_CD,s1.BUHIN_NAME,SIYOU_SU,t.OYA_BUHIN_CD,s2.BUHIN_NAME 親部品名,t.GOKAN_BUHIN_CD,s3.BUHIN_NAME 互換部品名,t.bikou from TSS_SEIHIN_KOUSEI_M t LEFT OUTER JOIN TSS_BUHIN_M s1 ON t.BUHIN_CD = s1.BUHIN_CD LEFT OUTER JOIN TSS_BUHIN_M s2 ON t.OYA_BUHIN_CD = s2.BUHIN_CD LEFT OUTER JOIN TSS_BUHIN_M s3 ON t.GOKAN_BUHIN_CD = s3.BUHIN_CD WHERE seihin_cd = '" + tb_seihin_cd.Text.ToString() + "' and seihin_kousei_no = '" + tb_seihin_kousei_no.Text.ToString() + "'");
-
-            if (dt_work.Rows.Count <= 0)
-            {
-                MessageBox.Show("製品構成に登録がありません。新規に登録してください。");
-                dgv_seihin_kousei.DataSource = dt_work;
-                dgv_seihin_kousei.Columns[0].HeaderText = "部品レベル";
-                dgv_seihin_kousei.Columns[1].HeaderText = "部品コード";
-                dgv_seihin_kousei.Columns[2].HeaderText = "部品名";
-                dgv_seihin_kousei.Columns[3].HeaderText = "使用数";
-                dgv_seihin_kousei.Columns[4].HeaderText = "互換部品コード";
-                dgv_seihin_kousei.Columns[5].HeaderText = "互換部品名";
-                dgv_seihin_kousei.Columns[6].HeaderText = "備考";
-                //tb_seihin_kousei_no.Text = "01";
-                //tb_seihin_kousei_name.Text = "初回登録";
-            }
-            else
-            {
-                dgv_seihin_kousei.DataSource = dt_work;
-
-                dgv_seihin_kousei.Columns[0].HeaderText = "部品レベル";
-                dgv_seihin_kousei.Columns[1].HeaderText = "部品コード";
-                dgv_seihin_kousei.Columns[2].HeaderText = "部品名";
-                dgv_seihin_kousei.Columns[3].HeaderText = "使用数";
-                //dgv_seihin_kousei.Columns[4].HeaderText = "親部品コード";
-                //dgv_seihin_kousei.Columns[5].HeaderText = "親部品名";
-                dgv_seihin_kousei.Columns[4].HeaderText = "互換部品コード";
-                dgv_seihin_kousei.Columns[5].HeaderText = "互換部品名";
-                dgv_seihin_kousei.Columns[6].HeaderText = "備考";
-
-            }
-        }
 
         private void tb_seihin_kousei_no_TextChanged(object sender, EventArgs e)
         {
@@ -376,7 +300,7 @@ namespace TSS_SYSTEM
 
                 //dt_work = tss.OracleSelect("select buhin_level,t.BUHIN_CD,s1.BUHIN_NAME,SIYOU_SU,t.OYA_BUHIN_CD,s2.BUHIN_NAME 親部品名,t.GOKAN_BUHIN_CD,s3.BUHIN_NAME 互換部品名,t.bikou from TSS_SEIHIN_KOUSEI_M t LEFT OUTER JOIN TSS_BUHIN_M s1 ON t.BUHIN_CD = s1.BUHIN_CD LEFT OUTER JOIN TSS_BUHIN_M s2 ON t.OYA_BUHIN_CD = s2.BUHIN_CD LEFT OUTER JOIN TSS_BUHIN_M s3 ON t.GOKAN_BUHIN_CD = s3.BUHIN_CD WHERE seihin_cd = '" + tb_seihin_cd.Text.ToString() + "' and seihin_kousei_no = '" + tb_seihin_kousei_no.Text.ToString() + "'");
 
-                if (dt_work.Rows.Count <= 0)
+                if (dt_work.Rows.Count <= 0 && tb_seihin_kousei_no.Text != "01")
                 {
                         DialogResult result = MessageBox.Show("製品構成に登録がありません。新規に登録しますか？",
                         "新規製品構成登録",
@@ -474,7 +398,7 @@ namespace TSS_SYSTEM
                              dgv_seihin_kousei.Columns[6].HeaderText = "備考";
                              //tb_seihin_kousei_no.Text = "01";
                              //tb_seihin_kousei_name.Text = "初回登録";
-                             this.tb_seihin_kousei_name.Text = "[新規製品構成登録]";
+                             this.tb_seihin_kousei_name.Text = "";
                          }
                          else if (result2 == DialogResult.Cancel)
                          {
@@ -492,10 +416,29 @@ namespace TSS_SYSTEM
                        
                         }
                 }
+
+                //製品構成に登録がなく、01から新規に登録する（コピーしないで）
+                if (dt_work.Rows.Count <= 0 && tb_seihin_kousei_no.Text == "01")
+                {
+                    dgv_seihin_kousei.DataSource = dt_work;
+
+                    dgv_seihin_kousei.Columns[0].HeaderText = "部品レベル";
+                    dgv_seihin_kousei.Columns[1].HeaderText = "部品コード";
+                    dgv_seihin_kousei.Columns[2].HeaderText = "部品名";
+                    dgv_seihin_kousei.Columns[3].HeaderText = "使用数";
+                    //dgv_seihin_kousei.Columns[4].HeaderText = "親部品コード";
+                    //dgv_seihin_kousei.Columns[5].HeaderText = "親部品名";
+                    dgv_seihin_kousei.Columns[4].HeaderText = "互換部品コード";
+                    dgv_seihin_kousei.Columns[5].HeaderText = "互換部品名";
+                    dgv_seihin_kousei.Columns[6].HeaderText = "備考";
+
+                }
+
+                //製品構成に登録がなく、追加で登録する（コピーしないで）
                 else
                 {
                     //MessageBox.Show("現在表示中の製品構成は消去されますがよろしいですか？");
-                    
+
                     dgv_seihin_kousei.DataSource = dt_work;
 
                     dgv_seihin_kousei.Columns[0].HeaderText = "部品レベル";
@@ -513,12 +456,14 @@ namespace TSS_SYSTEM
                     DataTable dt_work2 = new DataTable();
                     dt_work2 = tss.OracleSelect("select * from TSS_SEIHIN_KOUSEI_M WHERE seihin_cd = '" + tb_seihin_cd.Text.ToString() + "' and seihin_kousei_no = '" + tb_seihin_kousei_no.Text.ToString() + "' ORDER BY SEQ");
 
-                    tb_create_user_cd.Text = dt_work2.Rows[0][10].ToString();
-                    tb_create_datetime.Text = dt_work2.Rows[0][11].ToString();
+                    if (dt_work2.Rows.Count >= 0)
+                    {
+                        tb_create_user_cd.Text = dt_work2.Rows[0][10].ToString();
+                        tb_create_datetime.Text = dt_work2.Rows[0][11].ToString();
 
-                    tb_update_user_cd.Text = dt_work2.Rows[0][12].ToString();
-                    tb_update_datetime.Text = dt_work2.Rows[0][13].ToString();
-
+                        tb_update_user_cd.Text = dt_work2.Rows[0][12].ToString();
+                        tb_update_datetime.Text = dt_work2.Rows[0][13].ToString();
+                    }
                 }
             }
 

@@ -89,6 +89,7 @@
             this.tb_seihin_cd.Size = new System.Drawing.Size(66, 19);
             this.tb_seihin_cd.TabIndex = 2;
             this.tb_seihin_cd.TabStop = false;
+            this.tb_seihin_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_seihin_cd_Validating);
             // 
             // textBox1
             // 
@@ -159,6 +160,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "frm_seihin_kousei_select";
             this.Text = "製品構成選択";
+            this.Load += new System.EventHandler(this.frm_seihin_kousei_select_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
