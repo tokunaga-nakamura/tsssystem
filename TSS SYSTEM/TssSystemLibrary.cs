@@ -769,6 +769,8 @@ namespace TSS_SYSTEM
             return CsvPath;
         }
 
+        
+
         #region　GetSeq メソッド
         /// <summary>
         /// 連番マスタから必要な連番を取得し、取得後連番を＋１する。</summary>
