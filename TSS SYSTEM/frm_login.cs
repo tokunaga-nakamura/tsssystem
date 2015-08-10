@@ -49,7 +49,7 @@ namespace TSS_SYSTEM
                 cmd.CommandType = CommandType.Text;
                 conn.ConnectionString = connStr;
                 da.SelectCommand = cmd;
-                cmd.CommandText = "SELECT * from tss_user_m where user_cd = '" + tb_user_cd.Text.ToString() + "' and user_password = '" + tb_password.Text.ToString() + "' and login_kyoka_kbn = '1'";
+                cmd.CommandText = "SELECT * from tss_user_m where user_cd = '" + tb_user_cd.Text.ToString() + "' and password = '" + tb_password.Text.ToString() + "' and login_kyoka_kbn = '1'";
                 conn.Close();
                 da.Fill(dt);
                 if (dt.Rows.Count < 1)
