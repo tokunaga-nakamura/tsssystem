@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_torihikisaki_m));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -280,6 +280,48 @@
             this.textBox12.TabStop = false;
             this.textBox12.Text = "決算期末月日（半角数字4桁）";
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.textBox24);
+            this.groupBox6.Controls.Add(this.tb_syouhizei_sansyutu_kbn);
+            this.groupBox6.Controls.Add(this.label35);
+            this.groupBox6.Location = new System.Drawing.Point(460, 280);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(344, 36);
+            this.groupBox6.TabIndex = 133;
+            this.groupBox6.TabStop = false;
+            // 
+            // textBox24
+            // 
+            this.textBox24.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox24.Location = new System.Drawing.Point(6, 11);
+            this.textBox24.Name = "textBox24";
+            this.textBox24.ReadOnly = true;
+            this.textBox24.Size = new System.Drawing.Size(100, 19);
+            this.textBox24.TabIndex = 145;
+            this.textBox24.TabStop = false;
+            this.textBox24.Text = "消費税算出区分";
+            // 
+            // tb_syouhizei_sansyutu_kbn
+            // 
+            this.tb_syouhizei_sansyutu_kbn.BackColor = System.Drawing.Color.PowderBlue;
+            this.tb_syouhizei_sansyutu_kbn.Location = new System.Drawing.Point(106, 11);
+            this.tb_syouhizei_sansyutu_kbn.MaxLength = 1;
+            this.tb_syouhizei_sansyutu_kbn.Name = "tb_syouhizei_sansyutu_kbn";
+            this.tb_syouhizei_sansyutu_kbn.Size = new System.Drawing.Size(37, 19);
+            this.tb_syouhizei_sansyutu_kbn.TabIndex = 0;
+            this.tb_syouhizei_sansyutu_kbn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_syouhizei_sansyutu_kbn.DoubleClick += new System.EventHandler(this.tb_syouhizei_sansyutu_kbn_DoubleClick);
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(149, 14);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(177, 12);
+            this.label35.TabIndex = 61;
+            this.label35.Text = "0:明細毎　1:伝票合計　2:請求合計";
+            // 
             // textBox11
             // 
             this.textBox11.BackColor = System.Drawing.Color.NavajoWhite;
@@ -489,7 +531,7 @@
             this.tb_hasu_syori_tani.Location = new System.Drawing.Point(106, 62);
             this.tb_hasu_syori_tani.MaxLength = 1;
             this.tb_hasu_syori_tani.Name = "tb_hasu_syori_tani";
-            this.tb_hasu_syori_tani.Size = new System.Drawing.Size(21, 19);
+            this.tb_hasu_syori_tani.Size = new System.Drawing.Size(37, 19);
             this.tb_hasu_syori_tani.TabIndex = 0;
             this.tb_hasu_syori_tani.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tb_hasu_syori_tani.DoubleClick += new System.EventHandler(this.tb_hasu_syori_tani_DoubleClick);
@@ -551,7 +593,7 @@
             this.tb_jisyaden_kbn.Location = new System.Drawing.Point(106, 12);
             this.tb_jisyaden_kbn.MaxLength = 1;
             this.tb_jisyaden_kbn.Name = "tb_jisyaden_kbn";
-            this.tb_jisyaden_kbn.Size = new System.Drawing.Size(21, 19);
+            this.tb_jisyaden_kbn.Size = new System.Drawing.Size(37, 19);
             this.tb_jisyaden_kbn.TabIndex = 0;
             this.tb_jisyaden_kbn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tb_jisyaden_kbn.DoubleClick += new System.EventHandler(this.tb_jisyaden_kbn_DoubleClick);
@@ -572,6 +614,54 @@
             this.tb_eigyou_end_time.Name = "tb_eigyou_end_time";
             this.tb_eigyou_end_time.Size = new System.Drawing.Size(107, 19);
             this.tb_eigyou_end_time.TabIndex = 14;
+            // 
+            // textBox22
+            // 
+            this.textBox22.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox22.Location = new System.Drawing.Point(6, 12);
+            this.textBox22.Name = "textBox22";
+            this.textBox22.ReadOnly = true;
+            this.textBox22.Size = new System.Drawing.Size(100, 19);
+            this.textBox22.TabIndex = 145;
+            this.textBox22.TabStop = false;
+            this.textBox22.Text = "端数区分";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(149, 15);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(160, 12);
+            this.label26.TabIndex = 70;
+            this.label26.Text = "0:切捨て　1:四捨五入　2:切上げ";
+            // 
+            // tb_hasu_kbn
+            // 
+            this.tb_hasu_kbn.BackColor = System.Drawing.Color.PowderBlue;
+            this.tb_hasu_kbn.Location = new System.Drawing.Point(106, 12);
+            this.tb_hasu_kbn.MaxLength = 1;
+            this.tb_hasu_kbn.Name = "tb_hasu_kbn";
+            this.tb_hasu_kbn.Size = new System.Drawing.Size(37, 19);
+            this.tb_hasu_kbn.TabIndex = 0;
+            this.tb_hasu_kbn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_hasu_kbn.DoubleClick += new System.EventHandler(this.tb_hasu_kbn_DoubleClick);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBox20);
+            this.groupBox2.Controls.Add(this.textBox19);
+            this.groupBox2.Controls.Add(this.textBox18);
+            this.groupBox2.Controls.Add(this.tb_siharai_sime_date);
+            this.groupBox2.Controls.Add(this.label30);
+            this.groupBox2.Controls.Add(this.label27);
+            this.groupBox2.Controls.Add(this.tb_siharai_hi);
+            this.groupBox2.Controls.Add(this.label20);
+            this.groupBox2.Controls.Add(this.tb_siharai_tuki);
+            this.groupBox2.Location = new System.Drawing.Point(10, 204);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(398, 36);
+            this.groupBox2.TabIndex = 97;
+            this.groupBox2.TabStop = false;
             // 
             // textBox20
             // 
@@ -906,34 +996,34 @@
             // dgv_tantousya
             // 
             this.dgv_tantousya.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tantousya.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tantousya.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_tantousya.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_tantousya.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_tantousya.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_tantousya.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_tantousya.Location = new System.Drawing.Point(0, 0);
             this.dgv_tantousya.Name = "dgv_tantousya";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tantousya.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tantousya.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_tantousya.RowTemplate.Height = 21;
             this.dgv_tantousya.Size = new System.Drawing.Size(880, 75);
             this.dgv_tantousya.TabIndex = 133;

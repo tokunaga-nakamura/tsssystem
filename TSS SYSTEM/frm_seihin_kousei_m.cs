@@ -18,6 +18,9 @@ namespace TSS_SYSTEM
         //string w_str = "";
         
         
+       
+
+
         public frm_seihin_kousei_m()
         {
             InitializeComponent();
@@ -25,9 +28,8 @@ namespace TSS_SYSTEM
 
         private void frm_seihin_kousei_m_Load(object sender, EventArgs e)
         {
-            
-
-               // dgv_seihin_kousei.Enabled = false;
+         
+         
          
         }
 
@@ -60,6 +62,7 @@ namespace TSS_SYSTEM
             else
             {
                 //既存データ有
+                tb_seihin_name.Text = get_seihin_name(tb_seihin_cd.Text);
             }
             return bl;
         }
@@ -77,6 +80,13 @@ namespace TSS_SYSTEM
             }
         }
 
+        /// <summary>
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+  
+        
+        ///製品コード入力（変更）時のイベント////////////////////////////////////////////////////////////////////////////////
         private void tb_seihin_cd_Validating(object sender, CancelEventArgs e)
         {
             //空白の場合はOKとする
@@ -88,97 +98,13 @@ namespace TSS_SYSTEM
                     e.Cancel = true;
                     return;
                 }
-                else
-                {
-                    tb_seihin_name.Text = get_seihin_name(tb_seihin_cd.Text);
-                    DataTable dt_work = new DataTable();
-                    dt_work = tss.OracleSelect("select seihin_cd,seihin_kousei_no,seihin_kousei_name from tss_seihin_kousei_name_m where seihin_cd  = '" + tb_seihin_cd.Text.ToString() + "' ORDER BY seihin_kousei_no");
 
-
-                    dgv_seihin_kousei_name.DataSource = dt_work;
-                    dgv_seihin_kousei_name.Columns[0].HeaderText = "製品コード";
-                    dgv_seihin_kousei_name.Columns[1].HeaderText = "製品構成番号";
-                    dgv_seihin_kousei_name.Columns[2].HeaderText = "製品構成名称";
-
-                    //製品構成に何も登録されていない場合
-                    if (dt_work.Rows.Count == 0)
-                    {
-                        DialogResult result = MessageBox.Show("製品構成に登録がありません。新規に登録しますか？",
-                       "新規製品構成登録",
-                       MessageBoxButtons.OKCancel,
-                       MessageBoxIcon.Exclamation,
-                       MessageBoxDefaultButton.Button2);
-
-                        //何が選択されたか調べる
-                        if (result == DialogResult.OK)
-                        {
-
-                            DialogResult result2 = MessageBox.Show("登録済みの製品構成をコピーして作成しますか？",
-                            "新規製品構成登録",
-                            MessageBoxButtons.YesNoCancel,
-                            MessageBoxIcon.Exclamation,
-                            MessageBoxDefaultButton.Button2);
-
-                            if (result2 == DialogResult.Yes)
-                            {
-                                tb_create_user_cd.Text = "";
-                                tb_create_datetime.Text = "";
-
-                                tb_update_user_cd.Text = "";
-                                tb_update_datetime.Text = "";
-
-                                dt_work.Rows.Clear();
-                                dgv_seihin_kousei.DataSource = dt_work;
-
-                                //「はい」が選択された時
-                                //製品コードと製品構成選択フォームの表示
-                                //区分名称マスタ
-                                frm_seihin_kousei_select frm_sks = new frm_seihin_kousei_select();
-                                frm_sks.Show();
-                                //frm_sks.Dispose();
-                                
-                            }
-                            
-                            if (result2 == DialogResult.No)
-                            {
-                                //MessageBox.Show("新規入力");
-                                tb_seihin_kousei_no.Text = "01";
-                                tb_seihin_kousei_name.Text = "初回登録";
-
-                                //DataTable dt_work5 = new DataTable();
-                                //dt_work5 = tss.OracleSelect("select buhin_level,t.BUHIN_CD,s1.BUHIN_NAME,SIYOU_SU,t.GOKAN_BUHIN_CD,s2.BUHIN_NAME 互換部品名,t.bikou from TSS_SEIHIN_KOUSEI_M t LEFT OUTER JOIN TSS_BUHIN_M s1 ON t.BUHIN_CD = s1.BUHIN_CD LEFT OUTER JOIN TSS_BUHIN_M s2 ON t.GOKAN_BUHIN_CD = s2.BUHIN_CD WHERE seihin_cd = '" + tb_seihin_cd.Text.ToString() + "' and seihin_kousei_no = '" + tb_seihin_kousei_no.Text.ToString() + "' ORDER BY t.SEQ");
-
-                                //dgv_seihin_kousei.DataSource = dt_work5;
-                                //dgv_seihin_kousei.Columns[0].HeaderText = "部品レベル";
-                                //dgv_seihin_kousei.Columns[1].HeaderText = "部品コード";
-                                //dgv_seihin_kousei.Columns[2].HeaderText = "部品名";
-                                //dgv_seihin_kousei.Columns[3].HeaderText = "使用数";
-                                //dgv_seihin_kousei.Columns[4].HeaderText = "互換部品コード";
-                                //dgv_seihin_kousei.Columns[5].HeaderText = "互換部品名";
-                                //dgv_seihin_kousei.Columns[6].HeaderText = "備考";
-                      
-                            }
-                            else if (result == DialogResult.Cancel)
-                            {
-                                //「キャンセル」が選択された時
-                                Console.WriteLine("「キャンセル」が選択されました");
-                                return;
-                            }
-                        }
-
-                      }
-
-                    //製品構成に何か登録されている場合
-                    else
-                      {
-                        dgv_seihin_kousei_name.DataSource = dt_work;
-      
-                       }
-                }
+                seihin_kousei_name_disp(tb_seihin_cd.Text);
 
             }
         }
 
+        //製品構成名称の取得メソッド//////////////////////////////////////////////////////////////////////////////////////////
         private string get_seihin_kousei_name(string in_seihin_cd, string in_seihin_kousei_no)
         {
             string out_seihin_kousei_name = "";  //戻り値用
@@ -195,6 +121,7 @@ namespace TSS_SYSTEM
             return out_seihin_kousei_name;
         }
 
+        //製品構成番号のチェックメソッド//////////////////////////////////////////////////////////////////////////////////////////
         private bool chk_seihin_kousei_no()
         {
             bool bl = true; //戻り値
@@ -217,11 +144,29 @@ namespace TSS_SYSTEM
         }
 
 
+        //データグリッドビューの入力内容変更に伴う処理/////////////////////////////////////////////////////////////////////////////
         private void dgv_seihin_kousei_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView dgv = (DataGridView)sender;
 
+            //部品レベルが入力された場合、1～9までの数字で入力させる
+            if (dgv.Columns[e.ColumnIndex].Index == 0)
+            {
+                //if (e.FormattedValue.ToString() == "")
+                //{
+
+                //}
+                
+                return;
+            }
+
+
             //部品コードが入力されたならば、部品名を部品マスターから取得して表示
+            if (dgv.Columns[e.ColumnIndex].Index == 1 && dgv.CurrentCell.Value.ToString() == "")
+            {
+                return;
+            }
+            
             if (dgv.Columns[e.ColumnIndex].Index == 1 && dgv.CurrentCell.Value.ToString() != null)
             {
                 int i = e.RowIndex;
@@ -238,7 +183,7 @@ namespace TSS_SYSTEM
                     MessageBox.Show("この部品コードは登録されていません。部品登録してください。");
                     dgv.Rows[i].Cells[2].Value = "";
                     dgv_seihin_kousei.Focus();
-                    //dgv_seihin_kousei.CurrentCell = dgv_seihin_kousei[i, 2];
+                    dgv_seihin_kousei.CurrentCell = dgv_seihin_kousei[1, i];
                 }
                 else
                 {
@@ -247,6 +192,17 @@ namespace TSS_SYSTEM
 
                 return;
             }
+            if (dgv.Columns[e.ColumnIndex].Index == 1 && dgv.CurrentCell.Value.ToString() == null && dgv.CurrentCell.Value.ToString() == "")
+            {
+                return;
+            }
+
+            //互換部品コードが入力されたならば、部品名を部品マスターから取得して表示
+            if (dgv.Columns[e.ColumnIndex].Index == 4 && dgv.CurrentCell.Value.ToString() == "")
+            {
+                return;
+            }
+            
             if (dgv.Columns[e.ColumnIndex].Index == 4 && dgv.CurrentCell.Value.ToString() != null)
             {
                 int i = e.RowIndex;
@@ -263,7 +219,7 @@ namespace TSS_SYSTEM
                     MessageBox.Show("この部品コードは登録されていません。部品登録してください。");
                     dgv.Rows[i].Cells[5].Value = "";
                     dgv_seihin_kousei.Focus();
-                    //dgv_seihin_kousei.CurrentCell = dgv_seihin_kousei[i, 2];
+                    dgv_seihin_kousei.CurrentCell = dgv_seihin_kousei[4, i];
                 }
                 else
                 {
@@ -272,43 +228,51 @@ namespace TSS_SYSTEM
 
                 return;
             }
+            
         }
 
-        private void btn_sentaku_Click(object sender, EventArgs e)
-        {
-            int i = dgv_seihin_kousei_name.CurrentCell.RowIndex;
-
-            tb_seihin_kousei_no.Text = dgv_seihin_kousei_name.Rows[i].Cells[0].Value.ToString();
-            tb_seihin_kousei_name.Text = dgv_seihin_kousei_name.Rows[i].Cells[1].Value.ToString();
-        }
-
-        private void tb_seihin_kousei_no_Validating(object sender, CancelEventArgs e)
-        {
-
-
-        }
 
 
         private void tb_seihin_kousei_no_TextChanged(object sender, EventArgs e)
         {
-
-            if (tb_seihin_kousei_no.TextLength == 2)
+            if (tb_seihin_kousei_no.TextLength == 1)
             {
-                //tb_seihin_kousei_name.Clear();
+
+            }
+            
+            if (tb_seihin_kousei_no.TextLength >= 2)
+            {
+
                 DataTable dt_work = new DataTable();
                 dt_work = tss.OracleSelect("select buhin_level,t.BUHIN_CD,s1.BUHIN_NAME,SIYOU_SU,t.GOKAN_BUHIN_CD,s2.BUHIN_NAME 互換部品名,t.bikou from TSS_SEIHIN_KOUSEI_M t LEFT OUTER JOIN TSS_BUHIN_M s1 ON t.BUHIN_CD = s1.BUHIN_CD LEFT OUTER JOIN TSS_BUHIN_M s2 ON t.GOKAN_BUHIN_CD = s2.BUHIN_CD WHERE seihin_cd = '" + tb_seihin_cd.Text.ToString() + "' and seihin_kousei_no = '" + tb_seihin_kousei_no.Text.ToString() + "' ORDER BY t.SEQ");
 
-                //dt_work = tss.OracleSelect("select buhin_level,t.BUHIN_CD,s1.BUHIN_NAME,SIYOU_SU,t.OYA_BUHIN_CD,s2.BUHIN_NAME 親部品名,t.GOKAN_BUHIN_CD,s3.BUHIN_NAME 互換部品名,t.bikou from TSS_SEIHIN_KOUSEI_M t LEFT OUTER JOIN TSS_BUHIN_M s1 ON t.BUHIN_CD = s1.BUHIN_CD LEFT OUTER JOIN TSS_BUHIN_M s2 ON t.OYA_BUHIN_CD = s2.BUHIN_CD LEFT OUTER JOIN TSS_BUHIN_M s3 ON t.GOKAN_BUHIN_CD = s3.BUHIN_CD WHERE seihin_cd = '" + tb_seihin_cd.Text.ToString() + "' and seihin_kousei_no = '" + tb_seihin_kousei_no.Text.ToString() + "'");
-
-                if (dt_work.Rows.Count <= 0 && tb_seihin_kousei_no.Text != "01")
+                seihin_kousei_name_disp(tb_seihin_cd.Text);
+                
+                
+             //////製品構成登録が1個もない場合/////////////////////////////
+                if (dt_work.Rows.Count <= 0)
                 {
-                        DialogResult result = MessageBox.Show("製品構成に登録がありません。新規に登録しますか？",
+
+                    　　DialogResult result = MessageBox.Show("製品構成に登録がありません。新規に登録しますか？",
                         "新規製品構成登録",
                         MessageBoxButtons.OKCancel,
                         MessageBoxIcon.Exclamation,
                         MessageBoxDefaultButton.Button2);
+                        
+                        tb_create_user_cd.Text = "";
+                        tb_create_datetime.Text = "";
+
+                        tb_update_user_cd.Text = "";
+                        tb_update_datetime.Text = "";
+
+                        dt_work.Rows.Clear();
+                        dgv_seihin_kousei.DataSource = null;
+                        dgv_seihin_kousei.DataSource = dt_work;
+                        dgv_seihin_kousei_disp();
+
 
                        //何が選択されたか調べる
+                       //製品構成登録がない
                        if (result == DialogResult.OK)
                         {
 
@@ -319,16 +283,9 @@ namespace TSS_SYSTEM
                          MessageBoxDefaultButton.Button2);
 
 
+                         //登録済みの製品構成をコピーする
                          if (result2 == DialogResult.Yes)
                          {
-                             tb_create_user_cd.Text = "";
-                             tb_create_datetime.Text = "";
-
-                             tb_update_user_cd.Text = "";
-                             tb_update_datetime.Text = "";
-
-                             //dgv_seihin_kousei.Rows.Clear();
-
                              dt_work.Rows.Clear();
                              dgv_seihin_kousei.DataSource = dt_work;
 
@@ -337,126 +294,91 @@ namespace TSS_SYSTEM
                              //選択用のdatatableの作成
                              DataTable dt_work2 = new DataTable();
 
+                             //製品構成名称マスタに、製品
                              dt_work2 = tss.OracleSelect("select seihin_kousei_no,seihin_kousei_name from tss_seihin_kousei_name_m where seihin_cd = '" + tb_seihin_cd.Text.ToString() + "'");
                              dt_work2.Columns["seihin_kousei_no"].ColumnName = "製品構成番号";
                              dt_work2.Columns["seihin_kousei_name"].ColumnName = "製品構成名称";
 
+                             
                              if (dt_work2.Rows.Count > 0)
                              {
-                                 //選択画面表示
-                                 //this.tb_seihin_kousei_no.Text = tss.kubun_cd_select_dt("製品構成", dt_work2);
+                                 //選択画面表示　製品コードも渡す
+                                 //this.tb_seihin_kousei_no.Text = tss.seihin_kousei_select_dt("製品構成", dt_work2);
                                  this.tb_seihin_kousei_name.Text = "";
 
-                                 string str_w = tss.kubun_cd_select_dt("製品構成", dt_work2);
+                                 string str_w = tss.seihin_kousei_select_dt(tb_seihin_cd.Text, dt_work2);
+                                 string str_w2 = str_w.Substring(0, 16).TrimEnd();
+                                 string str_w3 = str_w.Substring(16, 2).TrimEnd();
 
                                  DataTable dt_work3 = new DataTable();
-                                 dt_work3 = tss.OracleSelect("select buhin_level,t.BUHIN_CD,s1.BUHIN_NAME,SIYOU_SU,t.GOKAN_BUHIN_CD,s2.BUHIN_NAME 互換部品名,t.bikou from TSS_SEIHIN_KOUSEI_M t LEFT OUTER JOIN TSS_BUHIN_M s1 ON t.BUHIN_CD = s1.BUHIN_CD LEFT OUTER JOIN TSS_BUHIN_M s2 ON t.GOKAN_BUHIN_CD = s2.BUHIN_CD WHERE seihin_cd = '" + tb_seihin_cd.Text.ToString() + "' and seihin_kousei_no = '" + str_w.ToString() + "' ORDER BY t.SEQ");
+                                 dt_work3 = tss.OracleSelect("select buhin_level,t.BUHIN_CD,s1.BUHIN_NAME,SIYOU_SU,t.GOKAN_BUHIN_CD,s2.BUHIN_NAME 互換部品名,t.bikou from TSS_SEIHIN_KOUSEI_M t LEFT OUTER JOIN TSS_BUHIN_M s1 ON t.BUHIN_CD = s1.BUHIN_CD LEFT OUTER JOIN TSS_BUHIN_M s2 ON t.GOKAN_BUHIN_CD = s2.BUHIN_CD WHERE seihin_cd = '" + str_w2.ToString() + "' and seihin_kousei_no = '" + str_w3.ToString() + "' ORDER BY t.SEQ");
 
+                                 dgv_seihin_kousei.DataSource = null;
                                  dgv_seihin_kousei.DataSource = dt_work3;
+                                 dgv_seihin_kousei_disp();
 
-                                 dgv_seihin_kousei.Columns[0].HeaderText = "部品レベル";
-                                 dgv_seihin_kousei.Columns[1].HeaderText = "部品コード";
-                                 dgv_seihin_kousei.Columns[2].HeaderText = "部品名";
-                                 dgv_seihin_kousei.Columns[3].HeaderText = "使用数";
-                                 //dgv_seihin_kousei.Columns[4].HeaderText = "親部品コード";
-                                 //dgv_seihin_kousei.Columns[5].HeaderText = "親部品名";
-                                 dgv_seihin_kousei.Columns[4].HeaderText = "互換部品コード";
-                                 dgv_seihin_kousei.Columns[5].HeaderText = "互換部品名";
-                                 dgv_seihin_kousei.Columns[6].HeaderText = "備考"; 
                              }
                              else
                              {
-                                 tss.GetUser();
-                                 dgv_seihin_kousei.DataSource = dt_work;
-                                 dgv_seihin_kousei.Columns[0].HeaderText = "部品レベル";
-                                 dgv_seihin_kousei.Columns[1].HeaderText = "部品コード";
-                                 dgv_seihin_kousei.Columns[2].HeaderText = "部品名";
-                                 dgv_seihin_kousei.Columns[3].HeaderText = "使用数";
-                                 dgv_seihin_kousei.Columns[4].HeaderText = "互換部品コード";
-                                 dgv_seihin_kousei.Columns[5].HeaderText = "互換部品名";
-                                 dgv_seihin_kousei.Columns[6].HeaderText = "備考";
-                                 //tb_seihin_kousei_no.Text = "01";
-                                 //tb_seihin_kousei_name.Text = "初回登録";
+                                 //選択画面表示　製品コードは渡さないバージョン
                                  this.tb_seihin_kousei_name.Text = "";
+
+                                 string str_w = tss.seihin_kousei_select_dt2(tb_seihin_cd.Text, dt_work2);
+                                 string str_w2 = str_w.Substring(0, 16).TrimEnd();
+                                 string str_w3 = str_w.Substring(16, 2).TrimEnd();
+
+
+                                 DataTable dt_work3 = new DataTable();
+                                 dt_work3 = tss.OracleSelect("select buhin_level,t.BUHIN_CD,s1.BUHIN_NAME,SIYOU_SU,t.GOKAN_BUHIN_CD,s2.BUHIN_NAME 互換部品名,t.bikou from TSS_SEIHIN_KOUSEI_M t LEFT OUTER JOIN TSS_BUHIN_M s1 ON t.BUHIN_CD = s1.BUHIN_CD LEFT OUTER JOIN TSS_BUHIN_M s2 ON t.GOKAN_BUHIN_CD = s2.BUHIN_CD WHERE seihin_cd = '" + str_w2.ToString() + "' and seihin_kousei_no = '" + str_w3.ToString() + "' ORDER BY t.SEQ");
+
+                                 dgv_seihin_kousei.DataSource = null;
+                                 dgv_seihin_kousei.DataSource = dt_work3;
+                                 dgv_seihin_kousei_disp();
+
                              }
-                             
-                          
-                            //MessageBox.Show("製品構成をコピーして作成しますか？");   
                          
                          }
                          else if (result2 == DialogResult.No)
                          {
+
                              //「いいえ」が選択された時
-                             tss.GetUser();
-                             dgv_seihin_kousei.DataSource = dt_work;
-                             dgv_seihin_kousei.Columns[0].HeaderText = "部品レベル";
-                             dgv_seihin_kousei.Columns[1].HeaderText = "部品コード";
-                             dgv_seihin_kousei.Columns[2].HeaderText = "部品名";
-                             dgv_seihin_kousei.Columns[3].HeaderText = "使用数";
-                             dgv_seihin_kousei.Columns[4].HeaderText = "互換部品コード";
-                             dgv_seihin_kousei.Columns[5].HeaderText = "互換部品名";
-                             dgv_seihin_kousei.Columns[6].HeaderText = "備考";
-                             //tb_seihin_kousei_no.Text = "01";
-                             //tb_seihin_kousei_name.Text = "初回登録";
-                             this.tb_seihin_kousei_name.Text = "";
+
+                             return;
                          }
+                        
+
                          else if (result2 == DialogResult.Cancel)
                          {
                              //「キャンセル」が選択された時
+                             Console.WriteLine("「キャンセル」が選択されました");
                              return;
+
                          }
                            
-                        }
+                     }
 
-                        else if (result == DialogResult.Cancel)
-                         {
-                        //「キャンセル」が選択された時
-                        Console.WriteLine("「キャンセル」が選択されました");
-                        return;
-                       
-                        }
                 }
 
                 //製品構成に登録がなく、01から新規に登録する（コピーしないで）
-                if (dt_work.Rows.Count <= 0 && tb_seihin_kousei_no.Text == "01")
-                {
-                    dgv_seihin_kousei.DataSource = dt_work;
-
-                    dgv_seihin_kousei.Columns[0].HeaderText = "部品レベル";
-                    dgv_seihin_kousei.Columns[1].HeaderText = "部品コード";
-                    dgv_seihin_kousei.Columns[2].HeaderText = "部品名";
-                    dgv_seihin_kousei.Columns[3].HeaderText = "使用数";
-                    //dgv_seihin_kousei.Columns[4].HeaderText = "親部品コード";
-                    //dgv_seihin_kousei.Columns[5].HeaderText = "親部品名";
-                    dgv_seihin_kousei.Columns[4].HeaderText = "互換部品コード";
-                    dgv_seihin_kousei.Columns[5].HeaderText = "互換部品名";
-                    dgv_seihin_kousei.Columns[6].HeaderText = "備考";
-
-                }
+                
 
                 //製品構成に登録がなく、追加で登録する（コピーしないで）
-                else
+                if (dt_work.Rows.Count > 0)
                 {
-                    //MessageBox.Show("現在表示中の製品構成は消去されますがよろしいですか？");
-
+                    
+                    dgv_seihin_kousei.DataSource = null;
                     dgv_seihin_kousei.DataSource = dt_work;
+                    dgv_seihin_kousei_disp();
 
-                    dgv_seihin_kousei.Columns[0].HeaderText = "部品レベル";
-                    dgv_seihin_kousei.Columns[1].HeaderText = "部品コード";
-                    dgv_seihin_kousei.Columns[2].HeaderText = "部品名";
-                    dgv_seihin_kousei.Columns[3].HeaderText = "使用数";
-                    //dgv_seihin_kousei.Columns[4].HeaderText = "親部品コード";
-                    //dgv_seihin_kousei.Columns[5].HeaderText = "親部品名";
-                    dgv_seihin_kousei.Columns[4].HeaderText = "互換部品コード";
-                    dgv_seihin_kousei.Columns[5].HeaderText = "互換部品名";
-                    dgv_seihin_kousei.Columns[6].HeaderText = "備考";
+
 
                     this.tb_seihin_kousei_name.Text = get_seihin_kousei_name(tb_seihin_cd.Text, tb_seihin_kousei_no.Text);
+
 
                     DataTable dt_work2 = new DataTable();
                     dt_work2 = tss.OracleSelect("select * from TSS_SEIHIN_KOUSEI_M WHERE seihin_cd = '" + tb_seihin_cd.Text.ToString() + "' and seihin_kousei_no = '" + tb_seihin_kousei_no.Text.ToString() + "' ORDER BY SEQ");
 
-                    if (dt_work2.Rows.Count >= 0)
+                    if (dt_work2.Rows.Count > 0)
                     {
                         tb_create_user_cd.Text = dt_work2.Rows[0][10].ToString();
                         tb_create_datetime.Text = dt_work2.Rows[0][11].ToString();
@@ -477,6 +399,90 @@ namespace TSS_SYSTEM
 
         private void btn_touroku_Click(object sender, EventArgs e)
         {
+            //入力項目のチェック
+
+            if (chk_seihin_kousei_name() == false)
+            {
+                MessageBox.Show("製品構成名称が正しく入力されていません。");
+                tb_seihin_kousei_name.Focus();
+                return;
+            }
+
+            //データグリッドビューの中を1行ずつループしてチェック
+            int dgvrc = dgv_seihin_kousei.Rows.Count;
+
+            if (dgvrc == 1)
+            {
+                MessageBox.Show("表の中に何も入力されていません");
+                return;
+            }
+
+            tss.GetUser();  //ユーザー情報の取得
+
+            //テキストボックスとデータグリッドビューの入力内容チェック
+            for (int i = 0; i < dgvrc - 1; i++)
+            {
+                if (dgv_seihin_kousei.Rows[i].Cells[0].Value == null || dgv_seihin_kousei.Rows[i].Cells[0].Value.ToString() == "" || int.Parse(dgv_seihin_kousei.Rows[i].Cells[0].Value.ToString()) <= 0 || tss.StringByte(dgv_seihin_kousei.Rows[i].Cells[0].Value.ToString()) > 1)
+                {
+                    MessageBox.Show("部品レベルの値が異常です。（1～9の範囲で入力）");
+                    dgv_seihin_kousei.Focus();
+                    dgv_seihin_kousei.CurrentCell = dgv_seihin_kousei[0,i];
+                    return;
+                }
+
+                if (dgv_seihin_kousei.Rows[i].Cells[1].Value == null || dgv_seihin_kousei.Rows[i].Cells[1].Value.ToString() == "" || tss.StringByte(dgv_seihin_kousei.Rows[i].Cells[1].Value.ToString()) > 16)
+                {
+                    MessageBox.Show("部品コードの値が異常です。（1バイト以上、16バイト以内の文字で入力）");
+                    dgv_seihin_kousei.Focus();
+                    dgv_seihin_kousei.CurrentCell = dgv_seihin_kousei[1, i];
+                    return;
+                }
+
+                if (dgv_seihin_kousei.Rows[i].Cells[2].Value == null || dgv_seihin_kousei.Rows[i].Cells[2].Value.ToString() == "" || tss.StringByte(dgv_seihin_kousei.Rows[i].Cells[2].Value.ToString()) > 40)
+                {
+                    MessageBox.Show("部品名の値が異常です。（1バイト以上、40バイト以内の文字で入力）");
+                    dgv_seihin_kousei.Focus();
+                    dgv_seihin_kousei.CurrentCell = dgv_seihin_kousei[2, i];
+                    return;
+                }
+
+
+                if (dgv_seihin_kousei.Rows[i].Cells[3].Value == null || dgv_seihin_kousei.Rows[i].Cells[3].Value.ToString() == "" || double.Parse(dgv_seihin_kousei.Rows[i].Cells[3].Value.ToString()) > 9999999999.99 || double.Parse(dgv_seihin_kousei.Rows[i].Cells[3].Value.ToString()) < -9999999999.99 || tss.StringByte(dgv_seihin_kousei.Rows[i].Cells[3].Value.ToString()) > 16)
+                {
+                    MessageBox.Show("使用数量の値が異常です。（10桁以内。小数点以下2桁以内で入力）");
+                    dgv_seihin_kousei.Focus();
+                    dgv_seihin_kousei.CurrentCell = dgv_seihin_kousei[3, i];
+                    return;
+                }
+
+                if (tss.StringByte(dgv_seihin_kousei.Rows[i].Cells[4].Value.ToString()) > 16)
+                {
+                    MessageBox.Show("互換部品コードの値が異常です。（1バイト以上、16バイト以内の文字で入力）");
+                    dgv_seihin_kousei.Focus();
+                    dgv_seihin_kousei.CurrentCell = dgv_seihin_kousei[4, i];
+                    return;
+                }
+
+                //互換部品コードが入力されているのに、互換部品名がない場合
+                if (dgv_seihin_kousei.Rows[i].Cells[4].Value.ToString() != "" && dgv_seihin_kousei.Rows[i].Cells[5].Value.ToString() == "")
+                {
+                    MessageBox.Show("互換部品名の値が異常です。（1バイト以上、40バイト以内の文字で入力）");
+                    dgv_seihin_kousei.Focus();
+                    dgv_seihin_kousei.CurrentCell = dgv_seihin_kousei[5, i];
+                    return;
+                }
+                
+                //互換部品コードが入力されていないのに、互換部品名がある場合
+                if (dgv_seihin_kousei.Rows[i].Cells[4].Value.ToString() == "" && dgv_seihin_kousei.Rows[i].Cells[5].Value.ToString() != "")
+                {
+                    MessageBox.Show("互換部品コードの値が異常です。（1バイト以上、16バイト以内の文字で入力）");
+                    dgv_seihin_kousei.Focus();
+                    dgv_seihin_kousei.CurrentCell = dgv_seihin_kousei[4, i];
+                    return;
+                }
+            }
+
+
             tss.GetUser();
             int rc = dgv_seihin_kousei.Rows.Count;
             DataTable dt_work = new DataTable();
@@ -599,9 +605,8 @@ namespace TSS_SYSTEM
                 }
 
                 MessageBox.Show("製品構成名称マスタに登録しました");
-
-
-
+                
+                seihin_kousei_name_disp(tb_seihin_cd.Text);
 
             }
 
@@ -698,8 +703,6 @@ namespace TSS_SYSTEM
                                        + "to_date('" + dt_work.Rows[i][11].ToString() + "','YYYY/MM/DD HH24:MI:SS'),'"
                                        + tss.user_cd + "',SYSDATE)");
 
-
-
                 }
 
                 MessageBox.Show("製品構成マスタに登録しました");
@@ -732,8 +735,9 @@ namespace TSS_SYSTEM
 
               
                 MessageBox.Show("製品構成名称マスタに登録しました");
-
-
+               
+                seihin_kousei_name_disp(tb_seihin_cd.Text);
+               
 
             }
             
@@ -766,31 +770,18 @@ namespace TSS_SYSTEM
             dt_work.Columns["seihin_kousei_no"].ColumnName = "製品構成番号";
             dt_work.Columns["seihin_kousei_name"].ColumnName = "製品構成名称";
 
-            //選択画面表示
-            //this.tb_seihin_kousei_no.Text = tss.kubun_cd_select_dt("製品構成", dt_work);
+            string str_w = tss.seihin_kousei_select_dt(tb_seihin_cd.Text, dt_work);
+            string str_w2 = str_w.Substring(0, 16).TrimEnd();
+            string str_w3 = str_w.Substring(16, 2).TrimEnd();
+
+            DataTable dt_work3 = new DataTable();
+            dt_work3 = tss.OracleSelect("select buhin_level,t.BUHIN_CD,s1.BUHIN_NAME,SIYOU_SU,t.GOKAN_BUHIN_CD,s2.BUHIN_NAME 互換部品名,t.bikou from TSS_SEIHIN_KOUSEI_M t LEFT OUTER JOIN TSS_BUHIN_M s1 ON t.BUHIN_CD = s1.BUHIN_CD LEFT OUTER JOIN TSS_BUHIN_M s2 ON t.GOKAN_BUHIN_CD = s2.BUHIN_CD WHERE seihin_cd = '" + str_w2.ToString() + "' and seihin_kousei_no = '" + str_w3.ToString() + "' ORDER BY t.SEQ");
+
+            dgv_seihin_kousei.DataSource = null;
+            dgv_seihin_kousei.DataSource = dt_work3;
 
 
-            if (dt_work.Rows.Count <= 0)
-            {
-                //行追加
-                DataRow dr_work = dt_work.NewRow();
-                dt_work.Rows.Add(dr_work);
-                dr_work["製品構成番号"] = "01";
-                dr_work["製品構成名称"] = "初回登録";
-                //選択画面表示
-                this.tb_seihin_kousei_no.Text = tss.kubun_cd_select_dt("製品構成", dt_work);
-            }
-            else
-            {
-                //選択画面表示
-                this.tb_seihin_kousei_no.Text = tss.kubun_cd_select_dt("製品構成", dt_work);
-                this.tb_seihin_kousei_name.Text = get_seihin_kousei_name(tb_seihin_cd.Text,tb_seihin_kousei_no.Text);
-            }
-            
-            //選択用のdatatableの作成
-            //DataTable dt_work = new DataTable();
-            //列の定義
-
+            dgv_seihin_kousei_disp();
 
 
         }
@@ -805,6 +796,95 @@ namespace TSS_SYSTEM
             dgv_seihin_kousei.DataSource = dtTmp;
         }
 
+        private void tb_seihin_cd_Validated(object sender, EventArgs e)
+        {
+           // chk_seihin_cd();
  
+        }
+
+
+        private bool chk_seihin_kousei_name()
+        {
+            bool bl = true; //戻り値用
+
+            if (tb_seihin_kousei_name.Text == null || tb_seihin_kousei_name.Text.Length == 0 || tss.StringByte(tb_seihin_cd.Text) > 128)
+            {
+                bl = false;
+            }
+            return bl;
+        }
+
+        //製品構成名称のデータグリッドビュー表示共通メソッド
+        private void seihin_kousei_name_disp(string in_cd)
+        {
+                DataTable dt_work_ = new DataTable();
+                dt_work_ = tss.OracleSelect("select seihin_kousei_no,seihin_kousei_name from tss_seihin_kousei_name_m where seihin_cd = '" + in_cd.ToString() + "' ORDER BY seihin_kousei_no");
+                dt_work_.Columns["seihin_kousei_no"].ColumnName = "製品構成番号";
+                dt_work_.Columns["seihin_kousei_name"].ColumnName = "製品構成名称";
+
+                dgv_seihin_kousei_name.DataSource = null;
+                dgv_seihin_kousei_name.DataSource = dt_work_;
+                //リードオンリーにする
+                dgv_seihin_kousei_name.ReadOnly = true;
+                //セルの高さ変更不可
+                dgv_seihin_kousei_name.AllowUserToResizeRows = false;
+                //カラムヘッダーの高さ変更不可
+                dgv_seihin_kousei_name.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+                //並べ替え不可
+                foreach (DataGridViewColumn c in dgv_seihin_kousei_name.Columns)
+                    c.SortMode = DataGridViewColumnSortMode.NotSortable;
+                //削除不可にする（コードからは削除可）
+                dgv_seihin_kousei_name.AllowUserToDeleteRows = false;
+                //行ヘッダーを非表示にする
+                dgv_seihin_kousei_name.RowHeadersVisible = false;
+        }
+
+        //製品構成のデータグリッドビュー表示共通メソッド
+        private void dgv_seihin_kousei_disp()
+        {
+            dgv_seihin_kousei.Columns[0].HeaderText = "部品レベル";
+            dgv_seihin_kousei.Columns[1].HeaderText = "部品コード";
+            dgv_seihin_kousei.Columns[2].HeaderText = "部品名";
+            dgv_seihin_kousei.Columns[3].HeaderText = "使用数";
+            dgv_seihin_kousei.Columns[4].HeaderText = "互換部品コード";
+            dgv_seihin_kousei.Columns[5].HeaderText = "互換部品名";
+            dgv_seihin_kousei.Columns[6].HeaderText = "備考";
+
+            dgv_seihin_kousei.Columns[0].Width = 80;
+            dgv_seihin_kousei.Columns[1].Width = 90;
+            dgv_seihin_kousei.Columns[2].Width = 200;
+            dgv_seihin_kousei.Columns[3].Width = 80;
+            dgv_seihin_kousei.Columns[4].Width = 90;
+            dgv_seihin_kousei.Columns[5].Width = 200;
+            dgv_seihin_kousei.Columns[5].Width = 150;
+
+            //使用数量右寄せ、カンマ区切り
+            dgv_seihin_kousei.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgv_seihin_kousei.Columns[3].DefaultCellStyle.Format = "#,0.##";
+            //部品名、互換部品名は入力不可
+            dgv_seihin_kousei.Columns[2].ReadOnly = true;
+            dgv_seihin_kousei.Columns[5].ReadOnly = true;
+            //セルの高さ変更不可
+            dgv_seihin_kousei.AllowUserToResizeRows = false;
+            //カラムヘッダーの高さ変更不可
+            dgv_seihin_kousei.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            //カラム幅の自動調整（ヘッダーとセルの両方の最長幅に調整する）
+            //dgv_seihin_kousei.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //並べ替え不可
+            foreach (DataGridViewColumn c in dgv_seihin_kousei.Columns)
+                c.SortMode = DataGridViewColumnSortMode.NotSortable;
+        }
+
+        private void dgv_seihin_kousei_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show("この文字は入力できません");
+            e.Cancel = true;
+        }
+
+        private void btn_syuuryou_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

@@ -671,6 +671,70 @@ namespace TSS_SYSTEM
             frm_ks_dt.Dispose();
             return out_kubun_cd;
         }
+
+        //製品構成番号選択画面（DataTable版）の呼び出し
+        public string seihin_kousei_select_dt(string in_seihin_cd, DataTable in_dt_seihin_kousei_name)
+        {
+            //マウスのX座標を取得する
+            int x = System.Windows.Forms.Cursor.Position.X;
+            //マウスのY座標を取得する
+            int y = System.Windows.Forms.Cursor.Position.Y;
+
+            string out_seihin_cd = "";   //戻り値用
+            string out_seihin_kousei_no = "";   //戻り値用
+            frm_seihin_kousei_select frm_sks = new frm_seihin_kousei_select();
+
+            //フォームをマウスの位置に表示する
+            frm_sks.Left = x;
+            frm_sks.Top = y;
+            frm_sks.StartPosition = FormStartPosition.Manual;
+
+            //子画面のプロパティに値をセットする
+            frm_sks.ppt_str_seihin_cd = in_seihin_cd;
+            frm_sks.ppt_dt_seihin_kousei_name = in_dt_seihin_kousei_name;
+            frm_sks.ShowDialog();
+            //子画面から値を取得する
+            out_seihin_cd = frm_sks.ppt_str_seihin_cd + "                ";
+            out_seihin_cd = out_seihin_cd.Substring(0, 16);
+            out_seihin_kousei_no = frm_sks.ppt_str_seihin_kousei_no + "  ";
+            out_seihin_kousei_no = out_seihin_kousei_no.Substring(0, 2);
+            frm_sks.Dispose();
+            return out_seihin_cd + out_seihin_kousei_no;
+        }
+        
+        //製品構成番号選択画面（製品コードの受け渡しなし）の呼び出し
+        public string seihin_kousei_select_dt2(string in_seihin_cd, DataTable in_dt_seihin_kousei_name)
+        {
+            //マウスのX座標を取得する
+            int x = System.Windows.Forms.Cursor.Position.X;
+            //マウスのY座標を取得する
+            int y = System.Windows.Forms.Cursor.Position.Y;
+
+            string out_seihin_cd = "";   //戻り値用
+            string out_seihin_kousei_no = "";   //戻り値用
+            frm_seihin_kousei_select frm_sks = new frm_seihin_kousei_select();
+
+            //フォームをマウスの位置に表示する
+            frm_sks.Left = x;
+            frm_sks.Top = y;
+            frm_sks.StartPosition = FormStartPosition.Manual;
+
+            //子画面のプロパティに値をセットする
+            frm_sks.ppt_str_seihin_cd = "";
+            //frm_sks.ppt_dt_seihin_kousei_name = "";
+            frm_sks.ShowDialog();
+            //子画面から値を取得する
+            out_seihin_cd = frm_sks.ppt_str_seihin_cd + "                ";
+            out_seihin_cd = out_seihin_cd.Substring(0, 16);
+            out_seihin_kousei_no = frm_sks.ppt_str_seihin_kousei_no + "  ";
+            out_seihin_kousei_no = out_seihin_kousei_no.Substring(0, 2);
+            frm_sks.Dispose();
+            return out_seihin_cd + out_seihin_kousei_no;
+        }
+        
+        
+        
+        
         //部品検索画面の呼び出し
         public string search_buhin(string in_mode, string in_cd)
         {
@@ -900,6 +964,8 @@ namespace TSS_SYSTEM
             return out_cd;
         }
 
+
+        public string out_str_seihin_kousei_no { get; set; }
     }
     #endregion
 }

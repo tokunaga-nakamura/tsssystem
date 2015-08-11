@@ -313,7 +313,7 @@ namespace TSS_SYSTEM
 
             dgv_tantousya.DataSource = null;
             dgv_tantousya.DataSource = dt;
-
+               
             //リードオンリーにする（編集できなくなる）
             dgv_tantousya.ReadOnly = true;
             //行ヘッダーを非表示にする
@@ -333,25 +333,45 @@ namespace TSS_SYSTEM
             //DataGridView1にユーザーが新しい行を追加できないようにする
             dgv_tantousya.AllowUserToAddRows = false;
                
-            this.dgv_tantousya.Columns["TORIHIKISAKI_NAME"].Visible = false;
-            this.dgv_tantousya.Columns["YUBIN_NO"].Visible = false;
-            this.dgv_tantousya.Columns["JUSYO1"].Visible = false;
-            this.dgv_tantousya.Columns["JUSYO2"].Visible = false;
-            this.dgv_tantousya.Columns["FAX_NO"].Visible = false;
-            this.dgv_tantousya.Columns["CREATE_USER_CD"].Visible = false;
-            this.dgv_tantousya.Columns["CREATE_DATETIME"].Visible = false;
-            this.dgv_tantousya.Columns["UPDATE_USER_CD"].Visible = false;
-            this.dgv_tantousya.Columns["UPDATE_DATETIME"].Visible = false;
+                this.dgv_tantousya.Columns["TORIHIKISAKI_NAME"].Visible = false;
+                this.dgv_tantousya.Columns["YUBIN_NO"].Visible = false;
+                this.dgv_tantousya.Columns["JUSYO1"].Visible = false;
+                this.dgv_tantousya.Columns["JUSYO2"].Visible = false;
+                this.dgv_tantousya.Columns["FAX_NO"].Visible = false;
+                this.dgv_tantousya.Columns["CREATE_USER_CD"].Visible = false;
+                this.dgv_tantousya.Columns["CREATE_DATETIME"].Visible = false;
+                this.dgv_tantousya.Columns["UPDATE_USER_CD"].Visible = false;
+                this.dgv_tantousya.Columns["UPDATE_DATETIME"].Visible = false;
 
-            dgv_tantousya.Columns[0].HeaderText = "取引先コード";
-            dgv_tantousya.Columns[1].HeaderText = "担当者コード";
-            dgv_tantousya.Columns[3].HeaderText = "担当者名";
-            dgv_tantousya.Columns[7].HeaderText = "電話番号";
-            dgv_tantousya.Columns[9].HeaderText = "所属";
-            dgv_tantousya.Columns[10].HeaderText = "役職";
-            dgv_tantousya.Columns[11].HeaderText = "携帯電話番号";
-            dgv_tantousya.Columns[12].HeaderText = "e-mail";
+                dgv_tantousya.Columns[0].HeaderText = "取引先コード";
+                dgv_tantousya.Columns[1].HeaderText = "担当者コード";
+                dgv_tantousya.Columns[3].HeaderText = "担当者名";
+                dgv_tantousya.Columns[7].HeaderText = "電話番号";
+                dgv_tantousya.Columns[9].HeaderText = "所属";
+                dgv_tantousya.Columns[10].HeaderText = "役職";
+                dgv_tantousya.Columns[11].HeaderText = "携帯電話番号";
+                dgv_tantousya.Columns[12].HeaderText = "e-mail";
 
+                //リードオンリーにする
+                dgv_tantousya.ReadOnly = true;
+                //行ヘッダーを非表示にする
+                dgv_tantousya.RowHeadersVisible = false;
+                //カラム幅の自動調整（ヘッダーとセルの両方の最長幅に調整する）
+                dgv_tantousya.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                //セルの高さ変更不可
+                dgv_tantousya.AllowUserToResizeRows = false;
+                //カラムヘッダーの高さ変更不可
+                dgv_tantousya.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+                //削除不可にする（コードからは削除可）
+                dgv_tantousya.AllowUserToDeleteRows = false;
+                //１行のみ選択可能（複数行の選択不可）
+                dgv_tantousya.MultiSelect = false;
+                //セルを選択すると行全体が選択されるようにする
+                dgv_tantousya.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                //DataGridView1にユーザーが新しい行を追加できないようにする
+                dgv_tantousya.AllowUserToAddRows = false;
+            
+               
         }
 
         //取引先コードから、取引先マスタのデータを呼出してテキストボックスに入れる。
