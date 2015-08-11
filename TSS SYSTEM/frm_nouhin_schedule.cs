@@ -14,7 +14,7 @@ namespace TSS_SYSTEM
     {
         TssSystemLibrary tss = new TssSystemLibrary();
         DataTable w_dt_schedule = new DataTable();
-        //DataTable w_dt_rireki = new DataTable();
+        DataTable w_dt_insatu = new DataTable();
 
         public frm_nouhin_schedule()
         {
@@ -603,6 +603,8 @@ namespace TSS_SYSTEM
             dgv_nouhin_schedule.DataSource = null;
             dgv_nouhin_schedule.DataSource = w_dt_view;
             //dgv_nouhin_schedule.DataSource = in_dt;
+            //印刷受け渡し用にpublicなdtにクローンを作成（コピー）する
+            w_dt_insatu = w_dt_view;
 
             //DataGridViewのカラムヘッダーテキストを変更する
             dgv_nouhin_schedule.Columns[0].HeaderText = "取引先コード";
@@ -751,6 +753,13 @@ namespace TSS_SYSTEM
                 }
             }
             return bl;
+        }
+
+        private void btn_insatu_Click(object sender, EventArgs e)
+        {
+            //印刷画面へ
+            bool bl;
+            bl = tss.insatu(w_dt_insatu);
         }
 
     }

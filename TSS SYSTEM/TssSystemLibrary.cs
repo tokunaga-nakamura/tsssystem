@@ -797,6 +797,30 @@ namespace TSS_SYSTEM
             frm_sb.Dispose();
             return out_cd;
         }
+        //印刷画面の呼び出し
+        public bool insatu(DataTable in_dt)
+        {
+            //マウスのX座標を取得する
+            //int x = System.Windows.Forms.Cursor.Position.X;
+            //マウスのY座標を取得する
+            //int y = System.Windows.Forms.Cursor.Position.Y;
+
+            bool bl = false;   //戻り値用
+            frm_nouhin_schedule_preview frm_sb = new frm_nouhin_schedule_preview();
+
+            //フォームをマウスの位置に表示する
+            //frm_sb.Left = x;
+            //frm_sb.Top = y;
+            //frm_sb.StartPosition = FormStartPosition.Manual;
+
+            //子画面のプロパティに値をセットする
+            frm_sb.ppt_dt = in_dt;
+            frm_sb.ShowDialog();
+            //子画面から値を取得する
+            frm_sb.Dispose();
+            return bl;
+        }
+
         public string GetCsvPath()
         {
             /// <summary>
