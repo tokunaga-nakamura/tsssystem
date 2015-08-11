@@ -29,13 +29,39 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_torihikisaki_m));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.tb_update_datetime = new System.Windows.Forms.TextBox();
+            this.tb_update_user_cd = new System.Windows.Forms.TextBox();
+            this.textBox28 = new System.Windows.Forms.TextBox();
+            this.tb_create_datetime = new System.Windows.Forms.TextBox();
+            this.tb_create_user_cd = new System.Windows.Forms.TextBox();
+            this.textBox25 = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.tb_kaisyu_tuki = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.tb_kaisyu_hi = new System.Windows.Forms.TextBox();
+            this.tb_siharai_sime_date = new System.Windows.Forms.TextBox();
+            this.tb_seikyu_sime_date = new System.Windows.Forms.TextBox();
+            this.tb_siharai_tuki = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.tb_siharai_hi = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.textBox16 = new System.Windows.Forms.TextBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
@@ -66,24 +92,6 @@
             this.tb_jisyaden_kbn = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.tb_eigyou_end_time = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.tb_siharai_sime_date = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.tb_seikyu_sime_date = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.tb_kaisyu_hi = new System.Windows.Forms.TextBox();
-            this.tb_siharai_hi = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.tb_siharai_tuki = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tb_kaisyu_tuki = new System.Windows.Forms.TextBox();
             this.tb_torihikisaki_seisiki_name = new System.Windows.Forms.TextBox();
             this.tb_eigyou_start_time = new System.Windows.Forms.TextBox();
             this.tb_kessan_start_mmdd = new System.Windows.Forms.TextBox();
@@ -104,14 +112,6 @@
             this.btn_touroku = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox25 = new System.Windows.Forms.TextBox();
-            this.tb_create_user_cd = new System.Windows.Forms.TextBox();
-            this.tb_create_datetime = new System.Windows.Forms.TextBox();
-            this.textBox28 = new System.Windows.Forms.TextBox();
-            this.tb_update_user_cd = new System.Windows.Forms.TextBox();
-            this.tb_update_datetime = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -124,13 +124,13 @@
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tantousya)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -247,6 +247,284 @@
             this.splitContainer3.TabIndex = 0;
             this.splitContainer3.TabStop = false;
             // 
+            // tb_update_datetime
+            // 
+            this.tb_update_datetime.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_update_datetime.Location = new System.Drawing.Point(762, 295);
+            this.tb_update_datetime.Name = "tb_update_datetime";
+            this.tb_update_datetime.ReadOnly = true;
+            this.tb_update_datetime.Size = new System.Drawing.Size(115, 19);
+            this.tb_update_datetime.TabIndex = 152;
+            this.tb_update_datetime.TabStop = false;
+            // 
+            // tb_update_user_cd
+            // 
+            this.tb_update_user_cd.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_update_user_cd.Location = new System.Drawing.Point(690, 295);
+            this.tb_update_user_cd.Name = "tb_update_user_cd";
+            this.tb_update_user_cd.ReadOnly = true;
+            this.tb_update_user_cd.Size = new System.Drawing.Size(72, 19);
+            this.tb_update_user_cd.TabIndex = 151;
+            this.tb_update_user_cd.TabStop = false;
+            // 
+            // textBox28
+            // 
+            this.textBox28.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBox28.Location = new System.Drawing.Point(649, 295);
+            this.textBox28.Name = "textBox28";
+            this.textBox28.ReadOnly = true;
+            this.textBox28.Size = new System.Drawing.Size(41, 19);
+            this.textBox28.TabIndex = 150;
+            this.textBox28.TabStop = false;
+            this.textBox28.Text = "更新";
+            // 
+            // tb_create_datetime
+            // 
+            this.tb_create_datetime.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_create_datetime.Location = new System.Drawing.Point(762, 276);
+            this.tb_create_datetime.Name = "tb_create_datetime";
+            this.tb_create_datetime.ReadOnly = true;
+            this.tb_create_datetime.Size = new System.Drawing.Size(115, 19);
+            this.tb_create_datetime.TabIndex = 149;
+            this.tb_create_datetime.TabStop = false;
+            // 
+            // tb_create_user_cd
+            // 
+            this.tb_create_user_cd.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_create_user_cd.Location = new System.Drawing.Point(690, 276);
+            this.tb_create_user_cd.Name = "tb_create_user_cd";
+            this.tb_create_user_cd.ReadOnly = true;
+            this.tb_create_user_cd.Size = new System.Drawing.Size(72, 19);
+            this.tb_create_user_cd.TabIndex = 148;
+            this.tb_create_user_cd.TabStop = false;
+            // 
+            // textBox25
+            // 
+            this.textBox25.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBox25.Location = new System.Drawing.Point(649, 276);
+            this.textBox25.Name = "textBox25";
+            this.textBox25.ReadOnly = true;
+            this.textBox25.Size = new System.Drawing.Size(41, 19);
+            this.textBox25.TabIndex = 147;
+            this.textBox25.TabStop = false;
+            this.textBox25.Text = "作成";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.textBox15);
+            this.groupBox1.Controls.Add(this.textBox20);
+            this.groupBox1.Controls.Add(this.tb_kaisyu_tuki);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.textBox19);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.textBox17);
+            this.groupBox1.Controls.Add(this.label31);
+            this.groupBox1.Controls.Add(this.textBox18);
+            this.groupBox1.Controls.Add(this.tb_kaisyu_hi);
+            this.groupBox1.Controls.Add(this.tb_siharai_sime_date);
+            this.groupBox1.Controls.Add(this.tb_seikyu_sime_date);
+            this.groupBox1.Controls.Add(this.tb_siharai_tuki);
+            this.groupBox1.Controls.Add(this.label30);
+            this.groupBox1.Controls.Add(this.label20);
+            this.groupBox1.Controls.Add(this.tb_siharai_hi);
+            this.groupBox1.Controls.Add(this.label27);
+            this.groupBox1.Controls.Add(this.textBox16);
+            this.groupBox1.Location = new System.Drawing.Point(10, 157);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(361, 90);
+            this.groupBox1.TabIndex = 146;
+            this.groupBox1.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 69);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(193, 12);
+            this.label2.TabIndex = 146;
+            this.label2.Text = "※末日の場合は「99」を入力してください";
+            // 
+            // textBox15
+            // 
+            this.textBox15.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox15.Location = new System.Drawing.Point(6, 18);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.ReadOnly = true;
+            this.textBox15.Size = new System.Drawing.Size(65, 19);
+            this.textBox15.TabIndex = 145;
+            this.textBox15.TabStop = false;
+            this.textBox15.Text = "請求締日";
+            // 
+            // textBox20
+            // 
+            this.textBox20.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox20.Location = new System.Drawing.Point(253, 43);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.ReadOnly = true;
+            this.textBox20.Size = new System.Drawing.Size(50, 19);
+            this.textBox20.TabIndex = 1;
+            this.textBox20.TabStop = false;
+            this.textBox20.Text = "支払日";
+            // 
+            // tb_kaisyu_tuki
+            // 
+            this.tb_kaisyu_tuki.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_kaisyu_tuki.Location = new System.Drawing.Point(176, 18);
+            this.tb_kaisyu_tuki.MaxLength = 2;
+            this.tb_kaisyu_tuki.Name = "tb_kaisyu_tuki";
+            this.tb_kaisyu_tuki.Size = new System.Drawing.Size(27, 19);
+            this.tb_kaisyu_tuki.TabIndex = 17;
+            this.tb_kaisyu_tuki.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(208, 21);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 12);
+            this.label5.TabIndex = 61;
+            this.label5.Text = "か月後";
+            // 
+            // textBox19
+            // 
+            this.textBox19.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox19.Location = new System.Drawing.Point(127, 43);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.ReadOnly = true;
+            this.textBox19.Size = new System.Drawing.Size(49, 19);
+            this.textBox19.TabIndex = 0;
+            this.textBox19.TabStop = false;
+            this.textBox19.Text = "支払月";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(336, 21);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(17, 12);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "日";
+            // 
+            // textBox17
+            // 
+            this.textBox17.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox17.Location = new System.Drawing.Point(253, 18);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.ReadOnly = true;
+            this.textBox17.Size = new System.Drawing.Size(50, 19);
+            this.textBox17.TabIndex = 1;
+            this.textBox17.TabStop = false;
+            this.textBox17.Text = "回収日";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(104, 21);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(17, 12);
+            this.label31.TabIndex = 0;
+            this.label31.Text = "日";
+            // 
+            // textBox18
+            // 
+            this.textBox18.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox18.Location = new System.Drawing.Point(6, 43);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.ReadOnly = true;
+            this.textBox18.Size = new System.Drawing.Size(65, 19);
+            this.textBox18.TabIndex = 145;
+            this.textBox18.TabStop = false;
+            this.textBox18.Text = "支払締日";
+            // 
+            // tb_kaisyu_hi
+            // 
+            this.tb_kaisyu_hi.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_kaisyu_hi.Location = new System.Drawing.Point(303, 18);
+            this.tb_kaisyu_hi.MaxLength = 2;
+            this.tb_kaisyu_hi.Name = "tb_kaisyu_hi";
+            this.tb_kaisyu_hi.Size = new System.Drawing.Size(27, 19);
+            this.tb_kaisyu_hi.TabIndex = 18;
+            this.tb_kaisyu_hi.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // tb_siharai_sime_date
+            // 
+            this.tb_siharai_sime_date.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_siharai_sime_date.Location = new System.Drawing.Point(71, 43);
+            this.tb_siharai_sime_date.MaxLength = 2;
+            this.tb_siharai_sime_date.Name = "tb_siharai_sime_date";
+            this.tb_siharai_sime_date.Size = new System.Drawing.Size(27, 19);
+            this.tb_siharai_sime_date.TabIndex = 19;
+            this.tb_siharai_sime_date.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // tb_seikyu_sime_date
+            // 
+            this.tb_seikyu_sime_date.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_seikyu_sime_date.Location = new System.Drawing.Point(71, 18);
+            this.tb_seikyu_sime_date.MaxLength = 2;
+            this.tb_seikyu_sime_date.Name = "tb_seikyu_sime_date";
+            this.tb_seikyu_sime_date.Size = new System.Drawing.Size(27, 19);
+            this.tb_seikyu_sime_date.TabIndex = 16;
+            this.tb_seikyu_sime_date.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // tb_siharai_tuki
+            // 
+            this.tb_siharai_tuki.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_siharai_tuki.Location = new System.Drawing.Point(176, 43);
+            this.tb_siharai_tuki.MaxLength = 2;
+            this.tb_siharai_tuki.Name = "tb_siharai_tuki";
+            this.tb_siharai_tuki.Size = new System.Drawing.Size(26, 19);
+            this.tb_siharai_tuki.TabIndex = 20;
+            this.tb_siharai_tuki.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(104, 46);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(17, 12);
+            this.label30.TabIndex = 0;
+            this.label30.Text = "日";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(336, 46);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(17, 12);
+            this.label20.TabIndex = 1;
+            this.label20.Text = "日";
+            // 
+            // tb_siharai_hi
+            // 
+            this.tb_siharai_hi.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_siharai_hi.Location = new System.Drawing.Point(303, 43);
+            this.tb_siharai_hi.MaxLength = 2;
+            this.tb_siharai_hi.Name = "tb_siharai_hi";
+            this.tb_siharai_hi.Size = new System.Drawing.Size(27, 19);
+            this.tb_siharai_hi.TabIndex = 21;
+            this.tb_siharai_hi.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(208, 46);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(39, 12);
+            this.label27.TabIndex = 65;
+            this.label27.Text = "か月後";
+            // 
+            // textBox16
+            // 
+            this.textBox16.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox16.Location = new System.Drawing.Point(127, 18);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.ReadOnly = true;
+            this.textBox16.Size = new System.Drawing.Size(49, 19);
+            this.textBox16.TabIndex = 1;
+            this.textBox16.TabStop = false;
+            this.textBox16.Text = "回収月";
+            // 
             // textBox14
             // 
             this.textBox14.BackColor = System.Drawing.Color.NavajoWhite;
@@ -279,48 +557,6 @@
             this.textBox12.TabIndex = 142;
             this.textBox12.TabStop = false;
             this.textBox12.Text = "決算期末月日（半角数字4桁）";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.textBox24);
-            this.groupBox6.Controls.Add(this.tb_syouhizei_sansyutu_kbn);
-            this.groupBox6.Controls.Add(this.label35);
-            this.groupBox6.Location = new System.Drawing.Point(460, 280);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(344, 36);
-            this.groupBox6.TabIndex = 133;
-            this.groupBox6.TabStop = false;
-            // 
-            // textBox24
-            // 
-            this.textBox24.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox24.Location = new System.Drawing.Point(6, 11);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.ReadOnly = true;
-            this.textBox24.Size = new System.Drawing.Size(100, 19);
-            this.textBox24.TabIndex = 145;
-            this.textBox24.TabStop = false;
-            this.textBox24.Text = "消費税算出区分";
-            // 
-            // tb_syouhizei_sansyutu_kbn
-            // 
-            this.tb_syouhizei_sansyutu_kbn.BackColor = System.Drawing.Color.PowderBlue;
-            this.tb_syouhizei_sansyutu_kbn.Location = new System.Drawing.Point(106, 11);
-            this.tb_syouhizei_sansyutu_kbn.MaxLength = 1;
-            this.tb_syouhizei_sansyutu_kbn.Name = "tb_syouhizei_sansyutu_kbn";
-            this.tb_syouhizei_sansyutu_kbn.Size = new System.Drawing.Size(37, 19);
-            this.tb_syouhizei_sansyutu_kbn.TabIndex = 0;
-            this.tb_syouhizei_sansyutu_kbn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tb_syouhizei_sansyutu_kbn.DoubleClick += new System.EventHandler(this.tb_syouhizei_sansyutu_kbn_DoubleClick);
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(149, 14);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(177, 12);
-            this.label35.TabIndex = 61;
-            this.label35.Text = "0:明細毎　1:伝票合計　2:請求合計";
             // 
             // textBox11
             // 
@@ -479,7 +715,7 @@
             this.groupBox4.Controls.Add(this.label29);
             this.groupBox4.Location = new System.Drawing.Point(377, 157);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(325, 113);
+            this.groupBox4.Size = new System.Drawing.Size(313, 113);
             this.groupBox4.TabIndex = 99;
             this.groupBox4.TabStop = false;
             // 
@@ -531,7 +767,7 @@
             this.tb_hasu_syori_tani.Location = new System.Drawing.Point(106, 62);
             this.tb_hasu_syori_tani.MaxLength = 1;
             this.tb_hasu_syori_tani.Name = "tb_hasu_syori_tani";
-            this.tb_hasu_syori_tani.Size = new System.Drawing.Size(37, 19);
+            this.tb_hasu_syori_tani.Size = new System.Drawing.Size(21, 19);
             this.tb_hasu_syori_tani.TabIndex = 0;
             this.tb_hasu_syori_tani.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tb_hasu_syori_tani.DoubleClick += new System.EventHandler(this.tb_hasu_syori_tani_DoubleClick);
@@ -561,9 +797,9 @@
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(133, 40);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(152, 12);
+            this.label26.Size = new System.Drawing.Size(160, 12);
             this.label26.TabIndex = 70;
-            this.label26.Text = "0:切捨て 1:四捨五入 2:切上げ";
+            this.label26.Text = "0:切捨て　1:四捨五入　2:切上げ";
             // 
             // textBox21
             // 
@@ -593,7 +829,7 @@
             this.tb_jisyaden_kbn.Location = new System.Drawing.Point(106, 12);
             this.tb_jisyaden_kbn.MaxLength = 1;
             this.tb_jisyaden_kbn.Name = "tb_jisyaden_kbn";
-            this.tb_jisyaden_kbn.Size = new System.Drawing.Size(37, 19);
+            this.tb_jisyaden_kbn.Size = new System.Drawing.Size(21, 19);
             this.tb_jisyaden_kbn.TabIndex = 0;
             this.tb_jisyaden_kbn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tb_jisyaden_kbn.DoubleClick += new System.EventHandler(this.tb_jisyaden_kbn_DoubleClick);
@@ -614,234 +850,6 @@
             this.tb_eigyou_end_time.Name = "tb_eigyou_end_time";
             this.tb_eigyou_end_time.Size = new System.Drawing.Size(107, 19);
             this.tb_eigyou_end_time.TabIndex = 14;
-            // 
-            // textBox22
-            // 
-            this.textBox22.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox22.Location = new System.Drawing.Point(6, 12);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.ReadOnly = true;
-            this.textBox22.Size = new System.Drawing.Size(100, 19);
-            this.textBox22.TabIndex = 145;
-            this.textBox22.TabStop = false;
-            this.textBox22.Text = "端数区分";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(149, 15);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(160, 12);
-            this.label26.TabIndex = 70;
-            this.label26.Text = "0:切捨て　1:四捨五入　2:切上げ";
-            // 
-            // tb_hasu_kbn
-            // 
-            this.tb_hasu_kbn.BackColor = System.Drawing.Color.PowderBlue;
-            this.tb_hasu_kbn.Location = new System.Drawing.Point(106, 12);
-            this.tb_hasu_kbn.MaxLength = 1;
-            this.tb_hasu_kbn.Name = "tb_hasu_kbn";
-            this.tb_hasu_kbn.Size = new System.Drawing.Size(37, 19);
-            this.tb_hasu_kbn.TabIndex = 0;
-            this.tb_hasu_kbn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tb_hasu_kbn.DoubleClick += new System.EventHandler(this.tb_hasu_kbn_DoubleClick);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.textBox20);
-            this.groupBox2.Controls.Add(this.textBox19);
-            this.groupBox2.Controls.Add(this.textBox18);
-            this.groupBox2.Controls.Add(this.tb_siharai_sime_date);
-            this.groupBox2.Controls.Add(this.label30);
-            this.groupBox2.Controls.Add(this.label27);
-            this.groupBox2.Controls.Add(this.tb_siharai_hi);
-            this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Controls.Add(this.tb_siharai_tuki);
-            this.groupBox2.Location = new System.Drawing.Point(10, 204);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(398, 36);
-            this.groupBox2.TabIndex = 97;
-            this.groupBox2.TabStop = false;
-            // 
-            // textBox20
-            // 
-            this.textBox20.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox20.Location = new System.Drawing.Point(253, 43);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.ReadOnly = true;
-            this.textBox20.Size = new System.Drawing.Size(50, 19);
-            this.textBox20.TabIndex = 1;
-            this.textBox20.TabStop = false;
-            this.textBox20.Text = "支払日";
-            // 
-            // textBox17
-            // 
-            this.textBox17.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox17.Location = new System.Drawing.Point(253, 18);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.ReadOnly = true;
-            this.textBox17.Size = new System.Drawing.Size(50, 19);
-            this.textBox17.TabIndex = 1;
-            this.textBox17.TabStop = false;
-            this.textBox17.Text = "回収日";
-            // 
-            // textBox19
-            // 
-            this.textBox19.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox19.Location = new System.Drawing.Point(127, 43);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.ReadOnly = true;
-            this.textBox19.Size = new System.Drawing.Size(49, 19);
-            this.textBox19.TabIndex = 0;
-            this.textBox19.TabStop = false;
-            this.textBox19.Text = "支払月";
-            // 
-            // textBox16
-            // 
-            this.textBox16.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox16.Location = new System.Drawing.Point(127, 18);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.ReadOnly = true;
-            this.textBox16.Size = new System.Drawing.Size(49, 19);
-            this.textBox16.TabIndex = 1;
-            this.textBox16.TabStop = false;
-            this.textBox16.Text = "回収月";
-            // 
-            // textBox18
-            // 
-            this.textBox18.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox18.Location = new System.Drawing.Point(6, 43);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.ReadOnly = true;
-            this.textBox18.Size = new System.Drawing.Size(65, 19);
-            this.textBox18.TabIndex = 145;
-            this.textBox18.TabStop = false;
-            this.textBox18.Text = "支払締日";
-            // 
-            // tb_siharai_sime_date
-            // 
-            this.tb_siharai_sime_date.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_siharai_sime_date.Location = new System.Drawing.Point(71, 43);
-            this.tb_siharai_sime_date.MaxLength = 2;
-            this.tb_siharai_sime_date.Name = "tb_siharai_sime_date";
-            this.tb_siharai_sime_date.Size = new System.Drawing.Size(27, 19);
-            this.tb_siharai_sime_date.TabIndex = 19;
-            this.tb_siharai_sime_date.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBox15
-            // 
-            this.textBox15.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox15.Location = new System.Drawing.Point(6, 18);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.ReadOnly = true;
-            this.textBox15.Size = new System.Drawing.Size(65, 19);
-            this.textBox15.TabIndex = 145;
-            this.textBox15.TabStop = false;
-            this.textBox15.Text = "請求締日";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(104, 46);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(17, 12);
-            this.label30.TabIndex = 0;
-            this.label30.Text = "日";
-            // 
-            // tb_seikyu_sime_date
-            // 
-            this.tb_seikyu_sime_date.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_seikyu_sime_date.Location = new System.Drawing.Point(71, 18);
-            this.tb_seikyu_sime_date.MaxLength = 2;
-            this.tb_seikyu_sime_date.Name = "tb_seikyu_sime_date";
-            this.tb_seikyu_sime_date.Size = new System.Drawing.Size(27, 19);
-            this.tb_seikyu_sime_date.TabIndex = 16;
-            this.tb_seikyu_sime_date.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(208, 46);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(39, 12);
-            this.label27.TabIndex = 65;
-            this.label27.Text = "か月後";
-            // 
-            // tb_kaisyu_hi
-            // 
-            this.tb_kaisyu_hi.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_kaisyu_hi.Location = new System.Drawing.Point(303, 18);
-            this.tb_kaisyu_hi.MaxLength = 2;
-            this.tb_kaisyu_hi.Name = "tb_kaisyu_hi";
-            this.tb_kaisyu_hi.Size = new System.Drawing.Size(27, 19);
-            this.tb_kaisyu_hi.TabIndex = 18;
-            this.tb_kaisyu_hi.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // tb_siharai_hi
-            // 
-            this.tb_siharai_hi.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_siharai_hi.Location = new System.Drawing.Point(303, 43);
-            this.tb_siharai_hi.MaxLength = 2;
-            this.tb_siharai_hi.Name = "tb_siharai_hi";
-            this.tb_siharai_hi.Size = new System.Drawing.Size(27, 19);
-            this.tb_siharai_hi.TabIndex = 21;
-            this.tb_siharai_hi.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(104, 21);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(17, 12);
-            this.label31.TabIndex = 0;
-            this.label31.Text = "日";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(336, 46);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(17, 12);
-            this.label20.TabIndex = 1;
-            this.label20.Text = "日";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(336, 21);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(17, 12);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "日";
-            // 
-            // tb_siharai_tuki
-            // 
-            this.tb_siharai_tuki.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_siharai_tuki.Location = new System.Drawing.Point(176, 43);
-            this.tb_siharai_tuki.MaxLength = 2;
-            this.tb_siharai_tuki.Name = "tb_siharai_tuki";
-            this.tb_siharai_tuki.Size = new System.Drawing.Size(26, 19);
-            this.tb_siharai_tuki.TabIndex = 20;
-            this.tb_siharai_tuki.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(208, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 12);
-            this.label5.TabIndex = 61;
-            this.label5.Text = "か月後";
-            // 
-            // tb_kaisyu_tuki
-            // 
-            this.tb_kaisyu_tuki.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_kaisyu_tuki.Location = new System.Drawing.Point(176, 18);
-            this.tb_kaisyu_tuki.MaxLength = 2;
-            this.tb_kaisyu_tuki.Name = "tb_kaisyu_tuki";
-            this.tb_kaisyu_tuki.Size = new System.Drawing.Size(27, 19);
-            this.tb_kaisyu_tuki.TabIndex = 17;
-            this.tb_kaisyu_tuki.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tb_torihikisaki_seisiki_name
             // 
@@ -996,34 +1004,34 @@
             // dgv_tantousya
             // 
             this.dgv_tantousya.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tantousya.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tantousya.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_tantousya.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_tantousya.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_tantousya.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_tantousya.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_tantousya.Location = new System.Drawing.Point(0, 0);
             this.dgv_tantousya.Name = "dgv_tantousya";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tantousya.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tantousya.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_tantousya.RowTemplate.Height = 21;
             this.dgv_tantousya.Size = new System.Drawing.Size(880, 75);
             this.dgv_tantousya.TabIndex = 133;
@@ -1056,104 +1064,6 @@
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox15);
-            this.groupBox1.Controls.Add(this.textBox20);
-            this.groupBox1.Controls.Add(this.tb_kaisyu_tuki);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox19);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.textBox17);
-            this.groupBox1.Controls.Add(this.label31);
-            this.groupBox1.Controls.Add(this.textBox18);
-            this.groupBox1.Controls.Add(this.tb_kaisyu_hi);
-            this.groupBox1.Controls.Add(this.tb_siharai_sime_date);
-            this.groupBox1.Controls.Add(this.tb_seikyu_sime_date);
-            this.groupBox1.Controls.Add(this.tb_siharai_tuki);
-            this.groupBox1.Controls.Add(this.label30);
-            this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.tb_siharai_hi);
-            this.groupBox1.Controls.Add(this.label27);
-            this.groupBox1.Controls.Add(this.textBox16);
-            this.groupBox1.Location = new System.Drawing.Point(10, 157);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(361, 90);
-            this.groupBox1.TabIndex = 146;
-            this.groupBox1.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 69);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(193, 12);
-            this.label2.TabIndex = 146;
-            this.label2.Text = "※末日の場合は「99」を入力してください";
-            // 
-            // textBox25
-            // 
-            this.textBox25.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox25.Location = new System.Drawing.Point(649, 276);
-            this.textBox25.Name = "textBox25";
-            this.textBox25.ReadOnly = true;
-            this.textBox25.Size = new System.Drawing.Size(41, 19);
-            this.textBox25.TabIndex = 147;
-            this.textBox25.TabStop = false;
-            this.textBox25.Text = "作成";
-            // 
-            // tb_create_user_cd
-            // 
-            this.tb_create_user_cd.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_create_user_cd.Location = new System.Drawing.Point(690, 276);
-            this.tb_create_user_cd.Name = "tb_create_user_cd";
-            this.tb_create_user_cd.ReadOnly = true;
-            this.tb_create_user_cd.Size = new System.Drawing.Size(72, 19);
-            this.tb_create_user_cd.TabIndex = 148;
-            this.tb_create_user_cd.TabStop = false;
-            // 
-            // tb_create_datetime
-            // 
-            this.tb_create_datetime.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_create_datetime.Location = new System.Drawing.Point(762, 276);
-            this.tb_create_datetime.Name = "tb_create_datetime";
-            this.tb_create_datetime.ReadOnly = true;
-            this.tb_create_datetime.Size = new System.Drawing.Size(115, 19);
-            this.tb_create_datetime.TabIndex = 149;
-            this.tb_create_datetime.TabStop = false;
-            // 
-            // textBox28
-            // 
-            this.textBox28.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox28.Location = new System.Drawing.Point(649, 295);
-            this.textBox28.Name = "textBox28";
-            this.textBox28.ReadOnly = true;
-            this.textBox28.Size = new System.Drawing.Size(41, 19);
-            this.textBox28.TabIndex = 150;
-            this.textBox28.TabStop = false;
-            this.textBox28.Text = "更新";
-            // 
-            // tb_update_user_cd
-            // 
-            this.tb_update_user_cd.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_update_user_cd.Location = new System.Drawing.Point(690, 295);
-            this.tb_update_user_cd.Name = "tb_update_user_cd";
-            this.tb_update_user_cd.ReadOnly = true;
-            this.tb_update_user_cd.Size = new System.Drawing.Size(72, 19);
-            this.tb_update_user_cd.TabIndex = 151;
-            this.tb_update_user_cd.TabStop = false;
-            // 
-            // tb_update_datetime
-            // 
-            this.tb_update_datetime.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_update_datetime.Location = new System.Drawing.Point(762, 295);
-            this.tb_update_datetime.Name = "tb_update_datetime";
-            this.tb_update_datetime.ReadOnly = true;
-            this.tb_update_datetime.Size = new System.Drawing.Size(115, 19);
-            this.tb_update_datetime.TabIndex = 152;
-            this.tb_update_datetime.TabStop = false;
-            // 
             // frm_torihikisaki_m
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1178,6 +1088,8 @@
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.splitContainer4.Panel1.ResumeLayout(false);
@@ -1186,8 +1098,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tantousya)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
