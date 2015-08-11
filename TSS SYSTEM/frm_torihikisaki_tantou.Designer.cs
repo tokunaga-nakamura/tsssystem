@@ -156,7 +156,7 @@
             this.tb_keitai_no.Location = new System.Drawing.Point(95, 194);
             this.tb_keitai_no.Name = "tb_keitai_no";
             this.tb_keitai_no.Size = new System.Drawing.Size(112, 19);
-            this.tb_keitai_no.TabIndex = 43;
+            this.tb_keitai_no.TabIndex = 12;
             // 
             // textBox23
             // 
@@ -174,7 +174,7 @@
             this.tb_fax_no.Location = new System.Drawing.Point(296, 169);
             this.tb_fax_no.Name = "tb_fax_no";
             this.tb_fax_no.Size = new System.Drawing.Size(112, 19);
-            this.tb_fax_no.TabIndex = 41;
+            this.tb_fax_no.TabIndex = 11;
             // 
             // textBox21
             // 
@@ -192,7 +192,7 @@
             this.tb_tel_no.Location = new System.Drawing.Point(95, 169);
             this.tb_tel_no.Name = "tb_tel_no";
             this.tb_tel_no.Size = new System.Drawing.Size(112, 19);
-            this.tb_tel_no.TabIndex = 39;
+            this.tb_tel_no.TabIndex = 10;
             // 
             // textBox19
             // 
@@ -210,7 +210,7 @@
             this.tb_jusyo2.Location = new System.Drawing.Point(93, 144);
             this.tb_jusyo2.Name = "tb_jusyo2";
             this.tb_jusyo2.Size = new System.Drawing.Size(361, 19);
-            this.tb_jusyo2.TabIndex = 38;
+            this.tb_jusyo2.TabIndex = 9;
             // 
             // textBox17
             // 
@@ -228,7 +228,7 @@
             this.tb_jusyo1.Location = new System.Drawing.Point(93, 120);
             this.tb_jusyo1.Name = "tb_jusyo1";
             this.tb_jusyo1.Size = new System.Drawing.Size(361, 19);
-            this.tb_jusyo1.TabIndex = 36;
+            this.tb_jusyo1.TabIndex = 8;
             // 
             // textBox15
             // 
@@ -246,7 +246,7 @@
             this.tb_yubin_no.Location = new System.Drawing.Point(93, 95);
             this.tb_yubin_no.Name = "tb_yubin_no";
             this.tb_yubin_no.Size = new System.Drawing.Size(112, 19);
-            this.tb_yubin_no.TabIndex = 33;
+            this.tb_yubin_no.TabIndex = 7;
             // 
             // textBox13
             // 
@@ -264,7 +264,7 @@
             this.tb_yakusyoku.Location = new System.Drawing.Point(294, 70);
             this.tb_yakusyoku.Name = "tb_yakusyoku";
             this.tb_yakusyoku.Size = new System.Drawing.Size(112, 19);
-            this.tb_yakusyoku.TabIndex = 31;
+            this.tb_yakusyoku.TabIndex = 6;
             // 
             // textBox11
             // 
@@ -282,7 +282,7 @@
             this.tb_syozoku.Location = new System.Drawing.Point(93, 70);
             this.tb_syozoku.Name = "tb_syozoku";
             this.tb_syozoku.Size = new System.Drawing.Size(112, 19);
-            this.tb_syozoku.TabIndex = 29;
+            this.tb_syozoku.TabIndex = 5;
             // 
             // textBox9
             // 
@@ -300,7 +300,7 @@
             this.tb_tantousya_name.Location = new System.Drawing.Point(294, 45);
             this.tb_tantousya_name.Name = "tb_tantousya_name";
             this.tb_tantousya_name.Size = new System.Drawing.Size(112, 19);
-            this.tb_tantousya_name.TabIndex = 27;
+            this.tb_tantousya_name.TabIndex = 4;
             // 
             // textBox7
             // 
@@ -318,7 +318,7 @@
             this.tb_mail_address.Location = new System.Drawing.Point(95, 219);
             this.tb_mail_address.Name = "tb_mail_address";
             this.tb_mail_address.Size = new System.Drawing.Size(361, 19);
-            this.tb_mail_address.TabIndex = 26;
+            this.tb_mail_address.TabIndex = 13;
             // 
             // textBox2
             // 
@@ -337,7 +337,7 @@
             this.tb_torihikisaki_name.Location = new System.Drawing.Point(145, 20);
             this.tb_torihikisaki_name.Name = "tb_torihikisaki_name";
             this.tb_torihikisaki_name.Size = new System.Drawing.Size(180, 19);
-            this.tb_torihikisaki_name.TabIndex = 24;
+            this.tb_torihikisaki_name.TabIndex = 2;
             this.tb_torihikisaki_name.TabStop = false;
             // 
             // tb_torihikisaki_cd
@@ -347,7 +347,7 @@
             this.tb_torihikisaki_cd.MaxLength = 6;
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
             this.tb_torihikisaki_cd.Size = new System.Drawing.Size(53, 19);
-            this.tb_torihikisaki_cd.TabIndex = 21;
+            this.tb_torihikisaki_cd.TabIndex = 1;
             // 
             // textBox5
             // 
@@ -366,7 +366,7 @@
             this.tb_tantousya_cd.MaxLength = 6;
             this.tb_tantousya_cd.Name = "tb_tantousya_cd";
             this.tb_tantousya_cd.Size = new System.Drawing.Size(112, 19);
-            this.tb_tantousya_cd.TabIndex = 18;
+            this.tb_tantousya_cd.TabIndex = 3;
             // 
             // textBox1
             // 
@@ -384,7 +384,7 @@
             this.bt_close.Location = new System.Drawing.Point(395, 3);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(75, 23);
-            this.bt_close.TabIndex = 2;
+            this.bt_close.TabIndex = 16;
             this.bt_close.Text = "終了";
             this.bt_close.UseVisualStyleBackColor = true;
             this.bt_close.Click += new System.EventHandler(this.bt_close_Click);
@@ -394,7 +394,7 @@
             this.btn_sakujyo.Location = new System.Drawing.Point(95, 3);
             this.btn_sakujyo.Name = "btn_sakujyo";
             this.btn_sakujyo.Size = new System.Drawing.Size(75, 23);
-            this.btn_sakujyo.TabIndex = 1;
+            this.btn_sakujyo.TabIndex = 15;
             this.btn_sakujyo.Text = "削除";
             this.btn_sakujyo.UseVisualStyleBackColor = true;
             this.btn_sakujyo.Click += new System.EventHandler(this.btn_sakujyo_Click);
@@ -404,7 +404,7 @@
             this.btn_touroku.Location = new System.Drawing.Point(12, 3);
             this.btn_touroku.Name = "btn_touroku";
             this.btn_touroku.Size = new System.Drawing.Size(75, 23);
-            this.btn_touroku.TabIndex = 0;
+            this.btn_touroku.TabIndex = 14;
             this.btn_touroku.Text = "登録";
             this.btn_touroku.UseVisualStyleBackColor = true;
             this.btn_touroku.Click += new System.EventHandler(this.btn_syuuryou_Click);

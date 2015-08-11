@@ -620,7 +620,7 @@
             this.tb_siire_kbn.Size = new System.Drawing.Size(31, 19);
             this.tb_siire_kbn.TabIndex = 8;
             this.tb_siire_kbn.DoubleClick += new System.EventHandler(this.tb_siire_kbn_DoubleClick);
-            this.tb_siire_kbn.Validating += new System.ComponentModel.CancelEventHandler(this.tb_siire_kbn_Validating);
+            this.tb_siire_kbn.Validating += new System.ComponentModel.CancelEventHandler(this.tb_tani_kbn_Validating);
             // 
             // splitContainer4
             // 

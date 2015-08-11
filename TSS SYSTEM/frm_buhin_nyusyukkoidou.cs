@@ -21,7 +21,6 @@ namespace TSS_SYSTEM
         DataTable dt_m = new DataTable();
 
         string w_str = "";
-        
 
 
         //親画面から参照できるプロパティを作成
@@ -101,6 +100,22 @@ namespace TSS_SYSTEM
             //データグリッドビューの部品名は編集不可
             dgv_nyusyukkoidou.Columns[1].ReadOnly = true;
             dgv_nyusyukkoidou.Columns["Column7"].DefaultCellStyle.Format = "#,0";
+            
+            
+            //カラム幅の自動調整（ヘッダーとセルの両方の最長幅に調整する）
+            dgv_nyusyukkoidou.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //セルの高さ変更不可
+            dgv_nyusyukkoidou.AllowUserToResizeRows = false;
+            //カラムヘッダーの高さ変更不可
+            dgv_nyusyukkoidou.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            //１行のみ選択可能（複数行の選択不可）
+            dgv_nyusyukkoidou.MultiSelect = false;
+            //カラム色の変更
+            dgv_nyusyukkoidou.Columns[1].DefaultCellStyle.BackColor = Color.LightGray;
+            //行ヘッダーを非表示にする
+            dgv_nyusyukkoidou.RowHeadersVisible = true;
+
+
         }
 
         private void mode1()
@@ -148,6 +163,13 @@ namespace TSS_SYSTEM
         //取引先コード入力時の処理
         private void tb_torihikisaki_cd_Validating(object sender, CancelEventArgs e)
         {
+
+            if (tb_torihikisaki_cd.Text == "")
+            {
+                tb_torihikisaki_name.Text = "";
+                return;
+            }
+
             bool bl = true; //戻り値
             DataTable dt_work = new DataTable();
             dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd  = '" + tb_torihikisaki_cd.Text + "'");
@@ -156,6 +178,8 @@ namespace TSS_SYSTEM
                 //無し
                 bl = false;
                 MessageBox.Show("入力された取引先コードが存在しません。取引先マスタに登録してください。");
+                tb_torihikisaki_cd.Focus();
+
             }
             else
             {
@@ -196,14 +220,14 @@ namespace TSS_SYSTEM
             if (chk_denpyou_no() == false)
             {
                 MessageBox.Show("伝票番号の値が異常です");
-                //tb_torihikisaki_cd.Focus();
+                tb_denpyou_no.Focus();
                 return;
             }
             //取引先コード
             if (chk_torihikisaki_cd() == false)
             {
-                MessageBox.Show("取引先コードの値が異常です");
-                //tb_torihikisaki_cd.Focus();
+                MessageBox.Show("取引先コードは6桁の数字で入力してください（空白不可）");
+                tb_torihikisaki_cd.Focus();
                 return;
             }
 
@@ -224,6 +248,8 @@ namespace TSS_SYSTEM
                 if (dgv_nyusyukkoidou.Rows[i].Cells[0].Value == null)
                 {
                     MessageBox.Show("部品コードを入力してください");
+                    dgv_nyusyukkoidou.Focus();
+                    dgv_nyusyukkoidou.CurrentCell = dgv_nyusyukkoidou[0, i];
                     return;
                 }
 
@@ -257,7 +283,7 @@ namespace TSS_SYSTEM
                 }
                 if (dgv_nyusyukkoidou.Rows[i].Cells[2].Value.ToString() == "01" && dgv_nyusyukkoidou.Rows[i].Cells[3].Value != null && dgv_nyusyukkoidou.Rows[i].Cells[4].Value != null)
                 {
-                    MessageBox.Show("在庫区分01の時は、受注コード1、2に入力しないでください。");
+                    MessageBox.Show("在庫区分01の時は、受注コード1、2に入力できません。");
                     return;
                 }
                
@@ -317,7 +343,6 @@ namespace TSS_SYSTEM
                     }
                 }
                 
-
                 //部品在庫マスタの更新
                 //既存の区分があるかチェック
                 int j = dgv_nyusyukkoidou.Rows.Count;
@@ -330,7 +355,6 @@ namespace TSS_SYSTEM
 
                     if (dt_work5.Rows.Count == 0)
                     {
-                        
                         bool bl3 = tss.OracleInsert("insert into tss_buhin_zaiko_m (buhin_cd, zaiko_kbn,torihikisaki_cd, juchu_cd1, juchu_cd2, zaiko_su,create_user_cd,create_datetime) values ('"
                                                   + dgv_nyusyukkoidou.Rows[i].Cells[0].Value.ToString() + "','"
                                                   + dgv_nyusyukkoidou.Rows[i].Cells[2].Value.ToString() + "','"
@@ -353,6 +377,62 @@ namespace TSS_SYSTEM
                     }
                 }
                 MessageBox.Show("入庫処理されました。");
+
+                //DialogResult result = MessageBox.Show("この部品の仕入計上も行いますか？",
+                //        "新規製品構成登録",
+                //        MessageBoxButtons.OKCancel,
+                //        MessageBoxIcon.Exclamation,
+                //        MessageBoxDefaultButton.Button2);
+
+                //    if (result == DialogResult.OK)
+                //        {
+                //            //仕入マスタに既存のデータがあるかチェック
+                //            dt_work5 = tss.OracleSelect("select * from tss_siire_m where siire_no = '" + tb_seq.Text + "'");
+                           
+                //            if(dt_work5.Rows.Count == 0)
+                //            {
+
+                //                dt_work5.Rows.Add();
+
+                //                dt_work5.Rows[0][0] = tb_seq.Text;
+                //                dt_work5.Rows[0][1] = tb_torihikisaki_cd.Text;
+                //                dt_work5.Rows[0][2] = dtp_buhin_syori_date.Value.ToShortDateString();
+                //                dt_work5.Rows[0][3] = "1";
+                //                dt_work5.Rows[0][4] = dgv_nyusyukkoidou.Rows[0].Cells[0].Value.ToString();
+                //                dt_work5.Rows[0][5] = dgv_nyusyukkoidou.Rows[0].Cells[1].Value.ToString();
+
+                                
+                                
+                //                //bool bl3 = tss.OracleInsert("insert into tss_siire_m (siire_no, zaiko_kbn,torihikisaki_cd, juchu_cd1, juchu_cd2, zaiko_su,create_user_cd,create_datetime) values ('"
+                //                //                  + dgv_nyusyukkoidou.Rows[i].Cells[0].Value.ToString() + "','"
+                //                //                  + dgv_nyusyukkoidou.Rows[i].Cells[2].Value.ToString() + "','"
+                //                //                  + tb_torihikisaki_cd.Text.ToString() + "','"
+                //                //                  + dgv_nyusyukkoidou.Rows[i].Cells[3].Value.ToString() + "','"
+                //                //                  + dgv_nyusyukkoidou.Rows[i].Cells[4].Value.ToString() + "','"
+                //                //                  + dgv_nyusyukkoidou.Rows[i].Cells[5].Value.ToString() + "','"
+                //                //                  + tss.user_cd + "',SYSDATE)");
+                //            }
+                       
+                         
+                //         }
+                //         else if (result == DialogResult.No)
+                //         {
+
+                //             //「いいえ」が選択された時
+
+                //             return;
+                //         }
+                        
+
+                //         else if (result == DialogResult.Cancel)
+                //         {
+                //             //「キャンセル」が選択された時
+                //             Console.WriteLine("「キャンセル」が選択されました");
+                //             return;
+
+                //         }
+
+
 
                 SEQ();
                 tb_denpyou_no.Clear();
@@ -436,6 +516,10 @@ namespace TSS_SYSTEM
                 
                     MessageBox.Show("出庫処理されました。");
 
+
+
+
+
                     SEQ();
                     tb_denpyou_no.Clear();
                     tb_torihikisaki_cd.Clear();
@@ -481,10 +565,18 @@ namespace TSS_SYSTEM
         {
             DataGridView dgv = (DataGridView)sender;
 
-            //部品コードが入力されたならば、部品名を部品マスターから取得して表示
-            if (dgv.Columns[e.ColumnIndex].Index == 0 && dgv.CurrentCell.Value.ToString() != null)
+            int i = e.RowIndex;
+            
+            if (dgv.Columns[e.ColumnIndex].Index == 0 && dgv.CurrentCell.Value == null)
             {
-                int i = e.RowIndex;
+                dgv.Rows[i].Cells[1].Value = "";
+                return;
+            }
+
+            //部品コードが入力されたならば、部品名を部品マスターから取得して表示
+            if (dgv.Columns[e.ColumnIndex].Index == 0 && dgv.CurrentCell.Value.ToString() != "")
+            {
+                //int i = e.RowIndex;
                 
                 DataTable dtTmp = (DataTable)dgv_nyusyukkoidou.DataSource;
 
@@ -522,7 +614,6 @@ namespace TSS_SYSTEM
 
        private void btn_sakujyo_Click(object sender, EventArgs e)
        {
-
            int i = dgv_nyusyukkoidou.CurrentCell.RowIndex;
            dgv_nyusyukkoidou.Rows.RemoveAt(dgv_nyusyukkoidou.Rows[i].Index);
        }

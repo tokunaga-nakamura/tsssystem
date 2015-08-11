@@ -680,23 +680,6 @@ namespace TSS_SYSTEM
             }
         }
 
-        private void tb_siire_kbn_Validating(object sender, CancelEventArgs e)
-        {
-            //空白の場合はOKとする
-            if (tb_siire_kbn.Text != "")
-            {
-                if (chk_siire_kbn() != true)
-                {
-                    MessageBox.Show("仕入れ区分に異常があります。");
-                    e.Cancel = true;
-                }
-                else
-                {
-                    tb_siire_kbn_name.Text = get_kubun_name("07", tb_siire_kbn.Text);
-                }
-            }
-        }
-
         private void tb_siire_tanka_Validating(object sender, CancelEventArgs e)
         {
             //空白の場合はOKとする

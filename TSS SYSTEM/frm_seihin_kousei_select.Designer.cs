@@ -85,7 +85,6 @@
             this.tb_seihin_cd.BackColor = System.Drawing.SystemColors.Window;
             this.tb_seihin_cd.Location = new System.Drawing.Point(74, 12);
             this.tb_seihin_cd.Name = "tb_seihin_cd";
-            this.tb_seihin_cd.ReadOnly = true;
             this.tb_seihin_cd.Size = new System.Drawing.Size(66, 19);
             this.tb_seihin_cd.TabIndex = 2;
             this.tb_seihin_cd.TabStop = false;
@@ -142,6 +141,7 @@
             this.btn_cancel.TabIndex = 1;
             this.btn_cancel.Text = "キャンセル";
             this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_sentaku
             // 
@@ -151,6 +151,7 @@
             this.btn_sentaku.TabIndex = 0;
             this.btn_sentaku.Text = "選択";
             this.btn_sentaku.UseVisualStyleBackColor = true;
+            this.btn_sentaku.Click += new System.EventHandler(this.btn_sentaku_Click);
             // 
             // frm_seihin_kousei_select
             // 

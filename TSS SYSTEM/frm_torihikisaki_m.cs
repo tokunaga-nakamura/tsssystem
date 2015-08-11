@@ -346,8 +346,26 @@ namespace TSS_SYSTEM
                 dgv_tantousya.Columns[11].HeaderText = "携帯電話番号";
                 dgv_tantousya.Columns[12].HeaderText = "e-mail";
 
-                //dgv_tantousya.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
+                //リードオンリーにする
+                dgv_tantousya.ReadOnly = true;
+                //行ヘッダーを非表示にする
+                dgv_tantousya.RowHeadersVisible = false;
+                //カラム幅の自動調整（ヘッダーとセルの両方の最長幅に調整する）
+                dgv_tantousya.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                //セルの高さ変更不可
+                dgv_tantousya.AllowUserToResizeRows = false;
+                //カラムヘッダーの高さ変更不可
+                dgv_tantousya.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+                //削除不可にする（コードからは削除可）
+                dgv_tantousya.AllowUserToDeleteRows = false;
+                //１行のみ選択可能（複数行の選択不可）
+                dgv_tantousya.MultiSelect = false;
+                //セルを選択すると行全体が選択されるようにする
+                dgv_tantousya.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                //DataGridView1にユーザーが新しい行を追加できないようにする
+                dgv_tantousya.AllowUserToAddRows = false;
+            
+               
         }
 
         //取引先コードから、取引先マスタのデータを呼出してテキストボックスに入れる。

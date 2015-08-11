@@ -53,6 +53,7 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_seihin_kousei)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -139,9 +140,10 @@
             this.dgv_seihin_kousei.Location = new System.Drawing.Point(0, 0);
             this.dgv_seihin_kousei.Name = "dgv_seihin_kousei";
             this.dgv_seihin_kousei.RowTemplate.Height = 21;
-            this.dgv_seihin_kousei.Size = new System.Drawing.Size(880, 278);
+            this.dgv_seihin_kousei.Size = new System.Drawing.Size(880, 275);
             this.dgv_seihin_kousei.TabIndex = 0;
             this.dgv_seihin_kousei.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_seihin_kousei_CellEndEdit);
+            this.dgv_seihin_kousei.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_seihin_kousei_DataError);
             // 
             // btn_syuuryou
             // 
@@ -151,6 +153,7 @@
             this.btn_syuuryou.TabIndex = 0;
             this.btn_syuuryou.Text = "終了";
             this.btn_syuuryou.UseVisualStyleBackColor = true;
+            this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
             // splitContainer3
             // 
@@ -170,7 +173,7 @@
             // 
             this.splitContainer3.Panel2.Controls.Add(this.dgv_seihin_kousei);
             this.splitContainer3.Size = new System.Drawing.Size(884, 431);
-            this.splitContainer3.SplitterDistance = 145;
+            this.splitContainer3.SplitterDistance = 148;
             this.splitContainer3.TabIndex = 8;
             // 
             // splitContainer4
@@ -182,6 +185,7 @@
             // 
             // splitContainer4.Panel1
             // 
+            this.splitContainer4.Panel1.Controls.Add(this.label1);
             this.splitContainer4.Panel1.Controls.Add(this.tb_seihin_kousei_no);
             this.splitContainer4.Panel1.Controls.Add(this.textBox4);
             this.splitContainer4.Panel1.Controls.Add(this.tb_seihin_kousei_name);
@@ -198,7 +202,7 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.dgv_seihin_kousei_name);
-            this.splitContainer4.Size = new System.Drawing.Size(884, 145);
+            this.splitContainer4.Size = new System.Drawing.Size(884, 148);
             this.splitContainer4.SplitterDistance = 484;
             this.splitContainer4.TabIndex = 33;
             // 
@@ -212,7 +216,6 @@
             this.tb_seihin_kousei_no.TabIndex = 42;
             this.tb_seihin_kousei_no.TextChanged += new System.EventHandler(this.tb_seihin_kousei_no_TextChanged);
             this.tb_seihin_kousei_no.DoubleClick += new System.EventHandler(this.tb_seihin_kousei_no_DoubleClick);
-            this.tb_seihin_kousei_no.Validating += new System.ComponentModel.CancelEventHandler(this.tb_seihin_kousei_no_Validating);
             // 
             // tb_seihin_kousei_name
             // 
@@ -243,6 +246,7 @@
             this.tb_seihin_cd.TabIndex = 33;
             this.tb_seihin_cd.DoubleClick += new System.EventHandler(this.tb_seihin_cd_DoubleClick);
             this.tb_seihin_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_seihin_cd_Validating);
+            this.tb_seihin_cd.Validated += new System.EventHandler(this.tb_seihin_cd_Validated);
             // 
             // textBox3
             // 
@@ -312,8 +316,9 @@
             this.dgv_seihin_kousei_name.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_seihin_kousei_name.Location = new System.Drawing.Point(0, 0);
             this.dgv_seihin_kousei_name.Name = "dgv_seihin_kousei_name";
+            this.dgv_seihin_kousei_name.ReadOnly = true;
             this.dgv_seihin_kousei_name.RowTemplate.Height = 21;
-            this.dgv_seihin_kousei_name.Size = new System.Drawing.Size(392, 141);
+            this.dgv_seihin_kousei_name.Size = new System.Drawing.Size(392, 144);
             this.dgv_seihin_kousei_name.TabIndex = 43;
             // 
             // splitContainer2
@@ -371,6 +376,15 @@
             this.splitContainer1.SplitterDistance = 60;
             this.splitContainer1.TabIndex = 5;
             this.splitContainer1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(310, 12);
+            this.label1.TabIndex = 43;
+            this.label1.Text = "※製品構成番号を変えると製品構成マスタの表示も変わります。";
             // 
             // frm_seihin_kousei_m
             // 
@@ -434,5 +448,6 @@
         private System.Windows.Forms.TextBox tb_seihin_kousei_no;
         private System.Windows.Forms.DataGridView dgv_seihin_kousei_name;
         private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.Label label1;
     }
 }
