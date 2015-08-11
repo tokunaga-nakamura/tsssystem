@@ -242,6 +242,7 @@
             this.dgv_calendar.RowTemplate.Height = 21;
             this.dgv_calendar.Size = new System.Drawing.Size(880, 400);
             this.dgv_calendar.TabIndex = 0;
+            this.dgv_calendar.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_calendar_CellMouseDoubleClick);
             this.dgv_calendar.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_calendar_CellValueChanged);
             // 
             // btn_touroku

@@ -248,5 +248,28 @@ namespace TSS_SYSTEM
                 }
             }
         }
+
+        private void dgv_calendar_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                if (e.ColumnIndex == 5)
+                {
+                    switch (dgv_calendar.Rows[e.RowIndex].Cells[5].Value.ToString())
+                    {
+                        case "1":
+                            dgv_calendar.Rows[e.RowIndex].Cells[5].Value = "2";
+                            break;
+                        case "2":
+                            dgv_calendar.Rows[e.RowIndex].Cells[5].Value = "";
+                            break;
+                        default:
+                            dgv_calendar.Rows[e.RowIndex].Cells[5].Value = "1";
+                            break;
+                    }
+                }
+            }
+
+        }
     }
 }
