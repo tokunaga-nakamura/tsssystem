@@ -576,6 +576,32 @@ namespace TSS_SYSTEM
             return out_kubun_cd;
         }
 
+        //区分コード選択画面の呼び出し 初期値あり版
+        public string kubun_cd_select(string in_kubun_cd,string in_initial_cd)
+        {
+            //マウスのX座標を取得する
+            int x = System.Windows.Forms.Cursor.Position.X;
+            //マウスのY座標を取得する
+            int y = System.Windows.Forms.Cursor.Position.Y;
+
+            string out_kubun_cd = "";   //戻り値用
+            frm_kubun_select frm_ks = new frm_kubun_select();
+
+            //フォームをマウスの位置に表示する
+            frm_ks.Left = x;
+            frm_ks.Top = y;
+            frm_ks.StartPosition = FormStartPosition.Manual;
+
+            //子画面のプロパティに値をセットする
+            frm_ks.str_kubun_meisyou_cd = in_kubun_cd;
+            frm_ks.str_initial_cd = in_initial_cd;
+            frm_ks.ShowDialog();
+            //子画面から値を取得する
+            out_kubun_cd = frm_ks.str_kubun_cd;
+            frm_ks.Dispose();
+            return out_kubun_cd;
+        }
+
         //区分コードから区分名を取得
         public string kubun_name_select(string in_kubun_meisyou_cd, string in_kubun_cd)
         {
@@ -592,7 +618,6 @@ namespace TSS_SYSTEM
             }
             return out_kubun_name;
         }
-
 
         //区分コード選択画面（DataTable版）の呼び出し
         public string kubun_cd_select_dt(string in_kubun_name,DataTable in_dt_kubun)

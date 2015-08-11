@@ -88,7 +88,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(484, 370);
+            this.splitContainer1.Size = new System.Drawing.Size(484, 339);
             this.splitContainer1.SplitterDistance = 62;
             this.splitContainer1.TabIndex = 3;
             this.splitContainer1.TabStop = false;
@@ -146,40 +146,40 @@
             this.splitContainer2.Panel2.Controls.Add(this.bt_close);
             this.splitContainer2.Panel2.Controls.Add(this.btn_sakujyo);
             this.splitContainer2.Panel2.Controls.Add(this.btn_touroku);
-            this.splitContainer2.Size = new System.Drawing.Size(484, 304);
-            this.splitContainer2.SplitterDistance = 270;
+            this.splitContainer2.Size = new System.Drawing.Size(484, 273);
+            this.splitContainer2.SplitterDistance = 236;
             this.splitContainer2.TabIndex = 0;
             this.splitContainer2.TabStop = false;
             // 
             // tb_keitai_no
             // 
-            this.tb_keitai_no.Location = new System.Drawing.Point(95, 194);
+            this.tb_keitai_no.Location = new System.Drawing.Point(95, 177);
             this.tb_keitai_no.Name = "tb_keitai_no";
             this.tb_keitai_no.Size = new System.Drawing.Size(112, 19);
-            this.tb_keitai_no.TabIndex = 12;
+            this.tb_keitai_no.TabIndex = 43;
             // 
             // textBox23
             // 
             this.textBox23.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox23.Location = new System.Drawing.Point(12, 194);
+            this.textBox23.Location = new System.Drawing.Point(10, 177);
             this.textBox23.Name = "textBox23";
             this.textBox23.ReadOnly = true;
-            this.textBox23.Size = new System.Drawing.Size(83, 19);
+            this.textBox23.Size = new System.Drawing.Size(85, 19);
             this.textBox23.TabIndex = 44;
             this.textBox23.TabStop = false;
             this.textBox23.Text = "携帯電話番号";
             // 
             // tb_fax_no
             // 
-            this.tb_fax_no.Location = new System.Drawing.Point(296, 169);
+            this.tb_fax_no.Location = new System.Drawing.Point(296, 152);
             this.tb_fax_no.Name = "tb_fax_no";
             this.tb_fax_no.Size = new System.Drawing.Size(112, 19);
-            this.tb_fax_no.TabIndex = 11;
+            this.tb_fax_no.TabIndex = 41;
             // 
             // textBox21
             // 
             this.textBox21.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox21.Location = new System.Drawing.Point(213, 169);
+            this.textBox21.Location = new System.Drawing.Point(213, 152);
             this.textBox21.Name = "textBox21";
             this.textBox21.ReadOnly = true;
             this.textBox21.Size = new System.Drawing.Size(83, 19);
@@ -189,33 +189,33 @@
             // 
             // tb_tel_no
             // 
-            this.tb_tel_no.Location = new System.Drawing.Point(95, 169);
+            this.tb_tel_no.Location = new System.Drawing.Point(95, 152);
             this.tb_tel_no.Name = "tb_tel_no";
             this.tb_tel_no.Size = new System.Drawing.Size(112, 19);
-            this.tb_tel_no.TabIndex = 10;
+            this.tb_tel_no.TabIndex = 39;
             // 
             // textBox19
             // 
             this.textBox19.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox19.Location = new System.Drawing.Point(12, 169);
+            this.textBox19.Location = new System.Drawing.Point(10, 152);
             this.textBox19.Name = "textBox19";
             this.textBox19.ReadOnly = true;
-            this.textBox19.Size = new System.Drawing.Size(83, 19);
+            this.textBox19.Size = new System.Drawing.Size(85, 19);
             this.textBox19.TabIndex = 40;
             this.textBox19.TabStop = false;
             this.textBox19.Text = "電話番号";
             // 
             // tb_jusyo2
             // 
-            this.tb_jusyo2.Location = new System.Drawing.Point(93, 144);
+            this.tb_jusyo2.Location = new System.Drawing.Point(95, 127);
             this.tb_jusyo2.Name = "tb_jusyo2";
             this.tb_jusyo2.Size = new System.Drawing.Size(361, 19);
-            this.tb_jusyo2.TabIndex = 9;
+            this.tb_jusyo2.TabIndex = 38;
             // 
             // textBox17
             // 
             this.textBox17.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox17.Location = new System.Drawing.Point(10, 144);
+            this.textBox17.Location = new System.Drawing.Point(10, 127);
             this.textBox17.Name = "textBox17";
             this.textBox17.ReadOnly = true;
             this.textBox17.Size = new System.Drawing.Size(85, 19);
@@ -225,15 +225,15 @@
             // 
             // tb_jusyo1
             // 
-            this.tb_jusyo1.Location = new System.Drawing.Point(93, 120);
+            this.tb_jusyo1.Location = new System.Drawing.Point(95, 103);
             this.tb_jusyo1.Name = "tb_jusyo1";
             this.tb_jusyo1.Size = new System.Drawing.Size(361, 19);
-            this.tb_jusyo1.TabIndex = 8;
+            this.tb_jusyo1.TabIndex = 36;
             // 
             // textBox15
             // 
             this.textBox15.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox15.Location = new System.Drawing.Point(10, 120);
+            this.textBox15.Location = new System.Drawing.Point(10, 103);
             this.textBox15.Name = "textBox15";
             this.textBox15.ReadOnly = true;
             this.textBox15.Size = new System.Drawing.Size(85, 19);
@@ -243,33 +243,33 @@
             // 
             // tb_yubin_no
             // 
-            this.tb_yubin_no.Location = new System.Drawing.Point(93, 95);
+            this.tb_yubin_no.Location = new System.Drawing.Point(95, 78);
             this.tb_yubin_no.Name = "tb_yubin_no";
             this.tb_yubin_no.Size = new System.Drawing.Size(112, 19);
-            this.tb_yubin_no.TabIndex = 7;
+            this.tb_yubin_no.TabIndex = 33;
             // 
             // textBox13
             // 
             this.textBox13.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox13.Location = new System.Drawing.Point(10, 95);
+            this.textBox13.Location = new System.Drawing.Point(10, 78);
             this.textBox13.Name = "textBox13";
             this.textBox13.ReadOnly = true;
-            this.textBox13.Size = new System.Drawing.Size(83, 19);
+            this.textBox13.Size = new System.Drawing.Size(85, 19);
             this.textBox13.TabIndex = 34;
             this.textBox13.TabStop = false;
             this.textBox13.Text = "郵便番号";
             // 
             // tb_yakusyoku
             // 
-            this.tb_yakusyoku.Location = new System.Drawing.Point(294, 70);
+            this.tb_yakusyoku.Location = new System.Drawing.Point(296, 53);
             this.tb_yakusyoku.Name = "tb_yakusyoku";
             this.tb_yakusyoku.Size = new System.Drawing.Size(112, 19);
-            this.tb_yakusyoku.TabIndex = 6;
+            this.tb_yakusyoku.TabIndex = 31;
             // 
             // textBox11
             // 
             this.textBox11.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox11.Location = new System.Drawing.Point(211, 70);
+            this.textBox11.Location = new System.Drawing.Point(213, 53);
             this.textBox11.Name = "textBox11";
             this.textBox11.ReadOnly = true;
             this.textBox11.Size = new System.Drawing.Size(83, 19);
@@ -279,33 +279,33 @@
             // 
             // tb_syozoku
             // 
-            this.tb_syozoku.Location = new System.Drawing.Point(93, 70);
+            this.tb_syozoku.Location = new System.Drawing.Point(95, 53);
             this.tb_syozoku.Name = "tb_syozoku";
             this.tb_syozoku.Size = new System.Drawing.Size(112, 19);
-            this.tb_syozoku.TabIndex = 5;
+            this.tb_syozoku.TabIndex = 29;
             // 
             // textBox9
             // 
             this.textBox9.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox9.Location = new System.Drawing.Point(10, 70);
+            this.textBox9.Location = new System.Drawing.Point(10, 53);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(83, 19);
+            this.textBox9.Size = new System.Drawing.Size(85, 19);
             this.textBox9.TabIndex = 30;
             this.textBox9.TabStop = false;
             this.textBox9.Text = "所属";
             // 
             // tb_tantousya_name
             // 
-            this.tb_tantousya_name.Location = new System.Drawing.Point(294, 45);
+            this.tb_tantousya_name.Location = new System.Drawing.Point(296, 28);
             this.tb_tantousya_name.Name = "tb_tantousya_name";
             this.tb_tantousya_name.Size = new System.Drawing.Size(112, 19);
-            this.tb_tantousya_name.TabIndex = 4;
+            this.tb_tantousya_name.TabIndex = 27;
             // 
             // textBox7
             // 
             this.textBox7.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox7.Location = new System.Drawing.Point(211, 45);
+            this.textBox7.Location = new System.Drawing.Point(213, 28);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(83, 19);
@@ -315,15 +315,15 @@
             // 
             // tb_mail_address
             // 
-            this.tb_mail_address.Location = new System.Drawing.Point(95, 219);
+            this.tb_mail_address.Location = new System.Drawing.Point(95, 202);
             this.tb_mail_address.Name = "tb_mail_address";
             this.tb_mail_address.Size = new System.Drawing.Size(361, 19);
-            this.tb_mail_address.TabIndex = 13;
+            this.tb_mail_address.TabIndex = 26;
             // 
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox2.Location = new System.Drawing.Point(12, 219);
+            this.textBox2.Location = new System.Drawing.Point(10, 202);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(85, 19);
@@ -334,47 +334,47 @@
             // tb_torihikisaki_name
             // 
             this.tb_torihikisaki_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_torihikisaki_name.Location = new System.Drawing.Point(145, 20);
+            this.tb_torihikisaki_name.Location = new System.Drawing.Point(148, 3);
             this.tb_torihikisaki_name.Name = "tb_torihikisaki_name";
-            this.tb_torihikisaki_name.Size = new System.Drawing.Size(180, 19);
-            this.tb_torihikisaki_name.TabIndex = 2;
+            this.tb_torihikisaki_name.Size = new System.Drawing.Size(260, 19);
+            this.tb_torihikisaki_name.TabIndex = 24;
             this.tb_torihikisaki_name.TabStop = false;
             // 
             // tb_torihikisaki_cd
             // 
             this.tb_torihikisaki_cd.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_torihikisaki_cd.Location = new System.Drawing.Point(94, 20);
+            this.tb_torihikisaki_cd.Location = new System.Drawing.Point(95, 3);
             this.tb_torihikisaki_cd.MaxLength = 6;
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
             this.tb_torihikisaki_cd.Size = new System.Drawing.Size(53, 19);
-            this.tb_torihikisaki_cd.TabIndex = 1;
+            this.tb_torihikisaki_cd.TabIndex = 21;
             // 
             // textBox5
             // 
             this.textBox5.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox5.Location = new System.Drawing.Point(10, 20);
+            this.textBox5.Location = new System.Drawing.Point(10, 3);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(83, 19);
+            this.textBox5.Size = new System.Drawing.Size(85, 19);
             this.textBox5.TabIndex = 23;
             this.textBox5.TabStop = false;
             this.textBox5.Text = "取引先コード";
             // 
             // tb_tantousya_cd
             // 
-            this.tb_tantousya_cd.Location = new System.Drawing.Point(93, 45);
+            this.tb_tantousya_cd.Location = new System.Drawing.Point(95, 28);
             this.tb_tantousya_cd.MaxLength = 6;
             this.tb_tantousya_cd.Name = "tb_tantousya_cd";
             this.tb_tantousya_cd.Size = new System.Drawing.Size(112, 19);
-            this.tb_tantousya_cd.TabIndex = 3;
+            this.tb_tantousya_cd.TabIndex = 18;
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox1.Location = new System.Drawing.Point(10, 45);
+            this.textBox1.Location = new System.Drawing.Point(10, 28);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(83, 19);
+            this.textBox1.Size = new System.Drawing.Size(85, 19);
             this.textBox1.TabIndex = 19;
             this.textBox1.TabStop = false;
             this.textBox1.Text = "担当者コード";
@@ -384,7 +384,7 @@
             this.bt_close.Location = new System.Drawing.Point(395, 3);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(75, 23);
-            this.bt_close.TabIndex = 16;
+            this.bt_close.TabIndex = 2;
             this.bt_close.Text = "終了";
             this.bt_close.UseVisualStyleBackColor = true;
             this.bt_close.Click += new System.EventHandler(this.bt_close_Click);
@@ -394,7 +394,7 @@
             this.btn_sakujyo.Location = new System.Drawing.Point(95, 3);
             this.btn_sakujyo.Name = "btn_sakujyo";
             this.btn_sakujyo.Size = new System.Drawing.Size(75, 23);
-            this.btn_sakujyo.TabIndex = 15;
+            this.btn_sakujyo.TabIndex = 1;
             this.btn_sakujyo.Text = "削除";
             this.btn_sakujyo.UseVisualStyleBackColor = true;
             this.btn_sakujyo.Click += new System.EventHandler(this.btn_sakujyo_Click);
@@ -404,14 +404,14 @@
             this.btn_touroku.Location = new System.Drawing.Point(12, 3);
             this.btn_touroku.Name = "btn_touroku";
             this.btn_touroku.Size = new System.Drawing.Size(75, 23);
-            this.btn_touroku.TabIndex = 14;
+            this.btn_touroku.TabIndex = 0;
             this.btn_touroku.Text = "登録";
             this.btn_touroku.UseVisualStyleBackColor = true;
             this.btn_touroku.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 370);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 339);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(484, 22);
             this.statusStrip1.TabIndex = 2;
@@ -421,11 +421,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 392);
+            this.ClientSize = new System.Drawing.Size(484, 361);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
             this.Name = "frm_torihikisaki_tantou";
-            this.Text = "frm_torihikisaki_tantou";
+            this.Text = "取引先担当者マスタ";
             this.Load += new System.EventHandler(this.frm_torihikisaki_tantou_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

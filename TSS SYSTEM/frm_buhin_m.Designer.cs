@@ -78,7 +78,10 @@
             this.btn_idou = new System.Windows.Forms.Button();
             this.btn_nyuuko = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.splitContainer7 = new System.Windows.Forms.SplitContainer();
             this.dgv_buhin_zaiko_m = new System.Windows.Forms.DataGridView();
+            this.tb_goukei_zaiko_su = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
             this.label2 = new System.Windows.Forms.Label();
             this.dgv_buhin_nyusyukko_m = new System.Windows.Forms.DataGridView();
@@ -104,6 +107,10 @@
             this.splitContainer5.Panel1.SuspendLayout();
             this.splitContainer5.Panel2.SuspendLayout();
             this.splitContainer5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).BeginInit();
+            this.splitContainer7.Panel1.SuspendLayout();
+            this.splitContainer7.Panel2.SuspendLayout();
+            this.splitContainer7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_buhin_zaiko_m)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).BeginInit();
             this.splitContainer6.Panel1.SuspendLayout();
@@ -172,7 +179,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.btn_touroku);
             this.splitContainer2.Panel2.Controls.Add(this.btn_syuuryou);
             this.splitContainer2.Size = new System.Drawing.Size(884, 474);
-            this.splitContainer2.SplitterDistance = 439;
+            this.splitContainer2.SplitterDistance = 438;
             this.splitContainer2.TabIndex = 0;
             this.splitContainer2.TabStop = false;
             // 
@@ -228,15 +235,15 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.splitContainer4);
-            this.splitContainer3.Size = new System.Drawing.Size(880, 435);
-            this.splitContainer3.SplitterDistance = 474;
+            this.splitContainer3.Size = new System.Drawing.Size(880, 434);
+            this.splitContainer3.SplitterDistance = 413;
             this.splitContainer3.TabIndex = 37;
             this.splitContainer3.TabStop = false;
             // 
             // lbl_buhin_cd
             // 
             this.lbl_buhin_cd.AutoSize = true;
-            this.lbl_buhin_cd.Location = new System.Drawing.Point(303, 6);
+            this.lbl_buhin_cd.Location = new System.Drawing.Point(222, 6);
             this.lbl_buhin_cd.Name = "lbl_buhin_cd";
             this.lbl_buhin_cd.Size = new System.Drawing.Size(140, 12);
             this.lbl_buhin_cd.TabIndex = 37;
@@ -256,7 +263,7 @@
             // tb_update_datetime
             // 
             this.tb_update_datetime.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_update_datetime.Location = new System.Drawing.Point(341, 412);
+            this.tb_update_datetime.Location = new System.Drawing.Point(274, 347);
             this.tb_update_datetime.Name = "tb_update_datetime";
             this.tb_update_datetime.ReadOnly = true;
             this.tb_update_datetime.Size = new System.Drawing.Size(130, 19);
@@ -277,7 +284,7 @@
             // tb_update_user_cd
             // 
             this.tb_update_user_cd.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_update_user_cd.Location = new System.Drawing.Point(299, 412);
+            this.tb_update_user_cd.Location = new System.Drawing.Point(232, 347);
             this.tb_update_user_cd.Name = "tb_update_user_cd";
             this.tb_update_user_cd.ReadOnly = true;
             this.tb_update_user_cd.Size = new System.Drawing.Size(42, 19);
@@ -298,7 +305,7 @@
             // textBox35
             // 
             this.textBox35.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox35.Location = new System.Drawing.Point(254, 412);
+            this.textBox35.Location = new System.Drawing.Point(187, 347);
             this.textBox35.Name = "textBox35";
             this.textBox35.ReadOnly = true;
             this.textBox35.Size = new System.Drawing.Size(45, 19);
@@ -318,7 +325,7 @@
             // tb_create_datetime
             // 
             this.tb_create_datetime.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_create_datetime.Location = new System.Drawing.Point(341, 393);
+            this.tb_create_datetime.Location = new System.Drawing.Point(274, 328);
             this.tb_create_datetime.Name = "tb_create_datetime";
             this.tb_create_datetime.ReadOnly = true;
             this.tb_create_datetime.Size = new System.Drawing.Size(130, 19);
@@ -339,7 +346,7 @@
             // tb_create_user_cd
             // 
             this.tb_create_user_cd.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_create_user_cd.Location = new System.Drawing.Point(299, 393);
+            this.tb_create_user_cd.Location = new System.Drawing.Point(232, 328);
             this.tb_create_user_cd.Name = "tb_create_user_cd";
             this.tb_create_user_cd.ReadOnly = true;
             this.tb_create_user_cd.Size = new System.Drawing.Size(42, 19);
@@ -357,7 +364,7 @@
             // textBox32
             // 
             this.textBox32.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox32.Location = new System.Drawing.Point(254, 393);
+            this.textBox32.Location = new System.Drawing.Point(187, 328);
             this.textBox32.Name = "textBox32";
             this.textBox32.ReadOnly = true;
             this.textBox32.Size = new System.Drawing.Size(45, 19);
@@ -381,7 +388,7 @@
             this.tb_bikou.Location = new System.Drawing.Point(103, 303);
             this.tb_bikou.MaxLength = 128;
             this.tb_bikou.Name = "tb_bikou";
-            this.tb_bikou.Size = new System.Drawing.Size(364, 19);
+            this.tb_bikou.Size = new System.Drawing.Size(301, 19);
             this.tb_bikou.TabIndex = 13;
             // 
             // tb_torihikisaki_cd
@@ -412,7 +419,7 @@
             this.tb_torihikisaki_name.Location = new System.Drawing.Point(160, 78);
             this.tb_torihikisaki_name.Name = "tb_torihikisaki_name";
             this.tb_torihikisaki_name.ReadOnly = true;
-            this.tb_torihikisaki_name.Size = new System.Drawing.Size(301, 19);
+            this.tb_torihikisaki_name.Size = new System.Drawing.Size(244, 19);
             this.tb_torihikisaki_name.TabIndex = 19;
             this.tb_torihikisaki_name.TabStop = false;
             // 
@@ -533,7 +540,7 @@
             this.tb_siiresaki_name.Location = new System.Drawing.Point(160, 153);
             this.tb_siiresaki_name.Name = "tb_siiresaki_name";
             this.tb_siiresaki_name.ReadOnly = true;
-            this.tb_siiresaki_name.Size = new System.Drawing.Size(301, 19);
+            this.tb_siiresaki_name.Size = new System.Drawing.Size(244, 19);
             this.tb_siiresaki_name.TabIndex = 11;
             this.tb_siiresaki_name.TabStop = false;
             // 
@@ -639,8 +646,8 @@
             // 
             this.splitContainer4.Panel2.Controls.Add(this.splitContainer6);
             this.splitContainer4.Panel2MinSize = 200;
-            this.splitContainer4.Size = new System.Drawing.Size(402, 435);
-            this.splitContainer4.SplitterDistance = 216;
+            this.splitContainer4.Size = new System.Drawing.Size(463, 434);
+            this.splitContainer4.SplitterDistance = 215;
             this.splitContainer4.TabIndex = 0;
             this.splitContainer4.TabStop = false;
             // 
@@ -662,15 +669,15 @@
             // 
             // splitContainer5.Panel2
             // 
-            this.splitContainer5.Panel2.Controls.Add(this.dgv_buhin_zaiko_m);
-            this.splitContainer5.Size = new System.Drawing.Size(398, 212);
+            this.splitContainer5.Panel2.Controls.Add(this.splitContainer7);
+            this.splitContainer5.Size = new System.Drawing.Size(459, 211);
             this.splitContainer5.SplitterDistance = 29;
             this.splitContainer5.TabIndex = 0;
             this.splitContainer5.TabStop = false;
             // 
             // btn_syukko
             // 
-            this.btn_syukko.Location = new System.Drawing.Point(234, 3);
+            this.btn_syukko.Location = new System.Drawing.Point(295, 3);
             this.btn_syukko.Name = "btn_syukko";
             this.btn_syukko.Size = new System.Drawing.Size(75, 23);
             this.btn_syukko.TabIndex = 1;
@@ -679,7 +686,7 @@
             // 
             // btn_idou
             // 
-            this.btn_idou.Location = new System.Drawing.Point(315, 3);
+            this.btn_idou.Location = new System.Drawing.Point(376, 3);
             this.btn_idou.Name = "btn_idou";
             this.btn_idou.Size = new System.Drawing.Size(75, 23);
             this.btn_idou.TabIndex = 2;
@@ -688,7 +695,7 @@
             // 
             // btn_nyuuko
             // 
-            this.btn_nyuuko.Location = new System.Drawing.Point(153, 3);
+            this.btn_nyuuko.Location = new System.Drawing.Point(214, 3);
             this.btn_nyuuko.Name = "btn_nyuuko";
             this.btn_nyuuko.Size = new System.Drawing.Size(75, 23);
             this.btn_nyuuko.TabIndex = 0;
@@ -698,11 +705,32 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 8);
+            this.label1.Location = new System.Drawing.Point(3, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "在庫状況";
+            // 
+            // splitContainer7
+            // 
+            this.splitContainer7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer7.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer7.IsSplitterFixed = true;
+            this.splitContainer7.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer7.Name = "splitContainer7";
+            this.splitContainer7.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer7.Panel1
+            // 
+            this.splitContainer7.Panel1.Controls.Add(this.dgv_buhin_zaiko_m);
+            // 
+            // splitContainer7.Panel2
+            // 
+            this.splitContainer7.Panel2.Controls.Add(this.tb_goukei_zaiko_su);
+            this.splitContainer7.Panel2.Controls.Add(this.textBox2);
+            this.splitContainer7.Size = new System.Drawing.Size(459, 178);
+            this.splitContainer7.SplitterDistance = 145;
+            this.splitContainer7.TabIndex = 1;
             // 
             // dgv_buhin_zaiko_m
             // 
@@ -711,9 +739,31 @@
             this.dgv_buhin_zaiko_m.Location = new System.Drawing.Point(0, 0);
             this.dgv_buhin_zaiko_m.Name = "dgv_buhin_zaiko_m";
             this.dgv_buhin_zaiko_m.RowTemplate.Height = 21;
-            this.dgv_buhin_zaiko_m.Size = new System.Drawing.Size(398, 179);
+            this.dgv_buhin_zaiko_m.Size = new System.Drawing.Size(459, 145);
             this.dgv_buhin_zaiko_m.TabIndex = 0;
             this.dgv_buhin_zaiko_m.TabStop = false;
+            // 
+            // tb_goukei_zaiko_su
+            // 
+            this.tb_goukei_zaiko_su.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_goukei_zaiko_su.Location = new System.Drawing.Point(81, 3);
+            this.tb_goukei_zaiko_su.Name = "tb_goukei_zaiko_su";
+            this.tb_goukei_zaiko_su.ReadOnly = true;
+            this.tb_goukei_zaiko_su.Size = new System.Drawing.Size(100, 19);
+            this.tb_goukei_zaiko_su.TabIndex = 1;
+            this.tb_goukei_zaiko_su.TabStop = false;
+            this.tb_goukei_zaiko_su.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox2.Location = new System.Drawing.Point(5, 3);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(76, 19);
+            this.textBox2.TabIndex = 0;
+            this.textBox2.TabStop = false;
+            this.textBox2.Text = "合計在庫数";
             // 
             // splitContainer6
             // 
@@ -731,7 +781,7 @@
             // splitContainer6.Panel2
             // 
             this.splitContainer6.Panel2.Controls.Add(this.dgv_buhin_nyusyukko_m);
-            this.splitContainer6.Size = new System.Drawing.Size(398, 211);
+            this.splitContainer6.Size = new System.Drawing.Size(459, 211);
             this.splitContainer6.SplitterDistance = 30;
             this.splitContainer6.TabIndex = 0;
             this.splitContainer6.TabStop = false;
@@ -752,7 +802,7 @@
             this.dgv_buhin_nyusyukko_m.Location = new System.Drawing.Point(0, 0);
             this.dgv_buhin_nyusyukko_m.Name = "dgv_buhin_nyusyukko_m";
             this.dgv_buhin_nyusyukko_m.RowTemplate.Height = 21;
-            this.dgv_buhin_nyusyukko_m.Size = new System.Drawing.Size(398, 177);
+            this.dgv_buhin_nyusyukko_m.Size = new System.Drawing.Size(459, 177);
             this.dgv_buhin_nyusyukko_m.TabIndex = 0;
             this.dgv_buhin_nyusyukko_m.TabStop = false;
             // 
@@ -808,6 +858,11 @@
             this.splitContainer5.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
             this.splitContainer5.ResumeLayout(false);
+            this.splitContainer7.Panel1.ResumeLayout(false);
+            this.splitContainer7.Panel2.ResumeLayout(false);
+            this.splitContainer7.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).EndInit();
+            this.splitContainer7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_buhin_zaiko_m)).EndInit();
             this.splitContainer6.Panel1.ResumeLayout(false);
             this.splitContainer6.Panel1.PerformLayout();
@@ -877,5 +932,8 @@
         private System.Windows.Forms.Button btn_idou;
         private System.Windows.Forms.Button btn_nyuuko;
         private System.Windows.Forms.Label lbl_buhin_cd;
+        private System.Windows.Forms.SplitContainer splitContainer7;
+        private System.Windows.Forms.TextBox tb_goukei_zaiko_su;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

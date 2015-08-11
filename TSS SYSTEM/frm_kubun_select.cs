@@ -15,6 +15,7 @@ namespace TSS_SYSTEM
     /// <para>プロパティ str_kubun_meisyou_cd 抽出用の区分名称コード</para>
     /// <para>プロパティ str_kubun_cd 戻り値用の区分コード（エラー・キャンセル時は""）</para>
     /// <para>プロパティ bl_kubun_sentaku 通常選択時:true、エラー・キャンセル時:false</para>
+    /// <para>プロパティ str_initial_cd 初期値として選択するコード</para>
     /// </summary>
 
     public partial class frm_kubun_select : Form
@@ -27,6 +28,7 @@ namespace TSS_SYSTEM
         public string fld_kubun_meisyou_cd;    //選択する区分名称コード
         public string fld_kubun_cd;            //選択された区分コード
         public bool fld_kubun_sentaku;         //区分選択フラグ 選択:true エラーまたはキャンセル:false
+        public string fld_initial_cd;                       //初期値として受け取ったコード
 
         public string str_kubun_meisyou_cd
         {
@@ -61,7 +63,17 @@ namespace TSS_SYSTEM
                 fld_kubun_sentaku = value;
             }
         }
-
+        public string str_initial_cd
+        {
+            get
+            {
+                return fld_initial_cd;
+            }
+            set
+            {
+                fld_initial_cd = value;
+            }
+        }
         public frm_kubun_select()
         {
             InitializeComponent();
@@ -118,6 +130,19 @@ namespace TSS_SYSTEM
                 MessageBox.Show("該当する区分マスタがありません。");
                 form_close_false();
             }
+            //initial_cdに何かが入っていたら、初期選択行をinitial_cdと同一の行にする
+            if (str_initial_cd != null && str_initial_cd != "")
+            {
+                for (int i = 0; i < dgv_kubun_m.Rows.Count; i++)
+                {
+                    if (dgv_kubun_m.Rows[i].Cells[0].Value.ToString() == str_initial_cd)
+                    {
+                        dgv_kubun_m.Rows[i].Selected = true;
+                        break;
+                    }
+                }
+            }
+
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)

@@ -375,6 +375,145 @@ namespace TSS_SYSTEM
             }
         }
 
+        private void tb_siire_kbn_DoubleClick(object sender, EventArgs e)
+        {
+            this.tb_siire_kbn.Text = tss.kubun_cd_select("07");
+            this.tb_siire_kbn_name.Text = tss.kubun_name_select("07", tb_siire_kbn.Text);
+        }
+
+        private void tb_siiresaki_cd_DoubleClick(object sender, EventArgs e)
+        {
+            //選択画面へ
+            string w_cd;
+            w_cd = tss.search_torihikisaki("2", "");
+            if (w_cd != "")
+            {
+                tb_siiresaki_cd.Text = w_cd;
+                tb_siiresaki_name.Text = get_torihikisaki_name(tb_siiresaki_cd.Text);
+                tb_siire_kbn.Focus();
+            }
+
+        }
+        private string get_torihikisaki_name(string in_torihikisaki_cd)
+        {
+            string out_torihikisaki_name = "";  //戻り値用
+            DataTable dt_work = new DataTable();
+            dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd = '" + in_torihikisaki_cd.ToString() + "'");
+            if (dt_work.Rows.Count <= 0)
+            {
+                out_torihikisaki_name = "";
+            }
+            else
+            {
+                out_torihikisaki_name = dt_work.Rows[0]["torihikisaki_name"].ToString();
+            }
+            return out_torihikisaki_name;
+        }
+
+        private void tb_torihikisaki_cd_DoubleClick(object sender, EventArgs e)
+        {
+            //選択画面へ
+            string w_cd;
+            w_cd = tss.search_torihikisaki("2", "");
+            if (w_cd != "")
+            {
+                tb_torihikisaki_cd.Text = w_cd;
+                tb_torihikisaki_name.Text = get_torihikisaki_name(tb_torihikisaki_cd.Text);
+                btn_kensaku.Focus();
+            }
+
+        }
+
+        private void tb_siiresaki_cd_Validating(object sender, CancelEventArgs e)
+        {
+            //空白の場合はOKとする
+            if (tb_siiresaki_cd.Text != "")
+            {
+                if (chk_siiresaki_cd() != true)
+                {
+                    MessageBox.Show("仕入先コードに異常があります。");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    tb_siiresaki_name.Text = get_siiresaki_name(tb_siiresaki_cd.Text);
+                }
+            }
+        }
+
+        private bool chk_siiresaki_cd()
+        {
+            //仕入先コードの空白での登録を可能とする（登録時に仕入先を未登録または仕入先があいまいな場合を想定）
+            bool bl = true; //戻り値
+            if (tb_siiresaki_cd.Text.Length != 0)
+            {
+                DataTable dt_work = new DataTable();
+                dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd  = '" + tb_siiresaki_cd.Text.ToString() + "'");
+                if (dt_work.Rows.Count <= 0)
+                {
+                    //無し
+                    bl = false;
+                }
+                else
+                {
+                    //既存データ有
+                }
+            }
+            return bl;
+        }
+
+        private string get_siiresaki_name(string in_siiresaki_cd)
+        {
+            string out_siiresaki_name = "";  //戻り値用
+            DataTable dt_work = new DataTable();
+            dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd = '" + in_siiresaki_cd.ToString() + "'");
+            if (dt_work.Rows.Count <= 0)
+            {
+                out_siiresaki_name = "";
+            }
+            else
+            {
+                out_siiresaki_name = dt_work.Rows[0]["torihikisaki_name"].ToString();
+            }
+            return out_siiresaki_name;
+        }
+
+        private void tb_siire_kbn_Validating(object sender, CancelEventArgs e)
+        {
+            //空白の場合はOKとする
+            if (tb_siire_kbn.Text != "")
+            {
+                if (chk_siire_kbn() != true)
+                {
+                    MessageBox.Show("仕入れ区分に異常があります。");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    tb_siire_kbn_name.Text = get_kubun_name("07", tb_siire_kbn.Text);
+                }
+            }
+
+        }
+
+        private string get_kubun_name(string in_kubun_meisyou_cd, string in_kubun_cd)
+        {
+            string out_kubun_name = "";  //戻り値用
+            DataTable dt_work = new DataTable();
+            dt_work = tss.OracleSelect("select * from tss_kubun_m where kubun_meisyou_cd = '" + in_kubun_meisyou_cd.ToString() + "' and kubun_cd = '" + in_kubun_cd.ToString() + "'");
+            if (dt_work.Rows.Count <= 0)
+            {
+                out_kubun_name = "";
+            }
+            else
+            {
+                out_kubun_name = dt_work.Rows[0]["kubun_name"].ToString();
+            }
+            return out_kubun_name;
+        }
+
+
+
 
 
 

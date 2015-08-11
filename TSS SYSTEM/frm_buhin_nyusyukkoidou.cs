@@ -21,7 +21,7 @@ namespace TSS_SYSTEM
         DataTable dt_m = new DataTable();
 
         string w_str = "";
-
+        
 
         //親画面から参照できるプロパティを作成
         public string fld_mode; 　 //画面モード
@@ -122,32 +122,13 @@ namespace TSS_SYSTEM
         {
             label3.Text = "入庫処理";
             w_str = "01";
-
         }
 
         private void mode2()
         {
             label3.Text = "出庫処理";
             w_str = "02";
-           
         }
-
-        //private void mode3()
-        //{
-        //    label3.Text = "移動処理";
-        //    textBox10.Visible = true;
-        //    textBox13.Visible = true;
-        //    textBox15.Visible = true;
-        //    textBox17.Visible = true;
-        //    tb_idousaki_zaiko_kbn.Visible = true;
-        //    tb_idousaki_torihikisaki_cd.Visible = true;
-        //    tb_idousaki_juchu_cd1.Visible = true;
-        //    tb_idousaki_juchu_cd2.Visible = true;
-        //    tb_idousaki_zaiko_kbn_name.Visible = true;
-        //    tb_idousaki_torihikisaki_name.Visible = true;
-        //    w_str = "03";
-
-        //}
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -176,7 +157,6 @@ namespace TSS_SYSTEM
             if (dt_work.Rows.Count <= 0)
             {
                 //無し
-                bl = false;
                 MessageBox.Show("入力された取引先コードが存在しません。取引先マスタに登録してください。");
                 tb_torihikisaki_cd.Focus();
 
@@ -186,10 +166,8 @@ namespace TSS_SYSTEM
                 //既存データ有
                 tb_torihikisaki_name.Text = get_torihikisaki_name(tb_torihikisaki_cd.Text);
             }
-            
             //データグリッドビューにフォーカス移動
             dgv_nyusyukkoidou.Focus();
-
         }
 
         //取引先コードから取引先名を持ってくるメソッド
@@ -286,7 +264,6 @@ namespace TSS_SYSTEM
                     MessageBox.Show("在庫区分01の時は、受注コード1、2に入力できません。");
                     return;
                 }
-               
             }
             
             
@@ -334,7 +311,6 @@ namespace TSS_SYSTEM
                                         + "" + "','"
                                         + "" + "','"
                                         + tss.user_cd + "',SYSDATE)");
-
                     if (bl6 != true)
                     {
                         tss.ErrorLogWrite(tss.user_cd, "入出庫移動／登録", "登録ボタン押下時のOracleInsert");
@@ -351,7 +327,6 @@ namespace TSS_SYSTEM
                 for (int i = 0; i < j - 1; i++)
                 {
                     dt_work5 = tss.OracleSelect("select * from tss_buhin_zaiko_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'and buhin_cd = '" + dgv_nyusyukkoidou.Rows[i].Cells[0].Value.ToString() + "'and zaiko_kbn = '" + dgv_nyusyukkoidou.Rows[i].Cells[2].Value.ToString() + "' and juchu_cd1 = '" + dgv_nyusyukkoidou.Rows[i].Cells[3].Value.ToString() + "'and juchu_cd2 = '" + dgv_nyusyukkoidou.Rows[i].Cells[4].Value.ToString() + "'");
-
 
                     if (dt_work5.Rows.Count == 0)
                     {
@@ -439,8 +414,6 @@ namespace TSS_SYSTEM
                 tb_torihikisaki_cd.Clear();
                 tb_torihikisaki_name.Clear();
                 dgv_nyusyukkoidou.Rows.Clear();
-
-               
             }
               
                 //出庫処理///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -466,7 +439,6 @@ namespace TSS_SYSTEM
                                         + "" + "','"
                                         + "" + "','"
                                         + tss.user_cd + "',SYSDATE)");
-
                         if (bl6 != true)
                         {
                             tss.ErrorLogWrite(tss.user_cd, "入出庫移動／登録", "登録ボタン押下時のOracleInsert");
@@ -484,7 +456,6 @@ namespace TSS_SYSTEM
                     for (int i = 0; i < j - 1; i++)
                     {
                         dt_work5 = tss.OracleSelect("select * from tss_buhin_zaiko_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'and buhin_cd = '" + dgv_nyusyukkoidou.Rows[i].Cells[0].Value.ToString() + "'and zaiko_kbn = '" + dgv_nyusyukkoidou.Rows[i].Cells[2].Value.ToString() + "' and juchu_cd1 = '" + dgv_nyusyukkoidou.Rows[i].Cells[3].Value.ToString() + "'and juchu_cd2 = '" + dgv_nyusyukkoidou.Rows[i].Cells[4].Value.ToString() + "'");
-
 
                         if (dt_work5.Rows.Count == 0)
                         {
@@ -525,10 +496,7 @@ namespace TSS_SYSTEM
                     tb_torihikisaki_cd.Clear();
                     tb_torihikisaki_name.Clear();
                     dgv_nyusyukkoidou.Rows.Clear();
-
-                    
                 }
-
                 if (str_mode == "3")
                 {
                     MessageBox.Show("3です");
@@ -594,7 +562,6 @@ namespace TSS_SYSTEM
                 {
                     dgv.Rows[i].Cells[1].Value = dt_work.Rows[j][1].ToString();
                 }              
-
                 return;
             }
         }

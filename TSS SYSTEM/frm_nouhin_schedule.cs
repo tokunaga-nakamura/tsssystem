@@ -14,7 +14,7 @@ namespace TSS_SYSTEM
     {
         TssSystemLibrary tss = new TssSystemLibrary();
         DataTable w_dt_schedule = new DataTable();
-        DataTable w_dt_rireki = new DataTable();
+        //DataTable w_dt_rireki = new DataTable();
 
         public frm_nouhin_schedule()
         {
@@ -587,7 +587,7 @@ namespace TSS_SYSTEM
             dgv_nouhin_schedule.AllowUserToAddRows = false;
 
             //表示・印刷用にデータをソートしたdtを作成する
-            // dtのスキーマや制約をコピーしたDataTableを作成します。
+            //dtのスキーマや制約をコピーしたDataTableを作成します。
             DataTable w_dt_view = in_dt.Clone();
             DataRow[] w_rows = in_dt.Select(null, "torihikisaki_cd,syuukei_syubetu_kbn,syuukei_bunrui_kbn,syuukei_sijou_kbn,syuukei_type_kbn");
             foreach (DataRow row in w_rows)
@@ -632,6 +632,9 @@ namespace TSS_SYSTEM
 
         private void rireki_disp(DataTable in_dt)
         {
+
+            DataTable w_dt_history = new DataTable();
+
             //リードオンリーにする
             dgv_nouhin_rireki.ReadOnly = true;
             //行ヘッダーを非表示にする
@@ -651,20 +654,16 @@ namespace TSS_SYSTEM
             //DataGridView1にユーザーが新しい行を追加できないようにする
             dgv_nouhin_rireki.AllowUserToAddRows = false;
 
-            //履歴用のw_dt_rirekiを作成する
-            //w_dt_scheduleの空枠の作成
-            w_dt_rireki.Rows.Clear();
-            w_dt_rireki.Columns.Clear();
-            w_dt_rireki.Clear();
+            //履歴用のw_dt_historyを作成する
             //列の定義
-            w_dt_rireki.Columns.Add("torihikisaki_cd");
-            w_dt_rireki.Columns.Add("juchu_cd1");
-            w_dt_rireki.Columns.Add("juchu_cd2");
-            w_dt_rireki.Columns.Add("kousin_no",Type.GetType("System.Double"));
-            w_dt_rireki.Columns.Add("kousin_naiyou");
+            w_dt_history.Columns.Add("torihikisaki_cd");
+            w_dt_history.Columns.Add("juchu_cd1");
+            w_dt_history.Columns.Add("juchu_cd2");
+            w_dt_history.Columns.Add("kousin_no", Type.GetType("System.Double"));
+            w_dt_history.Columns.Add("kousin_naiyou");
 
             DataTable w_dt = new DataTable();
-            DataRow w_dr_rireki;
+            DataRow w_drow_rireki;
 
             foreach(DataRow dr in in_dt.Rows)
             {
@@ -673,18 +672,18 @@ namespace TSS_SYSTEM
                 {
                     foreach(DataRow dr2 in w_dt.Rows)
                     {
-                        w_dr_rireki = w_dt_rireki.NewRow();
-                        w_dr_rireki["torihikisaki_cd"] = dr2["torihikisaki_cd"].ToString();
-                        w_dr_rireki["juchu_cd1"] = dr2["juchu_cd1"].ToString();
-                        w_dr_rireki["juchu_cd2"] = dr2["juchu_cd2"].ToString();
-                        w_dr_rireki["kousin_no"] = dr2["kousin_no"].ToString();
-                        w_dr_rireki["kousin_naiyou"] = dr2["kousin_naiyou"].ToString();
-                        w_dt_rireki.Rows.Add(w_dr_rireki);
+                        w_drow_rireki = w_dt_history.NewRow();
+                        w_drow_rireki["torihikisaki_cd"] = dr2["torihikisaki_cd"].ToString();
+                        w_drow_rireki["juchu_cd1"] = dr2["juchu_cd1"].ToString();
+                        w_drow_rireki["juchu_cd2"] = dr2["juchu_cd2"].ToString();
+                        w_drow_rireki["kousin_no"] = dr2["kousin_no"].ToString();
+                        w_drow_rireki["kousin_naiyou"] = dr2["kousin_naiyou"].ToString();
+                        w_dt_history.Rows.Add(w_drow_rireki);
                     }
                 }
             }
             dgv_nouhin_rireki.DataSource = null;
-            dgv_nouhin_rireki.DataSource = w_dt_rireki;
+            dgv_nouhin_rireki.DataSource = w_dt_history;
             //DataGridViewのカラムヘッダーテキストを変更する
             dgv_nouhin_rireki.Columns[0].HeaderText = "取引先コード";
             dgv_nouhin_rireki.Columns[1].HeaderText = "受注コード1";
@@ -697,7 +696,7 @@ namespace TSS_SYSTEM
             DataTable w_dt_sort = (DataTable)dgv_nouhin_rireki.DataSource;
             //DataViewを取得
             DataView dv = w_dt_sort.DefaultView;
-            //Column1とColumn2で昇順に並び替える
+            //並び替える
             dv.Sort = "kousin_no DESC";
         }
 

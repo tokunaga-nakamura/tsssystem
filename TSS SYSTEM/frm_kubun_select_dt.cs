@@ -16,6 +16,7 @@ namespace TSS_SYSTEM
     /// <para>プロパティ ppt_dt_kubun 選択する区分の入ったデータテーブル（カラム1:区分コード、カラム2:区分名）</para>
     /// <para>プロパティ ppt_str_kubun_cd 戻り値用の区分コード（エラー・キャンセル時は""）</para>
     /// <para>プロパティ ppt_bl_kubun_sentaku 通常選択時:true、エラー・キャンセル時:false</para>
+    /// <para>プロパティ ppt_str_initial_cd 初期値として選択するコード</para>
     /// </summary>
 
     public partial class frm_kubun_select_dt : Form

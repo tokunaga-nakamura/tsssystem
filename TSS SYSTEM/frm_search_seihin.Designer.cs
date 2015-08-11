@@ -121,6 +121,7 @@
             // tb_torihikisaki_cd
             // 
             this.tb_torihikisaki_cd.Location = new System.Drawing.Point(116, 68);
+            this.tb_torihikisaki_cd.MaxLength = 6;
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
             this.tb_torihikisaki_cd.Size = new System.Drawing.Size(100, 19);
             this.tb_torihikisaki_cd.TabIndex = 6;
@@ -139,8 +140,9 @@
             // tb_seihin_name
             // 
             this.tb_seihin_name.Location = new System.Drawing.Point(116, 43);
+            this.tb_seihin_name.MaxLength = 40;
             this.tb_seihin_name.Name = "tb_seihin_name";
-            this.tb_seihin_name.Size = new System.Drawing.Size(206, 19);
+            this.tb_seihin_name.Size = new System.Drawing.Size(232, 19);
             this.tb_seihin_name.TabIndex = 4;
             // 
             // textBox4
@@ -156,16 +158,18 @@
             // 
             // tb_seihin_cd2
             // 
-            this.tb_seihin_cd2.Location = new System.Drawing.Point(222, 18);
+            this.tb_seihin_cd2.Location = new System.Drawing.Point(235, 18);
+            this.tb_seihin_cd2.MaxLength = 16;
             this.tb_seihin_cd2.Name = "tb_seihin_cd2";
-            this.tb_seihin_cd2.Size = new System.Drawing.Size(100, 19);
+            this.tb_seihin_cd2.Size = new System.Drawing.Size(113, 19);
             this.tb_seihin_cd2.TabIndex = 2;
             // 
             // tb_seihin_cd1
             // 
             this.tb_seihin_cd1.Location = new System.Drawing.Point(116, 18);
+            this.tb_seihin_cd1.MaxLength = 16;
             this.tb_seihin_cd1.Name = "tb_seihin_cd1";
-            this.tb_seihin_cd1.Size = new System.Drawing.Size(100, 19);
+            this.tb_seihin_cd1.Size = new System.Drawing.Size(113, 19);
             this.tb_seihin_cd1.TabIndex = 1;
             // 
             // textBox1
@@ -260,10 +264,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OliveDrab;
             this.ClientSize = new System.Drawing.Size(884, 561);
+            this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "frm_search_seihin";
-            this.Text = "frm_search_seihin";
+            this.Text = "製品マスタ検索";
             this.Load += new System.EventHandler(this.frm_search_seihin_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

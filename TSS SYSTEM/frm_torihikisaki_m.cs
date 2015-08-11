@@ -241,7 +241,6 @@ namespace TSS_SYSTEM
                     {
                         MessageBox.Show("取引先マスタを更新しました。");
                     }
-                    
                 }
                 
                 //登録済みのデータがない場合
@@ -261,7 +260,6 @@ namespace TSS_SYSTEM
                         MessageBox.Show("取引先マスタへ登録しました。");
                     }
                 }
-               
             }
         }
 
@@ -279,19 +277,14 @@ namespace TSS_SYSTEM
         //取引先コードのテキストボックスからカーソルが移動した場合の処理
         public void tb_torihikisaki_cd_Leave(object sender, EventArgs e)
         {
-            
             //以下のメソッド実施
             torihikisaki_disp(tb_torihikisaki_cd.Text);
             tantousya_disp(tb_torihikisaki_cd.Text);
-
         }
-
-
 
         private void btn_hensyu_Click(object sender, EventArgs e)
         {
             frm_torihikisaki_tantou frm_tt = new frm_torihikisaki_tantou();
-
 
             if (dgv_tantousya.RowCount > 1)
             {
@@ -303,19 +296,13 @@ namespace TSS_SYSTEM
                 frm_tt.ShowDialog(this);
                 frm_tt.Dispose();
             }
-            
             else
             {
                 frm_tt.str_torihikisaki_cd = tb_torihikisaki_cd.Text.ToString();
                 frm_tt.ShowDialog(this);
                 frm_tt.Dispose();
             }
-
-
-
             tantousya_disp(tb_torihikisaki_cd.Text);
-
-
         }
         
         //担当者コードから、担当者マスタを呼び出して、データグリッドビューに表示する
@@ -324,7 +311,27 @@ namespace TSS_SYSTEM
             DataTable dt = new DataTable();
             dt = tss.OracleSelect("select * from TSS_TORIHIKISAKI_TANTOU_M where torihikisaki_cd = '" + in_torihikisaki_cd + "'ORDER BY TANTOUSYA_CD");
 
+            dgv_tantousya.DataSource = null;
             dgv_tantousya.DataSource = dt;
+               
+            //リードオンリーにする（編集できなくなる）
+            dgv_tantousya.ReadOnly = true;
+            //行ヘッダーを非表示にする
+            dgv_tantousya.RowHeadersVisible = false;
+            //カラム幅の自動調整（ヘッダーとセルの両方の最長幅に調整する）
+            dgv_tantousya.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //セルの高さ変更不可
+            dgv_tantousya.AllowUserToResizeRows = false;
+            //カラムヘッダーの高さ変更不可
+            dgv_tantousya.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            //削除不可にする（コードからは削除可）
+            dgv_tantousya.AllowUserToDeleteRows = false;
+            //１行のみ選択可能（複数行の選択不可）
+            dgv_tantousya.MultiSelect = false;
+            //セルを選択すると行全体が選択されるようにする
+            dgv_tantousya.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //DataGridView1にユーザーが新しい行を追加できないようにする
+            dgv_tantousya.AllowUserToAddRows = false;
                
                 this.dgv_tantousya.Columns["TORIHIKISAKI_NAME"].Visible = false;
                 this.dgv_tantousya.Columns["YUBIN_NO"].Visible = false;
@@ -335,7 +342,6 @@ namespace TSS_SYSTEM
                 this.dgv_tantousya.Columns["CREATE_DATETIME"].Visible = false;
                 this.dgv_tantousya.Columns["UPDATE_USER_CD"].Visible = false;
                 this.dgv_tantousya.Columns["UPDATE_DATETIME"].Visible = false;
-
 
                 dgv_tantousya.Columns[0].HeaderText = "取引先コード";
                 dgv_tantousya.Columns[1].HeaderText = "担当者コード";
@@ -399,12 +405,16 @@ namespace TSS_SYSTEM
                 tb_hasu_kbn.Text = dt_work.Rows[0][22].ToString();
                 tb_hasu_syori_tani.Text = dt_work.Rows[0][23].ToString();
                 tb_jisyaden_kbn.Text = dt_work.Rows[0][24].ToString();
+
+                tb_create_user_cd.Text = dt_work.Rows[0][25].ToString();
+                tb_create_datetime.Text = dt_work.Rows[0][26].ToString();
+                tb_update_user_cd.Text = dt_work.Rows[0][27].ToString();
+                tb_update_datetime.Text = dt_work.Rows[0][28].ToString();
             }
 
             //マスターに既存レコードがなければnullをテキストボックスに入れる。
             else
             {
-
                 tb_torihikisaki_name.Text = null;
                 tb_torihikisaki_seisiki_name.Text = null;
                 tb_torihikisaki_ryakusiki_moji.Text = null;
@@ -430,9 +440,11 @@ namespace TSS_SYSTEM
                 tb_hasu_syori_tani.Text = null;
                 tb_jisyaden_kbn.Text = null;
 
+                tb_create_user_cd.Text = null;
+                tb_create_datetime.Text = null;
+                tb_update_user_cd.Text = null;
+                tb_update_datetime.Text = null;
             }
-
-
         }
 
         //フォームロード時には以下のメソッドを自動で実行する。 
@@ -738,7 +750,7 @@ namespace TSS_SYSTEM
             dr_work["区分名"] = "発行する";
             dt_work.Rows.Add(dr_work);
             //選択画面へ
-            this.tb_jisyaden_kbn.Text = tss.kubun_cd_select_dt("自社伝発行区分", dt_work);
+            this.tb_jisyaden_kbn.Text = tss.kubun_cd_select_dt("自社伝発行区分", dt_work,tb_jisyaden_kbn.Text);
             chk_jisyaden_kbn();   //自社伝発行区分名の表示
         }
 
@@ -765,7 +777,7 @@ namespace TSS_SYSTEM
             dr_work["区分名"] = "切上げ";
             dt_work.Rows.Add(dr_work);
             //選択画面へ
-            this.tb_hasu_kbn.Text = tss.kubun_cd_select_dt("端数区分", dt_work);
+            this.tb_hasu_kbn.Text = tss.kubun_cd_select_dt("端数区分", dt_work,tb_hasu_kbn.Text);
             chk_hasu_syori_tani();   //端数処理単位名の表示
         }
 
@@ -791,7 +803,7 @@ namespace TSS_SYSTEM
             dr_work["区分名"] = "百円未満";
             dt_work.Rows.Add(dr_work);
             //選択画面へ
-            this.tb_hasu_syori_tani.Text = tss.kubun_cd_select_dt("端数処理単位", dt_work);
+            this.tb_hasu_syori_tani.Text = tss.kubun_cd_select_dt("端数処理単位", dt_work,tb_hasu_syori_tani.Text);
             chk_hasu_kbn();   //端数区分名の表示
            
         }
@@ -818,7 +830,7 @@ namespace TSS_SYSTEM
             dr_work["区分名"] = "請求合計";
             dt_work.Rows.Add(dr_work);
             //選択画面へ
-            this.tb_syouhizei_sansyutu_kbn.Text = tss.kubun_cd_select_dt("消費税算出区分", dt_work);
+            this.tb_syouhizei_sansyutu_kbn.Text = tss.kubun_cd_select_dt("消費税算出区分", dt_work,tb_syouhizei_sansyutu_kbn.Text);
             chk_syouhizei_sansyutu_kbn();   //消費税算出区分名の表示
         }
 

@@ -21,26 +21,8 @@ namespace TSS_SYSTEM
 
         private void frm_bank_m_Load(object sender, EventArgs e)
         {
-            DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select TSS_BANK_M.torihikisaki_cd as torihikisaki_cd_A,TSS_TORIHIKISAKI_M.torihikisaki_cd as torihikisaki_cd_B,torihikisaki_name,bank_cd,bank_name,siten_cd,siten_name,kouza_syubetu,kouza_no,kouza_meigi from TSS_BANK_M LEFT OUTER JOIN TSS_TORIHIKISAKI_M ON TSS_BANK_M.TORIHIKISAKI_CD = TSS_TORIHIKISAKI_M.TORIHIKISAKI_CD ORDER BY TORIHIKISAKI_CD_A");
-
-            dgv_bank_m.DataSource = dt_work;
-
-            this.dgv_bank_m.Columns["TORIHIKISAKI_CD_B"].Visible = false;
-
-
-            dgv_bank_m.Columns[0].HeaderText = "取引先コード";
-            dgv_bank_m.Columns[2].HeaderText = "取引先名";
-            dgv_bank_m.Columns[3].HeaderText = "銀行コード";
-            dgv_bank_m.Columns[4].HeaderText = "銀行名";
-            dgv_bank_m.Columns[5].HeaderText = "支店コード";
-            dgv_bank_m.Columns[6].HeaderText = "支店名";
-            dgv_bank_m.Columns[7].HeaderText = "口座種別";
-            dgv_bank_m.Columns[8].HeaderText = "口座番号";
-            dgv_bank_m.Columns[9].HeaderText = "口座名義";
-
-            dgv_bank_m.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
+            tb_bank_cd.Focus();
+            dgv_disp();
         }
 
         private void btn_touroku_Click(object sender, EventArgs e)
@@ -101,8 +83,6 @@ namespace TSS_SYSTEM
                 tb_kouza_meigi.Focus();
                 return;
             }
-
-
             else
             //書込み
             {
@@ -139,38 +119,9 @@ namespace TSS_SYSTEM
                         else
                         {
                             MessageBox.Show("銀行口座情報を更新しました。");
-                            //this.Close();
-                            //DataTable dt_work = new DataTable();
-
-
                             dgv_disp();
-
-                            //dt_work = tss.OracleSelect("select TSS_BANK_M.torihikisaki_cd as torihikisaki_cd_A,TSS_TORIHIKISAKI_M.torihikisaki_cd as torihikisaki_cd_B,torihikisaki_name,bank_cd,bank_name,siten_cd,siten_name,kouza_syubetu,kouza_no,kouza_meigi from TSS_BANK_M LEFT OUTER JOIN TSS_TORIHIKISAKI_M ON TSS_BANK_M.TORIHIKISAKI_CD = TSS_TORIHIKISAKI_M.TORIHIKISAKI_CD ORDER BY TORIHIKISAKI_CD_A");
-
-                            //dt_work.AcceptChanges();
-                            //dgv_bank_m.DataSource = dt_work;
-
-                            //this.dgv_bank_m.Columns["TORIHIKISAKI_CD_B"].Visible = false;
-
-
-                            //dgv_bank_m.Columns[0].HeaderText = "取引先コード";
-                            //dgv_bank_m.Columns[2].HeaderText = "取引先名";
-                            //dgv_bank_m.Columns[3].HeaderText = "銀行コード";
-                            //dgv_bank_m.Columns[4].HeaderText = "銀行名";
-                            //dgv_bank_m.Columns[5].HeaderText = "支店コード";
-                            //dgv_bank_m.Columns[6].HeaderText = "支店名";
-                            //dgv_bank_m.Columns[7].HeaderText = "口座種別";
-                            //dgv_bank_m.Columns[8].HeaderText = "口座番号";
-                            //dgv_bank_m.Columns[9].HeaderText = "口座名義";
-
-                            //dgv_bank_m.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
-                            
-    
-                            
                         }
                     }
-
 
                     else if (result == DialogResult.Cancel)
                     {
@@ -197,10 +148,7 @@ namespace TSS_SYSTEM
 
                         dgv_disp();
                     }
-
-
                 }
-
             }
         }
        
@@ -331,7 +279,6 @@ namespace TSS_SYSTEM
 
         private void bt_hensyu_Click(object sender, EventArgs e)
         {
-
                 int i = dgv_bank_m.CurrentCell.RowIndex;
 
                 tb_torihikisaki_cd.Text = dgv_bank_m[0, i].Value.ToString();
@@ -343,7 +290,6 @@ namespace TSS_SYSTEM
                 tb_kouza_syubetu.Text = dgv_bank_m[7, i].Value.ToString();
                 tb_kouza_no.Text = dgv_bank_m[8, i].Value.ToString();
                 tb_kouza_meigi.Text = dgv_bank_m[9, i].Value.ToString();
-                
         }
 
         private void bt_close_Click(object sender, EventArgs e)
@@ -390,12 +336,8 @@ namespace TSS_SYSTEM
                     dgv_disp();
                     tb_clear();
                     //this.Close();
-
-                   
                 }
             }
-
-
             else if (result == DialogResult.Cancel)
             {
                 //「キャンセル」が選択された時
@@ -405,15 +347,33 @@ namespace TSS_SYSTEM
 
         private void dgv_disp()
         {
-
             DataTable dt_work = new DataTable();
             dt_work = tss.OracleSelect("select TSS_BANK_M.torihikisaki_cd as torihikisaki_cd_A,TSS_TORIHIKISAKI_M.torihikisaki_cd as torihikisaki_cd_B,torihikisaki_name,bank_cd,bank_name,siten_cd,siten_name,kouza_syubetu,kouza_no,kouza_meigi from TSS_BANK_M LEFT OUTER JOIN TSS_TORIHIKISAKI_M ON TSS_BANK_M.TORIHIKISAKI_CD = TSS_TORIHIKISAKI_M.TORIHIKISAKI_CD ORDER BY TORIHIKISAKI_CD_A");
 
             dt_work.AcceptChanges();
+            dgv_bank_m.DataSource = null;
             dgv_bank_m.DataSource = dt_work;
 
+            //リードオンリーにする（編集できなくなる）
+            dgv_bank_m.ReadOnly = true;
+            //行ヘッダーを非表示にする
+            dgv_bank_m.RowHeadersVisible = false;
+            //カラム幅の自動調整（ヘッダーとセルの両方の最長幅に調整する）
+            dgv_bank_m.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //セルの高さ変更不可
+            dgv_bank_m.AllowUserToResizeRows = false;
+            //カラムヘッダーの高さ変更不可
+            dgv_bank_m.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            //削除不可にする（コードからは削除可）
+            dgv_bank_m.AllowUserToDeleteRows = false;
+            //１行のみ選択可能（複数行の選択不可）
+            dgv_bank_m.MultiSelect = false;
+            //セルを選択すると行全体が選択されるようにする
+            dgv_bank_m.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //DataGridView1にユーザーが新しい行を追加できないようにする
+            dgv_bank_m.AllowUserToAddRows = false;
+            
             this.dgv_bank_m.Columns["TORIHIKISAKI_CD_B"].Visible = false;
-
 
             dgv_bank_m.Columns[0].HeaderText = "取引先コード";
             dgv_bank_m.Columns[2].HeaderText = "取引先名";
@@ -426,13 +386,10 @@ namespace TSS_SYSTEM
             dgv_bank_m.Columns[9].HeaderText = "口座名義";
 
             dgv_bank_m.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
         }
         
-        
         private void tb_clear()
-          {
-
+        {
               tb_torihikisaki_cd.Text = "";
               tb_torihikisaki_name.Text = "";
               tb_bank_cd.Text = "";
@@ -442,7 +399,6 @@ namespace TSS_SYSTEM
               tb_kouza_syubetu.Text = "";
               tb_kouza_no.Text = "";
               tb_kouza_meigi.Text = "";
-
         }
     }
 }

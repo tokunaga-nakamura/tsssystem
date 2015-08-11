@@ -130,6 +130,12 @@ namespace TSS_SYSTEM
 
         private void frm_select_juchu_Load(object sender, EventArgs e)
         {
+            if (ppt_dt_m == null)
+            {
+                MessageBox.Show("該当するデータがありません。");
+                form_close_false();
+            }
+
             //リードオンリーにする
             dgv_m.ReadOnly = true;
             //行ヘッダーを非表示にする
@@ -160,11 +166,6 @@ namespace TSS_SYSTEM
             dgv_m.Columns[2].HeaderText = "受注CD2";
             dgv_m.Columns[3].HeaderText = "製品名";
 
-            if (dt_m == null)
-            {
-                MessageBox.Show("該当するデータがありません。");
-                form_close_false();
-            }
         }
 
         private void btn_sentaku_Click(object sender, EventArgs e)

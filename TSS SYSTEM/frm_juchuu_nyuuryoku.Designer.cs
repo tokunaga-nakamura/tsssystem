@@ -397,6 +397,7 @@
             this.tb_juchu_cd2.Name = "tb_juchu_cd2";
             this.tb_juchu_cd2.Size = new System.Drawing.Size(112, 19);
             this.tb_juchu_cd2.TabIndex = 2;
+            this.tb_juchu_cd2.DoubleClick += new System.EventHandler(this.tb_juchu_cd2_DoubleClick);
             this.tb_juchu_cd2.Validating += new System.ComponentModel.CancelEventHandler(this.tb_juchuu_cd2_Validating);
             // 
             // tb_torihikisaki_cd
@@ -626,7 +627,6 @@
             this.dgv_nounyuu_schedule.RowTemplate.Height = 21;
             this.dgv_nounyuu_schedule.Size = new System.Drawing.Size(430, 234);
             this.dgv_nounyuu_schedule.TabIndex = 0;
-            this.dgv_nounyuu_schedule.TabStop = false;
             this.dgv_nounyuu_schedule.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.dgv_nounyuu_schedule_CellParsing);
             this.dgv_nounyuu_schedule.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgv_nounyuu_schedule_CellValidating);
             this.dgv_nounyuu_schedule.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_nounyuu_schedule_DataError);
@@ -698,7 +698,7 @@
             this.tb_kousin_riyuu.MaxLength = 128;
             this.tb_kousin_riyuu.Name = "tb_kousin_riyuu";
             this.tb_kousin_riyuu.Size = new System.Drawing.Size(282, 19);
-            this.tb_kousin_riyuu.TabIndex = 9;
+            this.tb_kousin_riyuu.TabIndex = 0;
             this.tb_kousin_riyuu.Validating += new System.ComponentModel.CancelEventHandler(this.tb_kousin_riyuu_Validating);
             // 
             // btn_touroku
@@ -706,7 +706,7 @@
             this.btn_touroku.Location = new System.Drawing.Point(369, 3);
             this.btn_touroku.Name = "btn_touroku";
             this.btn_touroku.Size = new System.Drawing.Size(75, 23);
-            this.btn_touroku.TabIndex = 10;
+            this.btn_touroku.TabIndex = 1;
             this.btn_touroku.Text = "登録";
             this.btn_touroku.UseVisualStyleBackColor = true;
             this.btn_touroku.Click += new System.EventHandler(this.btn_touroku_Click);
@@ -716,7 +716,7 @@
             this.btn_syuuryou.Location = new System.Drawing.Point(795, 3);
             this.btn_syuuryou.Name = "btn_syuuryou";
             this.btn_syuuryou.Size = new System.Drawing.Size(75, 23);
-            this.btn_syuuryou.TabIndex = 11;
+            this.btn_syuuryou.TabIndex = 2;
             this.btn_syuuryou.Text = "終了";
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
