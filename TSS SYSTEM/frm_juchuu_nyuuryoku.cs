@@ -576,11 +576,11 @@ namespace TSS_SYSTEM
                     return bl;
                 }
 
-                //便
+                //便（※便はキーなので入力必須）
                 if (dgv_nounyuu_schedule.Rows[i].Cells[1].Value.ToString().Length == 0 || tss.StringByte(dgv_nounyuu_schedule.Rows[i].Cells[1].Value.ToString()) > 2)
                 {
                     MessageBox.Show("便は必須項目です。2バイト以内で入力してください。");
-                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[1,i];
+                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[1, i];
                     bl = false;
                     return bl;
                 }
@@ -614,14 +614,17 @@ namespace TSS_SYSTEM
                     bl = false;
                     return bl;
                 }
-                DataTable dt_work = new DataTable();
-                dt_work = tss.OracleSelect("select * from tss_user_m where user_cd  = '" + dgv_nounyuu_schedule.Rows[i].Cells[3].Value.ToString() + "'");
-                if (dt_work.Rows.Count <= 0)
+                if (dgv_nounyuu_schedule.Rows[i].Cells[3].Value.ToString() != null && dgv_nounyuu_schedule.Rows[i].Cells[3].Value.ToString() != "")
                 {
-                    //無し
-                    MessageBox.Show("入力された納品担当者コードは存在しません。");
-                    dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[3,i];
-                    bl = false;
+                    DataTable dt_work = new DataTable();
+                    dt_work = tss.OracleSelect("select * from tss_user_m where user_cd  = '" + dgv_nounyuu_schedule.Rows[i].Cells[3].Value.ToString() + "'");
+                    if (dt_work.Rows.Count <= 0)
+                    {
+                        //無し
+                        MessageBox.Show("入力された納品担当者コードは存在しません。");
+                        dgv_nounyuu_schedule.CurrentCell = dgv_nounyuu_schedule[3, i];
+                        bl = false;
+                    }
                 }
 
                 //備考
@@ -827,6 +830,7 @@ namespace TSS_SYSTEM
                 {
                     //更新
                     w_sql = "update tss_nouhin_m set nouhin_yotei_su = '" + dgv_nounyuu_schedule.Rows[i].Cells["nouhin_yotei_su"].Value.ToString()
+                            + "',nouhin_bin = '" + dgv_nounyuu_schedule.Rows[i].Cells["nouhin_bin"].Value.ToString()
                             + "',nouhin_tantou_cd = '" + dgv_nounyuu_schedule.Rows[i].Cells["nouhin_tantou_cd"].Value.ToString()
                             + "',bikou = '" + dgv_nounyuu_schedule.Rows[i].Cells["bikou"].Value.ToString()
                             + "',update_user_cd = '" + tss.user_cd
@@ -1145,6 +1149,29 @@ namespace TSS_SYSTEM
                 tb_seihin_name.Text = get_seihin_name(tb_seihin_cd.Text);
                 tb_juchu_su.Focus();
             }
+        }
+
+        private void tb_juchu_cd2_DoubleClick(object sender, EventArgs e)
+        {
+            if(tb_torihikisaki_cd.Text == null || tb_torihikisaki_cd.Text == "" || tb_juchu_cd1.Text == null || tb_juchu_cd1.Text == "")
+            {
+                MessageBox.Show("取引先コードと受注コード1が入力されていないと検索できません。");
+                return;
+            }
+
+            //選択画面へ
+            string w_cd;
+            DataTable w_dt = new DataTable();
+            w_dt = tss.OracleSelect("select A.torihikisaki_cd,A.juchu_cd1,A.juchu_cd2,B.seihin_name "
+                                    + "from tss_juchu_m a left outer join tss_seihin_m B on A.seihin_cd = B.seihin_cd "
+                                    + "where A.torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "' and A.juchu_cd1 = '" + tb_juchu_cd1.Text + "'");
+            w_cd = tss.select_juchu_cd(w_dt);
+            if (w_cd != null && w_cd != "")
+            {
+                tb_juchu_cd2.Text = w_cd;
+                find_juchu_cd2(tb_torihikisaki_cd.Text, tb_juchu_cd1.Text, tb_juchu_cd2.Text);
+            }
+
         }
     }
 }

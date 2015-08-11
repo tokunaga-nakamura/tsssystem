@@ -141,9 +141,10 @@
             // 
             // tb_kouza_syubetu
             // 
+            this.tb_kouza_syubetu.BackColor = System.Drawing.Color.PowderBlue;
             this.tb_kouza_syubetu.Location = new System.Drawing.Point(93, 103);
             this.tb_kouza_syubetu.Name = "tb_kouza_syubetu";
-            this.tb_kouza_syubetu.Size = new System.Drawing.Size(34, 19);
+            this.tb_kouza_syubetu.Size = new System.Drawing.Size(21, 19);
             this.tb_kouza_syubetu.TabIndex = 7;
             this.tb_kouza_syubetu.TextChanged += new System.EventHandler(this.tb_kouza_syubetu_TextChanged);
             this.tb_kouza_syubetu.DoubleClick += new System.EventHandler(this.tb_kouza_syubetu_DoubleClick);
@@ -337,7 +338,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(133, 106);
+            this.label1.Location = new System.Drawing.Point(120, 106);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 12);
             this.label1.TabIndex = 39;

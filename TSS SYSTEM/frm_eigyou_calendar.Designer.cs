@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_eigyou_calendar));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label1 = new System.Windows.Forms.Label();
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
@@ -42,7 +43,6 @@
             this.dgv_calendar = new System.Windows.Forms.DataGridView();
             this.btn_touroku = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -90,6 +90,15 @@
             this.splitContainer1.SplitterDistance = 63;
             this.splitContainer1.TabIndex = 1;
             this.splitContainer1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(247, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(149, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "営業区分 1:休日 2:変則出勤";
             // 
             // btn_hardcopy
             // 
@@ -233,6 +242,7 @@
             this.dgv_calendar.RowTemplate.Height = 21;
             this.dgv_calendar.Size = new System.Drawing.Size(880, 400);
             this.dgv_calendar.TabIndex = 0;
+            this.dgv_calendar.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_calendar_CellValueChanged);
             // 
             // btn_touroku
             // 
@@ -253,15 +263,6 @@
             this.btn_syuuryou.Text = "終了";
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(247, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "営業区分 1:休日 2:変則出勤";
             // 
             // frm_eigyou_calendar
             // 

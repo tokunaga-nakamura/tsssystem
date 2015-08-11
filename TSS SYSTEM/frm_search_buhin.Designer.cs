@@ -128,7 +128,7 @@
             // tb_torihikisaki_name
             // 
             this.tb_torihikisaki_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_torihikisaki_name.Location = new System.Drawing.Point(540, 68);
+            this.tb_torihikisaki_name.Location = new System.Drawing.Point(566, 68);
             this.tb_torihikisaki_name.Name = "tb_torihikisaki_name";
             this.tb_torihikisaki_name.ReadOnly = true;
             this.tb_torihikisaki_name.Size = new System.Drawing.Size(206, 19);
@@ -138,7 +138,7 @@
             // tb_siiresaki_name
             // 
             this.tb_siiresaki_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_siiresaki_name.Location = new System.Drawing.Point(540, 18);
+            this.tb_siiresaki_name.Location = new System.Drawing.Point(566, 18);
             this.tb_siiresaki_name.Name = "tb_siiresaki_name";
             this.tb_siiresaki_name.ReadOnly = true;
             this.tb_siiresaki_name.Size = new System.Drawing.Size(206, 19);
@@ -147,7 +147,8 @@
             // 
             // tb_siire_kbn_name
             // 
-            this.tb_siire_kbn_name.Location = new System.Drawing.Point(476, 43);
+            this.tb_siire_kbn_name.BackColor = System.Drawing.Color.Gainsboro;
+            this.tb_siire_kbn_name.Location = new System.Drawing.Point(502, 43);
             this.tb_siire_kbn_name.Name = "tb_siire_kbn_name";
             this.tb_siire_kbn_name.Size = new System.Drawing.Size(100, 19);
             this.tb_siire_kbn_name.TabIndex = 16;
@@ -155,7 +156,8 @@
             // tb_siire_kbn
             // 
             this.tb_siire_kbn.BackColor = System.Drawing.Color.PowderBlue;
-            this.tb_siire_kbn.Location = new System.Drawing.Point(434, 43);
+            this.tb_siire_kbn.Location = new System.Drawing.Point(460, 43);
+            this.tb_siire_kbn.MaxLength = 2;
             this.tb_siire_kbn.Name = "tb_siire_kbn";
             this.tb_siire_kbn.Size = new System.Drawing.Size(36, 19);
             this.tb_siire_kbn.TabIndex = 15;
@@ -165,7 +167,7 @@
             // textBox15
             // 
             this.textBox15.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox15.Location = new System.Drawing.Point(328, 43);
+            this.textBox15.Location = new System.Drawing.Point(354, 43);
             this.textBox15.Name = "textBox15";
             this.textBox15.ReadOnly = true;
             this.textBox15.Size = new System.Drawing.Size(100, 19);
@@ -176,7 +178,8 @@
             // tb_siiresaki_cd
             // 
             this.tb_siiresaki_cd.BackColor = System.Drawing.Color.PowderBlue;
-            this.tb_siiresaki_cd.Location = new System.Drawing.Point(434, 18);
+            this.tb_siiresaki_cd.Location = new System.Drawing.Point(460, 18);
+            this.tb_siiresaki_cd.MaxLength = 6;
             this.tb_siiresaki_cd.Name = "tb_siiresaki_cd";
             this.tb_siiresaki_cd.Size = new System.Drawing.Size(100, 19);
             this.tb_siiresaki_cd.TabIndex = 13;
@@ -197,7 +200,8 @@
             // tb_torihikisaki_cd
             // 
             this.tb_torihikisaki_cd.BackColor = System.Drawing.Color.PowderBlue;
-            this.tb_torihikisaki_cd.Location = new System.Drawing.Point(434, 68);
+            this.tb_torihikisaki_cd.Location = new System.Drawing.Point(460, 68);
+            this.tb_torihikisaki_cd.MaxLength = 6;
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
             this.tb_torihikisaki_cd.Size = new System.Drawing.Size(100, 19);
             this.tb_torihikisaki_cd.TabIndex = 10;
@@ -206,7 +210,7 @@
             // textBox10
             // 
             this.textBox10.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox10.Location = new System.Drawing.Point(328, 68);
+            this.textBox10.Location = new System.Drawing.Point(354, 68);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
             this.textBox10.Size = new System.Drawing.Size(100, 19);
@@ -217,14 +221,15 @@
             // tb_maker_name
             // 
             this.tb_maker_name.Location = new System.Drawing.Point(116, 93);
+            this.tb_maker_name.MaxLength = 40;
             this.tb_maker_name.Name = "tb_maker_name";
-            this.tb_maker_name.Size = new System.Drawing.Size(206, 19);
+            this.tb_maker_name.Size = new System.Drawing.Size(232, 19);
             this.tb_maker_name.TabIndex = 8;
             // 
             // textBox8
             // 
             this.textBox8.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox8.Location = new System.Drawing.Point(328, 18);
+            this.textBox8.Location = new System.Drawing.Point(354, 18);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(100, 19);
@@ -235,8 +240,9 @@
             // tb_buhin_hosoku
             // 
             this.tb_buhin_hosoku.Location = new System.Drawing.Point(116, 68);
+            this.tb_buhin_hosoku.MaxLength = 40;
             this.tb_buhin_hosoku.Name = "tb_buhin_hosoku";
-            this.tb_buhin_hosoku.Size = new System.Drawing.Size(206, 19);
+            this.tb_buhin_hosoku.Size = new System.Drawing.Size(232, 19);
             this.tb_buhin_hosoku.TabIndex = 6;
             // 
             // textBox6
@@ -253,8 +259,9 @@
             // tb_buhin_name
             // 
             this.tb_buhin_name.Location = new System.Drawing.Point(116, 43);
+            this.tb_buhin_name.MaxLength = 40;
             this.tb_buhin_name.Name = "tb_buhin_name";
-            this.tb_buhin_name.Size = new System.Drawing.Size(206, 19);
+            this.tb_buhin_name.Size = new System.Drawing.Size(232, 19);
             this.tb_buhin_name.TabIndex = 4;
             // 
             // textBox4
@@ -270,16 +277,18 @@
             // 
             // tb_buhin_cd2
             // 
-            this.tb_buhin_cd2.Location = new System.Drawing.Point(222, 18);
+            this.tb_buhin_cd2.Location = new System.Drawing.Point(235, 18);
+            this.tb_buhin_cd2.MaxLength = 16;
             this.tb_buhin_cd2.Name = "tb_buhin_cd2";
-            this.tb_buhin_cd2.Size = new System.Drawing.Size(100, 19);
+            this.tb_buhin_cd2.Size = new System.Drawing.Size(113, 19);
             this.tb_buhin_cd2.TabIndex = 2;
             // 
             // tb_buhin_cd1
             // 
             this.tb_buhin_cd1.Location = new System.Drawing.Point(116, 18);
+            this.tb_buhin_cd1.MaxLength = 16;
             this.tb_buhin_cd1.Name = "tb_buhin_cd1";
-            this.tb_buhin_cd1.Size = new System.Drawing.Size(100, 19);
+            this.tb_buhin_cd1.Size = new System.Drawing.Size(113, 19);
             this.tb_buhin_cd1.TabIndex = 1;
             // 
             // textBox1

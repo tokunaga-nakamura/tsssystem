@@ -62,7 +62,7 @@ namespace TSS_SYSTEM
             dgv_calendar.AllowUserToAddRows = false;
 
 
-            //曜日表示用に列を追加
+            //曜日表示用に列を追加、同じループを使用して休日に色を付ける
             DataGridViewTextBoxColumn textColumn = new DataGridViewTextBoxColumn();
             dgv_calendar.Columns.Insert(3,textColumn);
             for (int i = 0; i < dgv_calendar.Rows.Count;i++)
@@ -79,6 +79,10 @@ namespace TSS_SYSTEM
                 if (dgv_calendar.Rows[i].Cells[3].Value.ToString() == "日")
                 {
                     dgv_calendar.Rows[i].DefaultCellStyle.BackColor = Color.Pink;
+                }
+                if(dgv_calendar.Rows[i].Cells[5].Value.ToString() == "1")
+                {
+                    dgv_calendar.Rows[i].Cells[5].Style.BackColor = Color.Red;
                 }
             }
 
@@ -191,7 +195,6 @@ namespace TSS_SYSTEM
             {
                 MessageBox.Show("登録しました。");
             }
-
         }
 
         private bool touroku_check()
@@ -211,6 +214,7 @@ namespace TSS_SYSTEM
             }
             return bl;
         }
+
         private bool touroku_write()
         {
             tss.GetUser();
@@ -227,10 +231,22 @@ namespace TSS_SYSTEM
             return bl;
         }
 
-
-
-
-
-
+        private void dgv_calendar_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0)
+            {
+                if (e.ColumnIndex == 5)
+                {
+                    if (dgv_calendar.Rows[e.RowIndex].Cells[5].Value.ToString() == "1")
+                    {
+                        dgv_calendar.Rows[e.RowIndex].Cells[5].Style.BackColor = Color.Red;
+                    }
+                    else
+                    {
+                        dgv_calendar.Rows[e.RowIndex].Cells[5].Style.BackColor = Color.Empty;
+                    }
+                }
+            }
+        }
     }
 }
