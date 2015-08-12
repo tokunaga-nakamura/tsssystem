@@ -149,17 +149,6 @@ namespace TSS_SYSTEM
         {
             DataGridView dgv = (DataGridView)sender;
 
-            //部品レベルが入力された場合、1～9までの数字で入力させる
-            if (dgv.Columns[e.ColumnIndex].Index == 0)
-            {
-                //if (e.FormattedValue.ToString() == "")
-                //{
-
-                //}
-                
-                return;
-            }
-
 
             //部品コードが入力されたならば、部品名を部品マスターから取得して表示
             if (dgv.Columns[e.ColumnIndex].Index == 1 && dgv.CurrentCell.Value.ToString() == "")

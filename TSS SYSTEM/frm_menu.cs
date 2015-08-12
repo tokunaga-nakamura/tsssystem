@@ -294,5 +294,12 @@ namespace TSS_SYSTEM
             frm_skm.ShowDialog(this);
             frm_skm.Dispose();
         }
+
+        private void btn_siire_nyuuryoku_Click(object sender, EventArgs e)
+        {
+            frm_siire frm_sir = new frm_siire();
+            frm_sir.ShowDialog(this);
+            frm_sir.Dispose();
+        }
     }
 }
