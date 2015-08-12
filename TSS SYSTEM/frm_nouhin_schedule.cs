@@ -395,6 +395,7 @@ namespace TSS_SYSTEM
             w_dt_schedule.Columns.Clear();
             w_dt_schedule.Clear();
             //列の定義
+            w_dt_schedule.Columns.Add("torihikisaki_ryakusiki_moji");
             w_dt_schedule.Columns.Add("torihikisaki_cd");
             w_dt_schedule.Columns.Add("juchu_cd1");
             w_dt_schedule.Columns.Add("juchu_cd2");
@@ -441,6 +442,7 @@ namespace TSS_SYSTEM
             //行追加
             DataTable w_dt_juchu_m = new DataTable();
             DataTable w_dt_seihin_m = new DataTable();
+            DataTable w_dt_torihikisaki_m = new DataTable();
             DataRow w_dr_schedule;
             int w_int_gyou;     //w_dt_scheduleの見つけた行
             bool w_gyou_find;   //w_dt_scheduleの見つけたフラグ
@@ -459,12 +461,22 @@ namespace TSS_SYSTEM
                 }
                 //受注マスタから製品マスタをリンク
                 w_dt_seihin_m = tss.OracleSelect("select * from tss_seihin_m where seihin_cd = '" + w_dt_juchu_m.Rows[0]["seihin_cd"].ToString() + "'");
-                if(w_dt_seihin_m.Rows.Count == 0)
+                if (w_dt_seihin_m.Rows.Count == 0)
                 {
                     tss.GetUser();
                     MessageBox.Show("受注マスタと製品マスタの整合性に異常があります。処理を中止します。");
                     tss.ErrorLogWrite(tss.user_cd, "納品スケジュール参照", "表示ボタン押下後のOracleSelect");
-                    tss.MessageLogWrite(tss.user_cd, "000000","納品スケジュールの表示でエラーが発生しました。", "受注マスタと製品マスタの整合性が取れていない可能性があります。受注コード " + w_dt_juchu_m.Rows[0]["torihikisaki_cd"].ToString() + "-" + w_dt_juchu_m.Rows[0]["juchu_cd2"].ToString() + "-" + w_dt_juchu_m.Rows[0]["juchu_cd2"].ToString() + " 製品コード " + w_dt_juchu_m.Rows[0]["seihin_cd"] + " を確認してください。");
+                    tss.MessageLogWrite(tss.user_cd, "000000", "納品スケジュールの表示でエラーが発生しました。", "受注マスタと製品マスタの整合性が取れていない可能性があります。受注コード " + w_dt_juchu_m.Rows[0]["torihikisaki_cd"].ToString() + "-" + w_dt_juchu_m.Rows[0]["juchu_cd2"].ToString() + "-" + w_dt_juchu_m.Rows[0]["juchu_cd2"].ToString() + " 製品コード " + w_dt_juchu_m.Rows[0]["seihin_cd"] + " を確認してください。");
+                    this.Close();
+                }
+                //受注マスタから取引先マスタをリンク
+                w_dt_torihikisaki_m = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd = '" + w_dt_juchu_m.Rows[0]["torihikisaki_cd"].ToString() + "'");
+                if (w_dt_torihikisaki_m.Rows.Count == 0)
+                {
+                    tss.GetUser();
+                    MessageBox.Show("受注マスタと取引先マスタの整合性に異常があります。処理を中止します。");
+                    tss.ErrorLogWrite(tss.user_cd, "納品スケジュール参照", "表示ボタン押下後のOracleSelect");
+                    tss.MessageLogWrite(tss.user_cd, "000000", "納品スケジュールの表示でエラーが発生しました。", "受注マスタと取引先マスタの整合性が取れていない可能性があります。受注コード " + w_dt_juchu_m.Rows[0]["torihikisaki_cd"].ToString() + "-" + w_dt_juchu_m.Rows[0]["juchu_cd2"].ToString() + "-" + w_dt_juchu_m.Rows[0]["juchu_cd2"].ToString() + " を確認してください。");
                     this.Close();
                 }
                 //集計区分の判定
@@ -545,6 +557,7 @@ namespace TSS_SYSTEM
                         //w_dt_scheduleにレコードを作成
                         DateTime.TryParse(dr["nouhin_yotei_date"].ToString(), out w_date);
                         w_dr_schedule = w_dt_schedule.NewRow();
+                        w_dr_schedule["torihikisaki_ryakusiki_moji"] = w_dt_torihikisaki_m.Rows[0]["torihikisaki_ryakusiki_moji"].ToString();
                         w_dr_schedule["torihikisaki_cd"] = dr["torihikisaki_cd"].ToString();
                         w_dr_schedule["juchu_cd1"] = dr["juchu_cd1"].ToString();
                         w_dr_schedule["juchu_cd2"] = dr["juchu_cd2"].ToString();
@@ -757,9 +770,60 @@ namespace TSS_SYSTEM
 
         private void btn_insatu_Click(object sender, EventArgs e)
         {
-            //印刷画面へ
-            bool bl;
-            bl = tss.insatu(w_dt_insatu);
+            frm_nouhin_schedule_preview frm_rpt = new frm_nouhin_schedule_preview();
+            //子画面のプロパティに値をセットする
+            frm_rpt.ppt_dt = w_dt_insatu;
+            frm_rpt.w_hd_yyyymm = nud_year.Value.ToString() + "年" + nud_month.Value.ToString("00") + "月";
+            if (tb_torihikisaki_cd.Text != "")
+            {
+                frm_rpt.w_hd_torihikisaki_name = tb_torihikisaki_name.Text;
+            }
+            else
+            {
+                frm_rpt.w_hd_torihikisaki_name = "全ての取引先";
+            }
+
+            frm_rpt.w_hd10 = "種別区分 ";
+            if (cb_syubetu_kbn.Checked == true)
+            {
+                frm_rpt.w_hd11 = tb_syubetu_kbn.Text + ":" + tb_syubetu_name.Text;
+            }
+            else
+            {
+                frm_rpt.w_hd11 = "全て";
+            }
+            frm_rpt.w_hd20 = "分類区分 ";
+            if (cb_bunrui_kbn.Checked == true)
+            {
+                frm_rpt.w_hd21 = tb_bunrui_kbn.Text + ":" + tb_bunrui_name.Text;
+            }
+            else
+            {
+                frm_rpt.w_hd21 = "全て";
+            }
+            frm_rpt.w_hd30 = "市場区分 ";
+            if (cb_sijou_kbn.Checked == true)
+            {
+                frm_rpt.w_hd31 = tb_sijou_kbn.Text + ":" + tb_sijou_name.Text;
+            }
+            else
+            {
+                frm_rpt.w_hd31 = "全て";
+            }
+            frm_rpt.w_hd40 = "タイプ区分 ";
+            if (cb_type_kbn.Checked == true)
+            {
+                frm_rpt.w_hd41 = tb_type_kbn.Text + ":" + tb_type_name.Text;
+            }
+            else
+            {
+                frm_rpt.w_hd41 = "全て";
+            }
+
+            
+            frm_rpt.ShowDialog();
+            //子画面から値を取得する
+            frm_rpt.Dispose();
         }
 
     }
