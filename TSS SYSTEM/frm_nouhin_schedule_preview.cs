@@ -16,7 +16,8 @@ namespace TSS_SYSTEM
         DataTable w_dt_nouhin_schedule = new DataTable();
 
         //ヘッダーの受け渡し変数の定義
-        public string w_hd_yyyymm;
+        public string w_yyyy;
+        public string w_mm;
         public string w_hd_torihikisaki_name;
         public string w_hd10;
         public string w_hd11;
@@ -60,7 +61,8 @@ namespace TSS_SYSTEM
             rpt_nouhin_schedule rpt = new rpt_nouhin_schedule();
             //レポートへデータを受け渡す
             rpt.DataSource = ppt_dt;
-            rpt.w_hd_yyyymm = w_hd_yyyymm;
+            rpt.w_yyyy = w_yyyy;
+            rpt.w_mm = w_mm;
             rpt.w_hd_torihikisaki_name = w_hd_torihikisaki_name;
             rpt.w_hd10 = w_hd10;
             rpt.w_hd11 = w_hd11;

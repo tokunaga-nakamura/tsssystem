@@ -773,7 +773,8 @@ namespace TSS_SYSTEM
             frm_nouhin_schedule_preview frm_rpt = new frm_nouhin_schedule_preview();
             //子画面のプロパティに値をセットする
             frm_rpt.ppt_dt = w_dt_insatu;
-            frm_rpt.w_hd_yyyymm = nud_year.Value.ToString() + "年" + nud_month.Value.ToString("00") + "月";
+            frm_rpt.w_yyyy = nud_year.Value.ToString();
+            frm_rpt.w_mm = nud_month.Value.ToString("00");
             if (tb_torihikisaki_cd.Text != "")
             {
                 frm_rpt.w_hd_torihikisaki_name = tb_torihikisaki_name.Text;
