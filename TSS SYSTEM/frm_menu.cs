@@ -301,5 +301,12 @@ namespace TSS_SYSTEM
             frm_sir.ShowDialog(this);
             frm_sir.Dispose();
         }
+
+        private void btn_uriage_Click(object sender, EventArgs e)
+        {
+            frm_uriage frm_uri = new frm_uriage();
+            frm_uri.ShowDialog(this);
+            frm_uri.Dispose();
+        }
     }
 }

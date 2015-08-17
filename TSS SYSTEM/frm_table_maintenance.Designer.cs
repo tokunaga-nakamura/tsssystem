@@ -189,7 +189,7 @@
             // 
             // btn_csv
             // 
-            this.btn_csv.Location = new System.Drawing.Point(629, 3);
+            this.btn_csv.Location = new System.Drawing.Point(91, 3);
             this.btn_csv.Name = "btn_csv";
             this.btn_csv.Size = new System.Drawing.Size(75, 23);
             this.btn_csv.TabIndex = 2;
@@ -199,7 +199,7 @@
             // 
             // btn_touroku
             // 
-            this.btn_touroku.Location = new System.Drawing.Point(710, 3);
+            this.btn_touroku.Location = new System.Drawing.Point(10, 3);
             this.btn_touroku.Name = "btn_touroku";
             this.btn_touroku.Size = new System.Drawing.Size(75, 23);
             this.btn_touroku.TabIndex = 1;

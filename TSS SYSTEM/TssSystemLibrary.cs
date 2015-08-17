@@ -171,7 +171,6 @@ namespace TSS_SYSTEM
         }
         #endregion
 
-
         #region GetUser メソッド
         /// <summary>
         /// テーブル TSS_USER_M を読み込み、フィールドに格納し、プロパティとして参照可能にする
@@ -389,7 +388,6 @@ namespace TSS_SYSTEM
         }
         #endregion
 
-
         #region ErrorLogWrite メソッド
         /// <summary>
         /// 受け取った文字列をテーブル TSS_ERROR_LOG_F に書き込む
@@ -402,9 +400,6 @@ namespace TSS_SYSTEM
             return bl;
         }
         #endregion
-
-
-
 
         #region DataTableCSV メソッド
         /// <summary>
@@ -517,9 +512,6 @@ namespace TSS_SYSTEM
         }
         #endregion
 
-
-
-
         #region　StringByte メソッド
         /// <summary>
         /// 半角 1 バイト、全角 2 バイトとして、指定された文字列のバイト数を返します。</summary>
@@ -532,8 +524,6 @@ namespace TSS_SYSTEM
             return System.Text.Encoding.GetEncoding("Shift_JIS").GetByteCount(str);
         }
         #endregion
-
-
 
         #region　HardCopy メソッド
         /// <summary>
@@ -944,6 +934,103 @@ namespace TSS_SYSTEM
 
 
         public string out_str_seihin_kousei_no { get; set; }
+
+
+
+        #region try_string_to_date メソッド
+        /// <summary>
+        /// "文字列を受け取りdate型に変換できるか（適切な日付か）を調べ、bool型を返す</summary>
+        /// <param name="in_str">
+        /// 変換前の日付文字列</param>
+        /// <returns>
+        /// bool true:変換可能 false:変換不能
+        /// 変換可能時にプロパティ out_datetime に変換後の値を格納</returns>
+        public DateTime out_datetime;
+        public bool try_string_to_date(string in_str)
+        {
+            bool bl;    //戻り値用
+            bl = true;
+            string w_str = in_str;
+            //7文字以下はNG
+            if(StringByte(in_str) < 8)
+            {
+                bl = false;
+                return bl;
+            }
+            //スラッシュがある場合はそのまま使用し、なければスラッシュを加える
+            if(in_str.IndexOf("/") == -1)
+            {
+                w_str = in_str.Substring(0, 4) + "/" + in_str.Substring(4, 2) + "/" + in_str.Substring(6);
+            }
+            if (DateTime.TryParse(w_str, out out_datetime))
+            {
+                bl = true;
+            }
+            else
+            {
+                bl = false;
+            }
+            return bl;
+        }
+        #endregion
+
+
+        #region get_torihikisaki_name メソッド
+        /// <summary>
+        /// "取引先コードを受け取り取引先名を返す</summary>
+        /// <param name="in_cd">
+        /// 取引先名を取得する取引先コード</param>
+        /// <returns>
+        /// string 取引先名
+        /// エラー等、取得できない場合はnull</returns>
+        public string get_torihikisaki_name(string in_cd)
+        {
+            string out_str = null;  //戻り値用
+            DataTable w_dt = new DataTable();
+            w_dt = OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd = '" + in_cd + "'");
+            if (w_dt.Rows.Count == 0)
+            {
+                out_str = null;
+            }
+            else
+            {
+                out_str = w_dt.Rows[0]["torihikisaki_name"].ToString();
+            }
+            return out_str;
+        }
+        #endregion
+
+        #region get_seihin_name メソッド
+        /// <summary>
+        /// "製品コードを受け取り製品名を返す</summary>
+        /// <param name="in_cd">
+        /// 製品名を取得する製品コード</param>
+        /// <returns>
+        /// string 製品名
+        /// エラー等、取得できない場合はnull</returns>
+        public string get_seihin_name(string in_cd)
+        {
+            string out_str = null;  //戻り値用
+            DataTable w_dt = new DataTable();
+            w_dt = OracleSelect("select * from tss_seihin_m where seihin_cd = '" + in_cd + "'");
+            if (w_dt.Rows.Count == 0)
+            {
+                out_str = null;
+            }
+            else
+            {
+                out_str = w_dt.Rows[0]["seihin_name"].ToString();
+            }
+            return out_str;
+        }
+        #endregion
+
+
+
+
+
+
+
     }
     #endregion
 }

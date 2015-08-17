@@ -57,6 +57,7 @@
             this.dgv_timereport = new System.Windows.Forms.DataGridView();
             this.btn_timereport = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_siire_nyuuryoku = new System.Windows.Forms.Button();
             this.btn_juchu_kensaku = new System.Windows.Forms.Button();
             this.btn_nouhin_schedule = new System.Windows.Forms.Button();
             this.btn_juchuu_nyuuryoku = new System.Windows.Forms.Button();
@@ -82,7 +83,7 @@
             this.btn_mst_table = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.btn_siire_nyuuryoku = new System.Windows.Forms.Button();
+            this.btn_uriage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -508,6 +509,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btn_uriage);
             this.tabPage2.Controls.Add(this.btn_siire_nyuuryoku);
             this.tabPage2.Controls.Add(this.btn_juchu_kensaku);
             this.tabPage2.Controls.Add(this.btn_nouhin_schedule);
@@ -519,6 +521,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "業務処理";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btn_siire_nyuuryoku
+            // 
+            this.btn_siire_nyuuryoku.Location = new System.Drawing.Point(8, 98);
+            this.btn_siire_nyuuryoku.Name = "btn_siire_nyuuryoku";
+            this.btn_siire_nyuuryoku.Size = new System.Drawing.Size(180, 23);
+            this.btn_siire_nyuuryoku.TabIndex = 6;
+            this.btn_siire_nyuuryoku.Text = "仕入入力";
+            this.btn_siire_nyuuryoku.UseVisualStyleBackColor = true;
+            this.btn_siire_nyuuryoku.Click += new System.EventHandler(this.btn_siire_nyuuryoku_Click);
             // 
             // btn_juchu_kensaku
             // 
@@ -783,15 +795,15 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
-            // btn_siire_nyuuryoku
+            // btn_uriage
             // 
-            this.btn_siire_nyuuryoku.Location = new System.Drawing.Point(8, 98);
-            this.btn_siire_nyuuryoku.Name = "btn_siire_nyuuryoku";
-            this.btn_siire_nyuuryoku.Size = new System.Drawing.Size(180, 23);
-            this.btn_siire_nyuuryoku.TabIndex = 6;
-            this.btn_siire_nyuuryoku.Text = "仕入入力";
-            this.btn_siire_nyuuryoku.UseVisualStyleBackColor = true;
-            this.btn_siire_nyuuryoku.Click += new System.EventHandler(this.btn_siire_nyuuryoku_Click);
+            this.btn_uriage.Location = new System.Drawing.Point(8, 35);
+            this.btn_uriage.Name = "btn_uriage";
+            this.btn_uriage.Size = new System.Drawing.Size(180, 23);
+            this.btn_uriage.TabIndex = 7;
+            this.btn_uriage.Text = "売上";
+            this.btn_uriage.UseVisualStyleBackColor = true;
+            this.btn_uriage.Click += new System.EventHandler(this.btn_uriage_Click);
             // 
             // frm_menu
             // 
@@ -921,6 +933,7 @@
         private System.Windows.Forms.Button btn_eigyou_calender;
         private System.Windows.Forms.Button btn_user_m;
         private System.Windows.Forms.Button btn_siire_nyuuryoku;
+        private System.Windows.Forms.Button btn_uriage;
     }
 }
 

@@ -239,6 +239,12 @@
     <Compile Include="frm_torihikisaki_tantou.Designer.cs">
       <DependentUpon>frm_torihikisaki_tantou.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_uriage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_uriage.Designer.cs">
+      <DependentUpon>frm_uriage.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_user_m.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -334,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_torihikisaki_tantou.resx">
       <DependentUpon>frm_torihikisaki_tantou.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_uriage.resx">
+      <DependentUpon>frm_uriage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_user_m.resx">
       <DependentUpon>frm_user_m.cs</DependentUpon>

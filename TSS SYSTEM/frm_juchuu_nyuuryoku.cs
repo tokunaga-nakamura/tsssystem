@@ -227,7 +227,7 @@ namespace TSS_SYSTEM
             dgv_nounyuu_schedule.Columns[6].ReadOnly = true;
 
             //列の文字数制限
-            ((DataGridViewTextBoxColumn)dgv_nounyuu_schedule.Columns[0]).MaxInputLength = 8;
+            ((DataGridViewTextBoxColumn)dgv_nounyuu_schedule.Columns[0]).MaxInputLength = 10;
             ((DataGridViewTextBoxColumn)dgv_nounyuu_schedule.Columns[1]).MaxInputLength = 2;
             ((DataGridViewTextBoxColumn)dgv_nounyuu_schedule.Columns[2]).MaxInputLength = 13;
             ((DataGridViewTextBoxColumn)dgv_nounyuu_schedule.Columns[3]).MaxInputLength = 6;
@@ -1002,21 +1002,16 @@ namespace TSS_SYSTEM
                     {
                         if (e.Value.ToString() != "")
                         {
-                            if (e.Value.ToString().Length == 8)
+                            if(tss.try_string_to_date(e.Value.ToString()))
                             {
-                                string w_str_date;
-                                w_str_date = e.Value.ToString().Substring(0, 4) + "/" + e.Value.ToString().Substring(4, 2) + "/" + e.Value.ToString().Substring(6);
-                                try
-                                {
-                                    e.Value = DateTime.Parse(w_str_date);
-                                    e.ParsingApplied = true;
-                                    dgv[e.ColumnIndex, e.RowIndex].ErrorText = null;
-                                }
-                                catch (FormatException)
-                                {
-                                    e.ParsingApplied = false;
-                                    dgv[e.ColumnIndex, e.RowIndex].ErrorText = "日付として認識できない値です。";
-                                }
+                                e.Value = tss.out_datetime;
+                                e.ParsingApplied = true;
+                                dgv[e.ColumnIndex, e.RowIndex].ErrorText = null;
+                            }
+                            else
+                            {
+                                e.ParsingApplied = false;
+                                dgv[e.ColumnIndex, e.RowIndex].ErrorText = "日付として認識できない値です。";
                             }
                         }
                     }

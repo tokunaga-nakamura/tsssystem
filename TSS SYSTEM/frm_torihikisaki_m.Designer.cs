@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_torihikisaki_m));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -332,8 +332,8 @@
             this.groupBox1.Controls.Add(this.textBox16);
             this.groupBox1.Location = new System.Drawing.Point(10, 157);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(361, 90);
-            this.groupBox1.TabIndex = 146;
+            this.groupBox1.Size = new System.Drawing.Size(442, 90);
+            this.groupBox1.TabIndex = 98;
             this.groupBox1.TabStop = false;
             // 
             // label2
@@ -341,9 +341,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 69);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(193, 12);
+            this.label2.Size = new System.Drawing.Size(108, 12);
             this.label2.TabIndex = 146;
-            this.label2.Text = "※末日の場合は「99」を入力してください";
+            this.label2.Text = "※末日は「99」を入力";
             // 
             // textBox15
             // 
@@ -359,7 +359,7 @@
             // textBox20
             // 
             this.textBox20.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox20.Location = new System.Drawing.Point(253, 43);
+            this.textBox20.Location = new System.Drawing.Point(330, 43);
             this.textBox20.Name = "textBox20";
             this.textBox20.ReadOnly = true;
             this.textBox20.Size = new System.Drawing.Size(50, 19);
@@ -370,7 +370,7 @@
             // tb_kaisyu_tuki
             // 
             this.tb_kaisyu_tuki.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_kaisyu_tuki.Location = new System.Drawing.Point(176, 18);
+            this.tb_kaisyu_tuki.Location = new System.Drawing.Point(216, 18);
             this.tb_kaisyu_tuki.MaxLength = 2;
             this.tb_kaisyu_tuki.Name = "tb_kaisyu_tuki";
             this.tb_kaisyu_tuki.Size = new System.Drawing.Size(27, 19);
@@ -380,7 +380,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(208, 21);
+            this.label5.Location = new System.Drawing.Point(248, 21);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 12);
             this.label5.TabIndex = 61;
@@ -389,7 +389,7 @@
             // textBox19
             // 
             this.textBox19.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox19.Location = new System.Drawing.Point(127, 43);
+            this.textBox19.Location = new System.Drawing.Point(167, 43);
             this.textBox19.Name = "textBox19";
             this.textBox19.ReadOnly = true;
             this.textBox19.Size = new System.Drawing.Size(49, 19);
@@ -400,7 +400,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(336, 21);
+            this.label14.Location = new System.Drawing.Point(413, 21);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(17, 12);
             this.label14.TabIndex = 1;
@@ -409,7 +409,7 @@
             // textBox17
             // 
             this.textBox17.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox17.Location = new System.Drawing.Point(253, 18);
+            this.textBox17.Location = new System.Drawing.Point(330, 18);
             this.textBox17.Name = "textBox17";
             this.textBox17.ReadOnly = true;
             this.textBox17.Size = new System.Drawing.Size(50, 19);
@@ -440,11 +440,11 @@
             // tb_kaisyu_hi
             // 
             this.tb_kaisyu_hi.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_kaisyu_hi.Location = new System.Drawing.Point(303, 18);
+            this.tb_kaisyu_hi.Location = new System.Drawing.Point(380, 18);
             this.tb_kaisyu_hi.MaxLength = 2;
             this.tb_kaisyu_hi.Name = "tb_kaisyu_hi";
             this.tb_kaisyu_hi.Size = new System.Drawing.Size(27, 19);
-            this.tb_kaisyu_hi.TabIndex = 18;
+            this.tb_kaisyu_hi.TabIndex = 19;
             this.tb_kaisyu_hi.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tb_siharai_sime_date
@@ -454,7 +454,7 @@
             this.tb_siharai_sime_date.MaxLength = 2;
             this.tb_siharai_sime_date.Name = "tb_siharai_sime_date";
             this.tb_siharai_sime_date.Size = new System.Drawing.Size(27, 19);
-            this.tb_siharai_sime_date.TabIndex = 19;
+            this.tb_siharai_sime_date.TabIndex = 16;
             this.tb_siharai_sime_date.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tb_seikyu_sime_date
@@ -464,17 +464,17 @@
             this.tb_seikyu_sime_date.MaxLength = 2;
             this.tb_seikyu_sime_date.Name = "tb_seikyu_sime_date";
             this.tb_seikyu_sime_date.Size = new System.Drawing.Size(27, 19);
-            this.tb_seikyu_sime_date.TabIndex = 16;
+            this.tb_seikyu_sime_date.TabIndex = 15;
             this.tb_seikyu_sime_date.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tb_siharai_tuki
             // 
             this.tb_siharai_tuki.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_siharai_tuki.Location = new System.Drawing.Point(176, 43);
+            this.tb_siharai_tuki.Location = new System.Drawing.Point(216, 43);
             this.tb_siharai_tuki.MaxLength = 2;
             this.tb_siharai_tuki.Name = "tb_siharai_tuki";
             this.tb_siharai_tuki.Size = new System.Drawing.Size(26, 19);
-            this.tb_siharai_tuki.TabIndex = 20;
+            this.tb_siharai_tuki.TabIndex = 18;
             this.tb_siharai_tuki.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label30
@@ -483,13 +483,13 @@
             this.label30.Location = new System.Drawing.Point(104, 46);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(17, 12);
-            this.label30.TabIndex = 0;
+            this.label30.TabIndex = 1;
             this.label30.Text = "日";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(336, 46);
+            this.label20.Location = new System.Drawing.Point(413, 46);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(17, 12);
             this.label20.TabIndex = 1;
@@ -498,17 +498,17 @@
             // tb_siharai_hi
             // 
             this.tb_siharai_hi.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_siharai_hi.Location = new System.Drawing.Point(303, 43);
+            this.tb_siharai_hi.Location = new System.Drawing.Point(380, 43);
             this.tb_siharai_hi.MaxLength = 2;
             this.tb_siharai_hi.Name = "tb_siharai_hi";
             this.tb_siharai_hi.Size = new System.Drawing.Size(27, 19);
-            this.tb_siharai_hi.TabIndex = 21;
+            this.tb_siharai_hi.TabIndex = 20;
             this.tb_siharai_hi.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(208, 46);
+            this.label27.Location = new System.Drawing.Point(248, 46);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(39, 12);
             this.label27.TabIndex = 65;
@@ -517,7 +517,7 @@
             // textBox16
             // 
             this.textBox16.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox16.Location = new System.Drawing.Point(127, 18);
+            this.textBox16.Location = new System.Drawing.Point(167, 18);
             this.textBox16.Name = "textBox16";
             this.textBox16.ReadOnly = true;
             this.textBox16.Size = new System.Drawing.Size(49, 19);
@@ -713,7 +713,7 @@
             this.groupBox4.Controls.Add(this.tb_hasu_kbn);
             this.groupBox4.Controls.Add(this.tb_jisyaden_kbn);
             this.groupBox4.Controls.Add(this.label29);
-            this.groupBox4.Location = new System.Drawing.Point(377, 157);
+            this.groupBox4.Location = new System.Drawing.Point(458, 157);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(313, 113);
             this.groupBox4.TabIndex = 99;
@@ -737,7 +737,7 @@
             this.tb_syouhizei_sansyutu_kbn.MaxLength = 1;
             this.tb_syouhizei_sansyutu_kbn.Name = "tb_syouhizei_sansyutu_kbn";
             this.tb_syouhizei_sansyutu_kbn.Size = new System.Drawing.Size(21, 19);
-            this.tb_syouhizei_sansyutu_kbn.TabIndex = 0;
+            this.tb_syouhizei_sansyutu_kbn.TabIndex = 24;
             this.tb_syouhizei_sansyutu_kbn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tb_syouhizei_sansyutu_kbn.DoubleClick += new System.EventHandler(this.tb_syouhizei_sansyutu_kbn_DoubleClick);
             // 
@@ -768,7 +768,7 @@
             this.tb_hasu_syori_tani.MaxLength = 1;
             this.tb_hasu_syori_tani.Name = "tb_hasu_syori_tani";
             this.tb_hasu_syori_tani.Size = new System.Drawing.Size(21, 19);
-            this.tb_hasu_syori_tani.TabIndex = 0;
+            this.tb_hasu_syori_tani.TabIndex = 23;
             this.tb_hasu_syori_tani.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tb_hasu_syori_tani.DoubleClick += new System.EventHandler(this.tb_hasu_syori_tani_DoubleClick);
             // 
@@ -779,7 +779,7 @@
             this.textBox22.Name = "textBox22";
             this.textBox22.ReadOnly = true;
             this.textBox22.Size = new System.Drawing.Size(100, 19);
-            this.textBox22.TabIndex = 145;
+            this.textBox22.TabIndex = 1;
             this.textBox22.TabStop = false;
             this.textBox22.Text = "端数区分";
             // 
@@ -819,7 +819,7 @@
             this.tb_hasu_kbn.MaxLength = 1;
             this.tb_hasu_kbn.Name = "tb_hasu_kbn";
             this.tb_hasu_kbn.Size = new System.Drawing.Size(21, 19);
-            this.tb_hasu_kbn.TabIndex = 0;
+            this.tb_hasu_kbn.TabIndex = 22;
             this.tb_hasu_kbn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tb_hasu_kbn.DoubleClick += new System.EventHandler(this.tb_hasu_kbn_DoubleClick);
             // 
@@ -830,7 +830,7 @@
             this.tb_jisyaden_kbn.MaxLength = 1;
             this.tb_jisyaden_kbn.Name = "tb_jisyaden_kbn";
             this.tb_jisyaden_kbn.Size = new System.Drawing.Size(21, 19);
-            this.tb_jisyaden_kbn.TabIndex = 0;
+            this.tb_jisyaden_kbn.TabIndex = 21;
             this.tb_jisyaden_kbn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tb_jisyaden_kbn.DoubleClick += new System.EventHandler(this.tb_jisyaden_kbn_DoubleClick);
             // 
@@ -866,7 +866,7 @@
             this.tb_eigyou_start_time.MaxLength = 20;
             this.tb_eigyou_start_time.Name = "tb_eigyou_start_time";
             this.tb_eigyou_start_time.Size = new System.Drawing.Size(107, 19);
-            this.tb_eigyou_start_time.TabIndex = 12;
+            this.tb_eigyou_start_time.TabIndex = 13;
             // 
             // tb_kessan_start_mmdd
             // 
@@ -890,7 +890,7 @@
             this.tb_kessan_end_mmdd.MaxLength = 4;
             this.tb_kessan_end_mmdd.Name = "tb_kessan_end_mmdd";
             this.tb_kessan_end_mmdd.Size = new System.Drawing.Size(79, 19);
-            this.tb_kessan_end_mmdd.TabIndex = 13;
+            this.tb_kessan_end_mmdd.TabIndex = 12;
             // 
             // tb_yubin_no
             // 
@@ -914,7 +914,7 @@
             this.tb_url.Location = new System.Drawing.Point(441, 82);
             this.tb_url.MaxLength = 60;
             this.tb_url.Name = "tb_url";
-            this.tb_url.Size = new System.Drawing.Size(418, 19);
+            this.tb_url.Size = new System.Drawing.Size(416, 19);
             this.tb_url.TabIndex = 10;
             // 
             // tb_jusyo1
@@ -986,7 +986,7 @@
             this.btn_tsuika.Location = new System.Drawing.Point(81, 3);
             this.btn_tsuika.Name = "btn_tsuika";
             this.btn_tsuika.Size = new System.Drawing.Size(75, 23);
-            this.btn_tsuika.TabIndex = 1;
+            this.btn_tsuika.TabIndex = 25;
             this.btn_tsuika.Text = "追加";
             this.btn_tsuika.UseVisualStyleBackColor = true;
             this.btn_tsuika.Click += new System.EventHandler(this.btn_tsuika_Click);
@@ -996,7 +996,7 @@
             this.btn_hensyu.Location = new System.Drawing.Point(162, 3);
             this.btn_hensyu.Name = "btn_hensyu";
             this.btn_hensyu.Size = new System.Drawing.Size(75, 23);
-            this.btn_hensyu.TabIndex = 2;
+            this.btn_hensyu.TabIndex = 26;
             this.btn_hensyu.Text = "編集";
             this.btn_hensyu.UseVisualStyleBackColor = true;
             this.btn_hensyu.Click += new System.EventHandler(this.btn_hensyu_Click);
@@ -1004,44 +1004,45 @@
             // dgv_tantousya
             // 
             this.dgv_tantousya.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tantousya.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tantousya.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgv_tantousya.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_tantousya.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_tantousya.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_tantousya.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_tantousya.Location = new System.Drawing.Point(0, 0);
             this.dgv_tantousya.Name = "dgv_tantousya";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_tantousya.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_tantousya.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgv_tantousya.RowTemplate.Height = 21;
             this.dgv_tantousya.Size = new System.Drawing.Size(880, 75);
             this.dgv_tantousya.TabIndex = 133;
+            this.dgv_tantousya.TabStop = false;
             // 
             // btn_touroku
             // 
             this.btn_touroku.Location = new System.Drawing.Point(10, 3);
             this.btn_touroku.Name = "btn_touroku";
             this.btn_touroku.Size = new System.Drawing.Size(75, 23);
-            this.btn_touroku.TabIndex = 0;
+            this.btn_touroku.TabIndex = 27;
             this.btn_touroku.Text = "登録";
             this.btn_touroku.UseVisualStyleBackColor = true;
             this.btn_touroku.Click += new System.EventHandler(this.btn_touroku_Click);
@@ -1051,7 +1052,7 @@
             this.btn_syuuryou.Location = new System.Drawing.Point(791, 3);
             this.btn_syuuryou.Name = "btn_syuuryou";
             this.btn_syuuryou.Size = new System.Drawing.Size(75, 23);
-            this.btn_syuuryou.TabIndex = 1;
+            this.btn_syuuryou.TabIndex = 28;
             this.btn_syuuryou.Text = "終了";
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
