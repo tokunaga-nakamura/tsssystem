@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_siire));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.dtp_siire_date = new System.Windows.Forms.DateTimePicker();
             this.textBox11 = new System.Windows.Forms.TextBox();
@@ -59,14 +60,14 @@
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_siire)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -98,6 +99,8 @@
             this.dtp_siire_date.Name = "dtp_siire_date";
             this.dtp_siire_date.Size = new System.Drawing.Size(107, 19);
             this.dtp_siire_date.TabIndex = 25;
+            this.dtp_siire_date.ValueChanged += new System.EventHandler(this.dtp_siire_date_ValueChanged);
+            this.dtp_siire_date.Validating += new System.ComponentModel.CancelEventHandler(this.dtp_siire_date_Validating);
             // 
             // textBox11
             // 
@@ -127,7 +130,6 @@
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
             this.tb_torihikisaki_cd.Size = new System.Drawing.Size(85, 19);
             this.tb_torihikisaki_cd.TabIndex = 1;
-            this.tb_torihikisaki_cd.TextChanged += new System.EventHandler(this.tb_torihikisaki_cd_TextChanged);
             this.tb_torihikisaki_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_torihikisaki_cd_Validating);
             // 
             // textBox4
@@ -229,6 +231,7 @@
             this.btn_syuuryou.TabIndex = 0;
             this.btn_syuuryou.Text = "終了";
             this.btn_syuuryou.UseVisualStyleBackColor = true;
+            this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
             // splitContainer3
             // 
@@ -393,65 +396,72 @@
             this.label1.TabIndex = 33;
             this.label1.Text = "一時的な単価変更はこの画面で行ってください。恒久的な単価変更は部品マスタメンテで修正してください。";
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "備考";
-            this.Column1.Name = "Column1";
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "支払計上日";
-            this.Column8.Name = "Column8";
-            // 
-            // Column7
-            // 
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle26.Format = "N0";
-            dataGridViewCellStyle26.NullValue = null;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle26;
-            this.Column7.HeaderText = "仕入締日";
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 80;
-            // 
-            // Column6
-            // 
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle27;
-            this.Column6.HeaderText = "仕入金額（税抜）";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 120;
-            // 
-            // Column5
-            // 
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle28;
-            this.Column5.HeaderText = "仕入単価";
-            this.Column5.Name = "Column5";
-            // 
-            // Column4
-            // 
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle29.Format = "N0";
-            dataGridViewCellStyle29.NullValue = null;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle29;
-            this.Column4.HeaderText = "仕入数量";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 80;
-            // 
-            // Column3
-            // 
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle30;
-            this.Column3.HeaderText = "部品名";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 200;
-            // 
             // Column2
             // 
             this.Column2.HeaderText = "部品コード";
             this.Column2.Name = "Column2";
             this.Column2.Width = 85;
+            // 
+            // Column3
+            // 
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle13;
+            this.Column3.HeaderText = "部品名";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 200;
+            // 
+            // Column4
+            // 
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Format = "N0";
+            dataGridViewCellStyle14.NullValue = null;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle14;
+            this.Column4.HeaderText = "仕入数量";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 80;
+            // 
+            // Column5
+            // 
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle15;
+            this.Column5.HeaderText = "仕入単価";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle16;
+            this.Column6.HeaderText = "仕入金額（税抜）";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 120;
+            // 
+            // Column7
+            // 
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle17.Format = "N0";
+            dataGridViewCellStyle17.NullValue = null;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle17;
+            this.Column7.HeaderText = "仕入締日";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 80;
+            // 
+            // Column8
+            // 
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle18;
+            this.Column8.HeaderText = "支払計上日";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "備考";
+            this.Column1.Name = "Column1";
             // 
             // frm_siire
             // 
