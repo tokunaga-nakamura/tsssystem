@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_siire_simebi));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.btn_syukei = new System.Windows.Forms.Button();
+            this.tb_siire_simebi = new System.Windows.Forms.TextBox();
             this.tb_update_datetime = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tb_update_user_cd = new System.Windows.Forms.TextBox();
@@ -45,17 +47,15 @@
             this.tb_torihikisaki_name = new System.Windows.Forms.TextBox();
             this.tb_torihikisaki_cd = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.dgv_siire = new System.Windows.Forms.DataGridView();
-            this.btn_touroku = new System.Windows.Forms.Button();
-            this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.ss_status = new System.Windows.Forms.StatusStrip();
-            this.tb_siire_simebi = new System.Windows.Forms.TextBox();
-            this.btn_syukei = new System.Windows.Forms.Button();
+            this.dgv_siire_simebi = new System.Windows.Forms.DataGridView();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_touroku = new System.Windows.Forms.Button();
+            this.btn_syuuryou = new System.Windows.Forms.Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.ss_status = new System.Windows.Forms.StatusStrip();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -64,7 +64,7 @@
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_siire)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_siire_simebi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -132,10 +132,29 @@
             // 
             // splitContainer3.Panel2
             // 
-            this.splitContainer3.Panel2.Controls.Add(this.dgv_siire);
+            this.splitContainer3.Panel2.Controls.Add(this.dgv_siire_simebi);
             this.splitContainer3.Size = new System.Drawing.Size(884, 432);
             this.splitContainer3.SplitterDistance = 75;
             this.splitContainer3.TabIndex = 8;
+            // 
+            // btn_syukei
+            // 
+            this.btn_syukei.Location = new System.Drawing.Point(391, 35);
+            this.btn_syukei.Name = "btn_syukei";
+            this.btn_syukei.Size = new System.Drawing.Size(75, 23);
+            this.btn_syukei.TabIndex = 3;
+            this.btn_syukei.Text = "集計";
+            this.btn_syukei.UseVisualStyleBackColor = true;
+            this.btn_syukei.Click += new System.EventHandler(this.btn_syukei_Click);
+            // 
+            // tb_siire_simebi
+            // 
+            this.tb_siire_simebi.Location = new System.Drawing.Point(120, 35);
+            this.tb_siire_simebi.MaxLength = 40;
+            this.tb_siire_simebi.Name = "tb_siire_simebi";
+            this.tb_siire_simebi.Size = new System.Drawing.Size(160, 19);
+            this.tb_siire_simebi.TabIndex = 2;
+            this.tb_siire_simebi.Validating += new System.ComponentModel.CancelEventHandler(this.tb_siire_simebi_Validating);
             // 
             // tb_update_datetime
             // 
@@ -249,21 +268,54 @@
             this.textBox4.TabStop = false;
             this.textBox4.Text = "取引先コード";
             // 
-            // dgv_siire
+            // dgv_siire_simebi
             // 
-            this.dgv_siire.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_siire.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_siire_simebi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_siire_simebi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column7,
             this.Column6,
             this.Column2,
             this.Column3});
-            this.dgv_siire.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_siire.Location = new System.Drawing.Point(0, 0);
-            this.dgv_siire.Name = "dgv_siire";
-            this.dgv_siire.RowHeadersVisible = false;
-            this.dgv_siire.RowTemplate.Height = 21;
-            this.dgv_siire.Size = new System.Drawing.Size(880, 349);
-            this.dgv_siire.TabIndex = 0;
+            this.dgv_siire_simebi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_siire_simebi.Location = new System.Drawing.Point(0, 0);
+            this.dgv_siire_simebi.Name = "dgv_siire_simebi";
+            this.dgv_siire_simebi.RowHeadersVisible = false;
+            this.dgv_siire_simebi.RowTemplate.Height = 21;
+            this.dgv_siire_simebi.Size = new System.Drawing.Size(880, 349);
+            this.dgv_siire_simebi.TabIndex = 0;
+            // 
+            // Column7
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column7.HeaderText = "仕入締日";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column6.HeaderText = "仕入金額（税抜）";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 120;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "消費税額";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 120;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "仕入金額合計";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 120;
             // 
             // btn_touroku
             // 
@@ -314,58 +366,6 @@
             this.ss_status.TabIndex = 6;
             this.ss_status.Text = "statusStrip1";
             // 
-            // tb_siire_simebi
-            // 
-            this.tb_siire_simebi.Location = new System.Drawing.Point(120, 35);
-            this.tb_siire_simebi.MaxLength = 40;
-            this.tb_siire_simebi.Name = "tb_siire_simebi";
-            this.tb_siire_simebi.Size = new System.Drawing.Size(160, 19);
-            this.tb_siire_simebi.TabIndex = 2;
-            this.tb_siire_simebi.Validating += new System.ComponentModel.CancelEventHandler(this.tb_siire_simebi_Validating);
-            // 
-            // btn_syukei
-            // 
-            this.btn_syukei.Location = new System.Drawing.Point(391, 35);
-            this.btn_syukei.Name = "btn_syukei";
-            this.btn_syukei.Size = new System.Drawing.Size(75, 23);
-            this.btn_syukei.TabIndex = 3;
-            this.btn_syukei.Text = "集計";
-            this.btn_syukei.UseVisualStyleBackColor = true;
-            this.btn_syukei.Click += new System.EventHandler(this.btn_syukei_Click);
-            // 
-            // Column7
-            // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle11.Format = "N0";
-            dataGridViewCellStyle11.NullValue = null;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle11;
-            this.Column7.HeaderText = "仕入締日";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle12;
-            this.Column6.HeaderText = "仕入金額（税抜）";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 120;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "消費税額";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 120;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "仕入金額合計";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 120;
-            // 
             // frm_siire_simebi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -385,7 +385,7 @@
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_siire)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_siire_simebi)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -413,7 +413,7 @@
         private System.Windows.Forms.TextBox tb_torihikisaki_name;
         private System.Windows.Forms.TextBox tb_torihikisaki_cd;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.DataGridView dgv_siire;
+        private System.Windows.Forms.DataGridView dgv_siire_simebi;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
