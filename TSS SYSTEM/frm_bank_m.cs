@@ -30,7 +30,7 @@ namespace TSS_SYSTEM
             //取引先コードのチェック
             if (chk_torihikisaki_cd() == false)
             {
-                MessageBox.Show("取引先コード6文字で入力してください。");
+                MessageBox.Show("取引先コードは6文字で入力してください。");
                 tb_torihikisaki_cd.Focus();
                 return;
             }
@@ -237,18 +237,7 @@ namespace TSS_SYSTEM
 
         private void tb_torihikisaki_cd_Leave(object sender, EventArgs e)
         {
-            DataTable dt_work2= new DataTable();
-            dt_work2 = tss.OracleSelect("select torihikisaki_name from TSS_TORIHIKISAKI_M where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'");
-
-            if (dt_work2.Rows.Count != 0)
-            {
-                tb_torihikisaki_name.Text = dt_work2.Rows[0][0].ToString();
-            }
-            else
-            {
-                MessageBox.Show("取引先マスタに登録がありません。取引先マスタの登録をしてください。");
-                return;
-            }
+            
         }
 
         private void tb_kouza_syubetu_TextChanged(object sender, EventArgs e)
@@ -399,6 +388,22 @@ namespace TSS_SYSTEM
               tb_kouza_syubetu.Text = "";
               tb_kouza_no.Text = "";
               tb_kouza_meigi.Text = "";
+        }
+
+        private void tb_torihikisaki_cd_Validating(object sender, CancelEventArgs e)
+        {
+            DataTable dt_work2 = new DataTable();
+            dt_work2 = tss.OracleSelect("select torihikisaki_name from TSS_TORIHIKISAKI_M where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'");
+
+            if (dt_work2.Rows.Count != 0)
+            {
+                tb_torihikisaki_name.Text = dt_work2.Rows[0][0].ToString();
+            }
+            else
+            {
+                //MessageBox.Show("取引先マスタに登録がありません。取引先マスタの登録をしてください。");
+                return;
+            }
         }
     }
 }

@@ -15,6 +15,7 @@ namespace TSS_SYSTEM
         TssSystemLibrary tss = new TssSystemLibrary();
         DataTable dt_m = new DataTable();
         string w_str = "06";
+        double w_siire_no;
         
         public frm_siire()
         {
@@ -44,83 +45,62 @@ namespace TSS_SYSTEM
         {
             DateTime out_siire_simebi = new DateTime();  //戻り値用
             DataTable dt_work = new DataTable();
+            string str_day;
             dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'");
             
-            string str_day = dt_work.Rows[0][13].ToString(); //締日の日付
-
-            //仕入締日が月末「99」のとき
-            if (str_day == "99")
+            if(dt_work.Rows.Count == 0)
             {
-                //仕入日
-                DateTime dt1 = dtp_siire_date.Value;
-                //仕入日の末日の日付
-                DateTime dt2 = new DateTime(dt1.Year, dt1.Month, DateTime.DaysInMonth(dt1.Year, dt1.Month));
-                //仕入日の末日の日付を戻り値として返す
-                out_siire_simebi = dt2;
-            }
 
-            else
+            }
+            if (dt_work.Rows.Count != 0)
             {
-                //仕入日
-                DateTime dt1 = dtp_siire_date.Value;
+               str_day = dt_work.Rows[0][13].ToString(); //締日の日付
+              
+                //仕入締日が月末「99」のとき
+               if (str_day == "99")
+               {
+                   //仕入日
+                   DateTime dt1 = dtp_siire_date.Value;
+                   //仕入日の末日の日付
+                   DateTime dt2 = new DateTime(dt1.Year, dt1.Month, DateTime.DaysInMonth(dt1.Year, dt1.Month));
+                   //仕入日の末日の日付を戻り値として返す
+                   out_siire_simebi = dt2;
+               }
 
-                //年と月の値取出し
-                int iYear = dt1.Year;
-                int iMonth = dt1.Month;
+               else
+               {
+                   //仕入日
+                   DateTime dt1 = dtp_siire_date.Value;
 
-                string str_year = iYear.ToString();
-                string str_month = iMonth.ToString();
+                   //年と月の値取出し
+                   int iYear = dt1.Year;
+                   int iMonth = dt1.Month;
 
-                //年月日をつなげる。str_dayは、取引先マスター上の仕入締日
-                string keisan = str_year + "/" + str_month + "/" + str_day;
-                //つなげた値をDatetime型に変換
-                DateTime dt_keisan = DateTime.Parse(keisan);
+                   string str_year = iYear.ToString();
+                   string str_month = iMonth.ToString();
 
-                //仕入処理日と、つなげた日付の比較　仕入締日以前の日付の場合の処理
-                if (dt_keisan.DayOfYear >= dt1.DayOfYear)
-                {
-                    //MessageBox.Show("仕入締日は" + dt_keisan.ToShortDateString() + "です。");
+                   //年月日をつなげる。str_dayは、取引先マスター上の仕入締日
+                   string keisan = str_year + "/" + str_month + "/" + str_day;
+                   //つなげた値をDatetime型に変換
+                   DateTime dt_keisan = DateTime.Parse(keisan);
 
+                   //仕入処理日と、つなげた日付の比較　仕入締日以前の日付の場合の処理
+                   if (dt_keisan.DayOfYear >= dt1.DayOfYear)
+                   {
+                       out_siire_simebi = dt_keisan;
 
-                    out_siire_simebi = dt_keisan;
-
-
-                    //TimeSpan dt_keisan2 = dt1 - dt_keisan;
-
-                    //string dt_span = dt_keisan2.Days.ToString();
-
-                    //MessageBox.Show(dt_span);
-
-                    //MessageBox.Show(dt_keisan.ToShortDateString());
-
-                }
-                //その月の仕入締日を過ぎてしまった場合
-                else
-                {
-                    DateTime dt3 = dt_keisan.AddMonths(1);
-                    //DateTime dt2 = new DateTime(dt1.Year, dt1.Month, DateTime.DaysInMonth(dt1.Year, dt1.Month));
-                    //DateTime dt2 = new DateTime(dt1.Year, dt1.Month, DateTime.DaysInMonth(dt1.Year, dt1.Month));
-                    //DateTime dt3 = dt2.AddMonths(int.Parse(kaisyu_tuki));
-                    //MessageBox.Show("仕入締日は" + dt3.ToShortDateString() + "です。");
-                    out_siire_simebi = dt3;
-                }                
-                //DateTime dt2 = new DateTime(dt1.Year, dt1.Month, DateTime.DaysInMonth(dt1.Year, dt1.Month));
-
-                //DateTime dt4  = out_siire_simebi;
-                //int d1 = int.Parse(dt1.Day.ToString());
-                //int d2 = int.Parse(str_day);
-                
-                //if( d1 >= d2)
-                //{
-                //    DateTime dt2 = new DateTime(dt1.Year, dt1.Month, DateTime.DaysInMonth(dt1.Year, dt1.Month));
-                //}
-                //if( d1 < d2)
-
-                //DateTime dt2 = new DateTime(dt1.Day);
-
-                
-                //out_torihikisaki_name = dt_work.Rows[0]["torihikisaki_name"].ToString();
+                   }
+                   //その月の仕入締日を過ぎてしまった場合
+                   else
+                   {
+                       DateTime dt3 = dt_keisan.AddMonths(1);
+                       out_siire_simebi = dt3;
+                   }
+               }
             }
+            
+
+            
             return out_siire_simebi;
 
         }
@@ -152,7 +132,10 @@ namespace TSS_SYSTEM
 
         private void frm_siire_Load(object sender, EventArgs e)
         {
-            SEQ();
+            w_siire_no = tss.GetSeq("06");
+            tb_siire_no.Text = w_siire_no.ToString("0000000000");
+            
+            //SEQ();
 
             dgv_siire_disp();
         }
@@ -212,14 +195,11 @@ namespace TSS_SYSTEM
                 //部品コードをキーに、部品名、仕入単価を引っ張ってくる
 
                 DataTable dt_work = new DataTable();
-                //DataTable dt_work2 = new DataTable();
                 int j = dt_work.Rows.Count;
-                //int j2 = dt_work2.Rows.Count;
+                
                 
                 dt_work = tss.OracleSelect("select * from tss_buhin_m where buhin_cd = '" + dgv.CurrentCell.Value.ToString() + "'");
-                //dt_work2 = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "'");
 
-               
                 //取引先マスタの区分を取得
                 string seikyu_simebi = dt_work2.Rows[j2][13].ToString();//請求締日
                 string kaisyu_tuki = dt_work2.Rows[j2][14].ToString();//回収月
@@ -228,10 +208,6 @@ namespace TSS_SYSTEM
                 string siharai_simebi = dt_work2.Rows[j2][16].ToString();//支払締日
                 string siharai_tuki = dt_work2.Rows[j2][17].ToString();//支払月
                 string siharai_hi = dt_work2.Rows[j2][18].ToString();//支払日
-
-                //string hasu_kbn = dt_work2.Rows[j2][22].ToString();//端数区分　0:切捨て　1:四捨五入　2:切上げ
-                //string hasu_syori_tani = dt_work2.Rows[j2][23].ToString();//端数処理単位　0:円未満 1:十円未満 2:百円未満
-
 
                 if (dt_work.Rows.Count <= 0)
                 {
@@ -271,13 +247,24 @@ namespace TSS_SYSTEM
                 DataTable dtTmp = (DataTable)dgv_siire.DataSource;
 
                 //仕入金額計算
+                
+                //仕入数量の小数点第三位を切捨て
+                double db = double.Parse(dgv_siire.Rows[i].Cells[2].Value.ToString());
+                double dValue = ToRoundDown(db, 2);
+                dgv_siire.Rows[i].Cells[2].Value = dValue;
+
+                //仕入単価の小数点第三位を切捨て
+                double db2 = double.Parse(dgv_siire.Rows[i].Cells[3].Value.ToString());
+                double dValue2 = ToRoundDown(db2, 2);
+                dgv_siire.Rows[i].Cells[3].Value = dValue2;
+
 
                 double suryou;
                 double tanka;
                 double siire_kingaku;
 
-                suryou = double.Parse(dgv.Rows[i].Cells[2].Value.ToString());
-                tanka = double.Parse(dgv.Rows[i].Cells[3].Value.ToString());
+                suryou = dValue;
+                tanka = dValue2; 
 
                 siire_kingaku = suryou * tanka;
 
@@ -333,7 +320,6 @@ namespace TSS_SYSTEM
 
                 dgv.Rows[i].Cells[4].Value = siire_kingaku;
 
-                //return;
             }
 
             if (dgv.Columns[e.ColumnIndex].Index == 2 && dgv.CurrentCell.Value.ToString() == null && dgv.CurrentCell.Value.ToString() == "")
@@ -344,9 +330,20 @@ namespace TSS_SYSTEM
 
         }
 
+        //データグリッドビューに入力された数値の小数点以下第三桁を切り捨てる
+        public static double ToRoundDown(double dValue, int iDigits)
+        {
+            double dCoef = System.Math.Pow(10, iDigits);
+
+            return dValue > 0 ? System.Math.Floor(dValue * dCoef) / dCoef :
+                                System.Math.Ceiling(dValue * dCoef) / dCoef;
+        }
+
+
         private void btn_touroku_Click(object sender, EventArgs e)
         {
             DataTable dt_work = new DataTable();
+
 
             //登録前に全ての項目をチェック
             //仕入番号
@@ -436,7 +433,7 @@ namespace TSS_SYSTEM
             dt_work = tss.OracleSelect("select * from tss_siire_m where siire_no = '" + tb_siire_no.Text.ToString() + "'");
             int rc = dt_work.Rows.Count;
             int rc2 = dgv_siire.Rows.Count;
-
+            tss.GetUser();
 
             if (rc == 0)
             {
@@ -474,8 +471,8 @@ namespace TSS_SYSTEM
                 }
 
                 tb_create_user_cd.Text = tss.user_cd;
-                tb_create_datetime.Text = dtp_siire_date.Value.ToString();
-                MessageBox.Show("仕入登録完了しました。");
+                tb_create_datetime.Text = DateTime.Now.ToString();
+                MessageBox.Show("仕入登録しました。");
 
             }
             else
@@ -491,7 +488,7 @@ namespace TSS_SYSTEM
                     //仕入マスタから削除してインサート
                     tss.OracleDelete("delete from tss_siire_m WHERE siire_no = '" + tb_siire_no.Text.ToString() + "'");
 
-                    for (int i = 0; i < rc2 - 1; i++)
+                    for (int i = 0; i < rc2 - 1 ; i++)
                     {
                         bool bl = tss.OracleInsert("insert into tss_siire_m (siire_no, seq,torihikisaki_cd, siire_date,buhin_cd,buhin_name,siire_su,siire_tanka,siire_kingaku,siire_denpyo_no,siire_simebi,bikou,create_user_cd,create_datetime,update_user_cd,update_datetime) values ('"
 
@@ -507,8 +504,8 @@ namespace TSS_SYSTEM
                                   + tb_siire_denpyou_no.Text.ToString() + "','"
                                   + dgv_siire.Rows[i].Cells[5].Value.ToString() + "','"
                                   + dgv_siire.Rows[i].Cells[7].Value.ToString() + "','"
-                                  + tb_create_user_cd.Text.ToString() + "',"
-                                  + "to_date('" + tb_create_datetime.Text.ToString() + "','YYYY/MM/DD HH24:MI:SS'),'"
+                                  + tb_create_user_cd.Text.ToString() + "',"//←カンマがあると、日付をインサートする際にエラーになるので注意する
+                                  + "to_date('" + tb_create_datetime.Text.ToString() + "','YYYY/MM/DD HH24:MI:SS'),'"　
                                   + tss.user_cd + "',SYSDATE)");
 
 
@@ -525,7 +522,7 @@ namespace TSS_SYSTEM
                     }
                     tb_update_user_cd.Text = tss.user_cd.ToString();
                     tb_update_datetime.Text = DateTime.Now.ToString();
-                    MessageBox.Show("仕入登録完了しました。");
+                    MessageBox.Show("仕入登録しました。");
                 }
                 //「いいえ」が選択された時
                 else if (result == DialogResult.Cancel)
@@ -535,7 +532,6 @@ namespace TSS_SYSTEM
             }
 
         }
-
 
 
         //仕入番号チェック用
@@ -623,19 +619,134 @@ namespace TSS_SYSTEM
 
         private void tb_siire_no_Validating(object sender, CancelEventArgs e)
         {
-            
-            
-            dgv_siire.Rows.Clear();
-            
-            DataTable dt_work = new DataTable();
 
-            dt_work = tss.OracleSelect("select siire_no, seq,torihikisaki_cd, siire_date,buhin_cd,buhin_name,siire_su,siire_tanka,siire_kingaku,siire_denpyo_no,TO_CHAR(siire_simebi, 'YYYY/MM/DD'),TO_CHAR(shiharai_date, 'YYYY/MM/DD'),bikou,DELETE_FLG,create_user_cd,create_datetime,update_user_cd,update_datetime from tss_siire_m where siire_no = '" + tb_siire_no.Text.ToString() + "' ORDER BY SEQ");
-           
+            //入力された売上番号を"0000000000"形式の文字列に変換
+            double w_double;
+            if (double.TryParse(tb_siire_no.Text.ToString(), out w_double))
+            {
+                tb_siire_no.Text = w_double.ToString("0000000000");
+            }
+            else
+            {
+                MessageBox.Show("売上番号に異常があります。");
+                tb_siire_no.Focus();
+            }
+            //新規か既存かの判定
+            if (tb_siire_no.Text.ToString() == w_siire_no.ToString("0000000000"))
+            {
+                //新規
+                //dgvに空のデータを表示するためのダミー抽出
+                //DataTable dt_work = new DataTable();
+                //dt_work = tss.OracleSelect("select * from tss_uriage_m where uriage_no = '" + tb_siire_no.Text.ToString() + "' order by uriage_no asc,seq asc");
+                ////uriage_sinki(w_dt);
+            }
+            else
+            {
+                //既存仕入の表示
+                DataTable dt_work = new DataTable();
+                dt_work = tss.OracleSelect("select siire_no, seq,torihikisaki_cd, siire_date,buhin_cd,buhin_name,siire_su,siire_tanka,siire_kingaku,siire_denpyo_no,TO_CHAR(siire_simebi, 'YYYY/MM/DD'),TO_CHAR(shiharai_date, 'YYYY/MM/DD'),bikou,DELETE_FLG,create_user_cd,create_datetime,update_user_cd,update_datetime from tss_siire_m where siire_no = '" + tb_siire_no.Text.ToString() + "' ORDER BY SEQ");
+                int rc = dt_work.Rows.Count;
+                
+                if (dt_work.Rows.Count == 0)
+                {
+                    MessageBox.Show("データがありません。");
+                    dgv_siire.Rows.Clear();
+                    tb_torihikisaki_cd.Clear();
+                    tb_torihikisaki_name.Clear();
+                    dtp_siire_date.Value = DateTime.Today;
+                    tb_siire_denpyou_no.Clear();
+                    tb_create_user_cd.Clear();
+                    tb_create_datetime.Clear();
+                    tb_update_user_cd.Clear();
+                    tb_update_datetime.Clear();
+                    tb_siire_no.Text = w_siire_no.ToString("0000000000");
+                    tb_siire_no.Focus();
+                    return;
+                }
+
+                else
+                {
+                    dgv_siire.Rows.Clear();
+                    tb_siire_denpyou_no.Text = dt_work.Rows[0][9].ToString();
+                    tb_torihikisaki_cd.Text = dt_work.Rows[0][2].ToString();
+
+                    tb_torihikisaki_name.Text = tss.get_torihikisaki_name(tb_torihikisaki_cd.Text);
+
+                    dtp_siire_date.Value = DateTime.Parse(dt_work.Rows[0][3].ToString());
+                    tb_create_user_cd.Text = dt_work.Rows[0][14].ToString();
+                    tb_create_datetime.Text = dt_work.Rows[0][15].ToString();
+
+                    tb_update_user_cd.Text = dt_work.Rows[0][16].ToString();
+                    tb_update_datetime.Text = dt_work.Rows[0][17].ToString();
+
+
+                    for (int i = 0; i < rc  ; i++)
+                    {
+                        dgv_siire.Rows.Add();
+                        dgv_siire.Rows[i].Cells[0].Value = dt_work.Rows[i][4].ToString();
+                        dgv_siire.Rows[i].Cells[1].Value = dt_work.Rows[i][5].ToString();
+                        dgv_siire.Rows[i].Cells[2].Value = dt_work.Rows[i][6].ToString();
+                        dgv_siire.Rows[i].Cells[3].Value = dt_work.Rows[i][7].ToString();
+                        dgv_siire.Rows[i].Cells[4].Value = dt_work.Rows[i][8].ToString();
+
+                        dgv_siire.Rows[i].Cells[5].Value = dt_work.Rows[i][10].ToString();
+                        dgv_siire.Rows[i].Cells[6].Value = dt_work.Rows[i][11].ToString();
+                        dgv_siire.Rows[i].Cells[7].Value = dt_work.Rows[i][12].ToString();
+
+                    }
+                }
+               
+            }
+
+        }
+
+
+        private void btn_syuuryou_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        //仕入計上日を変更した際の動き
+        private void dtp_siire_date_ValueChanged(object sender, EventArgs e)
+        {
+            int rc = dgv_siire.Rows.Count;
+            string str_siire_simebi = (get_siire_simebi(dtp_siire_date.Value)).ToShortDateString();
+
+            for (int i = 0; i < rc-1; i++)
+            {
+                dgv_siire.Rows[i].Cells[5].Value = str_siire_simebi;
+            }
+        }
+
+        //仕入伝票番号を変更した際の動き
+        private void tb_siire_denpyou_no_Validating(object sender, CancelEventArgs e)
+        {
+            //既存仕入の表示
+            DataTable dt_work = new DataTable();
+            dt_work = tss.OracleSelect("select siire_no, seq,torihikisaki_cd, siire_date,buhin_cd,buhin_name,siire_su,siire_tanka,siire_kingaku,siire_denpyo_no,TO_CHAR(siire_simebi, 'YYYY/MM/DD'),TO_CHAR(shiharai_date, 'YYYY/MM/DD'),bikou,DELETE_FLG,create_user_cd,create_datetime,update_user_cd,update_datetime from tss_siire_m where siire_denpyo_no = '" + tb_siire_denpyou_no.Text.ToString() + "' ORDER BY SEQ");
             int rc = dt_work.Rows.Count;
 
-            if (rc != 0)
+            if (dt_work.Rows.Count == 0)
             {
-                tb_siire_denpyou_no.Text = dt_work.Rows[0][9].ToString();
+                //MessageBox.Show("データがありません。");
+                dgv_siire.Rows.Clear();
+                tb_torihikisaki_cd.Clear();
+                tb_torihikisaki_name.Clear();
+                dtp_siire_date.Value = DateTime.Today;
+                //tb_siire_denpyou_no.Clear();
+                tb_create_user_cd.Clear();
+                tb_create_datetime.Clear();
+                tb_update_user_cd.Clear();
+                tb_update_datetime.Clear();
+                tb_siire_no.Text = w_siire_no.ToString("0000000000");
+                //tb_siire_no.Focus();
+                return;
+            }
+
+            else
+            {
+                dgv_siire.Rows.Clear();
+                tb_siire_no.Text = dt_work.Rows[0][0].ToString();
                 tb_torihikisaki_cd.Text = dt_work.Rows[0][2].ToString();
 
                 tb_torihikisaki_name.Text = tss.get_torihikisaki_name(tb_torihikisaki_cd.Text);
@@ -648,7 +759,7 @@ namespace TSS_SYSTEM
                 tb_update_datetime.Text = dt_work.Rows[0][17].ToString();
 
 
-                for (int i = 0; i < rc  ; i++)
+                for (int i = 0; i < rc; i++)
                 {
                     dgv_siire.Rows.Add();
                     dgv_siire.Rows[i].Cells[0].Value = dt_work.Rows[i][4].ToString();
@@ -656,58 +767,15 @@ namespace TSS_SYSTEM
                     dgv_siire.Rows[i].Cells[2].Value = dt_work.Rows[i][6].ToString();
                     dgv_siire.Rows[i].Cells[3].Value = dt_work.Rows[i][7].ToString();
                     dgv_siire.Rows[i].Cells[4].Value = dt_work.Rows[i][8].ToString();
-                    
+
                     dgv_siire.Rows[i].Cells[5].Value = dt_work.Rows[i][10].ToString();
                     dgv_siire.Rows[i].Cells[6].Value = dt_work.Rows[i][11].ToString();
                     dgv_siire.Rows[i].Cells[7].Value = dt_work.Rows[i][12].ToString();
-                    
+
                 }
             }
-
-            if (rc == 0)
-            {
-                tb_torihikisaki_cd.Clear();
-                tb_torihikisaki_name.Clear();
-                tb_siire_denpyou_no.Clear();
-                tb_create_user_cd.Clear();
-                tb_create_datetime.Clear();
-                tb_update_user_cd.Clear();
-                tb_update_datetime.Clear();
-                
-                MessageBox.Show("この仕入番号は使用できません");
-                return;
-            }
-
+               
         }
-
-
-        private void btn_syuuryou_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void dtp_siire_date_Validating(object sender, CancelEventArgs e)
-        {
-            ////仕入締日計算メソッドの値をstring型に変換してデータグリッドビューに表示
-            ////DataGridView dgv = (DataGridView)sender;
-            //int rc = dgv_siire.Rows.Count;
-            //string str_siire_simebi = (get_siire_simebi(dtp_siire_date.Value)).ToShortDateString();
-
-            //for (int i = 0; i < rc; i++)
-            //{
-            //    dgv_siire.Rows[i].Cells[5].Value = str_siire_simebi;
-            //}
-        }
-
-        private void dtp_siire_date_ValueChanged(object sender, EventArgs e)
-        {
-            int rc = dgv_siire.Rows.Count;
-            string str_siire_simebi = (get_siire_simebi(dtp_siire_date.Value)).ToShortDateString();
-
-            for (int i = 0; i < rc-1; i++)
-            {
-                dgv_siire.Rows[i].Cells[5].Value = str_siire_simebi;
-            }
-        }
+   
     }
 }

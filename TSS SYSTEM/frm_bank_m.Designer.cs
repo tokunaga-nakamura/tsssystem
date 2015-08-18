@@ -231,6 +231,7 @@
             this.tb_torihikisaki_cd.Size = new System.Drawing.Size(53, 19);
             this.tb_torihikisaki_cd.TabIndex = 0;
             this.tb_torihikisaki_cd.Leave += new System.EventHandler(this.tb_torihikisaki_cd_Leave);
+            this.tb_torihikisaki_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_torihikisaki_cd_Validating);
             // 
             // textBox5
             // 
