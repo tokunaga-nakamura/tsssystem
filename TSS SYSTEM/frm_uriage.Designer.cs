@@ -34,6 +34,7 @@
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.lbl_seikyuu = new System.Windows.Forms.Label();
             this.tb_torihikisaki_cd = new System.Windows.Forms.TextBox();
             this.tb_uriage_date = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -141,6 +142,7 @@
             // 
             // splitContainer3.Panel1
             // 
+            this.splitContainer3.Panel1.Controls.Add(this.lbl_seikyuu);
             this.splitContainer3.Panel1.Controls.Add(this.tb_torihikisaki_cd);
             this.splitContainer3.Panel1.Controls.Add(this.tb_uriage_date);
             this.splitContainer3.Panel1.Controls.Add(this.textBox1);
@@ -156,13 +158,23 @@
             this.splitContainer3.SplitterDistance = 78;
             this.splitContainer3.TabIndex = 7;
             // 
+            // lbl_seikyuu
+            // 
+            this.lbl_seikyuu.AutoSize = true;
+            this.lbl_seikyuu.ForeColor = System.Drawing.Color.Red;
+            this.lbl_seikyuu.Location = new System.Drawing.Point(224, 56);
+            this.lbl_seikyuu.Name = "lbl_seikyuu";
+            this.lbl_seikyuu.Size = new System.Drawing.Size(60, 12);
+            this.lbl_seikyuu.TabIndex = 6;
+            this.lbl_seikyuu.Text = "lbl_seikyuu";
+            // 
             // tb_torihikisaki_cd
             // 
             this.tb_torihikisaki_cd.BackColor = System.Drawing.Color.PowderBlue;
             this.tb_torihikisaki_cd.Location = new System.Drawing.Point(110, 28);
             this.tb_torihikisaki_cd.MaxLength = 6;
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
-            this.tb_torihikisaki_cd.Size = new System.Drawing.Size(57, 19);
+            this.tb_torihikisaki_cd.Size = new System.Drawing.Size(51, 19);
             this.tb_torihikisaki_cd.TabIndex = 1;
             this.tb_torihikisaki_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_torihikisaki_cd_Validating);
             // 
@@ -209,7 +221,7 @@
             // tb_torihikisaki_name
             // 
             this.tb_torihikisaki_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_torihikisaki_name.Location = new System.Drawing.Point(167, 28);
+            this.tb_torihikisaki_name.Location = new System.Drawing.Point(161, 28);
             this.tb_torihikisaki_name.Name = "tb_torihikisaki_name";
             this.tb_torihikisaki_name.ReadOnly = true;
             this.tb_torihikisaki_name.Size = new System.Drawing.Size(398, 19);
@@ -258,14 +270,18 @@
             this.dgv_m.RowTemplate.Height = 21;
             this.dgv_m.Size = new System.Drawing.Size(880, 319);
             this.dgv_m.TabIndex = 0;
+            this.dgv_m.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_m_CellValidated);
+            this.dgv_m.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgv_m_CellValidating);
             // 
             // tb_uriage_goukei
             // 
             this.tb_uriage_goukei.BackColor = System.Drawing.Color.Gainsboro;
             this.tb_uriage_goukei.Location = new System.Drawing.Point(770, 3);
             this.tb_uriage_goukei.Name = "tb_uriage_goukei";
+            this.tb_uriage_goukei.ReadOnly = true;
             this.tb_uriage_goukei.Size = new System.Drawing.Size(100, 19);
             this.tb_uriage_goukei.TabIndex = 3;
+            this.tb_uriage_goukei.TabStop = false;
             this.tb_uriage_goukei.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox10
@@ -287,6 +303,7 @@
             this.btn_touroku.TabIndex = 0;
             this.btn_touroku.Text = "登録";
             this.btn_touroku.UseVisualStyleBackColor = true;
+            this.btn_touroku.Click += new System.EventHandler(this.btn_touroku_Click);
             // 
             // btn_syuuryou
             // 
@@ -353,5 +370,6 @@
         private System.Windows.Forms.TextBox tb_uriage_goukei;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Button btn_touroku;
+        private System.Windows.Forms.Label lbl_seikyuu;
     }
 }
