@@ -215,6 +215,12 @@
     <Compile Include="frm_select_juchu.Designer.cs">
       <DependentUpon>frm_select_juchu.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_siharai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_siharai.Designer.cs">
+      <DependentUpon>frm_siharai.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_siire.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -334,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_select_juchu.resx">
       <DependentUpon>frm_select_juchu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_siharai.resx">
+      <DependentUpon>frm_siharai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_siire.resx">
       <DependentUpon>frm_siire.cs</DependentUpon>

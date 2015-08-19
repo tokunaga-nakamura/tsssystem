@@ -474,6 +474,20 @@ namespace TSS_SYSTEM
                 tb_create_datetime.Text = DateTime.Now.ToString();
                 MessageBox.Show("仕入登録しました。");
 
+                w_siire_no = tss.GetSeq("06");
+                dgv_siire.Rows.Clear();
+                tb_torihikisaki_cd.Clear();
+                tb_torihikisaki_name.Clear();
+                dtp_siire_date.Value = DateTime.Today;
+                tb_siire_denpyou_no.Clear();
+                tb_create_user_cd.Clear();
+                tb_create_datetime.Clear();
+                tb_update_user_cd.Clear();
+                tb_update_datetime.Clear();
+                tb_siire_no.Text = w_siire_no.ToString("0000000000");
+
+                return;
+
             }
             else
             {
@@ -523,6 +537,22 @@ namespace TSS_SYSTEM
                     tb_update_user_cd.Text = tss.user_cd.ToString();
                     tb_update_datetime.Text = DateTime.Now.ToString();
                     MessageBox.Show("仕入登録しました。");
+
+                    w_siire_no = tss.GetSeq("06");
+                    dgv_siire.Rows.Clear();
+                    tb_torihikisaki_cd.Clear();
+                    tb_torihikisaki_name.Clear();
+                    dtp_siire_date.Value = DateTime.Today;
+                    tb_siire_denpyou_no.Clear();
+                    tb_create_user_cd.Clear();
+                    tb_create_datetime.Clear();
+                    tb_update_user_cd.Clear();
+                    tb_update_datetime.Clear();
+                    tb_siire_no.Text = w_siire_no.ToString("0000000000");
+                    
+                    return;
+                    
+
                 }
                 //「いいえ」が選択された時
                 else if (result == DialogResult.Cancel)
