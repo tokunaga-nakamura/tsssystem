@@ -1045,7 +1045,7 @@ namespace TSS_SYSTEM
             }
             else
             {
-                if (double.TryParse(w_dt.Rows[0]["seihin_cd"].ToString(), out w_dou))
+                if (double.TryParse(w_dt.Rows[0]["hanbai_tanka"].ToString(), out w_dou))
                 {
                     out_dou = w_dou;
                 }
