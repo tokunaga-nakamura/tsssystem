@@ -308,5 +308,12 @@ namespace TSS_SYSTEM
             frm_uri.ShowDialog(this);
             frm_uri.Dispose();
         }
+
+        private void btn_siire_simebi_Click(object sender, EventArgs e)
+        {
+            frm_siire_simebi frm_ss = new frm_siire_simebi();
+            frm_ss.ShowDialog(this);
+            frm_ss.Dispose();
+        }
     }
 }
