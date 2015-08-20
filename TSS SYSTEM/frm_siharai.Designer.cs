@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_siharai));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -63,31 +59,23 @@
             this.tb_mibarai_goukei = new System.Windows.Forms.TextBox();
             this.btn_siharai_hensyu = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tb_siharai_date = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.tb_siire_no = new System.Windows.Forms.TextBox();
+            this.tb_siharai_no = new System.Windows.Forms.TextBox();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.dgv_siharai = new System.Windows.Forms.DataGridView();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
             this.tb_kurikosi_zandaka = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.tb_siharai_goukei = new System.Windows.Forms.TextBox();
+            this.btn_tuika = new System.Windows.Forms.Button();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.btn_turoku = new System.Windows.Forms.Button();
-            this.btn_sakujyo = new System.Windows.Forms.Button();
             this.btn_insatu = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
+            this.btn_turoku = new System.Windows.Forms.Button();
             this.ss_status = new System.Windows.Forms.StatusStrip();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -291,7 +279,7 @@
             this.tb_torihikisaki_name.Name = "tb_torihikisaki_name";
             this.tb_torihikisaki_name.ReadOnly = true;
             this.tb_torihikisaki_name.Size = new System.Drawing.Size(154, 19);
-            this.tb_torihikisaki_name.TabIndex = 10;
+            this.tb_torihikisaki_name.TabIndex = 2;
             // 
             // tb_torihikisaki_cd
             // 
@@ -332,22 +320,22 @@
             // 
             // Column7
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle13.Format = "N0";
-            dataGridViewCellStyle13.NullValue = null;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle9.Format = "N0";
+            dataGridViewCellStyle9.NullValue = null;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle9;
             this.Column7.HeaderText = "仕入締日";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
             // Column6
             // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle14.Format = "N0";
-            dataGridViewCellStyle14.NullValue = null;
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle10.Format = "N0";
+            dataGridViewCellStyle10.NullValue = null;
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle10;
             this.Column6.HeaderText = "仕入金額（税抜）";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -355,10 +343,10 @@
             // 
             // Column2
             // 
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle15.Format = "N0";
-            dataGridViewCellStyle15.NullValue = null;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle11.Format = "N0";
+            dataGridViewCellStyle11.NullValue = null;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle11;
             this.Column2.HeaderText = "消費税額";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -366,10 +354,10 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle16.Format = "N0";
-            dataGridViewCellStyle16.NullValue = null;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle12.Format = "N0";
+            dataGridViewCellStyle12.NullValue = null;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle12;
             this.Column3.HeaderText = "仕入金額合計";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -415,9 +403,9 @@
             this.splitContainer7.Panel2.Controls.Add(this.tb_siharai_date);
             this.splitContainer7.Panel2.Controls.Add(this.textBox7);
             this.splitContainer7.Panel2.Controls.Add(this.textBox5);
-            this.splitContainer7.Panel2.Controls.Add(this.tb_siire_no);
+            this.splitContainer7.Panel2.Controls.Add(this.tb_siharai_no);
             this.splitContainer7.Size = new System.Drawing.Size(884, 103);
-            this.splitContainer7.SplitterDistance = 39;
+            this.splitContainer7.SplitterDistance = 42;
             this.splitContainer7.TabIndex = 27;
             // 
             // btn_siharai_syori
@@ -425,7 +413,7 @@
             this.btn_siharai_syori.Location = new System.Drawing.Point(12, 7);
             this.btn_siharai_syori.Name = "btn_siharai_syori";
             this.btn_siharai_syori.Size = new System.Drawing.Size(145, 23);
-            this.btn_siharai_syori.TabIndex = 6;
+            this.btn_siharai_syori.TabIndex = 3;
             this.btn_siharai_syori.Text = "支払処理";
             this.btn_siharai_syori.UseVisualStyleBackColor = true;
             this.btn_siharai_syori.Click += new System.EventHandler(this.btn_siharai_syori_Click_1);
@@ -437,7 +425,7 @@
             this.tb_mibarai_goukei.Name = "tb_mibarai_goukei";
             this.tb_mibarai_goukei.ReadOnly = true;
             this.tb_mibarai_goukei.Size = new System.Drawing.Size(160, 19);
-            this.tb_mibarai_goukei.TabIndex = 25;
+            this.tb_mibarai_goukei.TabIndex = 5;
             this.tb_mibarai_goukei.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btn_siharai_hensyu
@@ -445,7 +433,7 @@
             this.btn_siharai_hensyu.Location = new System.Drawing.Point(187, 7);
             this.btn_siharai_hensyu.Name = "btn_siharai_hensyu";
             this.btn_siharai_hensyu.Size = new System.Drawing.Size(75, 23);
-            this.btn_siharai_hensyu.TabIndex = 7;
+            this.btn_siharai_hensyu.TabIndex = 4;
             this.btn_siharai_hensyu.Text = "支払編集";
             this.btn_siharai_hensyu.UseVisualStyleBackColor = true;
             // 
@@ -460,13 +448,23 @@
             this.textBox2.TabStop = false;
             this.textBox2.Text = "未払合計";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(513, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(185, 12);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "支払区分　1：振込　2：手形　3：現金";
+            // 
             // tb_siharai_date
             // 
             this.tb_siharai_date.Location = new System.Drawing.Point(331, 24);
             this.tb_siharai_date.MaxLength = 40;
             this.tb_siharai_date.Name = "tb_siharai_date";
             this.tb_siharai_date.Size = new System.Drawing.Size(160, 19);
-            this.tb_siharai_date.TabIndex = 25;
+            this.tb_siharai_date.TabIndex = 7;
+            this.tb_siharai_date.Leave += new System.EventHandler(this.tb_siharai_date_Leave);
             this.tb_siharai_date.Validating += new System.ComponentModel.CancelEventHandler(this.tb_siharai_date_Validating);
             // 
             // textBox7
@@ -491,15 +489,15 @@
             this.textBox5.TabStop = false;
             this.textBox5.Text = "支払番号";
             // 
-            // tb_siire_no
+            // tb_siharai_no
             // 
-            this.tb_siire_no.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_siire_no.Location = new System.Drawing.Point(118, 24);
-            this.tb_siire_no.MaxLength = 10;
-            this.tb_siire_no.Name = "tb_siire_no";
-            this.tb_siire_no.Size = new System.Drawing.Size(85, 19);
-            this.tb_siire_no.TabIndex = 14;
-            this.tb_siire_no.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_siharai_no.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_siharai_no.Location = new System.Drawing.Point(118, 24);
+            this.tb_siharai_no.MaxLength = 10;
+            this.tb_siharai_no.Name = "tb_siharai_no";
+            this.tb_siharai_no.Size = new System.Drawing.Size(85, 19);
+            this.tb_siharai_no.TabIndex = 6;
+            this.tb_siharai_no.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // splitContainer5
             // 
@@ -517,30 +515,20 @@
             // 
             this.splitContainer5.Panel2.Controls.Add(this.splitContainer6);
             this.splitContainer5.Size = new System.Drawing.Size(884, 181);
-            this.splitContainer5.SplitterDistance = 53;
+            this.splitContainer5.SplitterDistance = 74;
             this.splitContainer5.TabIndex = 4;
             // 
             // dgv_siharai
             // 
-            this.dgv_siharai.AllowUserToAddRows = false;
-            this.dgv_siharai.AllowUserToDeleteRows = false;
+            this.dgv_siharai.AllowUserToResizeColumns = false;
+            this.dgv_siharai.AllowUserToResizeRows = false;
             this.dgv_siharai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_siharai.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column8,
-            this.Column9,
-            this.Column10,
-            this.Column11,
-            this.Column12,
-            this.Column13,
-            this.Column14,
-            this.Column15});
             this.dgv_siharai.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_siharai.Location = new System.Drawing.Point(0, 0);
             this.dgv_siharai.Name = "dgv_siharai";
-            this.dgv_siharai.RowHeadersVisible = false;
             this.dgv_siharai.RowTemplate.Height = 21;
-            this.dgv_siharai.Size = new System.Drawing.Size(880, 49);
-            this.dgv_siharai.TabIndex = 0;
+            this.dgv_siharai.Size = new System.Drawing.Size(880, 70);
+            this.dgv_siharai.TabIndex = 8;
             this.dgv_siharai.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_siharai_CellEndEdit);
             // 
             // splitContainer6
@@ -556,30 +544,32 @@
             this.splitContainer6.Panel1.Controls.Add(this.tb_kurikosi_zandaka);
             this.splitContainer6.Panel1.Controls.Add(this.textBox11);
             this.splitContainer6.Panel1.Controls.Add(this.tb_siharai_goukei);
+            this.splitContainer6.Panel1.Controls.Add(this.btn_tuika);
             this.splitContainer6.Panel1.Controls.Add(this.textBox8);
-            this.splitContainer6.Panel1.Controls.Add(this.btn_turoku);
-            this.splitContainer6.Panel1.Controls.Add(this.btn_sakujyo);
             // 
             // splitContainer6.Panel2
             // 
             this.splitContainer6.Panel2.Controls.Add(this.btn_insatu);
             this.splitContainer6.Panel2.Controls.Add(this.btn_syuuryou);
-            this.splitContainer6.Size = new System.Drawing.Size(884, 124);
-            this.splitContainer6.SplitterDistance = 58;
+            this.splitContainer6.Panel2.Controls.Add(this.btn_turoku);
+            this.splitContainer6.Size = new System.Drawing.Size(884, 103);
+            this.splitContainer6.SplitterDistance = 51;
             this.splitContainer6.TabIndex = 4;
             // 
             // tb_kurikosi_zandaka
             // 
-            this.tb_kurikosi_zandaka.Location = new System.Drawing.Point(709, 13);
+            this.tb_kurikosi_zandaka.Location = new System.Drawing.Point(709, 15);
             this.tb_kurikosi_zandaka.MaxLength = 40;
             this.tb_kurikosi_zandaka.Name = "tb_kurikosi_zandaka";
+            this.tb_kurikosi_zandaka.ReadOnly = true;
             this.tb_kurikosi_zandaka.Size = new System.Drawing.Size(160, 19);
-            this.tb_kurikosi_zandaka.TabIndex = 29;
+            this.tb_kurikosi_zandaka.TabIndex = 11;
+            this.tb_kurikosi_zandaka.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox11
             // 
             this.textBox11.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox11.Location = new System.Drawing.Point(601, 13);
+            this.textBox11.Location = new System.Drawing.Point(601, 15);
             this.textBox11.Name = "textBox11";
             this.textBox11.ReadOnly = true;
             this.textBox11.Size = new System.Drawing.Size(108, 19);
@@ -589,16 +579,28 @@
             // 
             // tb_siharai_goukei
             // 
-            this.tb_siharai_goukei.Location = new System.Drawing.Point(410, 13);
+            this.tb_siharai_goukei.Location = new System.Drawing.Point(410, 15);
             this.tb_siharai_goukei.MaxLength = 40;
             this.tb_siharai_goukei.Name = "tb_siharai_goukei";
+            this.tb_siharai_goukei.ReadOnly = true;
             this.tb_siharai_goukei.Size = new System.Drawing.Size(160, 19);
             this.tb_siharai_goukei.TabIndex = 27;
+            this.tb_siharai_goukei.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btn_tuika
+            // 
+            this.btn_tuika.Location = new System.Drawing.Point(10, 15);
+            this.btn_tuika.Name = "btn_tuika";
+            this.btn_tuika.Size = new System.Drawing.Size(97, 23);
+            this.btn_tuika.TabIndex = 10;
+            this.btn_tuika.Text = "1行追加";
+            this.btn_tuika.UseVisualStyleBackColor = true;
+            this.btn_tuika.Click += new System.EventHandler(this.btn_tuika_Click);
             // 
             // textBox8
             // 
             this.textBox8.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox8.Location = new System.Drawing.Point(302, 13);
+            this.textBox8.Location = new System.Drawing.Point(302, 15);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(108, 19);
@@ -606,27 +608,9 @@
             this.textBox8.TabStop = false;
             this.textBox8.Text = "支払合計";
             // 
-            // btn_turoku
-            // 
-            this.btn_turoku.Location = new System.Drawing.Point(10, 13);
-            this.btn_turoku.Name = "btn_turoku";
-            this.btn_turoku.Size = new System.Drawing.Size(75, 23);
-            this.btn_turoku.TabIndex = 5;
-            this.btn_turoku.Text = "登録";
-            this.btn_turoku.UseVisualStyleBackColor = true;
-            // 
-            // btn_sakujyo
-            // 
-            this.btn_sakujyo.Location = new System.Drawing.Point(104, 13);
-            this.btn_sakujyo.Name = "btn_sakujyo";
-            this.btn_sakujyo.Size = new System.Drawing.Size(75, 23);
-            this.btn_sakujyo.TabIndex = 4;
-            this.btn_sakujyo.Text = "削除";
-            this.btn_sakujyo.UseVisualStyleBackColor = true;
-            // 
             // btn_insatu
             // 
-            this.btn_insatu.Location = new System.Drawing.Point(701, 12);
+            this.btn_insatu.Location = new System.Drawing.Point(589, 12);
             this.btn_insatu.Name = "btn_insatu";
             this.btn_insatu.Size = new System.Drawing.Size(75, 23);
             this.btn_insatu.TabIndex = 3;
@@ -642,6 +626,16 @@
             this.btn_syuuryou.Text = "終了";
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             // 
+            // btn_turoku
+            // 
+            this.btn_turoku.Location = new System.Drawing.Point(698, 12);
+            this.btn_turoku.Name = "btn_turoku";
+            this.btn_turoku.Size = new System.Drawing.Size(75, 23);
+            this.btn_turoku.TabIndex = 9;
+            this.btn_turoku.Text = "登録";
+            this.btn_turoku.UseVisualStyleBackColor = true;
+            this.btn_turoku.Click += new System.EventHandler(this.btn_turoku_Click);
+            // 
             // ss_status
             // 
             this.ss_status.Location = new System.Drawing.Point(0, 540);
@@ -649,71 +643,6 @@
             this.ss_status.Size = new System.Drawing.Size(884, 22);
             this.ss_status.TabIndex = 8;
             this.ss_status.Text = "statusStrip1";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(524, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 12);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "支払区分　1：振込　2：手形　3：現金";
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "仕入締日";
-            this.Column8.Name = "Column8";
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "顧客請求番号";
-            this.Column9.Name = "Column9";
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "支払区分";
-            this.Column10.Name = "Column10";
-            // 
-            // Column11
-            // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.Format = "N0";
-            dataGridViewCellStyle9.NullValue = null;
-            this.Column11.DefaultCellStyle = dataGridViewCellStyle9;
-            this.Column11.HeaderText = "支払額";
-            this.Column11.Name = "Column11";
-            // 
-            // Column12
-            // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.Format = "N0";
-            dataGridViewCellStyle10.NullValue = null;
-            this.Column12.DefaultCellStyle = dataGridViewCellStyle10;
-            this.Column12.HeaderText = "手数料";
-            this.Column12.Name = "Column12";
-            // 
-            // Column13
-            // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.Format = "N0";
-            dataGridViewCellStyle11.NullValue = null;
-            this.Column13.DefaultCellStyle = dataGridViewCellStyle11;
-            this.Column13.HeaderText = "相殺";
-            this.Column13.Name = "Column13";
-            // 
-            // Column14
-            // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.Format = "N0";
-            dataGridViewCellStyle12.NullValue = null;
-            this.Column14.DefaultCellStyle = dataGridViewCellStyle12;
-            this.Column14.HeaderText = "支払額合計";
-            this.Column14.Name = "Column14";
-            // 
-            // Column15
-            // 
-            this.Column15.HeaderText = "備考";
-            this.Column15.Name = "Column15";
             // 
             // frm_siharai
             // 
@@ -793,12 +722,12 @@
         private System.Windows.Forms.DataGridView dgv_siharai;
         private System.Windows.Forms.SplitContainer splitContainer6;
         private System.Windows.Forms.Button btn_turoku;
-        private System.Windows.Forms.Button btn_sakujyo;
+        private System.Windows.Forms.Button btn_tuika;
         private System.Windows.Forms.Button btn_insatu;
         private System.Windows.Forms.Button btn_syuuryou;
         private System.Windows.Forms.StatusStrip ss_status;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox tb_siire_no;
+        private System.Windows.Forms.TextBox tb_siharai_no;
         private System.Windows.Forms.TextBox tb_siharai_date;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox tb_kurikosi_zandaka;
@@ -810,13 +739,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
     }
 }
