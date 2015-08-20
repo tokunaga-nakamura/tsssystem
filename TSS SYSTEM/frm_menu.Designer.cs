@@ -66,6 +66,8 @@
             this.btn_syukko = new System.Windows.Forms.Button();
             this.btn_nyuko = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btn_siire_sime = new System.Windows.Forms.Button();
+            this.btn_siire = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.btn_user_m = new System.Windows.Forms.Button();
@@ -83,8 +85,7 @@
             this.btn_mst_table = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
-            this.btn_siire = new System.Windows.Forms.Button();
-            this.btn_siire_sime = new System.Windows.Forms.Button();
+            this.btn_siharai = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -608,6 +609,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.btn_siharai);
             this.tabPage4.Controls.Add(this.btn_siire_sime);
             this.tabPage4.Controls.Add(this.btn_siire);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
@@ -616,6 +618,26 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "仕入・支払";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // btn_siire_sime
+            // 
+            this.btn_siire_sime.Location = new System.Drawing.Point(6, 32);
+            this.btn_siire_sime.Name = "btn_siire_sime";
+            this.btn_siire_sime.Size = new System.Drawing.Size(180, 23);
+            this.btn_siire_sime.TabIndex = 8;
+            this.btn_siire_sime.Text = "仕入締日処理";
+            this.btn_siire_sime.UseVisualStyleBackColor = true;
+            this.btn_siire_sime.Click += new System.EventHandler(this.btn_siire_sime_Click);
+            // 
+            // btn_siire
+            // 
+            this.btn_siire.Location = new System.Drawing.Point(6, 3);
+            this.btn_siire.Name = "btn_siire";
+            this.btn_siire.Size = new System.Drawing.Size(180, 23);
+            this.btn_siire.TabIndex = 7;
+            this.btn_siire.Text = "仕入";
+            this.btn_siire.UseVisualStyleBackColor = true;
+            this.btn_siire.Click += new System.EventHandler(this.btn_siire_Click);
             // 
             // tabPage5
             // 
@@ -798,25 +820,15 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
-            // btn_siire
+            // btn_siharai
             // 
-            this.btn_siire.Location = new System.Drawing.Point(6, 3);
-            this.btn_siire.Name = "btn_siire";
-            this.btn_siire.Size = new System.Drawing.Size(180, 23);
-            this.btn_siire.TabIndex = 7;
-            this.btn_siire.Text = "仕入";
-            this.btn_siire.UseVisualStyleBackColor = true;
-            this.btn_siire.Click += new System.EventHandler(this.btn_siire_Click);
-            // 
-            // btn_siire_sime
-            // 
-            this.btn_siire_sime.Location = new System.Drawing.Point(6, 32);
-            this.btn_siire_sime.Name = "btn_siire_sime";
-            this.btn_siire_sime.Size = new System.Drawing.Size(180, 23);
-            this.btn_siire_sime.TabIndex = 8;
-            this.btn_siire_sime.Text = "仕入締日処理";
-            this.btn_siire_sime.UseVisualStyleBackColor = true;
-            this.btn_siire_sime.Click += new System.EventHandler(this.btn_siire_sime_Click);
+            this.btn_siharai.Location = new System.Drawing.Point(5, 62);
+            this.btn_siharai.Name = "btn_siharai";
+            this.btn_siharai.Size = new System.Drawing.Size(180, 23);
+            this.btn_siharai.TabIndex = 9;
+            this.btn_siharai.Text = "支払";
+            this.btn_siharai.UseVisualStyleBackColor = true;
+            this.btn_siharai.Click += new System.EventHandler(this.btn_siharai_Click);
             // 
             // frm_menu
             // 
@@ -949,6 +961,7 @@
         private System.Windows.Forms.Button btn_uriage;
         private System.Windows.Forms.Button btn_siire;
         private System.Windows.Forms.Button btn_siire_sime;
+        private System.Windows.Forms.Button btn_siharai;
     }
 }
 
