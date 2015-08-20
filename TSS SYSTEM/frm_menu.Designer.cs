@@ -85,6 +85,7 @@
             this.btn_mst_table = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
+            this.btn_siharai = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -545,7 +546,7 @@
             // 
             // btn_nouhin_schedule
             // 
-            this.btn_nouhin_schedule.Location = new System.Drawing.Point(380, 6);
+            this.btn_nouhin_schedule.Location = new System.Drawing.Point(416, 6);
             this.btn_nouhin_schedule.Name = "btn_nouhin_schedule";
             this.btn_nouhin_schedule.Size = new System.Drawing.Size(180, 23);
             this.btn_nouhin_schedule.TabIndex = 4;
@@ -608,6 +609,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.btn_siharai);
             this.tabPage4.Controls.Add(this.btn_siire_sime);
             this.tabPage4.Controls.Add(this.btn_siire);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
@@ -670,7 +672,7 @@
             // 
             // btn_user_m
             // 
-            this.btn_user_m.Location = new System.Drawing.Point(8, 375);
+            this.btn_user_m.Location = new System.Drawing.Point(8, 163);
             this.btn_user_m.Name = "btn_user_m";
             this.btn_user_m.Size = new System.Drawing.Size(211, 23);
             this.btn_user_m.TabIndex = 12;
@@ -680,7 +682,7 @@
             // 
             // btn_eigyou_calender
             // 
-            this.btn_eigyou_calender.Location = new System.Drawing.Point(8, 309);
+            this.btn_eigyou_calender.Location = new System.Drawing.Point(8, 134);
             this.btn_eigyou_calender.Name = "btn_eigyou_calender";
             this.btn_eigyou_calender.Size = new System.Drawing.Size(211, 23);
             this.btn_eigyou_calender.TabIndex = 11;
@@ -690,7 +692,7 @@
             // 
             // btn_seihin_kousei_m
             // 
-            this.btn_seihin_kousei_m.Location = new System.Drawing.Point(225, 134);
+            this.btn_seihin_kousei_m.Location = new System.Drawing.Point(225, 76);
             this.btn_seihin_kousei_m.Name = "btn_seihin_kousei_m";
             this.btn_seihin_kousei_m.Size = new System.Drawing.Size(211, 23);
             this.btn_seihin_kousei_m.TabIndex = 10;
@@ -700,7 +702,7 @@
             // 
             // btn_seihin_kensaku
             // 
-            this.btn_seihin_kensaku.Location = new System.Drawing.Point(442, 105);
+            this.btn_seihin_kensaku.Location = new System.Drawing.Point(442, 18);
             this.btn_seihin_kensaku.Name = "btn_seihin_kensaku";
             this.btn_seihin_kensaku.Size = new System.Drawing.Size(211, 23);
             this.btn_seihin_kensaku.TabIndex = 9;
@@ -710,7 +712,7 @@
             // 
             // btn_torihikisaki_kensaku
             // 
-            this.btn_torihikisaki_kensaku.Location = new System.Drawing.Point(442, 18);
+            this.btn_torihikisaki_kensaku.Location = new System.Drawing.Point(442, 105);
             this.btn_torihikisaki_kensaku.Name = "btn_torihikisaki_kensaku";
             this.btn_torihikisaki_kensaku.Size = new System.Drawing.Size(211, 23);
             this.btn_torihikisaki_kensaku.TabIndex = 8;
@@ -720,7 +722,7 @@
             // 
             // btn_buhin_kensaku
             // 
-            this.btn_buhin_kensaku.Location = new System.Drawing.Point(442, 76);
+            this.btn_buhin_kensaku.Location = new System.Drawing.Point(442, 47);
             this.btn_buhin_kensaku.Name = "btn_buhin_kensaku";
             this.btn_buhin_kensaku.Size = new System.Drawing.Size(211, 23);
             this.btn_buhin_kensaku.TabIndex = 7;
@@ -730,7 +732,7 @@
             // 
             // btn_bank_m
             // 
-            this.btn_bank_m.Location = new System.Drawing.Point(8, 196);
+            this.btn_bank_m.Location = new System.Drawing.Point(8, 105);
             this.btn_bank_m.Name = "btn_bank_m";
             this.btn_bank_m.Size = new System.Drawing.Size(211, 23);
             this.btn_bank_m.TabIndex = 6;
@@ -740,7 +742,7 @@
             // 
             // btn_buhin_m
             // 
-            this.btn_buhin_m.Location = new System.Drawing.Point(225, 76);
+            this.btn_buhin_m.Location = new System.Drawing.Point(225, 47);
             this.btn_buhin_m.Name = "btn_buhin_m";
             this.btn_buhin_m.Size = new System.Drawing.Size(211, 23);
             this.btn_buhin_m.TabIndex = 5;
@@ -750,7 +752,7 @@
             // 
             // btn_torihikisaki_m
             // 
-            this.btn_torihikisaki_m.Location = new System.Drawing.Point(225, 18);
+            this.btn_torihikisaki_m.Location = new System.Drawing.Point(225, 105);
             this.btn_torihikisaki_m.Name = "btn_torihikisaki_m";
             this.btn_torihikisaki_m.Size = new System.Drawing.Size(211, 23);
             this.btn_torihikisaki_m.TabIndex = 4;
@@ -760,7 +762,7 @@
             // 
             // btn_seihin_m
             // 
-            this.btn_seihin_m.Location = new System.Drawing.Point(225, 105);
+            this.btn_seihin_m.Location = new System.Drawing.Point(225, 18);
             this.btn_seihin_m.Name = "btn_seihin_m";
             this.btn_seihin_m.Size = new System.Drawing.Size(211, 23);
             this.btn_seihin_m.TabIndex = 3;
@@ -790,7 +792,7 @@
             // 
             // btn_mst_table
             // 
-            this.btn_mst_table.Location = new System.Drawing.Point(442, 375);
+            this.btn_mst_table.Location = new System.Drawing.Point(225, 259);
             this.btn_mst_table.Name = "btn_mst_table";
             this.btn_mst_table.Size = new System.Drawing.Size(211, 23);
             this.btn_mst_table.TabIndex = 0;
@@ -817,6 +819,16 @@
             this.btn_syuuryou.Text = "終了";
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
+            // 
+            // btn_siharai
+            // 
+            this.btn_siharai.Location = new System.Drawing.Point(5, 62);
+            this.btn_siharai.Name = "btn_siharai";
+            this.btn_siharai.Size = new System.Drawing.Size(180, 23);
+            this.btn_siharai.TabIndex = 9;
+            this.btn_siharai.Text = "支払";
+            this.btn_siharai.UseVisualStyleBackColor = true;
+            this.btn_siharai.Click += new System.EventHandler(this.btn_siharai_Click);
             // 
             // frm_menu
             // 
@@ -949,6 +961,7 @@
         private System.Windows.Forms.Button btn_uriage;
         private System.Windows.Forms.Button btn_siire;
         private System.Windows.Forms.Button btn_siire_sime;
+        private System.Windows.Forms.Button btn_siharai;
     }
 }
 

@@ -430,11 +430,11 @@ namespace TSS_SYSTEM
 
             //データグリッドビューの中を1行ずつループしてチェック
             int dgvrc = dgv_siire_simebi.Rows.Count;
-            //if (dgvrc == 1)
-            //{
-            //    MessageBox.Show("表の中に何も入力されていません");
-            //    return;
-            //}
+            if (dgvrc == 0)
+            {
+                MessageBox.Show("表の中に何も入力されていません");
+                return;
+            }
 
             tss.GetUser();  //ユーザー情報の取得
 
