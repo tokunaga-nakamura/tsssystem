@@ -257,14 +257,12 @@ namespace TSS_SYSTEM
             tb_torihikisaki_cd.Text = "";
             tb_torihikisaki_name.Text = "";
             tb_uriage_date.Text = "";
-            dgv_m.Rows.Clear();
-            dgv_m.Columns.Clear();
+            //dgv_m.Rows.Clear();
+            //dgv_m.Columns.Clear();
             dgv_m.DataSource = null;
             tb_uriage_goukei.Text = "";
             lbl_seikyuu.Text = "";
         }
-
-
 
         private void uriage_disp(DataTable in_dt)
         {
@@ -795,7 +793,7 @@ namespace TSS_SYSTEM
                                     if(in_sign == -1 || w_uriage_flg == 1)
                                     {
                                         //マイナス売上または製品直接売上の場合はフリー在庫で調整
-                                        if(tss.zaiko_proc(dr3["buhin_cd"].ToString(), "01", dr3["torihikisaki_cd"].ToString(), "9999999999999999", "9999999999999999", w_kagen_su) == false)
+                                        if(tss.zaiko_proc(dr3["buhin_cd"].ToString(), "01", dr["torihikisaki_cd"].ToString(), "9999999999999999", "9999999999999999", w_kagen_su) == false)
                                         {
                                             MessageBox.Show("在庫の消し込み処理でエラーが発生しました。処理を中止します。");
                                             this.Close();
@@ -817,10 +815,6 @@ namespace TSS_SYSTEM
                 }
             }
         }
-
-
-
-
 
         private void dgv_m_CellValidated(object sender, DataGridViewCellEventArgs e)
         {
@@ -934,7 +928,7 @@ namespace TSS_SYSTEM
                     + " VALUES ('" + tb_uriage_no.Text.ToString() + "','"
                     + dgv_m.Rows[i].Cells[1].Value.ToString() + "','"
                     + tb_torihikisaki_cd.Text.ToString() + "',"
-                    + "to_date('" + tb_uriage_date.ToString() + "','YYYY/MM/DD HH24:MI:SS'),'"
+                    + "to_date('" + tb_uriage_date.Text.ToString() + "','YYYY/MM/DD HH24:MI:SS'),'"
                     + dgv_m.Rows[i].Cells[4].Value.ToString() + "','"
                     + dgv_m.Rows[i].Cells[5].Value.ToString() + "','"
                     + dgv_m.Rows[i].Cells[6].Value.ToString() + "','"
@@ -950,7 +944,7 @@ namespace TSS_SYSTEM
                 }
                 if (tss.OracleInsert(w_sql) == false)
                 {
-                    tss.ErrorLogWrite(tss.user_cd, "売上", "登録ボタン押下時のOracleDelete");
+                    tss.ErrorLogWrite(tss.user_cd, "売上", "登録ボタン押下時のOracleInsert");
                     MessageBox.Show("書込みでエラーが発生しました。処理を中止します。");
                     this.Close();
                 }

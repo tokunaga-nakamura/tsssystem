@@ -647,7 +647,6 @@ namespace TSS_SYSTEM
 
         private void rireki_disp(DataTable in_dt)
         {
-
             DataTable w_dt_history = new DataTable();
 
             //リードオンリーにする
