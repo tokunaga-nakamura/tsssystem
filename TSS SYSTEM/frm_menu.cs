@@ -315,5 +315,12 @@ namespace TSS_SYSTEM
             frm_ss.ShowDialog(this);
             frm_ss.Dispose();
         }
+
+        private void btn_siharai_Click(object sender, EventArgs e)
+        {
+            frm_siharai frm_shri = new frm_siharai();
+            frm_shri.ShowDialog(this);
+            frm_shri.Dispose();
+        }
     }
 }
