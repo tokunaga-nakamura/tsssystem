@@ -151,7 +151,6 @@ namespace TSS_SYSTEM
                 return;
             }
 
-            bool bl = true; //戻り値
             DataTable dt_work = new DataTable();
             dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd  = '" + tb_torihikisaki_cd.Text + "'");
             if (dt_work.Rows.Count <= 0)

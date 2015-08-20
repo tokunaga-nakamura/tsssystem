@@ -251,6 +251,21 @@ namespace TSS_SYSTEM
             tb_uriage_no.TabStop = false;
         }    
 
+        private void gamen_clear()
+        {
+            tb_uriage_no.Text = "";
+            tb_torihikisaki_cd.Text = "";
+            tb_torihikisaki_name.Text = "";
+            tb_uriage_date.Text = "";
+            dgv_m.Rows.Clear();
+            dgv_m.Columns.Clear();
+            dgv_m.DataSource = null;
+            tb_uriage_goukei.Text = "";
+            lbl_seikyuu.Text = "";
+        }
+
+
+
         private void uriage_disp(DataTable in_dt)
         {
             //dgvをクリア
@@ -618,9 +633,15 @@ namespace TSS_SYSTEM
                     if (result == DialogResult.Yes)
                     {
                         //「はい」が選択された時
+                        //新しい売上を書き込み
                         uriage_insert();
+                        //新しい売上で受注マスタの売上数量、売上完了区分を更新
                         juchu_kousin(tb_uriage_no.Text, +1);
+                        //新しい売上で在庫を更新
                         zaiko_kousin(tb_uriage_no.Text, +1);
+
+                        MessageBox.Show("更新しました。");
+                        gamen_clear();
                         //連番を新たに取得
                         w_uriage_no = tss.GetSeq("05");
                         uriage_no_disp();
@@ -638,12 +659,21 @@ namespace TSS_SYSTEM
                     if (result == DialogResult.Yes)
                     {
                         //「はい」が選択された時
+                        //受注マスタの売上数、売上完了区分等をマイナス
                         juchu_kousin(tb_uriage_no.Text, -1);
+                        //在庫をマイナス
                         zaiko_kousin(tb_uriage_no.Text, -1);
+                        //売上情報を削除
                         uriage_delete();
+                        //新しい売上を書き込み
                         uriage_insert();
+                        //新しい売上で受注マスタの売上数量、売上完了区分を更新
                         juchu_kousin(tb_uriage_no.Text, +1);
+                        //新しい売上で在庫を更新
                         zaiko_kousin(tb_uriage_no.Text, +1);
+
+                        MessageBox.Show("更新しました。");
+                        gamen_clear();
                         //退避していた連番を表示
                         uriage_no_disp();
                     }

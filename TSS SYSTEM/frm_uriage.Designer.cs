@@ -164,9 +164,9 @@
             this.lbl_seikyuu.ForeColor = System.Drawing.Color.Red;
             this.lbl_seikyuu.Location = new System.Drawing.Point(224, 56);
             this.lbl_seikyuu.Name = "lbl_seikyuu";
-            this.lbl_seikyuu.Size = new System.Drawing.Size(60, 12);
+            this.lbl_seikyuu.Size = new System.Drawing.Size(85, 12);
             this.lbl_seikyuu.TabIndex = 6;
-            this.lbl_seikyuu.Text = "lbl_seikyuu";
+            this.lbl_seikyuu.Text = "                    ";
             // 
             // tb_torihikisaki_cd
             // 

@@ -253,7 +253,7 @@
             // lbl_juchu_no
             // 
             this.lbl_juchu_no.AutoSize = true;
-            this.lbl_juchu_no.Location = new System.Drawing.Point(208, 56);
+            this.lbl_juchu_no.Location = new System.Drawing.Point(88, 84);
             this.lbl_juchu_no.Name = "lbl_juchu_no";
             this.lbl_juchu_no.Size = new System.Drawing.Size(137, 12);
             this.lbl_juchu_no.TabIndex = 18;
@@ -372,7 +372,7 @@
             // 
             // btn_juchu_kensaku
             // 
-            this.btn_juchu_kensaku.Location = new System.Drawing.Point(208, 26);
+            this.btn_juchu_kensaku.Location = new System.Drawing.Point(344, 51);
             this.btn_juchu_kensaku.Name = "btn_juchu_kensaku";
             this.btn_juchu_kensaku.Size = new System.Drawing.Size(75, 23);
             this.btn_juchu_kensaku.TabIndex = 6;

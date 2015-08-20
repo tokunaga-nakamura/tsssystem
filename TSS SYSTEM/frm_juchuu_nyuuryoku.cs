@@ -81,10 +81,6 @@ namespace TSS_SYSTEM
             return out_name;
         }
 
-
-
-
-
         private void find_juchu_cd2(string in_torihikisaki_cd, string in_juchu_cd1,string in_juchu_cd2)
         {
             //取引先コードと受注cd1と受注cd2での検索、あったら表示、なければクリア
@@ -105,10 +101,18 @@ namespace TSS_SYSTEM
             else
             {
                 //既存データ有り
-                lbl_juchu_no.Text = "既存データ";
+                if(w_dt.Rows[0]["uriage_kanryou_flg"].ToString() == "1")
+                {
+                    lbl_juchu_no.Text = "売上完了しているデータです。修正・登録は行えません。";
+                    lbl_touroku.Text = "登録は行えません。";
+                }
+                else
+                {
+                    lbl_juchu_no.Text = "既存データ";
+                    lbl_touroku.Text = "既存データは「更新理由」を入力しないと登録できません。";
+                }
                 tb_midasi_kousin_riyuu.Visible = true;
                 tb_kousin_riyuu.Visible = true;
-                lbl_touroku.Text = "既存データは「更新理由」を入力しないと登録できません。";
                 kousin_check();
 
                 gamen_disp(w_dt);
@@ -191,7 +195,8 @@ namespace TSS_SYSTEM
         {
             //納品スケジュールの表示
             //新規の場合でも追加入力できるように、行列のヘッダーが必要（nullではダメ）
-            w_dt_nouhin_schedule = tss.OracleSelect("select nouhin_yotei_date,nouhin_bin,nouhin_yotei_su,nouhin_tantou_cd,bikou,kannou_flg,delete_flg from tss_nouhin_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "' and juchu_cd1 = '" + tb_juchu_cd1.Text.ToString() + "' and juchu_cd2 = '" + tb_juchu_cd2.Text.ToString() + "' order by nouhin_yotei_date asc,nouhin_bin asc");
+            //pp//w_dt_nouhin_schedule = tss.OracleSelect("select nouhin_yotei_date,nouhin_bin,nouhin_yotei_su,nouhin_tantou_cd,bikou,kannou_flg,delete_flg from tss_nouhin_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "' and juchu_cd1 = '" + tb_juchu_cd1.Text.ToString() + "' and juchu_cd2 = '" + tb_juchu_cd2.Text.ToString() + "' order by nouhin_yotei_date asc,nouhin_bin asc");
+            w_dt_nouhin_schedule = tss.OracleSelect("select nouhin_yotei_date,nouhin_bin,nouhin_yotei_su,nouhin_tantou_cd,bikou from tss_nouhin_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "' and juchu_cd1 = '" + tb_juchu_cd1.Text.ToString() + "' and juchu_cd2 = '" + tb_juchu_cd2.Text.ToString() + "' order by nouhin_yotei_date asc,nouhin_bin asc");
             dgv_nounyuu_schedule.DataSource = null;
             dgv_nounyuu_schedule.DataSource = w_dt_nouhin_schedule;
             //編集可能にする
@@ -219,12 +224,12 @@ namespace TSS_SYSTEM
             dgv_nounyuu_schedule.Columns[2].HeaderText = "納品数";
             dgv_nounyuu_schedule.Columns[3].HeaderText = "納品者";
             dgv_nounyuu_schedule.Columns[4].HeaderText = "備考";
-            dgv_nounyuu_schedule.Columns[5].HeaderText = "完納フラグ";
-            dgv_nounyuu_schedule.Columns[6].HeaderText = "削除フラグ";
+            //pp//dgv_nounyuu_schedule.Columns[5].HeaderText = "完納フラグ";
+            //pp//dgv_nounyuu_schedule.Columns[6].HeaderText = "削除フラグ";
 
             //列を編集不可にする
-            dgv_nounyuu_schedule.Columns[5].ReadOnly = true;
-            dgv_nounyuu_schedule.Columns[6].ReadOnly = true;
+            //pp//dgv_nounyuu_schedule.Columns[5].ReadOnly = true;
+            //pp//dgv_nounyuu_schedule.Columns[6].ReadOnly = true;
 
             //列の文字数制限
             ((DataGridViewTextBoxColumn)dgv_nounyuu_schedule.Columns[0]).MaxInputLength = 10;
@@ -234,9 +239,8 @@ namespace TSS_SYSTEM
             ((DataGridViewTextBoxColumn)dgv_nounyuu_schedule.Columns[4]).MaxInputLength = 128;
 
             //インデックス0の列のセルの背景色を水色にする
-            dgv_nounyuu_schedule.Columns[5].DefaultCellStyle.BackColor = Color.Gainsboro;
-            dgv_nounyuu_schedule.Columns[6].DefaultCellStyle.BackColor = Color.Gainsboro;
-
+            //pp//dgv_nounyuu_schedule.Columns[5].DefaultCellStyle.BackColor = Color.Gainsboro;
+            //pp//dgv_nounyuu_schedule.Columns[6].DefaultCellStyle.BackColor = Color.Gainsboro;
         }
 
         private void kousin_rireki_disp()
@@ -292,6 +296,10 @@ namespace TSS_SYSTEM
 
         private void kousin_check()
         {
+            if(tb_uriage_kanryou_flg.Text == "1")
+            {
+                return;
+            }
             if (tb_kousin_riyuu.Text.Length >= 1)
             {
                 btn_touroku.Enabled = true;
@@ -306,7 +314,7 @@ namespace TSS_SYSTEM
         {
             //選択画面へ
             string w_cd;
-            w_cd = tss.search_juchu("2", "");
+            w_cd = tss.search_juchu("2", tb_torihikisaki_cd.Text.ToString(),tb_juchu_cd1.Text.ToString(),tb_juchu_cd2.Text.ToString(),tb_seihin_cd.Text.ToString());
             if (w_cd.Length == 38)
             {
                 tb_torihikisaki_cd.Text = w_cd.Substring(0,6).TrimEnd();
@@ -380,7 +388,10 @@ namespace TSS_SYSTEM
                     bool w_bl = tss.MessageLogWrite(tss.user_cd,"000000","受注入力","受注番号 " + tb_torihikisaki_cd.Text.ToString() + "-" + tb_juchu_cd1.Text.ToString() + "-" + tb_juchu_cd2.Text.ToString() + " の受注数と納品数が不一致のまま登録しました。");
                 }
             }
-
+            if(chk_uriage_kanryou_flg() == false)
+            {
+                return;
+            }
 
             //新規・更新チェック
             dt_work = tss.OracleSelect("select * from tss_juchu_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "' and juchu_cd1 = '" + tb_juchu_cd1.Text.ToString() + "' and juchu_cd2 = '" + tb_juchu_cd2.Text.ToString() + "'");
@@ -408,7 +419,6 @@ namespace TSS_SYSTEM
                     {
                         MessageBox.Show("受注情報の書込みでエラーが発生しました。");
                     }
-                    //chk_buhin_cd();
                 }
                 else
                 {
@@ -448,7 +458,6 @@ namespace TSS_SYSTEM
                     {
                         MessageBox.Show("受注情報の更新でエラーが発生しました。");
                     }
-                    //chk_buhin_cd();
                 }
                 else
                 {
@@ -686,6 +695,65 @@ namespace TSS_SYSTEM
             else
             {
                 bl = false;
+            }
+            return bl;
+        }
+
+        private bool chk_uriage_kanryou_flg()
+        {
+            //現在の売上完了フラグが立っていない時、
+            //受注数と売上数が同じになった場合、ユーザーに確認を求める
+            //反対に、現在の売上完了フラグが立っている時、
+            //受注数と売上数が不一致の場合、ユーザーに確認を求める
+            bool bl = true; //戻り値用
+            double w_double_juchu_su;
+            double w_double_uriage_su;
+            double.TryParse(tb_juchu_su.Text.ToString(), out w_double_juchu_su);
+            double.TryParse(tb_uriage_su.Text.ToString(), out w_double_uriage_su);
+
+            if(tb_uriage_kanryou_flg.Text.ToString() != "1")
+            {
+                if(w_double_juchu_su == w_double_uriage_su)
+                {
+                    DialogResult result = MessageBox.Show("受注数と売上済数が同じになります。売上完了にしてもよろしいですか？", "確認", MessageBoxButtons.YesNo);
+                    if(result == DialogResult.Yes)
+                    {
+                        //「はい」が選択された時
+                        tb_uriage_kanryou_flg.Text = "1";
+                        bl = true;
+                    }
+                    else
+                    {
+                        //「いいえ」が選択された時
+                        bl = false;
+                    }
+                }
+                else
+                {
+                    bl = true;
+                }
+            }
+            else
+            {
+                if(w_double_juchu_su != w_double_uriage_su)
+                {
+                    DialogResult result = MessageBox.Show("受注数と売上済数が不一致になります。売上完了を解除してもよろしいですか？", "確認", MessageBoxButtons.YesNo);
+                    if(result == DialogResult.Yes)
+                    {
+                        //「はい」が選択された時
+                        tb_uriage_kanryou_flg.Text = "1";
+                        bl = true;
+                    }
+                    else
+                    {
+                        //「いいえ」が選択された時
+                        bl = false;
+                    }
+                }
+                else
+                {
+                    bl = true;
+                }
             }
             return bl;
         }

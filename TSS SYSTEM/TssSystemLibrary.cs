@@ -777,7 +777,7 @@ namespace TSS_SYSTEM
         }
 
         //受注検索画面の呼び出し
-        public string search_juchu(string in_mode, string in_cd)
+        public string search_juchu(string in_mode, string in_torihikisaki_cd,string in_juchu_cd1,string in_juchu_cd2,string in_seihin_cd)
         {
             //マウスのX座標を取得する
             //int x = System.Windows.Forms.Cursor.Position.X;
@@ -794,7 +794,13 @@ namespace TSS_SYSTEM
 
             //子画面のプロパティに値をセットする
             frm_sb.str_mode = in_mode;
-            frm_sb.str_name = in_cd;
+            frm_sb.str_name = in_torihikisaki_cd;
+
+            frm_sb.in_torihikisaki_cd = in_torihikisaki_cd;
+            frm_sb.in_juchu_cd1 = in_juchu_cd1;
+            frm_sb.in_juchu_cd2 = in_juchu_cd2;
+            frm_sb.in_seihin_cd = in_seihin_cd;
+
             frm_sb.ShowDialog();
             //子画面から値を取得する
             //※受注検索画面の戻り値は、受注Noの３つの項目を１つの文字列にして返す
@@ -1182,7 +1188,7 @@ namespace TSS_SYSTEM
             {
                 //通常に在庫の更新
                 GetUser();
-                w_sql = "UPDATE tss_buhin_zaiko_m SET zaiko_su = '" + w_zaiko_su.ToString("0.00") + "',update_user_cd = '" + user_cd + "',update_datetime = sysdate where buhin_cd = '" + in_buhin_cd + "' and zaiko_kbn = '" + in_zaiko_kbn + "' and torihikisaki_cd = '" + in_torihikisaki_cd + "' and juchu_cd1 = '" + in_juchu_cd1 + "' and juchu_cd2 = '" + in_juchu_cd2 + "'";
+                w_sql = "UPDATE tss_buhin_zaiko_m SET zaiko_su = '" + w_zaiko_su.ToString("0.00") + "',update_user_cd = '" + user_cd + "',update_datetime = sysdate where buhin_cd = '" + in_buhin_cd + "' and zaiko_kbn = '" + w_dt.Rows[0]["zaiko_kbn"].ToString() + "' and torihikisaki_cd = '" + in_torihikisaki_cd + "' and juchu_cd1 = '" + in_juchu_cd1 + "' and juchu_cd2 = '" + in_juchu_cd2 + "'";
                 if(OracleUpdate(w_sql) == false)
                 {
                     GetUser();
