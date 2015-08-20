@@ -379,6 +379,7 @@ namespace TSS_SYSTEM
                 {
                     //「はい」が選択された時
                     buhin_insert();
+                    buhin_zaiko_insert();
                     chk_buhin_cd();
                 }
                 else
@@ -604,6 +605,25 @@ namespace TSS_SYSTEM
             }
             else
             {
+                //MessageBox.Show("新規登録しました。");
+            }
+        }
+
+        private void buhin_zaiko_insert()
+        {
+            tss.GetUser();
+            //新規部品の場合は、フリー在庫のレコードを作成
+            bool bl_tss = true;
+            bl_tss = tss.OracleInsert("INSERT INTO tss_buhin_zaiko_m (buhin_cd,zaiko_kbn,torihikisaki_cd,juchu_cd1,juchu_cd2,zaiko_su,create_user_cd,create_datetime)"
+                                    + " VALUES ('" + tb_buhin_cd.Text.ToString() + "','01','" + tb_torihikisaki_cd.Text.ToString() + "','9999999999999999','9999999999999999','0','" + tss.user_cd + "',SYSDATE)");
+            if (bl_tss != true)
+            {
+                tss.ErrorLogWrite(tss.user_cd, "部品マスタ／登録", "登録ボタン押下時の部品在庫マスタ作成OracleInsert");
+                MessageBox.Show("書込みでエラーが発生しました。処理を中止します。");
+                this.Close();
+            }
+            else
+            {
                 MessageBox.Show("新規登録しました。");
             }
         }
@@ -778,6 +798,24 @@ namespace TSS_SYSTEM
                 tb_siiresaki_name.Text = get_torihikisaki_name(tb_siiresaki_cd.Text);
                 tb_siire_kbn.Focus();
             }
+        }
+
+        private void tb_siire_kbn_Validating(object sender, CancelEventArgs e)
+        {
+            //空白の場合はOKとする
+            if (tb_siire_kbn.Text != "")
+            {
+                if (chk_siire_kbn() != true)
+                {
+                    MessageBox.Show("仕入区分に異常があります。");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    tb_siire_kbn_name.Text = get_kubun_name("07", tb_siire_kbn.Text);
+                }
+            }
+
         }
     }
 }

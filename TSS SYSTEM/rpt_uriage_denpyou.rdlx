@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+	<Body>
+		<Height>29.7cm</Height>
+		<ReportItems>
+			<FixedPage Name="FixedPage1">
+				<Pages>
+					<Page>
+						<ReportItems>
+							<Textbox Name="tb_seikyu_yyyy">
+								<Height>0.5cm</Height>
+								<Left>12.3cm</Left>
+								<Style>
+									<PaddingBottom>2pt</PaddingBottom>
+									<PaddingLeft>2pt</PaddingLeft>
+									<PaddingRight>2pt</PaddingRight>
+									<PaddingTop>2pt</PaddingTop>
+								</Style>
+								<Top>0.2cm</Top>
+								<Value>2015</Value>
+								<Width>1.2cm</Width>
+							</Textbox>
+							<Textbox Name="tb_seikyu_dd">
+								<Height>0.5cm</Height>
+								<Left>15.2cm</Left>
+								<Style>
+									<PaddingBottom>2pt</PaddingBottom>
+									<PaddingLeft>2pt</PaddingLeft>
+									<PaddingRight>2pt</PaddingRight>
+									<PaddingTop>2pt</PaddingTop>
+								</Style>
+								<Top>0.2cm</Top>
+								<Value>30</Value>
+								<Width>0.6cm</Width>
+							</Textbox>
+							<Textbox Name="tb_seikyu_mm">
+								<DataElementName>tb_seikyu_yyyy</DataElementName>
+								<Height>0.5cm</Height>
+								<Left>14cm</Left>
+								<Style>
+									<PaddingBottom>2pt</PaddingBottom>
+									<PaddingLeft>2pt</PaddingLeft>
+									<PaddingRight>2pt</PaddingRight>
+									<PaddingTop>2pt</PaddingTop>
+								</Style>
+								<Top>0.2cm</Top>
+								<Value>12</Value>
+								<Width>0.6cm</Width>
+							</Textbox>
+							<Textbox Name="tb_torihikisaki_cd">
+								<Height>0.75cm</Height>
+								<Left>1.9cm</Left>
+								<Style>
+									<PaddingBottom>2pt</PaddingBottom>
+									<PaddingLeft>2pt</PaddingLeft>
+									<PaddingRight>2pt</PaddingRight>
+									<PaddingTop>2pt</PaddingTop>
+								</Style>
+								<Top>2.1cm</Top>
+								<Value>999999</Value>
+								<Width>1.5cm</Width>
+								<ZIndex>1</ZIndex>
+							</Textbox>
+							<Textbox Name="tb_torihikisaki_name">
+								<Height>0.75cm</Height>
+								<Left>0.2cm</Left>
+								<Style>
+									<PaddingBottom>2pt</PaddingBottom>
+									<PaddingLeft>2pt</PaddingLeft>
+									<PaddingRight>2pt</PaddingRight>
+									<PaddingTop>2pt</PaddingTop>
+								</Style>
+								<Top>1.1cm</Top>
+								<Value>1234567890ABCDEFGHIJ1234567890ABCDEFGHIJ</Value>
+								<Width>9.6cm</Width>
+								<ZIndex>2</ZIndex>
+							</Textbox>
+							<Textbox Name="tb_kaisya_name">
+								<Height>0.75cm</Height>
+								<Left>10.2cm</Left>
+								<Style>
+									<PaddingBottom>2pt</PaddingBottom>
+									<PaddingLeft>2pt</PaddingLeft>
+									<PaddingRight>2pt</PaddingRight>
+									<PaddingTop>2pt</PaddingTop>
+								</Style>
+								<Top>1cm</Top>
+								<Value />
+								<Width>5.5cm</Width>
+								<ZIndex>3</ZIndex>
+							</Textbox>
+							<Textbox Name="tb_kaisya_yubin_no">
+								<Height>0.75cm</Height>
+								<Left>10.2cm</Left>
+								<Style>
+									<PaddingBottom>2pt</PaddingBottom>
+									<PaddingLeft>2pt</PaddingLeft>
+									<PaddingRight>2pt</PaddingRight>
+									<PaddingTop>2pt</PaddingTop>
+								</Style>
+								<Top>1.7cm</Top>
+								<Value />
+								<Width>2.5cm</Width>
+								<ZIndex>4</ZIndex>
+							</Textbox>
+							<Textbox Name="tb_kaisya_jusyo1">
+								<Height>0.75cm</Height>
+								<Left>10.2cm</Left>
+								<Style>
+									<PaddingBottom>2pt</PaddingBottom>
+									<PaddingLeft>2pt</PaddingLeft>
+									<PaddingRight>2pt</PaddingRight>
+									<PaddingTop>2pt</PaddingTop>
+								</Style>
+								<Top>2.5cm</Top>
+								<Value />
+								<Width>2.5cm</Width>
+								<ZIndex>5</ZIndex>
+							</Textbox>
+							<Textbox Name="tb_kaisya_jusyo2">
+								<Height>0.75cm</Height>
+								<Left>10.2cm</Left>
+								<Style>
+									<PaddingBottom>2pt</PaddingBottom>
+									<PaddingLeft>2pt</PaddingLeft>
+									<PaddingRight>2pt</PaddingRight>
+									<PaddingTop>2pt</PaddingTop>
+								</Style>
+								<Top>3.1cm</Top>
+								<Value />
+								<Width>2.5cm</Width>
+								<ZIndex>6</ZIndex>
+							</Textbox>
+							<Textbox Name="tb_kaisya_tel_no">
+								<Height>0.75cm</Height>
+								<Left>10.2cm</Left>
+								<Style>
+									<PaddingBottom>2pt</PaddingBottom>
+									<PaddingLeft>2pt</PaddingLeft>
+									<PaddingRight>2pt</PaddingRight>
+									<PaddingTop>2pt</PaddingTop>
+								</Style>
+								<Top>3.9cm</Top>
+								<Value />
+								<Width>2.5cm</Width>
+								<ZIndex>7</ZIndex>
+							</Textbox>
+							<Textbox Name="tb_kaisya_fax_no">
+								<Height>0.75cm</Height>
+								<Left>12.8cm</Left>
+								<Style>
+									<PaddingBottom>2pt</PaddingBottom>
+									<PaddingLeft>2pt</PaddingLeft>
+									<PaddingRight>2pt</PaddingRight>
+									<PaddingTop>2pt</PaddingTop>
+								</Style>
+								<Top>3.9cm</Top>
+								<Value />
+								<Width>2.5cm</Width>
+								<ZIndex>8</ZIndex>
+							</Textbox>
+							<Table Name="Table1">
+								<Header>
+									<TableRows>
+										<TableRow>
+											<Height>1.402292cm</Height>
+											<TableCells>
+												<TableCell>
+													<ReportItems>
+														<Textbox Name="TextBox1">
+															<Style>
+																<PaddingBottom>2pt</PaddingBottom>
+																<PaddingLeft>2pt</PaddingLeft>
+																<PaddingRight>2pt</PaddingRight>
+																<PaddingTop>2pt</PaddingTop>
+															</Style>
+															<Value />
+														</Textbox>
+													</ReportItems>
+												</TableCell>
+												<TableCell>
+													<ReportItems>
+														<Textbox Name="TextBox2">
+															<Style>
+																<PaddingBottom>2pt</PaddingBottom>
+																<PaddingLeft>2pt</PaddingLeft>
+																<PaddingRight>2pt</PaddingRight>
+																<PaddingTop>2pt</PaddingTop>
+															</Style>
+															<Value />
+														</Textbox>
+													</ReportItems>
+												</TableCell>
+												<TableCell>
+													<ReportItems>
+														<Textbox Name="TextBox3">
+															<Style>
+																<PaddingBottom>2pt</PaddingBottom>
+																<PaddingLeft>2pt</PaddingLeft>
+																<PaddingRight>2pt</PaddingRight>
+																<PaddingTop>2pt</PaddingTop>
+															</Style>
+															<Value />
+														</Textbox>
+													</ReportItems>
+												</TableCell>
+											</TableCells>
+										</TableRow>
+									</TableRows>
+								</Header>
+								<Details>
+									<TableRows>
+										<TableRow>
+											<Height>1.402292cm</Height>
+											<TableCells>
+												<TableCell>
+													<ReportItems>
+														<Textbox Name="TextBox4">
+															<Style>
+																<PaddingBottom>2pt</PaddingBottom>
+																<PaddingLeft>2pt</PaddingLeft>
+																<PaddingRight>2pt</PaddingRight>
+																<PaddingTop>2pt</PaddingTop>
+															</Style>
+															<Value />
+														</Textbox>
+													</ReportItems>
+												</TableCell>
+												<TableCell>
+													<ReportItems>
+														<Textbox Name="TextBox5">
+															<Style>
+																<PaddingBottom>2pt</PaddingBottom>
+																<PaddingLeft>2pt</PaddingLeft>
+																<PaddingRight>2pt</PaddingRight>
+																<PaddingTop>2pt</PaddingTop>
+															</Style>
+															<Value />
+														</Textbox>
+													</ReportItems>
+												</TableCell>
+												<TableCell>
+													<ReportItems>
+														<Textbox Name="TextBox6">
+															<Style>
+																<PaddingBottom>2pt</PaddingBottom>
+																<PaddingLeft>2pt</PaddingLeft>
+																<PaddingRight>2pt</PaddingRight>
+																<PaddingTop>2pt</PaddingTop>
+															</Style>
+															<Value />
+														</Textbox>
+													</ReportItems>
+												</TableCell>
+											</TableCells>
+										</TableRow>
+									</TableRows>
+								</Details>
+								<Footer>
+									<TableRows>
+										<TableRow>
+											<Height>1.402291cm</Height>
+											<TableCells>
+												<TableCell>
+													<ReportItems>
+														<Textbox Name="TextBox7">
+															<Style>
+																<PaddingBottom>2pt</PaddingBottom>
+																<PaddingLeft>2pt</PaddingLeft>
+																<PaddingRight>2pt</PaddingRight>
+																<PaddingTop>2pt</PaddingTop>
+															</Style>
+															<Value />
+														</Textbox>
+													</ReportItems>
+												</TableCell>
+												<TableCell>
+													<ReportItems>
+														<Textbox Name="TextBox8">
+															<Style>
+																<PaddingBottom>2pt</PaddingBottom>
+																<PaddingLeft>2pt</PaddingLeft>
+																<PaddingRight>2pt</PaddingRight>
+																<PaddingTop>2pt</PaddingTop>
+															</Style>
+															<Value />
+														</Textbox>
+													</ReportItems>
+												</TableCell>
+												<TableCell>
+													<ReportItems>
+														<Textbox Name="TextBox9">
+															<Style>
+																<PaddingBottom>2pt</PaddingBottom>
+																<PaddingLeft>2pt</PaddingLeft>
+																<PaddingRight>2pt</PaddingRight>
+																<PaddingTop>2pt</PaddingTop>
+															</Style>
+															<Value />
+														</Textbox>
+													</ReportItems>
+												</TableCell>
+											</TableCells>
+										</TableRow>
+									</TableRows>
+								</Footer>
+								<Height>4.2cm</Height>
+								<Left>3.5cm</Left>
+								<TableColumns>
+									<TableColumn>
+										<Width>3.704166cm</Width>
+									</TableColumn>
+									<TableColumn>
+										<Width>3.704166cm</Width>
+									</TableColumn>
+									<TableColumn>
+										<Width>3.704168cm</Width>
+									</TableColumn>
+								</TableColumns>
+								<Top>6.6cm</Top>
+								<Width>11.1cm</Width>
+								<ZIndex>9</ZIndex>
+							</Table>
+						</ReportItems>
+					</Page>
+				</Pages>
+			</FixedPage>
+		</ReportItems>
+	</Body>
+	<BottomMargin>2.5cm</BottomMargin>
+	<LeftMargin>2.5cm</LeftMargin>
+	<PageHeight>29.7cm</PageHeight>
+	<PageWidth>21cm</PageWidth>
+	<RightMargin>2.5cm</RightMargin>
+	<TopMargin>2.5cm</TopMargin>
+	<Width>21cm</Width>
+</Report>

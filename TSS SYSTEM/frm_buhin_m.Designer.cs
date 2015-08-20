@@ -467,7 +467,7 @@
             // tb_kessan_kbn_name
             // 
             this.tb_kessan_kbn_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_kessan_kbn_name.Location = new System.Drawing.Point(134, 253);
+            this.tb_kessan_kbn_name.Location = new System.Drawing.Point(120, 253);
             this.tb_kessan_kbn_name.Name = "tb_kessan_kbn_name";
             this.tb_kessan_kbn_name.ReadOnly = true;
             this.tb_kessan_kbn_name.Size = new System.Drawing.Size(100, 19);
@@ -490,7 +490,7 @@
             this.tb_kessan_kbn.Location = new System.Drawing.Point(103, 253);
             this.tb_kessan_kbn.MaxLength = 1;
             this.tb_kessan_kbn.Name = "tb_kessan_kbn";
-            this.tb_kessan_kbn.Size = new System.Drawing.Size(31, 19);
+            this.tb_kessan_kbn.Size = new System.Drawing.Size(17, 19);
             this.tb_kessan_kbn.TabIndex = 11;
             this.tb_kessan_kbn.DoubleClick += new System.EventHandler(this.tb_kessan_kbn_DoubleClick);
             this.tb_kessan_kbn.Validating += new System.ComponentModel.CancelEventHandler(this.tb_kessan_kbn_Validating);
@@ -627,7 +627,7 @@
             this.tb_siire_kbn.Size = new System.Drawing.Size(31, 19);
             this.tb_siire_kbn.TabIndex = 8;
             this.tb_siire_kbn.DoubleClick += new System.EventHandler(this.tb_siire_kbn_DoubleClick);
-            this.tb_siire_kbn.Validating += new System.ComponentModel.CancelEventHandler(this.tb_tani_kbn_Validating);
+            this.tb_siire_kbn.Validating += new System.ComponentModel.CancelEventHandler(this.tb_siire_kbn_Validating);
             // 
             // splitContainer4
             // 

@@ -676,6 +676,7 @@ namespace TSS_SYSTEM
             w_dt_history.Columns.Add("juchu_cd2");
             w_dt_history.Columns.Add("kousin_no", Type.GetType("System.Double"));
             w_dt_history.Columns.Add("kousin_naiyou");
+            w_dt_history.Columns.Add("create_datetime");
 
             DataTable w_dt = new DataTable();
             DataRow w_drow_rireki;
@@ -693,6 +694,7 @@ namespace TSS_SYSTEM
                         w_drow_rireki["juchu_cd2"] = dr2["juchu_cd2"].ToString();
                         w_drow_rireki["kousin_no"] = dr2["kousin_no"].ToString();
                         w_drow_rireki["kousin_naiyou"] = dr2["kousin_naiyou"].ToString();
+                        w_drow_rireki["create_datetime"] = dr2["create_datetime"].ToString();
                         w_dt_history.Rows.Add(w_drow_rireki);
                     }
                 }
@@ -705,6 +707,7 @@ namespace TSS_SYSTEM
             dgv_nouhin_rireki.Columns[2].HeaderText = "受注コード2";
             dgv_nouhin_rireki.Columns[3].HeaderText = "更新No";
             dgv_nouhin_rireki.Columns[4].HeaderText = "更新内容";
+            dgv_nouhin_rireki.Columns[5].HeaderText = "更新日時";
 
             //dgvをソートする
             //dgvにバインドされているDataTableを取得

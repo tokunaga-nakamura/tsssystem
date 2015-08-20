@@ -150,7 +150,7 @@ namespace TSS_SYSTEM
         {
             bool bl = true; //戻り値
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select * from tss_seihin_m where seihini_cd  = '" + in_cd + "'");
+            dt_work = tss.OracleSelect("select * from tss_seihin_m where seihin_cd  = '" + in_cd + "'");
             if (dt_work.Rows.Count <= 0)
             {
                 //無し
@@ -250,6 +250,21 @@ namespace TSS_SYSTEM
             seikyuu_check();
             tb_uriage_no.TabStop = false;
         }    
+
+        private void gamen_clear()
+        {
+            tb_uriage_no.Text = "";
+            tb_torihikisaki_cd.Text = "";
+            tb_torihikisaki_name.Text = "";
+            tb_uriage_date.Text = "";
+            dgv_m.Rows.Clear();
+            dgv_m.Columns.Clear();
+            dgv_m.DataSource = null;
+            tb_uriage_goukei.Text = "";
+            lbl_seikyuu.Text = "";
+        }
+
+
 
         private void uriage_disp(DataTable in_dt)
         {
@@ -618,9 +633,15 @@ namespace TSS_SYSTEM
                     if (result == DialogResult.Yes)
                     {
                         //「はい」が選択された時
+                        //新しい売上を書き込み
                         uriage_insert();
+                        //新しい売上で受注マスタの売上数量、売上完了区分を更新
                         juchu_kousin(tb_uriage_no.Text, +1);
+                        //新しい売上で在庫を更新
                         zaiko_kousin(tb_uriage_no.Text, +1);
+
+                        MessageBox.Show("更新しました。");
+                        gamen_clear();
                         //連番を新たに取得
                         w_uriage_no = tss.GetSeq("05");
                         uriage_no_disp();
@@ -638,12 +659,21 @@ namespace TSS_SYSTEM
                     if (result == DialogResult.Yes)
                     {
                         //「はい」が選択された時
+                        //受注マスタの売上数、売上完了区分等をマイナス
                         juchu_kousin(tb_uriage_no.Text, -1);
+                        //在庫をマイナス
                         zaiko_kousin(tb_uriage_no.Text, -1);
+                        //売上情報を削除
                         uriage_delete();
+                        //新しい売上を書き込み
                         uriage_insert();
+                        //新しい売上で受注マスタの売上数量、売上完了区分を更新
                         juchu_kousin(tb_uriage_no.Text, +1);
+                        //新しい売上で在庫を更新
                         zaiko_kousin(tb_uriage_no.Text, +1);
+
+                        MessageBox.Show("更新しました。");
+                        gamen_clear();
                         //退避していた連番を表示
                         uriage_no_disp();
                     }
@@ -679,7 +709,7 @@ namespace TSS_SYSTEM
                     double.TryParse(dr["uriage_su"].ToString(),out w_uriage_uriage_su);
                     double.TryParse(w_dt2.Rows[0]["juchu_su"].ToString(), out w_juchu_juchu_su);
                     w_write_uriage_su = w_juchu_uriage_su + w_uriage_uriage_su * in_sign;   //受注マスタの売上数量を求める
-                    if(w_juchu_juchu_su == w_juchu_uriage_su)
+                    if(w_juchu_juchu_su == w_write_uriage_su)
                     {
                         w_uriage_kanryou_flg = "1";
                     }
@@ -759,7 +789,7 @@ namespace TSS_SYSTEM
                                     //全ての在庫処理において数量に変更が発生した場合は、部品入出庫履歴に書き込む→履歴テーブルが無いので今現在は履歴は残さない
                                     
                                     double.TryParse(dr["uriage_su"].ToString(),out w_uriage_su);
-                                    double.TryParse(dr3["siyou_su]"].ToString(), out w_siyou_su);
+                                    double.TryParse(dr3["siyou_su"].ToString(), out w_siyou_su);
                                     w_kagen_su = w_uriage_su * w_siyou_su * in_sign;
 
                                     if(in_sign == -1 || w_uriage_flg == 1)
@@ -774,7 +804,7 @@ namespace TSS_SYSTEM
                                     else
                                     {
                                         //そうでない場合は売上通りに在庫を調整
-                                        if(tss.zaiko_proc(dr3["buhin_cd"].ToString(), "02", dr3["torihikisaki_cd"].ToString(), dr["juchu_cd1"].ToString(), dr["juchu_cd2"].ToString(), w_kagen_su) == false)
+                                        if(tss.zaiko_proc(dr3["buhin_cd"].ToString(), "02", dr["torihikisaki_cd"].ToString(), dr["juchu_cd1"].ToString(), dr["juchu_cd2"].ToString(), w_kagen_su) == false)
                                         {
                                             MessageBox.Show("在庫の消し込み処理でエラーが発生しました。処理を中止します。");
                                             this.Close();
@@ -856,7 +886,7 @@ namespace TSS_SYSTEM
 
         private void seq_disp()
         {
-            for(int i = 0;i<dgv_m.Rows.Count;i++)
+            for(int i = 0;i<dgv_m.Rows.Count - 1;i++)
             {
                 dgv_m.Rows[i].Cells[1].Value = i + 1;
             }
@@ -879,44 +909,44 @@ namespace TSS_SYSTEM
                 if(tb_uriage_no.Text.ToString() == w_uriage_no.ToString("0000000000"))
                 {
                     //新規
-                    w_sql = "INSERT INTO tss_uriage_m (uriage_no,seq,torihikisaki_cd,uriage_date,juchu_cd1,juchu_cd2,seihin_cd,seisan_name,uriage_su,hanbai_tanka,uriage_kingaku,uriage_simebi,bikou,create_user_cd,create_datetime"
+                    w_sql = "INSERT INTO tss_uriage_m (uriage_no,seq,torihikisaki_cd,uriage_date,juchu_cd1,juchu_cd2,seihin_cd,seihin_name,uriage_su,hanbai_tanka,uriage_kingaku,urikake_no,uriage_simebi,delete_flg,bikou,create_user_cd,create_datetime)"
                     + " VALUES ('" + tb_uriage_no.Text.ToString() + "','"
                     + dgv_m.Rows[i].Cells[1].Value.ToString() + "','"
                     + tb_torihikisaki_cd.Text.ToString() + "',"
-                    + "to_date('" + w_uriage_simebi.ToString() + "','YYYY/MM/DD HH24:MI:SS'),'"
+                    + "to_date('" + tb_uriage_date.Text.ToString() + "','YYYY/MM/DD HH24:MI:SS'),'"
                     + dgv_m.Rows[i].Cells[4].Value.ToString() + "','"
                     + dgv_m.Rows[i].Cells[5].Value.ToString() + "','"
                     + dgv_m.Rows[i].Cells[6].Value.ToString() + "','"
                     + dgv_m.Rows[i].Cells[7].Value.ToString() + "','"
                     + dgv_m.Rows[i].Cells[8].Value.ToString() + "','"
                     + dgv_m.Rows[i].Cells[9].Value.ToString() + "','"
-                    + dgv_m.Rows[i].Cells[10].Value.ToString() + "','"
-                    + "null" + "','"
+                    + dgv_m.Rows[i].Cells[10].Value.ToString() + "',"
+                    + "null" + ","
                     + "to_date('" + w_uriage_simebi.ToString() + "','YYYY/MM/DD HH24:MI:SS'),'"
                     + "0" + "','"
                     + dgv_m.Rows[i].Cells[14].Value.ToString() + "','"
-                    + tss.user_cd + "',sysdate";
+                    + tss.user_cd + "',sysdate)";
                 }
                 else
                 {
                     //既存
-                    w_sql = "INSERT INTO tss_uriage_m (uriage_no,seq,torihikisaki_cd,uriage_date,juchu_cd1,juchu_cd2,seihin_cd,seisan_name,uriage_su,hanbai_tanka,uriage_kingaku,uriage_simebi,bikou,update_user_cd,update_datetime"
+                    w_sql = "INSERT INTO tss_uriage_m (uriage_no,seq,torihikisaki_cd,uriage_date,juchu_cd1,juchu_cd2,seihin_cd,seihin_name,uriage_su,hanbai_tanka,uriage_kingaku,urikake_no,uriage_simebi,delete_flg,bikou,update_user_cd,update_datetime)"
                     + " VALUES ('" + tb_uriage_no.Text.ToString() + "','"
                     + dgv_m.Rows[i].Cells[1].Value.ToString() + "','"
                     + tb_torihikisaki_cd.Text.ToString() + "',"
-                    + "to_date('" + w_uriage_simebi.ToString() + "','YYYY/MM/DD HH24:MI:SS'),'"
+                    + "to_date('" + tb_uriage_date.ToString() + "','YYYY/MM/DD HH24:MI:SS'),'"
                     + dgv_m.Rows[i].Cells[4].Value.ToString() + "','"
                     + dgv_m.Rows[i].Cells[5].Value.ToString() + "','"
                     + dgv_m.Rows[i].Cells[6].Value.ToString() + "','"
                     + dgv_m.Rows[i].Cells[7].Value.ToString() + "','"
                     + dgv_m.Rows[i].Cells[8].Value.ToString() + "','"
                     + dgv_m.Rows[i].Cells[9].Value.ToString() + "','"
-                    + dgv_m.Rows[i].Cells[10].Value.ToString() + "','"
-                    + "null" + "','"
+                    + dgv_m.Rows[i].Cells[10].Value.ToString() + "',"
+                    + "null" + ","
                     + "to_date('" + w_uriage_simebi.ToString() + "','YYYY/MM/DD HH24:MI:SS'),'"
                     + "0" + "','"
                     + dgv_m.Rows[i].Cells[14].Value.ToString() + "','"
-                    + tss.user_cd + "',sysdate";
+                    + tss.user_cd + "',sysdate)";
                 }
                 if (tss.OracleInsert(w_sql) == false)
                 {
@@ -932,22 +962,31 @@ namespace TSS_SYSTEM
             DateTime out_datetime;  //戻り値用
             int w_gamen_sime_dd;
             DateTime w_gamen_sime_date;
+            //画面の売上計上日をdatetime型に変換
             DateTime.TryParse(tb_uriage_date.Text.ToString(),out w_gamen_sime_date);
-            DateTime.TryParse(tb_uriage_date.Text.ToString().Substring(0,8) + w_seikyu_sime_dd.ToString("00"), out out_datetime);
-
-            if(int.TryParse(tb_uriage_date.Text.ToString().Substring(8),out w_gamen_sime_dd))
+            //画面の売上計上日から取引先の締日に日を変更して売上締日を作成しdatetimeに変換
+            if (w_seikyu_sime_dd != 99)
             {
-                //取引先の締日と入力した計上日の「日」を比較して、入力した日が大きかったら、入力した日付の翌月を締日にする
+                DateTime.TryParse(tb_uriage_date.Text.ToString().Substring(0, 8) + w_seikyu_sime_dd.ToString("00"), out out_datetime);
+            }
+            else
+            {
+                DateTime.TryParse(tb_uriage_date.Text.ToString().Substring(0, 8) + DateTime.DaysInMonth(w_gamen_sime_date.Year, w_gamen_sime_date.Month).ToString("00"), out out_datetime);
+            }
+
+            //取引先の締日と入力した計上日の「日」を比較して、入力した日が大きかったら、入力した日付の翌月を締日にする
+            if (int.TryParse(tb_uriage_date.Text.ToString().Substring(8), out w_gamen_sime_dd))
+            {
                 if(w_seikyu_sime_dd >= w_gamen_sime_dd)
                 {
-                    if(w_seikyu_sime_dd != 99)
-                    {
-                        DateTime.TryParse(tb_uriage_date.Text.ToString().Substring(0,8) + w_seikyu_sime_dd.ToString("00"),out out_datetime);
-                    }
-                    else
-                    {
-                        DateTime.TryParse(tb_uriage_date.Text.ToString().Substring(0, 8) + DateTime.DaysInMonth(w_gamen_sime_date.Year, w_gamen_sime_date.Month).ToString("00"), out out_datetime);
-                    }
+                    //if(w_seikyu_sime_dd != 99)
+                    //{
+                    //    DateTime.TryParse(tb_uriage_date.Text.ToString().Substring(0,8) + w_seikyu_sime_dd.ToString("00"),out out_datetime);
+                    //}
+                    //else
+                    //{
+                    //    DateTime.TryParse(tb_uriage_date.Text.ToString().Substring(0, 8) + DateTime.DaysInMonth(w_gamen_sime_date.Year, w_gamen_sime_date.Month).ToString("00"), out out_datetime);
+                    //}
                 }
                 else
                 {

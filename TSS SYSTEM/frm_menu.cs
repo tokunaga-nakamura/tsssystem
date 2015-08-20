@@ -205,7 +205,7 @@ namespace TSS_SYSTEM
         private void btn_juchu_kensaku_Click(object sender, EventArgs e)
         {
             //受注検索画面へ
-            tss.search_juchu("1", "");
+            tss.search_juchu("1", "","","","");
         }
 
         private void btn_seihin_kensaku_Click(object sender, EventArgs e)
@@ -316,11 +316,18 @@ namespace TSS_SYSTEM
             frm_ss.Dispose();
         }
 
-        private void btn_siharai_Click(object sender, EventArgs e)
+        private void btn_siire_Click(object sender, EventArgs e)
         {
-            frm_siharai frm_shri = new frm_siharai();
-            frm_shri.ShowDialog(this);
-            frm_shri.Dispose();
+            frm_siire frm_sir = new frm_siire();
+            frm_sir.ShowDialog(this);
+            frm_sir.Dispose();
+        }
+
+        private void btn_siire_sime_Click(object sender, EventArgs e)
+        {
+            frm_siire_simebi frm_ss = new frm_siire_simebi();
+            frm_ss.ShowDialog(this);
+            frm_ss.Dispose();
         }
     }
 }
