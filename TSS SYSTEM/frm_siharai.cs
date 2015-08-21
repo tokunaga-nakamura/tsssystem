@@ -499,7 +499,7 @@ namespace TSS_SYSTEM
 
                     bl2 = tss.OracleUpdate("UPDATE TSS_kaikake_m SET sihraigaku = '"
                                 + tb_siharai_goukei.ToString() + "',siharai_no = '" + tb_siharai_no.ToString()
-                                + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "'and siire_simebi = '" + dgv_siharai.Rows[0].Cells[0].ToString() + "'");
+                                + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "'and siire_simebi = '" + dgv_siharai.Rows[0].Cells[0].Value.ToString() + "'");
 
                 //+ tb_siharai_no.Text.ToString() + "','"
                 //+ (i + 1) + "','"
