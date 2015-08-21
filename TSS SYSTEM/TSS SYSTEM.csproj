@@ -190,6 +190,12 @@
     <Compile Include="frm_search_torihikisaki.Designer.cs">
       <DependentUpon>frm_search_torihikisaki.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_search_uriage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_search_uriage.Designer.cs">
+      <DependentUpon>frm_search_uriage.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_seihin_kousei_m.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -327,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_search_torihikisaki.resx">
       <DependentUpon>frm_search_torihikisaki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_search_uriage.resx">
+      <DependentUpon>frm_search_uriage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_seihin_kousei_m.resx">
       <DependentUpon>frm_seihin_kousei_m.cs</DependentUpon>

@@ -86,6 +86,7 @@
             this.btn_mst_table = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_syuuryou = new System.Windows.Forms.Button();
+            this.btn_uriage_kensaku = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -512,6 +513,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btn_uriage_kensaku);
             this.tabPage2.Controls.Add(this.btn_uriage);
             this.tabPage2.Controls.Add(this.btn_juchu_kensaku);
             this.tabPage2.Controls.Add(this.btn_nouhin_schedule);
@@ -830,6 +832,16 @@
             this.btn_syuuryou.UseVisualStyleBackColor = true;
             this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
+            // btn_uriage_kensaku
+            // 
+            this.btn_uriage_kensaku.Location = new System.Drawing.Point(194, 35);
+            this.btn_uriage_kensaku.Name = "btn_uriage_kensaku";
+            this.btn_uriage_kensaku.Size = new System.Drawing.Size(180, 23);
+            this.btn_uriage_kensaku.TabIndex = 8;
+            this.btn_uriage_kensaku.Text = "売上検索";
+            this.btn_uriage_kensaku.UseVisualStyleBackColor = true;
+            this.btn_uriage_kensaku.Click += new System.EventHandler(this.btn_uriage_kensaku_Click);
+            // 
             // frm_menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -962,6 +974,7 @@
         private System.Windows.Forms.Button btn_siire;
         private System.Windows.Forms.Button btn_siire_sime;
         private System.Windows.Forms.Button btn_siharai;
+        private System.Windows.Forms.Button btn_uriage_kensaku;
     }
 }
 

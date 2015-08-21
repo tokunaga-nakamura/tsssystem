@@ -336,5 +336,16 @@ namespace TSS_SYSTEM
             frm_shri.ShowDialog(this);
             frm_shri.Dispose();
         }
+
+        private void btn_uriage_kensaku_Click(object sender, EventArgs e)
+        {
+            //検索画面へ
+            frm_search_uriage frm_sb = new frm_search_uriage();
+            //子画面のプロパティに値をセットする
+            frm_sb.str_mode = "1";
+            frm_sb.ShowDialog();
+            //子フォームの解放
+            frm_sb.Dispose();
+        }
     }
 }
