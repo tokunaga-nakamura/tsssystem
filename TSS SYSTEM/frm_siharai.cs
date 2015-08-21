@@ -138,8 +138,9 @@ namespace TSS_SYSTEM
 
         private void btn_siharai_syori_Click_1(object sender, EventArgs e)
         {
+            string str = dgv_mibarai.CurrentRow.Cells[0].Value.ToString();
             DataTable dt_work = new DataTable();
-            dt_work = tss.OracleSelect("select siire_simebi,kokyaku_seikyu_no,siharai_kbn,siharaigaku,tesuryou,sousai from tss_siharai_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'");
+            dt_work = tss.OracleSelect("select siire_simebi,kokyaku_seikyu_no,siharai_kbn,siharaigaku,tesuryou,sousai from tss_siharai_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'and siire_simebi = '" + str.ToString() + "'");
 
             dt_work.Rows.InsertAt(dt_work.NewRow(),1);
 
@@ -150,7 +151,7 @@ namespace TSS_SYSTEM
  
             tb_siharai_date.Focus();
             
-            string str = dgv_mibarai.CurrentRow.Cells[0].Value.ToString();
+            //string str = dgv_mibarai.CurrentRow.Cells[0].Value.ToString();
 
             //dgv_siharai.Rows.Add();
             dgv_siharai.Rows[0].Cells[0].Value = str;
@@ -387,6 +388,7 @@ namespace TSS_SYSTEM
             int rc = dt_work.Rows.Count;
             int rc2 = dgv_siharai.Rows.Count;
 
+           
             //支払マスタにレコードがない場合
             if (rc == 0)
             {
@@ -428,30 +430,12 @@ namespace TSS_SYSTEM
             //支払マスタにレコードが存在している場合
             else
             {
-                DialogResult result = MessageBox.Show("既存の支払データを上書きしますか？",
-                 "支払データの上書き確認",
-                  MessageBoxButtons.OKCancel,
-                  MessageBoxIcon.Exclamation,
-                  MessageBoxDefaultButton.Button2);
+                   string str_create_user_cd = tb_create_user_cd.Text.ToString();
+                   string dstr_create_datetime = tb_create_datetime.Text.ToString();
+                   //string str_ = dgv_siharai.CurrentRow.Cells[0].Value.ToString();
 
-                if (result == DialogResult.OK)
-                {
-                    
-                    
-                   // object obj = dgv_siharai.Rows[0].Cells[]
-                    
-                    
-                    //bool bl = tss.OracleUpdate("UPDATE TSS_siharai_m SET siharaigaku = '" + siirekingaku + "',syouhizeigaku = '" + syouhizeigaku
-                    //            + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "'and siire_simebi = '" + tb_siire_simebi.Text.ToString() + "'");
-
-
-                    //bool bl = tss.OracleUpdate("UPDATE TSS_kaikake_m SET kurikosigaku = '"
-                    //            + kurikosigaku + "',siharaigaku = '" + siirekingaku + "',syouhizeigaku = '" + syouhizeigaku + "',kaikake_zandaka = '" + kaikake_zandaka
-                    //            + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "'and siire_simebi = '" + tb_siire_simebi.Text.ToString() + "'");
-
-
-                    ////仕入マスタから削除してインサート
-                    //tss.OracleDelete("delete from kaikake_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "' and siire_simebi = '" + tb_siire_simebi.Text.ToString() + "'");
+                    //仕入マスタから削除してインサート
+                    tss.OracleDelete("delete from tss_siharai_m where siharai_no = '" + tb_siharai_no.Text.ToString() + "'");
 
                     //bool bl = tss.OracleInsert("insert into tss_kaikake_m (torihikisaki_cd, kurikosigaku,siire_simebi,siire_kingaku,syouhizeigaku,kaikake_zandaka,create_user_cd,create_datetime,update_user_cd,update_datetime) values ('"
 
@@ -484,11 +468,11 @@ namespace TSS_SYSTEM
 
                 }
                 //「いいえ」が選択された時
-                else if (result == DialogResult.Cancel)
-                {
-                    return;
-                }
-            }
+                //else if (result == DialogResult.Cancel)
+                //{
+                //    return;
+                //}
+            
 
             //買掛マスタの更新
 
@@ -497,23 +481,15 @@ namespace TSS_SYSTEM
 
              bool bl2 = new bool();
 
-                    bl2 = tss.OracleUpdate("UPDATE TSS_kaikake_m SET sihraigaku = '"
-                                + tb_siharai_goukei.ToString() + "',siharai_no = '" + tb_siharai_no.ToString()
-                                + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "'and siire_simebi = '" + dgv_siharai.Rows[0].Cells[0].Value.ToString() + "'");
+             string str = dgv_siharai.Rows[0].Cells[0].Value.ToString();
+             string str2 = str.Substring(0,10);
+             double siharai_goukei = double.Parse(tb_siharai_goukei.Text.ToString());
 
-                //+ tb_siharai_no.Text.ToString() + "','"
-                //+ (i + 1) + "','"
-                //+ tb_torihikisaki_cd.Text.ToString() + "',"
-                //+ "to_date('" + dgv_siharai.Rows[i].Cells[0].Value.ToString() + "','YYYY/MM/DD HH24:MI:SS'),'"
-                //+ dgv_siharai.Rows[i].Cells[2].Value.ToString() + "',"
-                //+ "to_date('" + tb_siharai_date.Text.ToString() + "','YYYY/MM/DD HH24:MI:SS'),'"
-                //+ dgv_siharai.Rows[i].Cells[3].Value.ToString() + "','"
-                //+ dgv_siharai.Rows[i].Cells[4].Value.ToString() + "','"
-                //+ dgv_siharai.Rows[i].Cells[5].Value.ToString() + "','"
-                //+ dgv_siharai.Rows[i].Cells[1].Value.ToString() + "','"
-                //+ dgv_siharai.Rows[i].Cells[7].Value.ToString() + "','"
-                //+ tss.user_cd + "',SYSDATE)");
-            
+
+                    bl2 = tss.OracleUpdate("UPDATE TSS_kaikake_m SET siharaigaku = '"
+                                + siharai_goukei + "',siharai_no = '" + tb_siharai_no.Text.ToString()
+                                + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "'and siire_simebi = '" + str2.ToString() + "'");
+
 
             if (bl2!= true)
             {
@@ -527,10 +503,6 @@ namespace TSS_SYSTEM
                 tb_create_datetime.Text = DateTime.Now.ToString();
                 MessageBox.Show("買掛処理登録しました。");
             }
-
-
-
-          
 
         }
 

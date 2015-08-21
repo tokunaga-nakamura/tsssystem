@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_siharai));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_hyouji = new System.Windows.Forms.Button();
             this.tb_update_datetime = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -59,7 +59,6 @@
             this.tb_mibarai_goukei = new System.Windows.Forms.TextBox();
             this.btn_siharai_hensyu = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tb_siharai_date = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -67,6 +66,7 @@
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.dgv_siharai = new System.Windows.Forms.DataGridView();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
+            this.label1 = new System.Windows.Forms.Label();
             this.tb_kurikosi_zandaka = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.tb_siharai_goukei = new System.Windows.Forms.TextBox();
@@ -315,22 +315,22 @@
             // 
             // Column7
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle9.Format = "N0";
+            dataGridViewCellStyle9.NullValue = null;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle9;
             this.Column7.HeaderText = "仕入締日";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
             // Column6
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle10.Format = "N0";
+            dataGridViewCellStyle10.NullValue = null;
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle10;
             this.Column6.HeaderText = "仕入金額（税抜）";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -338,10 +338,10 @@
             // 
             // Column2
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.Format = "N0";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle11.Format = "N0";
+            dataGridViewCellStyle11.NullValue = null;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle11;
             this.Column2.HeaderText = "消費税額";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -349,10 +349,10 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle4.Format = "N0";
-            dataGridViewCellStyle4.NullValue = null;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle12.Format = "N0";
+            dataGridViewCellStyle12.NullValue = null;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle12;
             this.Column3.HeaderText = "仕入金額合計";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -448,18 +448,9 @@
             this.textBox2.TabStop = false;
             this.textBox2.Text = "未払合計";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(111, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 12);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "支払区分　1：振込　2：手形　3：現金";
-            // 
             // tb_siharai_date
             // 
-            this.tb_siharai_date.Location = new System.Drawing.Point(331, 24);
+            this.tb_siharai_date.Location = new System.Drawing.Point(331, 21);
             this.tb_siharai_date.MaxLength = 40;
             this.tb_siharai_date.Name = "tb_siharai_date";
             this.tb_siharai_date.Size = new System.Drawing.Size(160, 19);
@@ -470,7 +461,7 @@
             // textBox7
             // 
             this.textBox7.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox7.Location = new System.Drawing.Point(223, 24);
+            this.textBox7.Location = new System.Drawing.Point(223, 21);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(108, 19);
@@ -481,7 +472,7 @@
             // textBox5
             // 
             this.textBox5.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox5.Location = new System.Drawing.Point(10, 24);
+            this.textBox5.Location = new System.Drawing.Point(10, 21);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(108, 19);
@@ -492,7 +483,7 @@
             // tb_siharai_no
             // 
             this.tb_siharai_no.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_siharai_no.Location = new System.Drawing.Point(118, 24);
+            this.tb_siharai_no.Location = new System.Drawing.Point(118, 21);
             this.tb_siharai_no.MaxLength = 10;
             this.tb_siharai_no.Name = "tb_siharai_no";
             this.tb_siharai_no.Size = new System.Drawing.Size(85, 19);
@@ -560,6 +551,15 @@
             this.splitContainer6.SplitterDistance = 51;
             this.splitContainer6.TabIndex = 4;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(138, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(185, 12);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "支払区分　1：振込　2：手形　3：現金";
+            // 
             // tb_kurikosi_zandaka
             // 
             this.tb_kurikosi_zandaka.Location = new System.Drawing.Point(709, 15);
@@ -583,19 +583,19 @@
             // 
             // tb_siharai_goukei
             // 
-            this.tb_siharai_goukei.Location = new System.Drawing.Point(410, 15);
+            this.tb_siharai_goukei.Location = new System.Drawing.Point(447, 15);
             this.tb_siharai_goukei.MaxLength = 40;
             this.tb_siharai_goukei.Name = "tb_siharai_goukei";
             this.tb_siharai_goukei.ReadOnly = true;
-            this.tb_siharai_goukei.Size = new System.Drawing.Size(160, 19);
+            this.tb_siharai_goukei.Size = new System.Drawing.Size(120, 19);
             this.tb_siharai_goukei.TabIndex = 27;
             this.tb_siharai_goukei.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btn_tuika
             // 
-            this.btn_tuika.Location = new System.Drawing.Point(10, 15);
+            this.btn_tuika.Location = new System.Drawing.Point(12, 15);
             this.btn_tuika.Name = "btn_tuika";
-            this.btn_tuika.Size = new System.Drawing.Size(97, 23);
+            this.btn_tuika.Size = new System.Drawing.Size(116, 23);
             this.btn_tuika.TabIndex = 10;
             this.btn_tuika.Text = "1行追加";
             this.btn_tuika.UseVisualStyleBackColor = true;
@@ -604,7 +604,7 @@
             // textBox8
             // 
             this.textBox8.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox8.Location = new System.Drawing.Point(302, 15);
+            this.textBox8.Location = new System.Drawing.Point(338, 15);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(108, 19);
