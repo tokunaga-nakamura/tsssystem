@@ -33,6 +33,13 @@ namespace TSS_SYSTEM
 
         private void tb_torihikisaki_cd_Validating(object sender, CancelEventArgs e)
         {
+            if(tb_torihikisaki_cd.Text == "999999")
+            {
+                MessageBox.Show("取引先コードのオール９は、システム予約コードの為、使用できません。");
+                tb_torihikisaki_cd.Focus();
+                e.Cancel = true;
+                return;
+            }
             //終了ボタンを考慮して、空白は許容する
             if (tb_torihikisaki_cd.Text != "")
             {
@@ -278,6 +285,12 @@ namespace TSS_SYSTEM
 
         private void tb_juchuu_cd2_Validating(object sender, CancelEventArgs e)
         {
+            if (tb_juchu_cd2.Text == "9999999999999999")
+            {
+                MessageBox.Show("受注コードのオール９は、システム予約コードの為、使用できません。");
+                tb_juchu_cd2.Focus();
+                return;
+            }
             //取引先コードまたは受注cd1が空白の場合は、受注Noの入力からは抜けられない
             if(tb_torihikisaki_cd.Text.Length == 0 || tb_juchu_cd1.Text.Length == 0)
             {
@@ -471,6 +484,12 @@ namespace TSS_SYSTEM
         private bool chk_torihikisaki_cd()
         {
             bool bl = true; //戻り値
+            //取引先コードのオール９はシステムで使用しているため使用不可
+            if (tb_torihikisaki_cd.Text == "999999")
+            {
+                bl = false;
+                return bl;
+            }
             DataTable dt_work = new DataTable();
             dt_work = tss.OracleSelect("select * from tss_torihikisaki_m where torihikisaki_cd  = '" + tb_torihikisaki_cd.Text.ToString() + "'");
             if (dt_work.Rows.Count <= 0)
@@ -494,6 +513,11 @@ namespace TSS_SYSTEM
             {
                 bl = false;
             }
+            //受注コードのオール９はシステムで使用しているため使用不可
+            if(tb_juchu_cd1.Text == "9999999999999999")
+            {
+                bl = false;
+            }
             return bl;
         }
         private bool chk_juchu_cd2()
@@ -503,6 +527,11 @@ namespace TSS_SYSTEM
 
             //if (tss.StringByte(tb_juchu_cd1.Text) > 16)
             if (tb_juchu_cd2.Text.Length == 0 || tss.StringByte(tb_juchu_cd1.Text) > 16)
+            {
+                bl = false;
+            }
+            //受注コードのオール９はシステムで使用しているため使用不可
+            if (tb_juchu_cd2.Text == "9999999999999999")
             {
                 bl = false;
             }
@@ -1235,6 +1264,16 @@ namespace TSS_SYSTEM
                 find_juchu_cd2(tb_torihikisaki_cd.Text, tb_juchu_cd1.Text, tb_juchu_cd2.Text);
             }
 
+        }
+
+        private void tb_juchu_cd1_Validating(object sender, CancelEventArgs e)
+        {
+            if(tb_juchu_cd1.Text == "9999999999999999")
+            {
+                MessageBox.Show("受注コードのオール９は、システム予約コードの為、使用できません。");
+                tb_juchu_cd1.Focus();
+                return;
+            }
         }
     }
 }

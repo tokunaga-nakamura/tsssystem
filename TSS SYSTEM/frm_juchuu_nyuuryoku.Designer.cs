@@ -388,6 +388,7 @@
             this.tb_juchu_cd1.Name = "tb_juchu_cd1";
             this.tb_juchu_cd1.Size = new System.Drawing.Size(112, 19);
             this.tb_juchu_cd1.TabIndex = 1;
+            this.tb_juchu_cd1.Validating += new System.ComponentModel.CancelEventHandler(this.tb_juchu_cd1_Validating);
             // 
             // tb_juchu_cd2
             // 

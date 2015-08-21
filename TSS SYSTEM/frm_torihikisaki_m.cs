@@ -460,6 +460,11 @@ namespace TSS_SYSTEM
          {
              bool bl = true; //戻り値用
 
+             //取引先コードのオール９はシステムで使用しているため使用不可
+             if (tb_torihikisaki_cd.Text == "999999")
+             {
+                 bl = false;
+             }
              if (tb_torihikisaki_cd.Text == null || tb_torihikisaki_cd.Text.Length > 6)
              {
                  bl = false;
@@ -855,6 +860,17 @@ namespace TSS_SYSTEM
                 tb_torihikisaki_cd.Text = w_cd;
                 torihikisaki_disp(tb_torihikisaki_cd.Text);
             }
+        }
+
+        private void tb_torihikisaki_cd_Validating(object sender, CancelEventArgs e)
+        {
+            if (tb_torihikisaki_cd.Text == "999999")
+            {
+                MessageBox.Show("取引先コードのオール９は、システム予約コードの為、使用できません。");
+                e.Cancel = true;
+                return;
+            }
+
         }
     }
 }
