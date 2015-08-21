@@ -650,7 +650,7 @@ namespace TSS_SYSTEM
         private void tb_siire_no_Validating(object sender, CancelEventArgs e)
         {
 
-            //入力された売上番号を"0000000000"形式の文字列に変換
+            //入力された仕入番号を"0000000000"形式の文字列に変換
             double w_double;
             if (double.TryParse(tb_siire_no.Text.ToString(), out w_double))
             {
@@ -658,7 +658,7 @@ namespace TSS_SYSTEM
             }
             else
             {
-                MessageBox.Show("売上番号に異常があります。");
+                MessageBox.Show("仕入番号に異常があります。");
                 tb_siire_no.Focus();
             }
             //新規か既存かの判定

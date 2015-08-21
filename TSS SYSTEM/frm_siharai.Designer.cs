@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_siharai));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_hyouji = new System.Windows.Forms.Button();
             this.tb_update_datetime = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -121,7 +121,7 @@
             // tb_update_datetime
             // 
             this.tb_update_datetime.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_update_datetime.Location = new System.Drawing.Point(743, 30);
+            this.tb_update_datetime.Location = new System.Drawing.Point(746, 29);
             this.tb_update_datetime.Name = "tb_update_datetime";
             this.tb_update_datetime.ReadOnly = true;
             this.tb_update_datetime.Size = new System.Drawing.Size(127, 19);
@@ -131,7 +131,7 @@
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox3.Location = new System.Drawing.Point(660, 11);
+            this.textBox3.Location = new System.Drawing.Point(663, 10);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(38, 19);
@@ -142,7 +142,7 @@
             // tb_update_user_cd
             // 
             this.tb_update_user_cd.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_update_user_cd.Location = new System.Drawing.Point(698, 30);
+            this.tb_update_user_cd.Location = new System.Drawing.Point(701, 29);
             this.tb_update_user_cd.Name = "tb_update_user_cd";
             this.tb_update_user_cd.ReadOnly = true;
             this.tb_update_user_cd.Size = new System.Drawing.Size(45, 19);
@@ -152,7 +152,7 @@
             // tb_create_user_cd
             // 
             this.tb_create_user_cd.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_create_user_cd.Location = new System.Drawing.Point(698, 11);
+            this.tb_create_user_cd.Location = new System.Drawing.Point(701, 10);
             this.tb_create_user_cd.Name = "tb_create_user_cd";
             this.tb_create_user_cd.ReadOnly = true;
             this.tb_create_user_cd.Size = new System.Drawing.Size(45, 19);
@@ -162,7 +162,7 @@
             // tb_create_datetime
             // 
             this.tb_create_datetime.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_create_datetime.Location = new System.Drawing.Point(743, 11);
+            this.tb_create_datetime.Location = new System.Drawing.Point(746, 10);
             this.tb_create_datetime.Name = "tb_create_datetime";
             this.tb_create_datetime.ReadOnly = true;
             this.tb_create_datetime.Size = new System.Drawing.Size(127, 19);
@@ -172,7 +172,7 @@
             // textBox9
             // 
             this.textBox9.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox9.Location = new System.Drawing.Point(660, 30);
+            this.textBox9.Location = new System.Drawing.Point(663, 29);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
             this.textBox9.Size = new System.Drawing.Size(38, 19);
@@ -253,12 +253,6 @@
             // splitContainer3.Panel1
             // 
             this.splitContainer3.Panel1.Controls.Add(this.btn_hyouji);
-            this.splitContainer3.Panel1.Controls.Add(this.tb_update_datetime);
-            this.splitContainer3.Panel1.Controls.Add(this.textBox3);
-            this.splitContainer3.Panel1.Controls.Add(this.tb_update_user_cd);
-            this.splitContainer3.Panel1.Controls.Add(this.tb_create_user_cd);
-            this.splitContainer3.Panel1.Controls.Add(this.tb_create_datetime);
-            this.splitContainer3.Panel1.Controls.Add(this.textBox9);
             this.splitContainer3.Panel1.Controls.Add(this.label3);
             this.splitContainer3.Panel1.Controls.Add(this.tb_torihikisaki_name);
             this.splitContainer3.Panel1.Controls.Add(this.tb_torihikisaki_cd);
@@ -288,6 +282,7 @@
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
             this.tb_torihikisaki_cd.Size = new System.Drawing.Size(85, 19);
             this.tb_torihikisaki_cd.TabIndex = 1;
+            this.tb_torihikisaki_cd.TextChanged += new System.EventHandler(this.tb_torihikisaki_cd_TextChanged);
             this.tb_torihikisaki_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_torihikisaki_cd_Validating_1);
             // 
             // textBox4
@@ -320,22 +315,22 @@
             // 
             // Column7
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle9.Format = "N0";
-            dataGridViewCellStyle9.NullValue = null;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column7.HeaderText = "仕入締日";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
             // Column6
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle10.Format = "N0";
-            dataGridViewCellStyle10.NullValue = null;
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column6.HeaderText = "仕入金額（税抜）";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -343,10 +338,10 @@
             // 
             // Column2
             // 
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle11.Format = "N0";
-            dataGridViewCellStyle11.NullValue = null;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column2.HeaderText = "消費税額";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -354,10 +349,10 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle12.Format = "N0";
-            dataGridViewCellStyle12.NullValue = null;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column3.HeaderText = "仕入金額合計";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -399,11 +394,16 @@
             // 
             // splitContainer7.Panel2
             // 
-            this.splitContainer7.Panel2.Controls.Add(this.label1);
             this.splitContainer7.Panel2.Controls.Add(this.tb_siharai_date);
+            this.splitContainer7.Panel2.Controls.Add(this.tb_update_datetime);
             this.splitContainer7.Panel2.Controls.Add(this.textBox7);
+            this.splitContainer7.Panel2.Controls.Add(this.textBox3);
             this.splitContainer7.Panel2.Controls.Add(this.textBox5);
+            this.splitContainer7.Panel2.Controls.Add(this.tb_update_user_cd);
             this.splitContainer7.Panel2.Controls.Add(this.tb_siharai_no);
+            this.splitContainer7.Panel2.Controls.Add(this.tb_create_user_cd);
+            this.splitContainer7.Panel2.Controls.Add(this.tb_create_datetime);
+            this.splitContainer7.Panel2.Controls.Add(this.textBox9);
             this.splitContainer7.Size = new System.Drawing.Size(884, 103);
             this.splitContainer7.SplitterDistance = 42;
             this.splitContainer7.TabIndex = 27;
@@ -451,7 +451,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(513, 27);
+            this.label1.Location = new System.Drawing.Point(111, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(185, 12);
             this.label1.TabIndex = 27;
@@ -498,6 +498,7 @@
             this.tb_siharai_no.Size = new System.Drawing.Size(85, 19);
             this.tb_siharai_no.TabIndex = 6;
             this.tb_siharai_no.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_siharai_no.Validating += new System.ComponentModel.CancelEventHandler(this.tb_siharai_no_Validating);
             // 
             // splitContainer5
             // 
@@ -530,6 +531,8 @@
             this.dgv_siharai.Size = new System.Drawing.Size(880, 70);
             this.dgv_siharai.TabIndex = 8;
             this.dgv_siharai.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_siharai_CellEndEdit);
+            this.dgv_siharai.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_siharai_DataError);
+            this.dgv_siharai.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgv_siharai_RowsRemoved);
             // 
             // splitContainer6
             // 
@@ -541,6 +544,7 @@
             // 
             // splitContainer6.Panel1
             // 
+            this.splitContainer6.Panel1.Controls.Add(this.label1);
             this.splitContainer6.Panel1.Controls.Add(this.tb_kurikosi_zandaka);
             this.splitContainer6.Panel1.Controls.Add(this.textBox11);
             this.splitContainer6.Panel1.Controls.Add(this.tb_siharai_goukei);
@@ -606,7 +610,7 @@
             this.textBox8.Size = new System.Drawing.Size(108, 19);
             this.textBox8.TabIndex = 28;
             this.textBox8.TabStop = false;
-            this.textBox8.Text = "支払合計";
+            this.textBox8.Text = "支払総計";
             // 
             // btn_insatu
             // 
