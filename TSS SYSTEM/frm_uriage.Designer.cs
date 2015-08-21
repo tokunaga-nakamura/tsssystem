@@ -176,6 +176,7 @@
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
             this.tb_torihikisaki_cd.Size = new System.Drawing.Size(51, 19);
             this.tb_torihikisaki_cd.TabIndex = 1;
+            this.tb_torihikisaki_cd.DoubleClick += new System.EventHandler(this.tb_torihikisaki_cd_DoubleClick);
             this.tb_torihikisaki_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_torihikisaki_cd_Validating);
             // 
             // tb_uriage_date
