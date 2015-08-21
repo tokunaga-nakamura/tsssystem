@@ -213,9 +213,14 @@ namespace TSS_SYSTEM
 
         private void tb_uriage_no_Validating(object sender, CancelEventArgs e)
         {
+            chk_uriage_no();
+        }    
+
+        private void chk_uriage_no()
+        {
             //入力された売上番号を"0000000000"形式の文字列に変換
             double w_double;
-            if(double.TryParse(tb_uriage_no.Text.ToString(), out w_double))
+            if (double.TryParse(tb_uriage_no.Text.ToString(), out w_double))
             {
                 tb_uriage_no.Text = w_double.ToString("0000000000");
             }
@@ -225,7 +230,7 @@ namespace TSS_SYSTEM
                 tb_uriage_no.Focus();
             }
             //新規か既存かの判定
-            if(tb_uriage_no.Text.ToString() == w_uriage_no.ToString("0000000000"))
+            if (tb_uriage_no.Text.ToString() == w_uriage_no.ToString("0000000000"))
             {
                 //新規
                 //dgvに空のデータを表示するためのダミー抽出
@@ -238,7 +243,7 @@ namespace TSS_SYSTEM
                 //既存売上の表示
                 DataTable w_dt = new DataTable();
                 w_dt = tss.OracleSelect("select * from tss_uriage_m where uriage_no = '" + tb_uriage_no.Text.ToString() + "' order by uriage_no asc,seq asc");
-                if(w_dt.Rows.Count == 0)
+                if (w_dt.Rows.Count == 0)
                 {
                     MessageBox.Show("データがありません。");
                     tb_uriage_no.Text = w_uriage_no.ToString("0000000000");
@@ -249,7 +254,7 @@ namespace TSS_SYSTEM
             }
             seikyuu_check();
             tb_uriage_no.TabStop = false;
-        }    
+        }
 
         private void gamen_clear()
         {
@@ -389,6 +394,7 @@ namespace TSS_SYSTEM
         private void seikyuu_check()
         {
             //請求済レコードが１件でもあったら、編集不可にする
+            w_seikyuu_flg = 0;
             for(int i = 0;i<dgv_m.Rows.Count -1;i++)
             {
                 if(dgv_m.Rows[i].Cells[11].Value.ToString() != null && dgv_m.Rows[i].Cells[11].Value.ToString() != "")
@@ -1001,6 +1007,41 @@ namespace TSS_SYSTEM
                 tb_torihikisaki_name.Text = get_torihikisaki_name(tb_torihikisaki_cd.Text);
                 tb_uriage_date.Focus();
             }
+        }
+
+        private void tb_uriage_no_DoubleClick(object sender, EventArgs e)
+        {
+            //選択画面へ
+            string w_cd;
+
+            //マウスのX座標を取得する
+            //int x = System.Windows.Forms.Cursor.Position.X;
+            //マウスのY座標を取得する
+            //int y = System.Windows.Forms.Cursor.Position.Y;
+
+            frm_search_uriage frm_sb = new frm_search_uriage();
+
+            //フォームをマウスの位置に表示する
+            //frm_sb.Left = x;
+            //frm_sb.Top = y;
+            //frm_sb.StartPosition = FormStartPosition.Manual;
+
+            //子画面のプロパティに値をセットする
+            frm_sb.str_mode = "2";
+            frm_sb.ShowDialog();
+            //子画面から値を取得する
+            w_cd = frm_sb.str_cd;
+            frm_sb.Dispose();
+
+            if (w_cd != "")
+            {
+                tb_uriage_no.Text = w_cd;
+                chk_uriage_no();
+            }
+
+
+
+
         }
 
 

@@ -74,15 +74,10 @@ namespace TSS_SYSTEM
             }
         }
 
-
-
         private void btn_sentaku_Click(object sender, EventArgs e)
         {
             form_close_true();
         }
-
-
-
 
         public frm_search_buhin()
         {
@@ -93,6 +88,7 @@ namespace TSS_SYSTEM
         {
             form_close_false();
         }
+
         private void form_close_false()
         {
             str_cd = "";
@@ -421,7 +417,6 @@ namespace TSS_SYSTEM
                 tb_torihikisaki_name.Text = get_torihikisaki_name(tb_torihikisaki_cd.Text);
                 btn_kensaku.Focus();
             }
-
         }
 
         private void tb_siiresaki_cd_Validating(object sender, CancelEventArgs e)

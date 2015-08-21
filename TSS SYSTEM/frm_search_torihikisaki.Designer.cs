@@ -192,10 +192,10 @@
             // 
             // tb_torihikisaki_cd2
             // 
-            this.tb_torihikisaki_cd2.Location = new System.Drawing.Point(222, 18);
+            this.tb_torihikisaki_cd2.Location = new System.Drawing.Point(169, 18);
             this.tb_torihikisaki_cd2.MaxLength = 6;
             this.tb_torihikisaki_cd2.Name = "tb_torihikisaki_cd2";
-            this.tb_torihikisaki_cd2.Size = new System.Drawing.Size(100, 19);
+            this.tb_torihikisaki_cd2.Size = new System.Drawing.Size(47, 19);
             this.tb_torihikisaki_cd2.TabIndex = 2;
             // 
             // tb_torihikisaki_cd1
@@ -203,7 +203,7 @@
             this.tb_torihikisaki_cd1.Location = new System.Drawing.Point(116, 18);
             this.tb_torihikisaki_cd1.MaxLength = 6;
             this.tb_torihikisaki_cd1.Name = "tb_torihikisaki_cd1";
-            this.tb_torihikisaki_cd1.Size = new System.Drawing.Size(100, 19);
+            this.tb_torihikisaki_cd1.Size = new System.Drawing.Size(47, 19);
             this.tb_torihikisaki_cd1.TabIndex = 1;
             // 
             // textBox1
