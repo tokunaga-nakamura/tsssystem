@@ -59,7 +59,6 @@
             this.tb_mibarai_goukei = new System.Windows.Forms.TextBox();
             this.btn_siharai_hensyu = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tb_siharai_date = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -67,6 +66,7 @@
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.dgv_siharai = new System.Windows.Forms.DataGridView();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
+            this.label1 = new System.Windows.Forms.Label();
             this.tb_kurikosi_zandaka = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.tb_siharai_goukei = new System.Windows.Forms.TextBox();
@@ -121,7 +121,7 @@
             // tb_update_datetime
             // 
             this.tb_update_datetime.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_update_datetime.Location = new System.Drawing.Point(743, 30);
+            this.tb_update_datetime.Location = new System.Drawing.Point(746, 29);
             this.tb_update_datetime.Name = "tb_update_datetime";
             this.tb_update_datetime.ReadOnly = true;
             this.tb_update_datetime.Size = new System.Drawing.Size(127, 19);
@@ -131,7 +131,7 @@
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox3.Location = new System.Drawing.Point(660, 11);
+            this.textBox3.Location = new System.Drawing.Point(663, 10);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(38, 19);
@@ -142,7 +142,7 @@
             // tb_update_user_cd
             // 
             this.tb_update_user_cd.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_update_user_cd.Location = new System.Drawing.Point(698, 30);
+            this.tb_update_user_cd.Location = new System.Drawing.Point(701, 29);
             this.tb_update_user_cd.Name = "tb_update_user_cd";
             this.tb_update_user_cd.ReadOnly = true;
             this.tb_update_user_cd.Size = new System.Drawing.Size(45, 19);
@@ -152,7 +152,7 @@
             // tb_create_user_cd
             // 
             this.tb_create_user_cd.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_create_user_cd.Location = new System.Drawing.Point(698, 11);
+            this.tb_create_user_cd.Location = new System.Drawing.Point(701, 10);
             this.tb_create_user_cd.Name = "tb_create_user_cd";
             this.tb_create_user_cd.ReadOnly = true;
             this.tb_create_user_cd.Size = new System.Drawing.Size(45, 19);
@@ -162,7 +162,7 @@
             // tb_create_datetime
             // 
             this.tb_create_datetime.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_create_datetime.Location = new System.Drawing.Point(743, 11);
+            this.tb_create_datetime.Location = new System.Drawing.Point(746, 10);
             this.tb_create_datetime.Name = "tb_create_datetime";
             this.tb_create_datetime.ReadOnly = true;
             this.tb_create_datetime.Size = new System.Drawing.Size(127, 19);
@@ -172,7 +172,7 @@
             // textBox9
             // 
             this.textBox9.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox9.Location = new System.Drawing.Point(660, 30);
+            this.textBox9.Location = new System.Drawing.Point(663, 29);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
             this.textBox9.Size = new System.Drawing.Size(38, 19);
@@ -253,12 +253,6 @@
             // splitContainer3.Panel1
             // 
             this.splitContainer3.Panel1.Controls.Add(this.btn_hyouji);
-            this.splitContainer3.Panel1.Controls.Add(this.tb_update_datetime);
-            this.splitContainer3.Panel1.Controls.Add(this.textBox3);
-            this.splitContainer3.Panel1.Controls.Add(this.tb_update_user_cd);
-            this.splitContainer3.Panel1.Controls.Add(this.tb_create_user_cd);
-            this.splitContainer3.Panel1.Controls.Add(this.tb_create_datetime);
-            this.splitContainer3.Panel1.Controls.Add(this.textBox9);
             this.splitContainer3.Panel1.Controls.Add(this.label3);
             this.splitContainer3.Panel1.Controls.Add(this.tb_torihikisaki_name);
             this.splitContainer3.Panel1.Controls.Add(this.tb_torihikisaki_cd);
@@ -288,6 +282,7 @@
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
             this.tb_torihikisaki_cd.Size = new System.Drawing.Size(85, 19);
             this.tb_torihikisaki_cd.TabIndex = 1;
+            this.tb_torihikisaki_cd.TextChanged += new System.EventHandler(this.tb_torihikisaki_cd_TextChanged);
             this.tb_torihikisaki_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_torihikisaki_cd_Validating_1);
             // 
             // textBox4
@@ -399,11 +394,16 @@
             // 
             // splitContainer7.Panel2
             // 
-            this.splitContainer7.Panel2.Controls.Add(this.label1);
             this.splitContainer7.Panel2.Controls.Add(this.tb_siharai_date);
+            this.splitContainer7.Panel2.Controls.Add(this.tb_update_datetime);
             this.splitContainer7.Panel2.Controls.Add(this.textBox7);
+            this.splitContainer7.Panel2.Controls.Add(this.textBox3);
             this.splitContainer7.Panel2.Controls.Add(this.textBox5);
+            this.splitContainer7.Panel2.Controls.Add(this.tb_update_user_cd);
             this.splitContainer7.Panel2.Controls.Add(this.tb_siharai_no);
+            this.splitContainer7.Panel2.Controls.Add(this.tb_create_user_cd);
+            this.splitContainer7.Panel2.Controls.Add(this.tb_create_datetime);
+            this.splitContainer7.Panel2.Controls.Add(this.textBox9);
             this.splitContainer7.Size = new System.Drawing.Size(884, 103);
             this.splitContainer7.SplitterDistance = 42;
             this.splitContainer7.TabIndex = 27;
@@ -448,18 +448,9 @@
             this.textBox2.TabStop = false;
             this.textBox2.Text = "未払合計";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(513, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 12);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "支払区分　1：振込　2：手形　3：現金";
-            // 
             // tb_siharai_date
             // 
-            this.tb_siharai_date.Location = new System.Drawing.Point(331, 24);
+            this.tb_siharai_date.Location = new System.Drawing.Point(331, 21);
             this.tb_siharai_date.MaxLength = 40;
             this.tb_siharai_date.Name = "tb_siharai_date";
             this.tb_siharai_date.Size = new System.Drawing.Size(160, 19);
@@ -470,7 +461,7 @@
             // textBox7
             // 
             this.textBox7.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox7.Location = new System.Drawing.Point(223, 24);
+            this.textBox7.Location = new System.Drawing.Point(223, 21);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(108, 19);
@@ -481,7 +472,7 @@
             // textBox5
             // 
             this.textBox5.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox5.Location = new System.Drawing.Point(10, 24);
+            this.textBox5.Location = new System.Drawing.Point(10, 21);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(108, 19);
@@ -492,12 +483,13 @@
             // tb_siharai_no
             // 
             this.tb_siharai_no.BackColor = System.Drawing.SystemColors.Window;
-            this.tb_siharai_no.Location = new System.Drawing.Point(118, 24);
+            this.tb_siharai_no.Location = new System.Drawing.Point(118, 21);
             this.tb_siharai_no.MaxLength = 10;
             this.tb_siharai_no.Name = "tb_siharai_no";
             this.tb_siharai_no.Size = new System.Drawing.Size(85, 19);
             this.tb_siharai_no.TabIndex = 6;
             this.tb_siharai_no.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_siharai_no.Validating += new System.ComponentModel.CancelEventHandler(this.tb_siharai_no_Validating);
             // 
             // splitContainer5
             // 
@@ -530,6 +522,8 @@
             this.dgv_siharai.Size = new System.Drawing.Size(880, 70);
             this.dgv_siharai.TabIndex = 8;
             this.dgv_siharai.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_siharai_CellEndEdit);
+            this.dgv_siharai.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_siharai_DataError);
+            this.dgv_siharai.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgv_siharai_RowsRemoved);
             // 
             // splitContainer6
             // 
@@ -541,6 +535,7 @@
             // 
             // splitContainer6.Panel1
             // 
+            this.splitContainer6.Panel1.Controls.Add(this.label1);
             this.splitContainer6.Panel1.Controls.Add(this.tb_kurikosi_zandaka);
             this.splitContainer6.Panel1.Controls.Add(this.textBox11);
             this.splitContainer6.Panel1.Controls.Add(this.tb_siharai_goukei);
@@ -555,6 +550,15 @@
             this.splitContainer6.Size = new System.Drawing.Size(884, 103);
             this.splitContainer6.SplitterDistance = 51;
             this.splitContainer6.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(138, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(185, 12);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "支払区分　1：振込　2：手形　3：現金";
             // 
             // tb_kurikosi_zandaka
             // 
@@ -579,19 +583,19 @@
             // 
             // tb_siharai_goukei
             // 
-            this.tb_siharai_goukei.Location = new System.Drawing.Point(410, 15);
+            this.tb_siharai_goukei.Location = new System.Drawing.Point(447, 15);
             this.tb_siharai_goukei.MaxLength = 40;
             this.tb_siharai_goukei.Name = "tb_siharai_goukei";
             this.tb_siharai_goukei.ReadOnly = true;
-            this.tb_siharai_goukei.Size = new System.Drawing.Size(160, 19);
+            this.tb_siharai_goukei.Size = new System.Drawing.Size(120, 19);
             this.tb_siharai_goukei.TabIndex = 27;
             this.tb_siharai_goukei.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btn_tuika
             // 
-            this.btn_tuika.Location = new System.Drawing.Point(10, 15);
+            this.btn_tuika.Location = new System.Drawing.Point(12, 15);
             this.btn_tuika.Name = "btn_tuika";
-            this.btn_tuika.Size = new System.Drawing.Size(97, 23);
+            this.btn_tuika.Size = new System.Drawing.Size(116, 23);
             this.btn_tuika.TabIndex = 10;
             this.btn_tuika.Text = "1行追加";
             this.btn_tuika.UseVisualStyleBackColor = true;
@@ -600,13 +604,13 @@
             // textBox8
             // 
             this.textBox8.BackColor = System.Drawing.Color.NavajoWhite;
-            this.textBox8.Location = new System.Drawing.Point(302, 15);
+            this.textBox8.Location = new System.Drawing.Point(338, 15);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(108, 19);
             this.textBox8.TabIndex = 28;
             this.textBox8.TabStop = false;
-            this.textBox8.Text = "支払合計";
+            this.textBox8.Text = "支払総計";
             // 
             // btn_insatu
             // 
