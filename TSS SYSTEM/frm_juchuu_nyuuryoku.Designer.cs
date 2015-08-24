@@ -212,6 +212,7 @@
             // splitContainer6.Panel1
             // 
             this.splitContainer6.Panel1.Controls.Add(this.cb_seisan_jisseki);
+            this.splitContainer6.Panel1.Controls.Add(this.tb_torihikisaki_cd);
             this.splitContainer6.Panel1.Controls.Add(this.lbl_juchu_no);
             this.splitContainer6.Panel1.Controls.Add(this.cb_seisan_schedule);
             this.splitContainer6.Panel1.Controls.Add(this.tb_bikou);
@@ -227,7 +228,6 @@
             this.splitContainer6.Panel1.Controls.Add(this.btn_juchu_kensaku);
             this.splitContainer6.Panel1.Controls.Add(this.tb_juchu_cd1);
             this.splitContainer6.Panel1.Controls.Add(this.tb_juchu_cd2);
-            this.splitContainer6.Panel1.Controls.Add(this.tb_torihikisaki_cd);
             this.splitContainer6.Panel1.Controls.Add(this.textBox3);
             this.splitContainer6.Panel1.Controls.Add(this.textBox2);
             this.splitContainer6.Panel1.Controls.Add(this.textBox1);
@@ -320,7 +320,7 @@
             // 
             this.tb_seihin_cd.BackColor = System.Drawing.Color.PowderBlue;
             this.tb_seihin_cd.Location = new System.Drawing.Point(10, 130);
-            this.tb_seihin_cd.MaxLength = 6;
+            this.tb_seihin_cd.MaxLength = 16;
             this.tb_seihin_cd.Name = "tb_seihin_cd";
             this.tb_seihin_cd.Size = new System.Drawing.Size(112, 19);
             this.tb_seihin_cd.TabIndex = 3;
@@ -363,16 +363,16 @@
             // tb_torihikisaki_name
             // 
             this.tb_torihikisaki_name.BackColor = System.Drawing.Color.Gainsboro;
-            this.tb_torihikisaki_name.Location = new System.Drawing.Point(151, 3);
+            this.tb_torihikisaki_name.Location = new System.Drawing.Point(137, 3);
             this.tb_torihikisaki_name.Name = "tb_torihikisaki_name";
             this.tb_torihikisaki_name.ReadOnly = true;
-            this.tb_torihikisaki_name.Size = new System.Drawing.Size(282, 19);
+            this.tb_torihikisaki_name.Size = new System.Drawing.Size(296, 19);
             this.tb_torihikisaki_name.TabIndex = 3;
             this.tb_torihikisaki_name.TabStop = false;
             // 
             // btn_juchu_kensaku
             // 
-            this.btn_juchu_kensaku.Location = new System.Drawing.Point(344, 51);
+            this.btn_juchu_kensaku.Location = new System.Drawing.Point(358, 51);
             this.btn_juchu_kensaku.Name = "btn_juchu_kensaku";
             this.btn_juchu_kensaku.Size = new System.Drawing.Size(75, 23);
             this.btn_juchu_kensaku.TabIndex = 6;
@@ -407,7 +407,7 @@
             this.tb_torihikisaki_cd.Location = new System.Drawing.Point(90, 3);
             this.tb_torihikisaki_cd.MaxLength = 6;
             this.tb_torihikisaki_cd.Name = "tb_torihikisaki_cd";
-            this.tb_torihikisaki_cd.Size = new System.Drawing.Size(61, 19);
+            this.tb_torihikisaki_cd.Size = new System.Drawing.Size(47, 19);
             this.tb_torihikisaki_cd.TabIndex = 0;
             this.tb_torihikisaki_cd.DoubleClick += new System.EventHandler(this.tb_torihikisaki_cd_DoubleClick);
             this.tb_torihikisaki_cd.Validating += new System.ComponentModel.CancelEventHandler(this.tb_torihikisaki_cd_Validating);

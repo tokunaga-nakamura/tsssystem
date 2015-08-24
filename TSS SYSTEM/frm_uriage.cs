@@ -264,6 +264,8 @@ namespace TSS_SYSTEM
             tb_uriage_date.Text = "";
             //dgv_m.Rows.Clear();
             //dgv_m.Columns.Clear();
+            dgv_m.Columns.Remove("ttl_uriage_su");
+            dgv_m.Columns.Remove("juchu_su");
             dgv_m.DataSource = null;
             tb_uriage_goukei.Text = "";
             lbl_seikyuu.Text = "";
@@ -287,8 +289,31 @@ namespace TSS_SYSTEM
             //dgvの表示設定
             uriage_init();
 
+            //dgvに項目を追加
+            //dgv_plus();
+
             //合計を表示
             uriage_goukei_disp();
+        }
+
+        private void dgv_plus()
+        {
+            DataTable w_dt = new DataTable();
+            for(int i = 0;i< dgv_m.Rows.Count - 1;i++)
+            {
+                if(dgv_m.Rows[i].Cells[4].Value.ToString() != null && dgv_m.Rows[i].Cells[4].Value.ToString() != "")
+                {
+                    w_dt = tss.OracleSelect("select * from tss_juchu_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "' and juchu_cd1 = '" + dgv_m.Rows[i].Cells[4].Value.ToString() + "' and juchu_cd2 = '" + dgv_m.Rows[i].Cells[5].Value.ToString() + "'");
+                    if (w_dt.Rows.Count == 0)
+                    {
+                        MessageBox.Show("受注情報がありません。処理を中止します。");
+                        tss.ErrorLogWrite(tss.user_cd, "売上入力画面のdgv_plus", "売上明細の受注コードで受注マスタを読み込んだが、レコードが無い");
+                        this.Close();
+                    }
+                    dgv_m.Rows[i].Cells[19].Value = w_dt.Rows[0]["uriage_su"].ToString();
+                    dgv_m.Rows[i].Cells[20].Value = w_dt.Rows[0]["juchu_su"].ToString();
+                }
+            }
         }
 
         private void uriage_sinki(DataTable in_dt)
@@ -343,6 +368,10 @@ namespace TSS_SYSTEM
             dgv_m.Columns[17].HeaderText = "更新者コード";
             dgv_m.Columns[18].HeaderText = "更新日時";
 
+            //dgvにデータテーブル以外の項目を追加
+            dgv_m.Columns.Add("ttl_uriage_su", "現在までの売上数");
+            dgv_m.Columns.Add("juchu_su", "受注数");
+
             //セルの値表示位置の設定
             dgv_m.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;     //seq
             dgv_m.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;     //売上数
@@ -372,9 +401,13 @@ namespace TSS_SYSTEM
 
             //列を編集不可にする
             dgv_m.Columns[10].ReadOnly = true;  //売上金額
+            dgv_m.Columns[19].ReadOnly = true;  //現在までの売上数
+            dgv_m.Columns[20].ReadOnly = true;  //受注数
 
             //編集不可の列をグレーにする
             dgv_m.Columns[10].DefaultCellStyle.BackColor = Color.Gainsboro; //売上金額
+            dgv_m.Columns[19].DefaultCellStyle.BackColor = Color.Gainsboro; //現在までの売上数
+            dgv_m.Columns[20].DefaultCellStyle.BackColor = Color.Gainsboro; //受注数
         }
 
         private void uriage_goukei_disp()
@@ -450,15 +483,10 @@ namespace TSS_SYSTEM
                 if (w_juchu_cd1_flg == 1 || w_juchu_cd2_flg == 1)
                 {
                     w_seihin_cd = tss.get_juchu_to_seihin_cd(tb_torihikisaki_cd.Text.ToString(), dgv_m.Rows[e.RowIndex].Cells[4].Value.ToString(), e.FormattedValue.ToString());
-                    //if (w_seihin_cd == null)
-                    //{
-                    //    MessageBox.Show("入力された受注番号は存在しません。");
-                    //    e.Cancel = true;
-                    //    return;
-                    //}
                     dgv_m.Rows[e.RowIndex].Cells[6].Value = w_seihin_cd;
                     dgv_m.Rows[e.RowIndex].Cells[7].Value = tss.get_seihin_name(dgv_m.Rows[e.RowIndex].Cells[6].Value.ToString());
                     dgv_m.Rows[e.RowIndex].Cells[9].Value = tss.get_seihin_tanka(dgv_m.Rows[e.RowIndex].Cells[6].Value.ToString());
+                    //dgv_plus();
                 }
             }
 
@@ -745,6 +773,17 @@ namespace TSS_SYSTEM
             double w_kagen_su;  //加減する数
             double w_uriage_su; //売上数
             double w_siyou_su;  //使用数
+            //在庫履歴書込み用の番号取得
+            double w_rireki_no;
+            if (in_sign >= 0)
+            {
+                w_rireki_no = tss.GetSeq("01");
+            }
+            else
+            {
+                w_rireki_no = tss.GetSeq("02");
+            }
+            int w_rireki_gyou = 1;  //在庫履歴書込み用の行番号
 
             w_dt = tss.OracleSelect("select * from tss_uriage_m where uriage_no = '" + in_cd + "'");
             foreach (DataRow dr in w_dt.Rows)
@@ -799,7 +838,7 @@ namespace TSS_SYSTEM
                                     if(in_sign == -1 || w_uriage_flg == 1)
                                     {
                                         //マイナス売上または製品直接売上の場合はフリー在庫で調整
-                                        if(tss.zaiko_proc(dr3["buhin_cd"].ToString(), "01", dr["torihikisaki_cd"].ToString(), "9999999999999999", "9999999999999999", w_kagen_su) == false)
+                                        if(tss.zaiko_proc(dr3["buhin_cd"].ToString(), "01", dr["torihikisaki_cd"].ToString(), "9999999999999999", "9999999999999999", w_kagen_su,w_rireki_no,w_rireki_gyou,in_cd) == false)
                                         {
                                             MessageBox.Show("在庫の消し込み処理でエラーが発生しました。処理を中止します。");
                                             this.Close();
@@ -808,12 +847,13 @@ namespace TSS_SYSTEM
                                     else
                                     {
                                         //そうでない場合は売上通りに在庫を調整
-                                        if(tss.zaiko_proc(dr3["buhin_cd"].ToString(), "02", dr["torihikisaki_cd"].ToString(), dr["juchu_cd1"].ToString(), dr["juchu_cd2"].ToString(), w_kagen_su) == false)
+                                        if(tss.zaiko_proc(dr3["buhin_cd"].ToString(), "02", dr["torihikisaki_cd"].ToString(), dr["juchu_cd1"].ToString(), dr["juchu_cd2"].ToString(), w_kagen_su,w_rireki_no,w_rireki_gyou,in_cd) == false)
                                         {
                                             MessageBox.Show("在庫の消し込み処理でエラーが発生しました。処理を中止します。");
                                             this.Close();
                                         }
                                     }
+                                    w_rireki_gyou = tss.ppt_gyou;
                                 }
                             }
                         }
@@ -824,6 +864,11 @@ namespace TSS_SYSTEM
 
         private void dgv_m_CellValidated(object sender, DataGridViewCellEventArgs e)
         {
+            //受注コード２
+            if (e.ColumnIndex == 5)
+            {
+                dgv_plus();
+            }
             //売上数
             if (e.ColumnIndex == 8)
             {
@@ -1038,10 +1083,6 @@ namespace TSS_SYSTEM
                 tb_uriage_no.Text = w_cd;
                 chk_uriage_no();
             }
-
-
-
-
         }
 
 

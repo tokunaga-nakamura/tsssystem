@@ -39,6 +39,7 @@
             this.btn_syuuryou = new System.Windows.Forms.Button();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.label1 = new System.Windows.Forms.Label();
             this.tb_seihin_kousei_no = new System.Windows.Forms.TextBox();
             this.tb_seihin_kousei_name = new System.Windows.Forms.TextBox();
             this.tb_update_datetime = new System.Windows.Forms.TextBox();
@@ -53,7 +54,6 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.btn_hardcopy = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_seihin_kousei)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -206,6 +206,15 @@
             this.splitContainer4.SplitterDistance = 484;
             this.splitContainer4.TabIndex = 33;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(310, 12);
+            this.label1.TabIndex = 43;
+            this.label1.Text = "※製品構成番号を変えると製品構成マスタの表示も変わります。";
+            // 
             // tb_seihin_kousei_no
             // 
             this.tb_seihin_kousei_no.BackColor = System.Drawing.Color.PowderBlue;
@@ -240,7 +249,7 @@
             // 
             this.tb_seihin_cd.BackColor = System.Drawing.Color.PowderBlue;
             this.tb_seihin_cd.Location = new System.Drawing.Point(118, 10);
-            this.tb_seihin_cd.MaxLength = 6;
+            this.tb_seihin_cd.MaxLength = 16;
             this.tb_seihin_cd.Name = "tb_seihin_cd";
             this.tb_seihin_cd.Size = new System.Drawing.Size(83, 19);
             this.tb_seihin_cd.TabIndex = 33;
@@ -376,15 +385,6 @@
             this.splitContainer1.SplitterDistance = 60;
             this.splitContainer1.TabIndex = 5;
             this.splitContainer1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 60);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(310, 12);
-            this.label1.TabIndex = 43;
-            this.label1.Text = "※製品構成番号を変えると製品構成マスタの表示も変わります。";
             // 
             // frm_seihin_kousei_m
             // 

@@ -172,6 +172,7 @@ namespace TSS_SYSTEM
         private void gamen_all_clear()
         {
             tb_torihikisaki_cd.Text = "";
+            tb_torihikisaki_name.Text = "";
             tb_juchu_cd1.Text = "";
             tb_juchu_cd2.Text = "";
             gamen_clear();
