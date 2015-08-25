@@ -55,6 +55,9 @@
             this.btn_insatu = new System.Windows.Forms.Button();
             this.btn_sentaku = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tb_create_date1 = new System.Windows.Forms.TextBox();
+            this.tb_create_date2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -94,12 +97,15 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(884, 539);
-            this.splitContainer1.SplitterDistance = 138;
+            this.splitContainer1.SplitterDistance = 150;
             this.splitContainer1.TabIndex = 1;
             this.splitContainer1.TabStop = false;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tb_create_date2);
+            this.groupBox1.Controls.Add(this.tb_create_date1);
+            this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.btn_kensaku);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.tb_seihin_name);
@@ -117,7 +123,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(880, 134);
+            this.groupBox1.Size = new System.Drawing.Size(880, 146);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "検索条件";
@@ -320,8 +326,8 @@
             this.splitContainer2.Panel2.Controls.Add(this.btn_insatu);
             this.splitContainer2.Panel2.Controls.Add(this.btn_sentaku);
             this.splitContainer2.Panel2.Controls.Add(this.btn_cancel);
-            this.splitContainer2.Size = new System.Drawing.Size(884, 397);
-            this.splitContainer2.SplitterDistance = 357;
+            this.splitContainer2.Size = new System.Drawing.Size(884, 385);
+            this.splitContainer2.SplitterDistance = 345;
             this.splitContainer2.TabIndex = 0;
             this.splitContainer2.TabStop = false;
             // 
@@ -332,7 +338,7 @@
             this.dgv_m.Location = new System.Drawing.Point(0, 0);
             this.dgv_m.Name = "dgv_m";
             this.dgv_m.RowTemplate.Height = 21;
-            this.dgv_m.Size = new System.Drawing.Size(880, 353);
+            this.dgv_m.Size = new System.Drawing.Size(880, 341);
             this.dgv_m.TabIndex = 0;
             this.dgv_m.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_m_CellMouseDoubleClick);
             // 
@@ -374,6 +380,33 @@
             this.btn_cancel.Text = "キャンセル";
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.NavajoWhite;
+            this.textBox2.Location = new System.Drawing.Point(10, 118);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(100, 19);
+            this.textBox2.TabIndex = 14;
+            this.textBox2.TabStop = false;
+            this.textBox2.Text = "登録日";
+            // 
+            // tb_create_date1
+            // 
+            this.tb_create_date1.Location = new System.Drawing.Point(116, 118);
+            this.tb_create_date1.Name = "tb_create_date1";
+            this.tb_create_date1.Size = new System.Drawing.Size(100, 19);
+            this.tb_create_date1.TabIndex = 15;
+            this.tb_create_date1.Validating += new System.ComponentModel.CancelEventHandler(this.tb_create_date1_Validating);
+            // 
+            // tb_create_date2
+            // 
+            this.tb_create_date2.Location = new System.Drawing.Point(222, 118);
+            this.tb_create_date2.Name = "tb_create_date2";
+            this.tb_create_date2.Size = new System.Drawing.Size(100, 19);
+            this.tb_create_date2.TabIndex = 16;
+            this.tb_create_date2.Validating += new System.ComponentModel.CancelEventHandler(this.tb_create_date2_Validating);
             // 
             // frm_search_juchu
             // 
@@ -434,5 +467,8 @@
         private System.Windows.Forms.Button btn_insatu;
         private System.Windows.Forms.Button btn_sentaku;
         private System.Windows.Forms.Button btn_cancel;
+        private System.Windows.Forms.TextBox tb_create_date2;
+        private System.Windows.Forms.TextBox tb_create_date1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

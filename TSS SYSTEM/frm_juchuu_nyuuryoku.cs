@@ -103,6 +103,7 @@ namespace TSS_SYSTEM
 
                 gamen_clear();
                 nounyuu_schedule_disp();
+                uriage_disp();
                 kousin_rireki_disp();
             }
             else
@@ -166,6 +167,7 @@ namespace TSS_SYSTEM
             tb_kousin_riyuu.Text = "";
 
             nounyuu_schedule_disp();
+            uriage_disp();
             kousin_rireki_disp();
         }
         
@@ -196,6 +198,7 @@ namespace TSS_SYSTEM
             tb_kousin_riyuu.Text = "";
 
             dgv_nounyuu_schedule.DataSource = null;
+            dgv_uriage.DataSource = null;
             dgv_kousin_rireki.DataSource = null;
         }
 
@@ -249,6 +252,47 @@ namespace TSS_SYSTEM
             //インデックス0の列のセルの背景色を水色にする
             //pp//dgv_nounyuu_schedule.Columns[5].DefaultCellStyle.BackColor = Color.Gainsboro;
             //pp//dgv_nounyuu_schedule.Columns[6].DefaultCellStyle.BackColor = Color.Gainsboro;
+        }
+
+        private void uriage_disp()
+        {
+            //リードオンリーにする
+            dgv_uriage.ReadOnly = true;
+            //更新履歴の表示
+            DataTable w_dt_uriage = new DataTable();
+            w_dt_uriage = tss.OracleSelect("select uriage_no,uriage_date,uriage_su,hanbai_tanka,uriage_kingaku,urikake_no,uriage_simebi,bikou,create_user_cd,create_datetime,update_user_cd,update_datetime from tss_uriage_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "' and juchu_cd1 = '" + tb_juchu_cd1.Text.ToString() + "' and juchu_cd2 = '" + tb_juchu_cd2.Text.ToString() + "' order by uriage_no asc");
+            dgv_uriage.DataSource = null;
+            dgv_uriage.DataSource = w_dt_uriage;
+            //行ヘッダーを非表示にする
+            dgv_uriage.RowHeadersVisible = false;
+            //カラム幅の自動調整（ヘッダーとセルの両方の最長幅に調整する）
+            dgv_uriage.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //セルの高さ変更不可
+            dgv_uriage.AllowUserToResizeRows = false;
+            //カラムヘッダーの高さ変更不可
+            dgv_uriage.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            //削除不可にする（コードからは削除可）
+            dgv_uriage.AllowUserToDeleteRows = true;
+            //１行のみ選択可能（複数行の選択不可）
+            dgv_uriage.MultiSelect = false;
+            //セルを選択すると行が選択されるようにする
+            dgv_uriage.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //新しい行を追加できないようにする
+            dgv_uriage.AllowUserToAddRows = false;
+
+            //DataGridViewのカラムヘッダーテキストを変更する
+            dgv_uriage.Columns[0].HeaderText = "売上番号";
+            dgv_uriage.Columns[1].HeaderText = "売上計上日";
+            dgv_uriage.Columns[2].HeaderText = "売上数";
+            dgv_uriage.Columns[3].HeaderText = "販売単価";
+            dgv_uriage.Columns[4].HeaderText = "売上金額";
+            dgv_uriage.Columns[5].HeaderText = "売掛番号";
+            dgv_uriage.Columns[6].HeaderText = "売上締日";
+            dgv_uriage.Columns[7].HeaderText = "備考";
+            dgv_uriage.Columns[8].HeaderText = "作成者";
+            dgv_uriage.Columns[9].HeaderText = "作成日";
+            dgv_uriage.Columns[10].HeaderText = "更新者";
+            dgv_uriage.Columns[11].HeaderText = "更新日";
         }
 
         private void kousin_rireki_disp()
