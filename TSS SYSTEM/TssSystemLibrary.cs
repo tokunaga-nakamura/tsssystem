@@ -512,7 +512,7 @@ namespace TSS_SYSTEM
         }
         #endregion
 
-        #region　StringByte メソッド
+        #region StringByte メソッド
         /// <summary>
         /// 半角 1 バイト、全角 2 バイトとして、指定された文字列のバイト数を返します。</summary>
         /// <param name="str">
@@ -525,7 +525,7 @@ namespace TSS_SYSTEM
         }
         #endregion
 
-        #region　HardCopy メソッド
+        #region HardCopy メソッド
         /// <summary>
         /// 呼ばれた時点でのアクティブなウィンドゥのハードコピーをクリップボードに送ります。
         /// 正確にはAlt+PrtScが押された事をOSに送信します。
@@ -540,7 +540,7 @@ namespace TSS_SYSTEM
         }
         #endregion
 
-
+        #region 区分コード選択画面
         //区分コード選択画面の呼び出し
         public string kubun_cd_select(string in_kubun_cd)
         {
@@ -565,7 +565,9 @@ namespace TSS_SYSTEM
             frm_ks.Dispose();
             return out_kubun_cd;
         }
+        #endregion
 
+        #region 区分コード選択画面（初期選択機能付き）
         //区分コード選択画面の呼び出し 初期値あり版
         public string kubun_cd_select(string in_kubun_cd,string in_initial_cd)
         {
@@ -591,7 +593,9 @@ namespace TSS_SYSTEM
             frm_ks.Dispose();
             return out_kubun_cd;
         }
+        #endregion
 
+        #region 区分名取得
         //区分コードから区分名を取得
         public string kubun_name_select(string in_kubun_meisyou_cd, string in_kubun_cd)
         {
@@ -608,7 +612,9 @@ namespace TSS_SYSTEM
             }
             return out_kubun_name;
         }
+        #endregion
 
+        #region 区分選択画面（DataTable版）
         //区分コード選択画面（DataTable版）の呼び出し
         public string kubun_cd_select_dt(string in_kubun_name,DataTable in_dt_kubun)
         {
@@ -634,7 +640,9 @@ namespace TSS_SYSTEM
             frm_ks_dt.Dispose();
             return out_kubun_cd;
         }
+        #endregion
 
+        #region 区分選択画面（DataTable版＋初期選択機能付き）
         //区分コード選択画面（DataTable版）の呼び出し　初期値あり版
         public string kubun_cd_select_dt(string in_kubun_name, DataTable in_dt_kubun,string in_initial_cd)
         {
@@ -661,7 +669,9 @@ namespace TSS_SYSTEM
             frm_ks_dt.Dispose();
             return out_kubun_cd;
         }
+        #endregion
 
+        #region 製品構成番号選択画面
         //製品構成番号選択画面（DataTable版）の呼び出し
         public string seihin_kousei_select_dt(string in_seihin_cd, DataTable in_dt_seihin_kousei_name)
         {
@@ -691,7 +701,9 @@ namespace TSS_SYSTEM
             frm_sks.Dispose();
             return out_seihin_cd + out_seihin_kousei_no;
         }
-        
+        #endregion
+
+        #region 製品構成番号選択画面（製品コードの受け渡しなし）
         //製品構成番号選択画面（製品コードの受け渡しなし）の呼び出し
         public string seihin_kousei_select_dt2(string in_seihin_cd, DataTable in_dt_seihin_kousei_name)
         {
@@ -721,7 +733,9 @@ namespace TSS_SYSTEM
             frm_sks.Dispose();
             return out_seihin_cd + out_seihin_kousei_no;
         }
-        
+        #endregion
+
+        #region 部品検索画面
         //部品検索画面の呼び出し
         public string search_buhin(string in_mode, string in_cd)
         {
@@ -747,7 +761,9 @@ namespace TSS_SYSTEM
             frm_sb.Dispose();
             return out_cd;
         }
+        #endregion
 
+        #region 取引先検索画面
         //取引先検索画面の呼び出し
         public string search_torihikisaki(string in_mode, string in_cd)
         {
@@ -773,7 +789,9 @@ namespace TSS_SYSTEM
             frm_sb.Dispose();
             return out_cd;
         }
+        #endregion
 
+        #region 受注検索画面
         //受注検索画面の呼び出し
         public string search_juchu(string in_mode, string in_torihikisaki_cd,string in_juchu_cd1,string in_juchu_cd2,string in_seihin_cd)
         {
@@ -806,6 +824,9 @@ namespace TSS_SYSTEM
             frm_sb.Dispose();
             return out_cd;
         }
+        #endregion
+
+        #region 製品検索画面
         public string search_seihin(string in_mode, string in_cd)
         {
             //マウスのX座標を取得する
@@ -830,7 +851,9 @@ namespace TSS_SYSTEM
             frm_sb.Dispose();
             return out_cd;
         }
+        #endregion
 
+        #region 受注コード２選択画面
         public string select_juchu_cd(DataTable in_dt)
         {
             //マウスのX座標を取得する
@@ -855,14 +878,15 @@ namespace TSS_SYSTEM
             frm_sb.Dispose();
             return out_cd;
         }
+        #endregion
 
-
+        #region GetCsvPath
+        /// <summary>
+        /// TSSシステムのデフォルトのCSV出力先パスを取得する。</summary>
+        /// <returns>
+        /// string scv出力先のパスを返します。</returns>
         public string GetCsvPath()
         {
-            /// <summary>
-            /// TSSシステムのデフォルトのCSV形式のファイルの出力先パスを取得する。
-            /// </summary>
-
             //app.configから必要な情報を取得
             string CsvPath = ConfigurationManager.AppSettings["CsvPath"];   //データソース名文字列の取得
 
@@ -879,10 +903,9 @@ namespace TSS_SYSTEM
             fld_ConnectionString = "Data Source=" + DataSource + ";User Id=" + UserID + ";Password=" + Password;
             return CsvPath;
         }
+        #endregion
 
-        
-
-        #region　GetSeq メソッド
+        #region GetSeq メソッド
         /// <summary>
         /// 連番マスタから必要な連番を取得し、取得後連番を＋１する。</summary>
         /// <param name="string in_cd">
@@ -920,6 +943,7 @@ namespace TSS_SYSTEM
         }
         #endregion
 
+        #region 部品入出庫呼び出し
         //部品入出庫画面の呼び出し
         public string buhin_nyusyukkoidou(string in_mode)
         {
@@ -935,11 +959,9 @@ namespace TSS_SYSTEM
             out_cd = frm_bnsi.str_cd;
             return out_cd;
         }
-
+        #endregion
 
         public string out_str_seihin_kousei_no { get; set; }
-
-
 
         #region try_string_to_date メソッド
         /// <summary>

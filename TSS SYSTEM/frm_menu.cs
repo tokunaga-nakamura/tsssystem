@@ -20,7 +20,6 @@ namespace TSS_SYSTEM
     {
         TssSystemLibrary tss = new TssSystemLibrary();
 
-
         public frm_menu()
         {
             InitializeComponent();
@@ -115,15 +114,12 @@ namespace TSS_SYSTEM
             ss_status.Items.Add(tss.kengen1+tss.kengen2+tss.kengen3+tss.kengen4+tss.kengen5+tss.kengen6);
         }
 
-
-
         private void btn_mst_table_Click(object sender, EventArgs e)
         {
             //マスタメンテナンス
             frm_table_maintenance frm_mm = new frm_table_maintenance();
             frm_mm.ShowDialog(this);
             frm_mm.Dispose();
-
         }
 
         private void btn_kubun_meisyou_m_Click(object sender, EventArgs e)
@@ -276,6 +272,7 @@ namespace TSS_SYSTEM
 
         private void btn_seihin_kousei_m_Click(object sender, EventArgs e)
         {
+            //製品構成マスタ
             frm_seihin_kousei_m frm_skm = new frm_seihin_kousei_m();
             frm_skm.ShowDialog(this);
             frm_skm.Dispose();
@@ -283,6 +280,7 @@ namespace TSS_SYSTEM
 
         private void btn_eigyou_calender_Click(object sender, EventArgs e)
         {
+            //営業カレンダー
             frm_eigyou_calendar frm_skm = new frm_eigyou_calendar();
             frm_skm.ShowDialog(this);
             frm_skm.Dispose();
@@ -290,34 +288,23 @@ namespace TSS_SYSTEM
 
         private void btn_user_m_Click(object sender, EventArgs e)
         {
+            //ユーザーマスタ
             frm_user_m frm_skm = new frm_user_m();
             frm_skm.ShowDialog(this);
             frm_skm.Dispose();
         }
 
-        private void btn_siire_nyuuryoku_Click(object sender, EventArgs e)
-        {
-            frm_siire frm_sir = new frm_siire();
-            frm_sir.ShowDialog(this);
-            frm_sir.Dispose();
-        }
-
         private void btn_uriage_Click(object sender, EventArgs e)
         {
+            //売上
             frm_uriage frm_uri = new frm_uriage();
             frm_uri.ShowDialog(this);
             frm_uri.Dispose();
         }
 
-        private void btn_siire_simebi_Click(object sender, EventArgs e)
-        {
-            frm_siire_simebi frm_ss = new frm_siire_simebi();
-            frm_ss.ShowDialog(this);
-            frm_ss.Dispose();
-        }
-
         private void btn_siire_Click(object sender, EventArgs e)
         {
+            //仕入
             frm_siire frm_sir = new frm_siire();
             frm_sir.ShowDialog(this);
             frm_sir.Dispose();
@@ -325,6 +312,7 @@ namespace TSS_SYSTEM
 
         private void btn_siire_sime_Click(object sender, EventArgs e)
         {
+            //仕入締め
             frm_siire_simebi frm_ss = new frm_siire_simebi();
             frm_ss.ShowDialog(this);
             frm_ss.Dispose();
@@ -332,6 +320,7 @@ namespace TSS_SYSTEM
 
         private void btn_siharai_Click(object sender, EventArgs e)
         {
+            //支払
             frm_siharai frm_shri = new frm_siharai();
             frm_shri.ShowDialog(this);
             frm_shri.Dispose();
@@ -346,6 +335,42 @@ namespace TSS_SYSTEM
             frm_sb.ShowDialog();
             //子フォームの解放
             frm_sb.Dispose();
+        }
+
+        private void btn_3_buhin_m_Click(object sender, EventArgs e)
+        {
+            //部品マスタ
+            frm_buhin_m frm_bm = new frm_buhin_m();
+            frm_bm.ShowDialog(this);
+            frm_bm.Dispose();
+        }
+
+        private void btn_3_buhin_kensaku_Click(object sender, EventArgs e)
+        {
+            //検索画面へ
+            tss.search_buhin("1", "");
+        }
+
+        private void btn_3_seihin_m_Click(object sender, EventArgs e)
+        {
+            //製品マスタ
+            frm_seihin_m frm_sm = new frm_seihin_m();
+            frm_sm.ShowDialog(this);
+            frm_sm.Dispose();
+        }
+
+        private void btn_3_seihin_kensaku_Click(object sender, EventArgs e)
+        {
+            //製品検索画面へ
+            tss.search_seihin("1", "");
+        }
+
+        private void btn_3_seihin_kousei_m_Click(object sender, EventArgs e)
+        {
+            //製品構成マスタ
+            frm_seihin_kousei_m frm_skm = new frm_seihin_kousei_m();
+            frm_skm.ShowDialog(this);
+            frm_skm.Dispose();
         }
     }
 }

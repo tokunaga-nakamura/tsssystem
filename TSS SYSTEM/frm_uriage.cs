@@ -289,9 +289,6 @@ namespace TSS_SYSTEM
             //dgvの表示設定
             uriage_init();
 
-            //dgvに項目を追加
-            //dgv_plus();
-
             //合計を表示
             uriage_goukei_disp();
         }
@@ -306,12 +303,15 @@ namespace TSS_SYSTEM
                     w_dt = tss.OracleSelect("select * from tss_juchu_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "' and juchu_cd1 = '" + dgv_m.Rows[i].Cells[4].Value.ToString() + "' and juchu_cd2 = '" + dgv_m.Rows[i].Cells[5].Value.ToString() + "'");
                     if (w_dt.Rows.Count == 0)
                     {
-                        MessageBox.Show("受注情報がありません。処理を中止します。");
-                        tss.ErrorLogWrite(tss.user_cd, "売上入力画面のdgv_plus", "売上明細の受注コードで受注マスタを読み込んだが、レコードが無い");
-                        this.Close();
+                        MessageBox.Show("受注情報がありません。");
+                        dgv_m.Rows[i].Cells[19].Value = "";
+                        dgv_m.Rows[i].Cells[20].Value = "";
                     }
-                    dgv_m.Rows[i].Cells[19].Value = w_dt.Rows[0]["uriage_su"].ToString();
-                    dgv_m.Rows[i].Cells[20].Value = w_dt.Rows[0]["juchu_su"].ToString();
+                    else
+                    {
+                        dgv_m.Rows[i].Cells[19].Value = w_dt.Rows[0]["uriage_su"].ToString();
+                        dgv_m.Rows[i].Cells[20].Value = w_dt.Rows[0]["juchu_su"].ToString();
+                    }
                 }
             }
         }
@@ -336,6 +336,7 @@ namespace TSS_SYSTEM
             //合計を表示
             uriage_goukei_disp();
         }
+
         private void uriage_init()
         {
             //カラム幅の自動調整（ヘッダーとセルの両方の最長幅に調整する）
@@ -486,7 +487,13 @@ namespace TSS_SYSTEM
                     dgv_m.Rows[e.RowIndex].Cells[6].Value = w_seihin_cd;
                     dgv_m.Rows[e.RowIndex].Cells[7].Value = tss.get_seihin_name(dgv_m.Rows[e.RowIndex].Cells[6].Value.ToString());
                     dgv_m.Rows[e.RowIndex].Cells[9].Value = tss.get_seihin_tanka(dgv_m.Rows[e.RowIndex].Cells[6].Value.ToString());
-                    //dgv_plus();
+                    dgv_m.Rows[e.RowIndex].Cells[19].Value = get_uriage_su(tb_torihikisaki_cd.Text.ToString(), dgv_m.Rows[e.RowIndex].Cells[4].Value.ToString(), e.FormattedValue.ToString());
+                    dgv_m.Rows[e.RowIndex].Cells[20].Value = get_juchu_su(tb_torihikisaki_cd.Text.ToString(), dgv_m.Rows[e.RowIndex].Cells[4].Value.ToString(), e.FormattedValue.ToString());
+                }
+                else
+                {
+                    dgv_m.Rows[e.RowIndex].Cells[19].Value = "";
+                    dgv_m.Rows[e.RowIndex].Cells[20].Value = "";
                 }
             }
 
@@ -549,6 +556,38 @@ namespace TSS_SYSTEM
                     return;
                 }
             }
+        }
+
+        public string get_uriage_su(string in_torihikisaki_cd, string in_juchu_cd1, string in_juchu_cd2)
+        {
+            string out_str = null;  //戻り値用
+            DataTable w_dt = new DataTable();
+            w_dt = tss.OracleSelect("select * from tss_juchu_m where torihikisaki_cd = '" + in_torihikisaki_cd + "' and juchu_cd1 = '" + in_juchu_cd1 + "' and juchu_cd2 = '" + in_juchu_cd2 + "'");
+            if (w_dt.Rows.Count == 0)
+            {
+                out_str = null;
+            }
+            else
+            {
+                out_str = w_dt.Rows[0]["uriage_su"].ToString();
+            }
+            return out_str;
+        }
+
+        public string get_juchu_su(string in_torihikisaki_cd, string in_juchu_cd1, string in_juchu_cd2)
+        {
+            string out_str = null;  //戻り値用
+            DataTable w_dt = new DataTable();
+            w_dt = tss.OracleSelect("select * from tss_juchu_m where torihikisaki_cd = '" + in_torihikisaki_cd + "' and juchu_cd1 = '" + in_juchu_cd1 + "' and juchu_cd2 = '" + in_juchu_cd2 + "'");
+            if (w_dt.Rows.Count == 0)
+            {
+                out_str = null;
+            }
+            else
+            {
+                out_str = w_dt.Rows[0]["juchu_su"].ToString();
+            }
+            return out_str;
         }
 
         private void btn_touroku_Click(object sender, EventArgs e)
@@ -655,7 +694,6 @@ namespace TSS_SYSTEM
                     dgv_m.CurrentCell = dgv_m[14, i];
                     return;
                 }
-
 
                 //新規・更新チェック
                 if (w_mode == 0)
@@ -865,10 +903,10 @@ namespace TSS_SYSTEM
         private void dgv_m_CellValidated(object sender, DataGridViewCellEventArgs e)
         {
             //受注コード２
-            if (e.ColumnIndex == 5)
-            {
-                dgv_plus();
-            }
+            //if (e.ColumnIndex == 5)
+            //{
+            //    dgv_plus();
+            //}
             //売上数
             if (e.ColumnIndex == 8)
             {
