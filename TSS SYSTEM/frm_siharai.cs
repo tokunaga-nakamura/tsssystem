@@ -47,12 +47,15 @@ namespace TSS_SYSTEM
 
         private void btn_hyouji_Click(object sender, EventArgs e)
         {
-            dgv_mibarai.Rows.Clear();
+            
+            //dgv_mibarai.Rows.Clear();
             DataTable dt_work = new DataTable();
             tss.GetUser();
-            dt_work = tss.OracleSelect("select * from tss_kaikake_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "' and siharai_no is null");
+            dt_work = tss.OracleSelect("select siire_simebi,siire_kingaku,syouhizeigaku,siharaigaku from tss_kaikake_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "' and siharai_kanryou_flg = '0' ORDER BY SIIRE_SIMEBI");
             int rc = dt_work.Rows.Count;
-            
+            dt_work.Columns.Add("mibaraigaku",Type.GetType("System.Int32"));
+
+
             if(rc == 0)
             {
                 MessageBox.Show("未払いはありません");
@@ -64,14 +67,30 @@ namespace TSS_SYSTEM
             {
                 for (int i = 0; i < rc; i++)
                 {
-                    dgv_mibarai.Rows.Add();
+                    double goukeikingaku = double.Parse(dt_work.Rows[i][1].ToString()) + double.Parse(dt_work.Rows[i][2].ToString());
+                    double mibaraigaku;
 
-                    double goukeikingaku = double.Parse(dt_work.Rows[i][4].ToString()) + double.Parse(dt_work.Rows[i][5].ToString());
+                    if (dt_work.Rows[i][3].ToString() == "")
+                    {
+                        dt_work.Rows[i][3] = 0;
+                        mibaraigaku = goukeikingaku;
+                    }
+                    else
+                    {
+                        mibaraigaku = goukeikingaku - double.Parse(dt_work.Rows[i][3].ToString());
+                    }
 
-                    dgv_mibarai.Rows[i].Cells[0].Value = dt_work.Rows[i][1].ToString();
-                    dgv_mibarai.Rows[i].Cells[1].Value = double.Parse(dt_work.Rows[i][4].ToString());
-                    dgv_mibarai.Rows[i].Cells[2].Value = double.Parse(dt_work.Rows[i][5].ToString());
-                    dgv_mibarai.Rows[i].Cells[3].Value = goukeikingaku;
+                    dt_work.Rows[i][4] = mibaraigaku;
+
+                    dgv_mibarai.DataSource = dt_work;
+
+
+                    dgv_mibarai.Columns[0].HeaderText = "仕入締日";
+                    dgv_mibarai.Columns[1].HeaderText = "仕入金額";
+                    dgv_mibarai.Columns[2].HeaderText = "消費税額";
+                    dgv_mibarai.Columns[3].HeaderText = "支払金額";
+                    dgv_mibarai.Columns[4].HeaderText = "未払金額";
+                        
 
                     //使用数量右寄せ、カンマ区切り
                     dgv_mibarai.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -85,24 +104,29 @@ namespace TSS_SYSTEM
                     dgv_mibarai.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                     dgv_mibarai.Columns[3].DefaultCellStyle.Format = "#,0.##";
 
+                    dgv_mibarai.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgv_mibarai.Columns[4].DefaultCellStyle.Format = "#,0.##";
+
+
 
                     //１行のみ選択可能（複数行の選択不可）
                     dgv_mibarai.MultiSelect = false;
                     //セルを選択すると行全体が選択されるようにする
                     dgv_mibarai.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    //削除不可にする（コードからは削除可）
+                    dgv_mibarai.AllowUserToDeleteRows = false;
+
 
                     btn_siharai_syori.Enabled = true;
 
                 }
             }
-            
 
-            object obj = dt_work.Compute("SUM([siire_kingaku])", null);
-            object obj2 = dt_work.Compute("SUM([syouhizeigaku])", null);         
-            double goukeikingku =  double.Parse(obj.ToString()) + double.Parse(obj2.ToString());
+            object obj = dt_work.Compute("Sum(mibaraigaku)", null);
+            double goukeikingku = double.Parse(obj.ToString());
 
             tb_mibarai_goukei.Text = goukeikingku.ToString("#,0.##");
-
+        
         }
 
         private void btn_siharai_syori_Click(object sender, EventArgs e)
@@ -141,6 +165,7 @@ namespace TSS_SYSTEM
             string str = dgv_mibarai.CurrentRow.Cells[0].Value.ToString();
             DataTable dt_work = new DataTable();
             dt_work = tss.OracleSelect("select siire_simebi,kokyaku_seikyu_no,siharai_kbn,siharaigaku,tesuryou,sousai from tss_siharai_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'and siire_simebi = '" + str.ToString() + "'");
+            dt_work.Rows.Clear();
 
             dt_work.Rows.InsertAt(dt_work.NewRow(),1);
 
@@ -163,8 +188,6 @@ namespace TSS_SYSTEM
             //使用数量右寄せ、カンマ区切り
             dgv_siharai.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgv_siharai.Columns[3].DefaultCellStyle.Format = "#,0.##";
-
-            //dgv_mibarai.Columns[4].DefaultCellStyle.Format = "#,0.##";
 
             dgv_siharai.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgv_siharai.Columns[4].DefaultCellStyle.Format = "#,0.##";
@@ -425,6 +448,8 @@ namespace TSS_SYSTEM
                     MessageBox.Show("支払処理登録しました。");
                 }
 
+                kaikake_kousin();
+
             }
 
             //支払マスタにレコードが存在している場合
@@ -434,9 +459,47 @@ namespace TSS_SYSTEM
                    string dstr_create_datetime = tb_create_datetime.Text.ToString();
                    //string str_ = dgv_siharai.CurrentRow.Cells[0].Value.ToString();
 
-                    //仕入マスタから削除してインサート
+                    //支払マスタから削除してインサート
                     tss.OracleDelete("delete from tss_siharai_m where siharai_no = '" + tb_siharai_no.Text.ToString() + "'");
+                    
+                
+                    bool bl = new bool();
 
+                    for (int i = 0; i < rc2; i++)
+                    {
+                        bl = tss.OracleInsert("insert into tss_siharai_m (siharai_no,seq,torihikisaki_cd,siire_simebi,siharai_kbn,siharai_date,siharaigaku,tesuryou,sousai,kokyaku_seikyu_no,bikou,create_user_cd,create_datetime) values ('"
+
+                        + tb_siharai_no.Text.ToString() + "','"
+                        + (i + 1) + "','"
+                        + tb_torihikisaki_cd.Text.ToString() + "',"
+                        + "to_date('" + dgv_siharai.Rows[i].Cells[0].Value.ToString() + "','YYYY/MM/DD HH24:MI:SS'),'"
+                        + dgv_siharai.Rows[i].Cells[2].Value.ToString() + "',"
+                        + "to_date('" + tb_siharai_date.Text.ToString() + "','YYYY/MM/DD HH24:MI:SS'),'"
+                        + dgv_siharai.Rows[i].Cells[3].Value.ToString() + "','"
+                        + dgv_siharai.Rows[i].Cells[4].Value.ToString() + "','"
+                        + dgv_siharai.Rows[i].Cells[5].Value.ToString() + "','"
+                        + dgv_siharai.Rows[i].Cells[1].Value.ToString() + "','"
+                        + dgv_siharai.Rows[i].Cells[7].Value.ToString() + "','"
+                        + str_create_user_cd + "', " + "to_date('" + dgv_siharai.Rows[i].Cells[0].Value.ToString() + "','YYYY/MM/DD HH24:MI:SS'))");
+                    }
+
+                    if (bl != true)
+                    {
+                        tss.ErrorLogWrite(tss.user_cd, "支払処理", "登録ボタン押下時のOracleInsert");
+                        MessageBox.Show("支払処理でエラーが発生しました。" + Environment.NewLine + "処理を中止します。");
+                        this.Close();
+                    }
+                    else
+                    {
+                        tb_update_user_cd.Text = tss.user_cd;
+                        tb_update_datetime.Text = DateTime.Now.ToString();
+                        MessageBox.Show("支払処理登録しました。");
+                    }
+
+                    kaikake_kousin();
+
+
+                  
                     //bool bl = tss.OracleInsert("insert into tss_kaikake_m (torihikisaki_cd, kurikosigaku,siire_simebi,siire_kingaku,syouhizeigaku,kaikake_zandaka,create_user_cd,create_datetime,update_user_cd,update_datetime) values ('"
 
                     //          + tb_torihikisaki_cd.Text.ToString() + "','"
@@ -474,38 +537,51 @@ namespace TSS_SYSTEM
                 //}
             
 
-            //買掛マスタの更新
-
-            //支払マスタの支払額を、支払番号でまとめた支払金額（tb_siharai_soukeiの値）でアップデートする。
-            //買掛残高の再計算はしない
-
-             bool bl2 = new bool();
-
-             string str = dgv_siharai.Rows[0].Cells[0].Value.ToString();
-             string str2 = str.Substring(0,10);
-             double siharai_goukei = double.Parse(tb_siharai_goukei.Text.ToString());
-
-
-                    bl2 = tss.OracleUpdate("UPDATE TSS_kaikake_m SET siharaigaku = '"
-                                + siharai_goukei + "',siharai_no = '" + tb_siharai_no.Text.ToString()
-                                + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "'and siire_simebi = '" + str2.ToString() + "'");
-
-
-            if (bl2!= true)
-            {
-                tss.ErrorLogWrite(tss.user_cd, "買掛更新処理", "登録ボタン押下時のOracleInsert");
-                MessageBox.Show("買掛更新処理でエラーが発生しました。" + Environment.NewLine + "処理を中止します。");
-                this.Close();
-            }
-            else
-            {
-                tb_create_user_cd.Text = tss.user_cd;
-                tb_create_datetime.Text = DateTime.Now.ToString();
-                MessageBox.Show("買掛処理登録しました。");
-            }
-
+            
         }
 
+
+        private void juchu_kousin(string in_cd, int in_sign)
+        {
+            tss.GetUser();
+            DataTable w_dt = new DataTable();   //更新対象の売上マスタ用
+            DataTable w_dt2 = new DataTable();  //更新する受注マスタ用
+
+            double w_juchu_uriage_su;   //受注マスタの売上数用
+            double w_uriage_uriage_su;  //売上マスタの売上数用
+            double w_write_uriage_su;   //書込み用の売上数
+            double w_juchu_juchu_su;    //受注マスタの受注数用
+            string w_uriage_kanryou_flg;    //書込み用の売上完了フラグ
+            w_dt = tss.OracleSelect("select * from tss_uriage_m where uriage_no = '" + in_cd + "'");
+            foreach (DataRow dr in w_dt.Rows)
+            {
+                w_dt2 = tss.OracleSelect("select * from tss_juchu_m where torihikisaki_cd = '" + dr["torihikisaki_cd"].ToString() + "' and juchu_cd1 = '" + dr["juchu_cd1"].ToString() + "' and juchu_cd2 = '" + dr["juchu_cd2"].ToString() + "'");
+                if (w_dt2.Rows.Count != 0)
+                {
+                    //レコードがあった＝受注番号が入力された行
+                    //売上数を加減算し、受注数と比較し、同じであれば売上完了フラグを立て、違っていればフラグを消す
+                    double.TryParse(w_dt2.Rows[0]["uriage_su"].ToString(), out w_juchu_uriage_su);
+                    double.TryParse(dr["uriage_su"].ToString(), out w_uriage_uriage_su);
+                    double.TryParse(w_dt2.Rows[0]["juchu_su"].ToString(), out w_juchu_juchu_su);
+                    w_write_uriage_su = w_juchu_uriage_su + w_uriage_uriage_su * in_sign;   //受注マスタの売上数量を求める
+                    if (w_juchu_juchu_su == w_write_uriage_su)
+                    {
+                        w_uriage_kanryou_flg = "1";
+                    }
+                    else
+                    {
+                        w_uriage_kanryou_flg = "0";
+                    }
+
+                    tss.OracleUpdate("update tss_juchu_m set uriage_su = '" + w_write_uriage_su.ToString("0.00") + "',uriage_kanryou_flg = '" + w_uriage_kanryou_flg + "',update_user_cd = '" + tss.user_cd + "',update_datetime = sysdate where torihikisaki_cd = '" + dr["torihikisaki_cd"].ToString() + "' and juchu_cd1 = '" + dr["juchu_cd1"].ToString() + "' and juchu_cd2 = '" + dr["juchu_cd2"].ToString() + "'");
+                }
+                else
+                {
+                    //レコードが無かった＝製品を直接売り上げた行
+                    //この場合は受注マスタは用無し
+                }
+            }
+        }
 
 
         //支払番号チェック用
@@ -596,6 +672,172 @@ namespace TSS_SYSTEM
             btn_hyouji.Enabled = false;
         }
 
+
+        private void dgv_mibarai_disp() //未払一覧の更新
+        {
+
+            //dgv_mibarai.Rows.Clear();
+            DataTable dt_work = new DataTable();
+            tss.GetUser();
+            dt_work = tss.OracleSelect("select siire_simebi,siire_kingaku,syouhizeigaku,siharaigaku from tss_kaikake_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "' and siharai_kanryou_flg = '0' ORDER BY SIIRE_SIMEBI");
+            int rc = dt_work.Rows.Count;
+            dt_work.Columns.Add("mibaraigaku", Type.GetType("System.Int32"));
+
+
+            if (rc == 0)
+            {
+                MessageBox.Show("未払いはありません");
+                btn_siharai_syori.Enabled = false;
+                return;
+            }
+
+            else
+            {
+                for (int i = 0; i < rc; i++)
+                {
+                    double goukeikingaku = double.Parse(dt_work.Rows[i][1].ToString()) + double.Parse(dt_work.Rows[i][2].ToString());
+                    double mibaraigaku;
+
+                    if (dt_work.Rows[i][3].ToString() == "")
+                    {
+                        dt_work.Rows[i][3] = 0;
+                        mibaraigaku = goukeikingaku;
+                    }
+                    else
+                    {
+                        mibaraigaku = goukeikingaku - double.Parse(dt_work.Rows[i][3].ToString());
+                    }
+
+                    dt_work.Rows[i][4] = mibaraigaku;
+
+                    dgv_mibarai.DataSource = dt_work;
+
+
+                    dgv_mibarai.Columns[0].HeaderText = "仕入締日";
+                    dgv_mibarai.Columns[1].HeaderText = "仕入金額";
+                    dgv_mibarai.Columns[2].HeaderText = "消費税額";
+                    dgv_mibarai.Columns[3].HeaderText = "支払金額";
+                    dgv_mibarai.Columns[4].HeaderText = "未払金額";
+
+
+                    //使用数量右寄せ、カンマ区切り
+                    dgv_mibarai.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgv_mibarai.Columns[1].DefaultCellStyle.Format = "#,0.##";
+
+                    //dgv_mibarai.Columns[4].DefaultCellStyle.Format = "#,0.##";
+
+                    dgv_mibarai.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgv_mibarai.Columns[2].DefaultCellStyle.Format = "#,0.##";
+
+                    dgv_mibarai.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgv_mibarai.Columns[3].DefaultCellStyle.Format = "#,0.##";
+
+                    dgv_mibarai.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgv_mibarai.Columns[4].DefaultCellStyle.Format = "#,0.##";
+
+
+
+                    //１行のみ選択可能（複数行の選択不可）
+                    dgv_mibarai.MultiSelect = false;
+                    //セルを選択すると行全体が選択されるようにする
+                    dgv_mibarai.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    //削除不可にする（コードからは削除可）
+                    dgv_mibarai.AllowUserToDeleteRows = false;
+
+                    btn_siharai_syori.Enabled = true;
+
+                }
+            }
+ 
+
+            object obj = dt_work.Compute("Sum(mibaraigaku)", null);
+            double goukeikingku = double.Parse(obj.ToString());
+
+            tb_mibarai_goukei.Text = goukeikingku.ToString("#,0.##");
+        
+        }
+
+
+        private void kaikake_kousin() //買掛マスタの更新
+        {
+            //買掛マスタの更新
+            //支払マスタの支払額を、支払番号でまとめた支払金額（tb_siharai_soukeiの値）でアップデートする。
+            //買掛残高の再計算はしない
+            //支払マスタの取引先コード+仕入締日でまとめた支払額が、買掛マスタの仕入金額+消費税の値とイコールなら、買掛マスタに支払完了フラグを立てる
+
+
+            DataTable dt_work = new DataTable();
+            string siire_simebi = dgv_siharai.CurrentRow.Cells[0].Value.ToString();
+            string siire_simebi2 =  siire_simebi.Substring(0, 10);
+
+
+            dt_work = tss.OracleSelect("select siharaigaku,tesuryou,sousai from tss_siharai_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'and siire_simebi = '" + siire_simebi2.ToString() + "'");
+            object obj = dt_work.Compute("Sum(siharaigaku)", null);
+            object obj2 = dt_work.Compute("Sum(tesuryou)", null);
+            object obj3 = dt_work.Compute("Sum(sousai)", null);
+            double siharai_gaku = double.Parse(obj.ToString()) + double.Parse(obj2.ToString()) + double.Parse(obj3.ToString());
+
+            bool bl2 = new bool();
+
+            string str = dgv_siharai.Rows[0].Cells[0].Value.ToString();
+            string str2 = str.Substring(0, 10);
+
+            bl2 = tss.OracleUpdate("UPDATE TSS_kaikake_m SET siharaigaku = '"
+                        + siharai_gaku + "',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "'and siire_simebi = '" + str2.ToString() + "'");
+
+            if (bl2 != true)
+            {
+                tss.ErrorLogWrite(tss.user_cd, "買掛更新処理", "登録ボタン押下時のOracleInsert");
+                MessageBox.Show("買掛更新処理でエラーが発生しました。" + Environment.NewLine + "処理を中止します。");
+                this.Close();
+            }
+            else
+            {
+                //買掛マスタの支払完了フラグ更新
+                dt_work = tss.OracleSelect("select * from tss_kaikake_m where torihikisaki_cd = '" + tb_torihikisaki_cd.Text + "'and siire_simebi = '" + str2.ToString() + "'");
+
+                string siharaigaku = dt_work.Rows[0]["siharaigaku"].ToString();
+                string siiregaku = dt_work.Rows[0]["siire_kingaku"].ToString();
+                string syouhizeigaku = dt_work.Rows[0]["syouhizeigaku"].ToString();
+
+                double keisan = double.Parse(siiregaku) + double.Parse(syouhizeigaku) - double.Parse(siharaigaku) ; 
+
+                if (keisan == 0)
+                {
+                    tss.OracleUpdate("UPDATE TSS_kaikake_m SET siharai_kanryou_flg = '1',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "'and siire_simebi = '" + str2.ToString() + "'");
+                }
+                else
+                {
+                    tss.OracleUpdate("UPDATE TSS_kaikake_m SET siharai_kanryou_flg = '0',UPDATE_USER_CD = '" + tss.user_cd + "',UPDATE_DATETIME = SYSDATE WHERE torihikisaki_cd = '" + tb_torihikisaki_cd.Text.ToString() + "'and siire_simebi = '" + str2.ToString() + "'");
+                }
+
+                //tb_create_user_cd.Text = tss.user_cd;
+                //tb_create_datetime.Text = DateTime.Now.ToString();
+                MessageBox.Show("買掛処理登録しました。");
+
+                dgv_mibarai_disp();
+
+                w_siharai_no = tss.GetSeq("07");
+                tb_siharai_date.Text = "";
+                tb_create_user_cd.Text = "";
+                tb_create_datetime.Text = "";
+                tb_update_user_cd.Text = "";
+                tb_update_datetime.Text = "";
+                tb_siharai_goukei.Text = "";
+                tb_kurikosi_zandaka.Text = "";
+
+
+                DataTable dt_work2 = new DataTable();
+                dgv_siharai.DataSource = dt_work2; 
+
+            }
+
+        
+        
+        
+        }
+
+
         private void tb_siharai_no_Validating(object sender, CancelEventArgs e)
         {
 
@@ -623,8 +865,10 @@ namespace TSS_SYSTEM
             {
                //既存売上の表示
                 DataTable w_dt = new DataTable();
-                w_dt = tss.OracleSelect("select * from tss_siharai_m where siharai_no = '" + tb_siharai_no.Text.ToString() + "' order by siharai_no asc");
-                
+                w_dt = tss.OracleSelect("select * from tss_siharai_m where siharai_no = '" + tb_siharai_no.Text.ToString() + "'");
+                int rc = w_dt.Rows.Count;
+
+
                 if(w_dt.Rows.Count == 0)
                 {
                     MessageBox.Show("データがありません。");
@@ -636,6 +880,54 @@ namespace TSS_SYSTEM
                 else
                 {
                     //dgv_siharai.Rows.Clear();
+                    
+                    string siharai_date = w_dt.Rows[0][5].ToString();
+                    string siharai_date2 = siharai_date.Substring(0, 10);
+                    tb_siharai_date.Text = siharai_date2;
+
+                    tb_create_user_cd.Text = w_dt.Rows[0][11].ToString();
+                    tb_create_datetime.Text = w_dt.Rows[0][12].ToString();
+
+                    tb_update_user_cd.Text = w_dt.Rows[0][13].ToString();
+                    tb_update_datetime.Text = w_dt.Rows[0][14].ToString();
+
+                    DataTable w_dt2 = new DataTable();
+                    w_dt2 = tss.OracleSelect("select siire_simebi,kokyaku_seikyu_no,siharai_kbn,siharaigaku,tesuryou,sousai,bikou from tss_siharai_m where siharai_no = '" + tb_siharai_no.Text.ToString() + "'");
+
+                    
+
+                    w_dt2.Columns.Add("goukeikingaku", Type.GetType("System.Int32")).SetOrdinal(6);;
+
+
+                    for (int i = 0; i < rc; i++)
+                    {
+                        double goukei = double.Parse(w_dt2.Rows[i][3].ToString()) + double.Parse(w_dt2.Rows[i][4].ToString()) + double.Parse(w_dt2.Rows[i][5].ToString());
+                        w_dt2.Rows[i][6] = goukei;
+                   
+                    }
+
+
+
+                    dgv_siharai.DataSource = w_dt2;
+
+                    dgv_siharai.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgv_siharai.Columns[6].DefaultCellStyle.Format = "#,0.##";
+
+                    dgv_siharai.Columns[6].HeaderText = "支払合計";
+                    dgv_siharai.Columns[7].HeaderText = "備考";
+
+                    //DataGridView1にユーザーが新しい行を追加できないようにする
+                    dgv_siharai.AllowUserToAddRows = false;
+
+                    dgv_siharai.Columns[0].ReadOnly = true;
+                    dgv_siharai.Columns[0].DefaultCellStyle.BackColor = Color.LightGray;
+
+                    tb_siharai_date.Enabled = true;
+                    tb_siharai_no.Enabled = true;
+
+                    btn_tuika.Enabled = true;
+
+
                     //tb_siire_denpyou_no.Text = dt_work.Rows[0][9].ToString();
                     //tb_torihikisaki_cd.Text = dt_work.Rows[0][2].ToString();
 

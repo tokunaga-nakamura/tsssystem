@@ -508,12 +508,13 @@ namespace TSS_SYSTEM
                     
 
 
-                    bool bl = tss.OracleInsert("insert into tss_kaikake_m (torihikisaki_cd,siire_simebi,siire_kingaku,syouhizeigaku,create_user_cd,create_datetime) values ('"
+                    bool bl = tss.OracleInsert("insert into tss_kaikake_m (torihikisaki_cd,siire_simebi,siire_kingaku,syouhizeigaku,siharai_kanryou_flg,create_user_cd,create_datetime) values ('"
 
                               + tb_torihikisaki_cd.Text.ToString() + "','"
                               + tb_siire_simebi.Text.ToString() + "','"
                               + dgv_siire_simebi.Rows[0].Cells[1].Value.ToString() + "','"
                               + dgv_siire_simebi.Rows[0].Cells[2].Value.ToString() + "','"
+                              + 0 + "','"
                               + tss.user_cd + "',SYSDATE)");
 
 
