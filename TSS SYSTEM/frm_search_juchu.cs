@@ -301,6 +301,32 @@ namespace TSS_SYSTEM
                     return;
                 }
             }
+            //登録日
+            if (tb_create_date1.Text != "" && tb_create_date2.Text != "")
+            {
+                int w_int_hikaku = string.Compare(tb_create_date1.Text, tb_create_date2.Text);
+                if (w_int_hikaku == 0)
+                {
+                    //左右同じコード
+                    sql_where[sql_cnt] = "TO_CHAR(create_datetime, 'YYYY/MM/DD') = '" + tb_create_date1.Text.ToString() + "'";
+                    sql_cnt++;
+                }
+                else
+                    if (w_int_hikaku < 0)
+                    {
+                        //左辺＜右辺
+                        sql_where[sql_cnt] = "to_char(create_datetime,'yyyy/mm/dd') >= '" + tb_create_date1.Text.ToString() + "' and to_char(create_datetime,'yyyy/mm/dd') <= '" + tb_create_date2.Text.ToString() + "'";
+                        sql_cnt++;
+                    }
+                    else
+                        if (w_int_hikaku > 0)
+                        {
+                            //左辺＞右辺
+                            sql_where[sql_cnt] = "to_char(create_datetime,'yyyy/mm/dd') => '" + tb_create_date2.Text.ToString() + "' and to_date(create_datetime,'yyyy/mm/dd') <= '" + tb_create_date1.Text.ToString() + "'";
+                            sql_cnt++;
+                        }
+            }
+
             //売上状況
             if (rb_miuriage.Checked == true)
             {
@@ -477,5 +503,60 @@ namespace TSS_SYSTEM
         {
             form_close_true();
         }
+
+        private void tb_create_date1_Validating(object sender, CancelEventArgs e)
+        {
+            if (tb_create_date1.Text != "")
+            {
+                if (chk_create_date1())
+                {
+                    tb_create_date1.Text = tss.out_datetime.ToShortDateString();
+                }
+                else
+                {
+                    MessageBox.Show("作成日に異常があります。");
+                    tb_create_date1.Focus();
+                }
+            }
+        }
+
+        private void tb_create_date2_Validating(object sender, CancelEventArgs e)
+        {
+            if (tb_create_date2.Text != "")
+            {
+                if (chk_create_date2())
+                {
+                    tb_create_date2.Text = tss.out_datetime.ToShortDateString();
+                }
+                else
+                {
+                    MessageBox.Show("作成日に異常があります。");
+                    tb_create_date2.Focus();
+                }
+            }
+        }
+
+        private bool chk_create_date1()
+        {
+            bool bl = true; //戻り値
+            if (tss.try_string_to_date(tb_create_date1.Text.ToString()) == false)
+            {
+                bl = false;
+            }
+            return bl;
+        }
+
+        private bool chk_create_date2()
+        {
+            bool bl = true; //戻り値
+            if (tss.try_string_to_date(tb_create_date2.Text.ToString()) == false)
+            {
+                bl = false;
+            }
+            return bl;
+        }
+
+
+
     }
 }
