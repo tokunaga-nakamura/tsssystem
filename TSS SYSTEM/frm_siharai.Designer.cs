@@ -379,6 +379,7 @@
             this.btn_siharai_hensyu.TabIndex = 4;
             this.btn_siharai_hensyu.Text = "支払編集";
             this.btn_siharai_hensyu.UseVisualStyleBackColor = true;
+            this.btn_siharai_hensyu.Click += new System.EventHandler(this.btn_siharai_hensyu_Click);
             // 
             // textBox2
             // 
@@ -572,6 +573,7 @@
             this.btn_syuuryou.TabIndex = 0;
             this.btn_syuuryou.Text = "終了";
             this.btn_syuuryou.UseVisualStyleBackColor = true;
+            this.btn_syuuryou.Click += new System.EventHandler(this.btn_syuuryou_Click);
             // 
             // btn_turoku
             // 
