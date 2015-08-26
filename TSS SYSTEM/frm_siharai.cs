@@ -21,7 +21,7 @@ namespace TSS_SYSTEM
             InitializeComponent();
         }
 
-
+        //取引先コード変更時の処理
         private void tb_torihikisaki_cd_Validating_1(object sender, CancelEventArgs e)
         {
             btn_siharai_syori.Enabled = false;
@@ -45,6 +45,7 @@ namespace TSS_SYSTEM
             }
         }
 
+        //未払い一覧表示
         private void btn_hyouji_Click(object sender, EventArgs e)
         {
             
@@ -96,8 +97,6 @@ namespace TSS_SYSTEM
                     dgv_mibarai.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                     dgv_mibarai.Columns[1].DefaultCellStyle.Format = "#,0.##";
 
-                    //dgv_mibarai.Columns[4].DefaultCellStyle.Format = "#,0.##";
-
                     dgv_mibarai.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                     dgv_mibarai.Columns[2].DefaultCellStyle.Format = "#,0.##";
 
@@ -107,15 +106,12 @@ namespace TSS_SYSTEM
                     dgv_mibarai.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                     dgv_mibarai.Columns[4].DefaultCellStyle.Format = "#,0.##";
 
-
-
                     //１行のみ選択可能（複数行の選択不可）
                     dgv_mibarai.MultiSelect = false;
                     //セルを選択すると行全体が選択されるようにする
                     dgv_mibarai.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                     //削除不可にする（コードからは削除可）
                     dgv_mibarai.AllowUserToDeleteRows = false;
-
 
                     btn_siharai_syori.Enabled = true;
 
